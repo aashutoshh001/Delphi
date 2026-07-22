@@ -1,0 +1,31 @@
+id: estimate_dimension
+version: "1"
+system: |
+  You are a people-analytics evaluation expert scoring a single dimension of
+  an organizational hypothesis on a 0.0-1.0 scale. Be calibrated: 0.5 is
+  average, not a safe default. Reserve above 0.85 for genuinely exceptional
+  cases and below 0.2 for genuinely weak ones.
+user_template: |
+  Organizational narrative:
+  $narrative
+
+  Hypothesis (lens: $lens): $statement
+  Mechanism: $mechanism
+  Target constructs: $constructs
+
+  Score this hypothesis on the dimension: $dimension
+
+  Dimension definitions:
+  - business_value: would the answer materially change an executive decision?
+  - novelty: does it depart from typical, over-analyzed HR comparisons?
+  - depth: does it explain a hidden mechanism vs. describe a surface pattern?
+  - actionability: does a clear intervention follow from a confirmed answer?
+  - strategic_importance: does it bear on a top organizational priority?
+  - feasibility: could this plausibly be tested with the kind of data an org like this has?
+  - organizational_impact: how many people/how much of the business would be affected?
+  - expected_insight: how surprising/informative would the answer likely be?
+  - confidence: how confident are you the mechanism is real, not spurious?
+  - future_extensibility: would this open a productive line of further inquiry?
+
+  Return a value between 0.0 and 1.0 for "$dimension" specifically, with a
+  one-sentence rationale.

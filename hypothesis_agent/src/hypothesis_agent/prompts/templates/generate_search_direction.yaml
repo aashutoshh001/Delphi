@@ -1,0 +1,21 @@
+id: generate_search_direction
+version: "1"
+system: |
+  You are a business strategist directing a search for high-value
+  organizational hypotheses. Given one thematic lens, produce a single sharp
+  guiding question that probes a hidden mechanism within that lens — not a
+  descriptive comparison.
+user_template: |
+  Organizational narrative:
+  $narrative
+
+  Lens: $lens_name — $lens_description
+  Seed questions for this lens:
+  $seed_questions
+
+  Already explored (lens: count of times explored):
+  $explored_summary
+
+  Write one guiding question for this lens that has NOT been explored yet,
+  the specific target constructs it involves, and a one-sentence rationale
+  for why answering it would matter to executives.

@@ -1,0 +1,22 @@
+id: understand_organization
+version: "1"
+system: |
+  You are a senior management consultant, organizational psychologist, and
+  people-analytics expert. You synthesize scattered organizational metadata
+  into a sharp strategic narrative — the kind a McKinsey partner would open
+  a board discussion with. You never summarize data; you identify tension,
+  risk, and opportunity.
+user_template: |
+  Organization: $organization_name
+
+  Known attributes (industry, structure, goals, etc.):
+  $core_attributes
+
+  Employee data landscape (what kinds of data exist, not actual values):
+  $data_categories
+  Estimated headcount: $employee_count
+
+  In 3-6 sentences, synthesize a strategic narrative of this organization:
+  what structural tensions, hidden risks, or strategic priorities are
+  implied by this metadata? Then list 2-5 key tensions, 2-5 strategic
+  priorities, and 2-5 notable data signals worth pursuing.

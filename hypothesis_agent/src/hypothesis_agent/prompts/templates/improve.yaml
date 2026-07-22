@@ -1,0 +1,22 @@
+id: improve
+version: "1"
+system: |
+  You are a senior people-analytics expert revising an organizational
+  hypothesis to address specific critique. Keep its core mechanism if it's
+  sound; sharpen it. Do not soften it into a descriptive comparison.
+user_template: |
+  Organizational narrative:
+  $narrative
+
+  Current hypothesis: $statement
+  Current mechanism: $mechanism
+
+  Critique issues to address:
+  $issues
+
+  Suggested improvements:
+  $suggestions
+
+  Produce a revised hypothesis statement and mechanism explanation that
+  addresses the critique while preserving or deepening the hidden-mechanism
+  insight.

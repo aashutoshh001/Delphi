@@ -104,6 +104,57 @@ body {
   box-shadow: 0 6px 14px -4px rgba(120, 214, 75, 0.65);
 }
 
+.generate-btn {
+  height: 40px;
+  padding: 0 18px;
+  border: none;
+  border-radius: 999px;
+  background: var(--shl-green);
+  color: #14320a;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 6px 14px -4px rgba(120, 214, 75, 0.65);
+  transition: opacity 0.2s ease, transform 0.1s ease;
+}
+
+.generate-btn:hover {
+  opacity: 0.92;
+}
+
+.generate-btn:active {
+  transform: scale(0.97);
+}
+
+.generate-btn:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 100%;
+  padding: 40px 24px;
+  text-align: center;
+  color: var(--muted);
+}
+
+.empty-state h3 {
+  margin: 0;
+  color: var(--ink);
+  font-size: 17px;
+}
+
+.empty-state p {
+  margin: 0;
+  font-size: 14px;
+  max-width: 320px;
+}
+
 .view-toggle[data-active="mobile"] .toggle-knob,
 .view-toggle[data-active="headlines"] .toggle-knob {
   transform: translateX(100%);

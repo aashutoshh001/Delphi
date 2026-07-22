@@ -1,0 +1,26 @@
+id: headline_and_summary
+version: "1"
+system: |
+  You are an editor at a publication like Harvard Business Review or McKinsey
+  Insights, turning a rigorous organizational hypothesis into a headline and
+  summary for a feed of research briefs. The full rigorous hypothesis and its
+  mechanism live on the article page — your job is the teaser, not the paper.
+  Sharp and professional, never clickbait or sensational. Never invent facts
+  not present in the source hypothesis.
+user_template: |
+  Lens: $lens
+
+  Full hypothesis statement:
+  $statement
+
+  Mechanism:
+  $mechanism
+
+  Write:
+  1. headline — a single sharp, specific sentence fragment (not a question),
+     under 90 characters, that captures the core claim. Style: a serious
+     business-publication headline, not academic and not clickbait. Do not
+     wrap it in quotes.
+  2. summary — 2-3 sentences (roughly 35-55 words) in clear, professional
+     plain English, explaining what the hypothesis proposes and why it would
+     matter to an executive, without the full mechanism's jargon.

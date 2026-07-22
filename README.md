@@ -35,17 +35,27 @@ It's a static site — plain HTML/CSS/JS, no build step, no backend, no dependen
 - Refactored the reaction system so a story's thumbs up/down state is shared between however many places it's rendered (Cards and Headlines both exist in the DOM at once) — reacting in one view updates the other immediately.
 - Verified end-to-end in a real headless Chromium session across all four view combinations, plus reaction-state sync and `localStorage` persistence — no console errors.
 
+**Phase 3 — Hypothesis Agent backend + live feed**
+- Built [hypothesis_agent/](hypothesis_agent/) — an autonomous AI agent (LangGraph search loop, plugin-based architecture) that discovers a single high-value organizational hypothesis and emits a structured package. See [hypothesis_agent/docs/ARCHITECTURE.md](hypothesis_agent/docs/ARCHITECTURE.md) for the full design.
+- Wired that agent to *this* frontend: `sample_data/stories.json` is no longer dummy tech-news data — it's the live, growing hypothesis feed, extended with `reaction: "none" | "up" | "down"` and enough fields (lens, scorecard, critique) to render a full "read more" detail page per hypothesis.
+- Added a small local API (`hypothesis_agent.server`, FastAPI on `:8200`) that serves the feed, accepts reactions, and can trigger a new hypothesis on demand — plus a **"+ Generate hypothesis"** button in the header that calls it directly.
+- `script.js` now fetches the feed live and posts reactions to the API (falling back to a small embedded story deck if the API isn't running, so the page still works standalone).
+- The agent guarantees a newly generated hypothesis is never a near-duplicate of one already in the feed (deterministic embedding-similarity check, hard-discarded regardless of score), and softly favors lenses/categories the feed has more thumbs-up on — without ever fully excluding a category.
+- Verified end-to-end in a real headless Chromium session: generate → appears in feed → react → persists across reload → read more → detail page renders scorecard + critique. No console errors.
+
 ## Project structure
 
 ```
 Delphi/
 ├── index.html          # page structure (header, both toggles, card viewport, headline list)
 ├── styles.css           # SHL theme, web/mobile layouts, card styles, headline-list styles
-├── script.js             # story data + card + headline rendering, navigation, toggles, reactions
+├── script.js             # live feed fetch + card/headline rendering, navigation, toggles, reactions
 ├── assets/
-│   └── shl-logo.png     # SHL logo — used in the header and as the dummy card image
+│   └── shl-logo.png     # SHL logo — used in the header and as the fallback card image
 ├── sample_data/
-│   └── stories.json      # source story content (title/description) used to seed script.js
+│   ├── stories.json      # THE LIVE HYPOTHESIS FEED — starts as [], grows as you generate
+│   └── hypotheses/       # generated "read more" detail pages, one per hypothesis (gitignored content)
+├── hypothesis_agent/    # the autonomous Hypothesis Agent — see its own README + docs/ARCHITECTURE.md
 └── README.md
 ```
 
@@ -89,7 +99,53 @@ xdg-open "/home/aashutosh.joshi/AI-Thon/Delphie?/Delphi/index.html"   # Linux
 open "/home/aashutosh.joshi/AI-Thon/Delphie?/Delphi/index.html"        # macOS
 ```
 
-This works fine here since all story data is embedded in `script.js` rather than fetched — no CORS issues from opening via `file://`.
+This still works fully offline — if the Hypothesis Agent API (below) isn't running, the page falls back to a small embedded story deck instead of the live feed, so there's no CORS issue from opening via `file://`.
+
+## Running the full loop (live hypothesis feed)
+
+This is what turns the static viewer above into an actual feed of
+AI-generated hypotheses, with real reactions and dedup/soft-bias behavior.
+It needs two things running at once: the static site (above) and the
+Hypothesis Agent's local API.
+
+1. **One-time setup** — install the agent and add your key:
+   ```bash
+   cd hypothesis_agent
+   python3 -m venv .venv && source .venv/bin/activate
+   pip install -e ".[server,llm-litellm]"
+   cp .env.example .env   # then fill in LITELLM_API_KEY — everything else is pre-filled
+   ```
+   `.env` already points at the SHL internal LiteLLM endpoint
+   (`https://labs.shl.com/llm-internal/`) and activates it
+   (`HYPOTHESIS_AGENT__BACKENDS__LLM=litellm`) — the key is the only thing
+   you need to add. `examples/run_local_demo.py` and the test suite always
+   force the offline `MockLLMService` regardless of `.env`, so they keep
+   working with zero setup either way; the server (below) uses whatever
+   `.env` says. If the endpoint expects a specific model name, also set
+   `HYPOTHESIS_AGENT__LLM__MODEL` in `.env`.
+
+2. **Start the API** (from the `Delphi/` repo root, in its own terminal — the
+   relative `sample_data/stories.json` path resolves against the current
+   directory):
+   ```bash
+   cd hypothesis_agent && source .venv/bin/activate && cd ..
+   python -m hypothesis_agent.server
+   ```
+   Serves on `http://127.0.0.1:8200`. `sample_data/stories.json` starts as
+   `[]` — nothing's been generated yet.
+
+3. **Start the static site** (a second terminal, per Option A above):
+   ```bash
+   python3 -m http.server 8100
+   ```
+
+4. **Open it**: `http://localhost:8100/` and click **"+ Generate hypothesis"**
+   in the header. A new card appears; reacting 👍/👎 persists to
+   `sample_data/stories.json` (not just this browser); **Read more** opens a
+   generated detail page with the full mechanism, scorecard, and critique.
+
+See [hypothesis_agent/docs/ARCHITECTURE.md §18](hypothesis_agent/docs/ARCHITECTURE.md#18-frontend-integration-the-live-json-feed--local-api-server)
+for how the pieces fit together, and §11.1 for the dedup/soft-bias guarantees.
 
 ## Using the app
 
@@ -99,11 +155,13 @@ This works fine here since all story data is embedded in `script.js` rather than
 | Switch device layout | Click **Web** / **Mobile** in the top-right toggle |
 | Next card *(Cards view)* | Click the green ⌄ button, swipe up, scroll down, or press `↓` / `Space` |
 | Previous card *(Cards view)* | Swipe down, scroll up, or press `↑` |
-| Open full story | Click the title (**Headlines**) or **Read more** (**Cards**) |
-| React to a story | Click 👍 or 👎 next to the story (click again to undo) — synced across both interface styles |
+| Open full story | Click the title (**Headlines**) or **Read more** (**Cards**) — opens the generated hypothesis detail page |
+| React to a story | Click 👍 or 👎 next to the story (click again to undo) — synced across both interface styles, and persisted server-side via the Hypothesis Agent API if it's running |
+| Generate a new hypothesis | Click **"+ Generate hypothesis"** in the header (requires the API running — see above) |
 
 ## Customizing
 
-- **Story content**: edit the `RAW_STORIES` array in [script.js](script.js).
-- **Dummy image/link**: change `DUMMY_IMAGE` / `DUMMY_URL` at the top of [script.js](script.js) — swap these once real per-story images and URLs are available.
+- **Hypothesis content**: not hand-edited — it's generated by [hypothesis_agent](hypothesis_agent/). To change *what kind* of hypotheses come out, edit its business lens catalog, prompts, or scoring weights (see its `docs/ARCHITECTURE.md`), not this frontend.
+- **Offline fallback deck**: `FALLBACK_STORIES` at the top of [script.js](script.js) — shown only when the API is unreachable.
+- **Fallback image/link**: `DUMMY_IMAGE` / `DUMMY_URL` at the top of [script.js](script.js), used by the fallback deck and for any entry missing an image.
 - **Colors**: all theme colors are CSS custom properties at the top of [styles.css](styles.css) (`:root`).

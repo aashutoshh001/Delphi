@@ -1,86 +1,287 @@
 [
   {
+    "id": "hist_247b072fdb06",
     "imageURL": "",
-    "title": "OpenAI and Hugging Face address security incident during model evaluation",
-    "description": "OpenAI and Hugging Face jointly disclosed and remediated a security incident discovered during a routine model evaluation process.",
-    "readmoreURL": ""
+    "title": "Top performers deliver most in crises when they also have authority and reach",
+    "description": "In turnaround, restructuring, and other high-pressure settings, rare execution and stakeholder skills pay off most when strong contributors also sit at the center of cross-functional networks and have formal decision rights. Without both, their impact is more likely to stay localized, slowing resolution and concentrating work around them.",
+    "readmoreURL": "sample_data/hypotheses/hist_247b072fdb06.html",
+    "reaction": "up",
+    "organization_id": "shl-sample-cohort",
+    "lens": "skill_concentration",
+    "target_constructs": [
+      "Assessment-derived business-critical capability clusters",
+      "Execution / operational effectiveness",
+      "Stakeholder influence / influence network centrality",
+      "Commercial orientation",
+      "Problem-solving / analytical capability",
+      "Formal decision rights",
+      "Informal relationship centrality",
+      "Redundancy / backup coverage",
+      "Knowledge transfer / succession pathway presence",
+      "Resilience of capability under stress"
+    ],
+    "scorecard": {
+      "business_value": 0.74,
+      "novelty": 0.63,
+      "depth": 0.84,
+      "actionability": 0.78,
+      "strategic_importance": 0.81,
+      "feasibility": 0.2,
+      "organizational_impact": 0.77,
+      "expected_insight": 0.71,
+      "confidence": 0.68,
+      "future_extensibility": 0.78,
+      "composite": 0.7038000000000001,
+      "dimension_notes": {
+        "business_value": "This would likely change executive decisions about succession, role design, and support structures because it links scarce talent to deployability under stress, though the value is tempered by the fact that the mechanism is plausible but not yet directly validated against real role outcomes.",
+        "strategic_importance": "This is strategically important because it speaks directly to how the organization should identify, protect, and deploy scarce leadership and execution capacity in high-stakes roles, especially under stress and growth, though it is somewhat bounded by the lack of formal hierarchy and therefore not obviously enterprise-wide in the way a top-tier enterprise risk or restructuring question would be.",
+        "actionability": "The hypothesis is quite actionable because a confirmed result directly implies interventions in decision-right design, backup coverage, and knowledge-transfer planning around scarce talent, though the exact redesign steps would still depend on the specific network and role context.",
+        "organizational_impact": "If true, this hypothesis affects how the organization identifies high-potential talent, designs coverage for critical roles, and prevents single points of failure in execution-heavy areas, so the downstream impact could extend well beyond a small cohort to core operating capacity.",
+        "feasibility": "0/10 target constructs map onto known data categories.",
+        "novelty": "The hypothesis is moderately novel because it moves beyond standard high-potential profiling to a more specific mechanism about scarce capability becoming non-scalable without authority, networks, and succession pathways, though the core idea still overlaps with familiar talent, influence, and single-point-of-failure thinking in HR.",
+        "depth": "The hypothesis goes beyond a surface correlation by proposing a clear hidden mechanism—scarce capability only converts into scalable value when paired with decision rights, network centrality, and transfer pathways—though it still reads as somewhat inferential rather than fully established.",
+        "expected_insight": "If validated, this would be fairly informative because it links rare capability with network/authority conditions to explain why some strong candidates become bottlenecks, though the mechanism is not fully novel and may partly confirm familiar succession and deployment dynamics.",
+        "confidence": "The mechanism is plausible and partially testable with assessment, network, and role-design data, but confidence is moderated by the lack of direct hierarchy/role-outcome validation and the risk that the apparent effect is confounded by visibility, context, or measurement artifacts.",
+        "future_extensibility": "This hypothesis is fairly extensible because it naturally branches into follow-on questions about network centrality, decision-right design, succession coverage, and stress resilience, though it is still bounded by a specific high-potential/authority-friction mechanism rather than a broad general theory."
+      }
+    },
+    "critique": {
+      "is_obvious": false,
+      "executive_relevance": "Moderate. Executives would care if this could identify single points of failure in critical roles and inform succession/decision-right redesign. But as written it is still too abstract and reads like a generic talent-management statement unless tied to specific business outcomes, risk, or cost.",
+      "creates_actionable_decision": true,
+      "similar_to_prior": false,
+      "similar_prior_ids": [],
+      "reveals_hidden_mechanism": true,
+      "downstream_feasible": true,
+      "issues": [
+        "The hypothesis is overloaded: it mixes assessment design, leadership archetypes, social network position, decision rights, and succession design into one claim. That makes it hard to test cleanly.",
+        "'Rare, business-critical strengths' is vague and circular. You need operational definitions for rarity, criticality, execution, stakeholder influence, and commercial/problem-solving capability.",
+        "'Usable under stress' is not defined. Stress could mean workload spikes, ambiguity, restructuring, turnaround, or time pressure. The mechanism may differ by context.",
+        "The claim assumes dense relationship centrality and clear decision rights are necessary moderators, but does not specify whether either one alone is sufficient, or which one matters more.",
+        "The 'single point of failure' framing is plausible but not yet proven. High individual contribution can be valuable without implying bottlenecked contribution; you need evidence of blocked throughput, dependency concentration, or slow decision cycles.",
+        "The hypothesis may be partly obvious to executives: of course scarce experts matter more when they have authority and networks. The novel part needs to be sharper than 'capability plus access equals impact'.",
+        "It is not yet clear what decision an executive would make differently after testing this. Hire differently? redesign roles? change succession? Without a specific decision, it risks becoming a commentary rather than a management lever.",
+        "'Dense relationship centrality' sounds like network jargon unless translated into measurable indicators such as advice-network centrality, cross-functional ties, or escalation frequency.",
+        "There is an implicit causal story from network position and authority to value creation, but no clear timing. Does authority enable deployment of skill, or do high performers acquire authority because of prior performance? Reverse causality is a real risk.",
+        "The hypothesis may be confounded by role type: some jobs require centrality and authority by design, so the observed effect may simply reflect job architecture rather than a hidden mechanism.",
+        "'Leadership-potential population' and 'no formal hierarchy' suggest the sample may not have enough outcome variation to test the claim robustly. Without actual role outcomes, the inference could be speculative.",
+        "The proposed intervention bundle is too broad. Development, decision-right redesign, backup coverage, and knowledge transfer are different levers with different owners and expected effects.",
+        "The narrative implies broad leadership assessments may over-reward polished behaviors, but the hypothesis itself does not directly test that concern. It shifts to utilization of rare skills, which is adjacent but not identical.",
+        "There is no explicit comparator group. Are we comparing rare-skill individuals with high centrality versus rare-skill individuals with low centrality, or versus non-rare-skill individuals?",
+        "The term 'resilient organizational capacity' is lofty but not operational. Capacity in what sense: revenue continuity, project throughput, customer retention, cycle time, or crisis response?"
+      ],
+      "suggested_improvements": [
+        "Split the claim into a testable interaction: rare critical skill predicts performance under stress more strongly when the person has high network centrality and formal authority.",
+        "Define each construct with measurable proxies: e.g., top-decile assessment scores for execution/commerciality, advice-network betweenness or degree centrality, formal decision-right level, and specific stress outcomes.",
+        "Specify the business outcome that matters: faster resolution of critical issues, reduced dependency concentration, higher project delivery under load, or improved turnaround performance.",
+        "Make the mechanism narrower: 'skill is trapped in the individual' is too broad. Test whether knowledge-transfer structures, escalation paths, or delegated authority mediate the relationship.",
+        "Add a clear falsifiable comparison: high-skill/high-centrality/high-authority individuals versus high-skill/low-centrality or high-skill/low-authority individuals.",
+        "Separate prediction from intervention. First test whether centrality and authority moderate the value of scarce skills; only then propose redesigning decision rights or backup coverage.",
+        "State the boundary condition: this may only apply in ambiguous, cross-functional, or crisis settings, not routine operations.",
+        "If the executive goal is succession planning, reframe toward 'identify roles where critical expertise is dangerously concentrated in one person and quantify the dependency risk.'",
+        "If the goal is talent deployment, reframe toward 'which archetypes should be placed in roles with formal authority and broad network access to convert skill into scalable impact?'"
+      ],
+      "critic_name": "checklist_critic"
+    },
+    "search_stats": {
+      "iterations_run": 5,
+      "candidates_generated": 5,
+      "candidates_discarded": 0,
+      "lenses_explored": [
+        "burnout_resilience",
+        "communication_protection",
+        "compensation_fairness",
+        "skill_concentration"
+      ],
+      "diversity_score": 0.8,
+      "termination_reason": "max_iterations_reached"
+    },
+    "generated_at": "2026-07-22T18:30:40.495602+00:00",
+    "statement": "In ambiguous, cross-functional stress contexts (e.g., turnaround, restructuring, or high-urgency delivery), individuals who score in the top tier on execution/commercial problem-solving and stakeholder influence will produce disproportionately better outcomes only when they also have both (a) high cross-functional network centrality and (b) formal decision rights. Among equally strong individual contributors, those lacking either authority or network access will show lower throughput, slower issue resolution, and greater dependency concentration than those with both.",
+    "mechanism": "The mechanism is not simply that talent matters more when access exists; it is that scarce capability creates value only when it can be deployed through fast decision loops and distributed through others. Formal decision rights convert judgment into action, while cross-functional centrality converts expertise into coordinated execution and transfer. When either condition is missing, the person’s capability remains localized: others must route around them, decisions slow, and work piles up around a single node. The testable prediction is an interaction effect: the payoff from rare execution/commercial strength should be strongest when both network position and authority are high, weaker when only one is present, and weakest when both are absent."
   },
   {
+    "id": "hist_781188e22517",
     "imageURL": "",
-    "title": "Kimi K3 Is Competitive with Fable; Kimi K3 and Fable Is SoTA",
-    "description": "New benchmark results show Kimi K3 matching Fable's performance, with both models setting state-of-the-art scores.",
-    "readmoreURL": ""
+    "title": "Slower pay progression can weaken high-potential employees’ succession commitment",
+    "description": "The hypothesis says high-potential employees who fall behind comparable peers in base-pay growth are more likely to step out of the leadership pipeline over the next year. They may decline stretch assignments, turn down pipeline roles, or disappear from the succession slate at calibration. For executives, that makes pay progression a retention and pipeline-health signal, not just a compensation i…",
+    "readmoreURL": "sample_data/hypotheses/hist_781188e22517.html",
+    "reaction": "up",
+    "organization_id": "shl-sample-cohort",
+    "lens": "compensation_fairness",
+    "target_constructs": [
+      "high-potential designation",
+      "compensation progression velocity",
+      "peer compensation progression within talent segment",
+      "perceived internal fairness / pay equity signal",
+      "engagement with leadership pathways",
+      "succession/promotion-track participation",
+      "base pay market competitiveness"
+    ],
+    "scorecard": {
+      "business_value": 0.74,
+      "novelty": 0.41,
+      "depth": 0.74,
+      "actionability": 0.82,
+      "strategic_importance": 0.78,
+      "feasibility": 0.2,
+      "organizational_impact": 0.72,
+      "expected_insight": 0.67,
+      "confidence": 0.61,
+      "future_extensibility": 0.76,
+      "composite": 0.6496,
+      "dimension_notes": {
+        "business_value": "This hypothesis has solid business value because it could change retention and promotion-design decisions for a strategically important high-potential population, and if validated it points to a concrete intervention around internal pay progression fairness; however, it is still a fairly familiar HR mechanism and its impact depends on whether the organization can cleanly measure perception and separate fairness effects from broader compensation or career signals.",
+        "strategic_importance": "This hypothesis is strategically important because it targets retention and progression of high-potential employees—the core leadership pipeline that shapes succession, future management capacity, and long-term organizational resilience—though it is still narrower than a company-wide compensation issue and mainly affects a defined talent segment.",
+        "actionability": "If confirmed, the finding points to a concrete intervention—tightening internal pay progression calibration and transparency within the high-potential pipeline—which gives executives a direct lever to reduce opt-out behavior, though the effect would still need careful segmentation by role and market.",
+        "organizational_impact": "If confirmed, this would affect the organization’s high-potential pipeline, succession planning, and retention of future leaders across multiple segments, but it is still concentrated on a subset of employees rather than the whole workforce.",
+        "feasibility": "0/7 target constructs map onto known data categories.",
+        "novelty": "This is a fairly familiar internal-equity / pay-progression retention hypothesis in a leadership-pipeline context, with the novelty coming mainly from the specific interaction between slower progression and perceived differentiation versus non-potential peers rather than from a fundamentally new HR mechanism.",
+        "depth": "The hypothesis goes beyond a surface correlation by specifying a fairness-based mechanism—relative compensation progression inside the talent segment shaping continued commitment to leadership pathways—but it is still fairly conventional and not especially deep because it centers on a common internal-equity explanation rather than a more layered causal structure.",
+        "expected_insight": "If confirmed, this would likely reveal a useful fairness-based mechanism behind leadership-pipeline attrition and distinguish internal recognition effects from market-pay effects, but it is still a fairly plausible HR pattern rather than a highly surprising one.",
+        "confidence": "The mechanism is plausible and testable with internal pay, promotion, and engagement data, but it is also a fairly common fairness/retention story that could be confounded by role quality, manager effects, or preexisting disengagement, so confidence is moderate rather than high.",
+        "future_extensibility": "If confirmed, this hypothesis would naturally extend into richer questions about segmented reward fairness, promotion pacing, and leadership-pathway retention, making it a useful launching point for broader inquiry rather than a one-off finding."
+      }
+    },
+    "critique": {
+      "is_obvious": true,
+      "executive_relevance": "Moderate at best. Compensation fairness matters, but this formulation is too narrow and too generic to drive an executive decision unless it is tied to retention cost, promotion pipeline health, or specific pay-governance changes. As written, it mostly restates a common HR intuition: perceived unfairness hurts engagement.",
+      "creates_actionable_decision": false,
+      "similar_to_prior": false,
+      "similar_prior_ids": [],
+      "reveals_hidden_mechanism": false,
+      "downstream_feasible": true,
+      "issues": [
+        "The hypothesis is obvious: internal pay fairness and relative progression are standard drivers of engagement and retention.",
+        "It is not clearly distinct from a general fairness/retention thesis; the added condition about 'limited differentiation between rewards and non-potential peers' is plausible but not novel.",
+        "It does not define the key population precisely enough: what counts as 'high-potential,' 'same talent segment,' and 'sustained engagement with leadership pathways'?",
+        "The outcome is mushy. 'Opt-out behavior' could mean declining stretch roles, dropping succession interest, lower promotion acceptance, or turnover. A downstream analyst needs one measurable endpoint.",
+        "The mechanism is asserted, not revealed. 'Fairness signals' is a surface explanation unless you specify the comparison group, the perception proxy, and the channel from perceived inequity to behavior.",
+        "The hypothesis risks confounding. Slower progression may simply reflect weaker performance, lower manager advocacy, or different geographies/job families rather than fairness perception.",
+        "It is unlikely to produce a sharp executive decision. Executives need to know whether to change comp ranges, calibration, promotion cadence, communication, or segmentation rules; this hypothesis does not isolate which lever matters.",
+        "The peer comparison is underspecified. Relative to peers by level, role, location, performance band, tenure, or segment? Without that, the test will be noisy and arguable.",
+        "The phrase 'same talent segment' is self-referential and weakly informative because it may already embed the leadership pathway status you are trying to explain.",
+        "The hypothesis may be too similar in spirit to many standard compensation-fairness claims: perceived inequity reduces commitment. Even if not matching the prior hypothesis structurally, it is still a conventional HR hypothesis with limited upside."
+      ],
+      "suggested_improvements": [
+        "Narrow the comparison set: define the exact peer group employees use for fairness judgments, such as same level + function + geography + performance band + potential rating.",
+        "Replace vague engagement language with a concrete endpoint: e.g., probability of accepting stretch assignments, remaining on succession slates, applying for leadership roles, or 12-month retention.",
+        "Test a more discriminating mechanism: progression velocity relative to internal peers affects leadership-pathway commitment only when employees have visibility into peer pay bands or promotion timing.",
+        "Separate pay from promotion. If the real issue is recognition, maybe promotion timing, title movement, or bonus differentiation matters more than salary progression.",
+        "Add a falsifiable threshold or interaction: the effect appears only when pay progression lag exceeds X percentile below peer median, or only in segments with high internal pay transparency.",
+        "Make the executive decision explicit: should the organization adjust progression rules, increase calibration transparency, or create differentiated reward paths for high-potentials?",
+        "Consider a stronger hidden mechanism: not just fairness perception, but perceived future opportunity. Slower progression may signal low sponsorship or low odds of advancement, which is more actionable than generic unfairness.",
+        "If you want a truly testable hypothesis, structure it as: among high-potentials with identical performance and tenure, below-median internal pay progression predicts higher exit from succession pipelines, and the effect is amplified when internal reward dispersion is low and promotion visibility is high."
+      ],
+      "critic_name": "checklist_critic"
+    },
+    "search_stats": {
+      "iterations_run": 5,
+      "candidates_generated": 5,
+      "candidates_discarded": 4,
+      "lenses_explored": [
+        "attrition_hidden_drivers",
+        "burnout_resilience",
+        "compensation_fairness",
+        "promotion_equity"
+      ],
+      "diversity_score": 0.8,
+      "termination_reason": "converged"
+    },
+    "generated_at": "2026-07-22T19:33:27.574876+00:00",
+    "statement": "Among employees formally designated as high-potential and slotted to a defined leadership pipeline segment, those whose 24-month base-pay progression falls below the peer-median for the same level, function, geography, tenure band, and performance band will be more likely to exit the succession pool within the next 12 months by declining a stretch assignment, refusing a pipeline role, or not remaining on the slate at annual calibration; this effect will be strongest in units where internal reward decisions are highly visible and promotion timing is tightly benchmarked.",
+    "mechanism": "The mechanism is not generic pay dissatisfaction; it is a pipeline-specific inference of future opportunity. When a high-potential employee sees slower progression than tightly matched internal peers, they read it as a signal that sponsorship, promotion odds, or role access are weaker than expected. That perceived downgrade in future leadership prospects reduces willingness to keep investing in visible, high-cost pathway behaviors such as stretch assignments and succession participation. The key comparison is therefore among employees who are similar in level, role family, location, tenure, and performance, so the model isolates the effect of relative progression velocity. Visibility of internal rewards and promotion timing should amplify the effect because it makes the opportunity signal legible rather than merely suggestive."
   },
   {
+    "id": "hist_591deab240a2",
     "imageURL": "",
-    "title": "Introduction to Formal Verification with Lean Part 1",
-    "description": "The first part of a series introducing formal verification concepts using the Lean theorem prover.",
-    "readmoreURL": ""
-  },
-  {
-    "imageURL": "",
-    "title": "Intel Starts Shipping High-NA EUV Silicon",
-    "description": "Intel has begun shipping its first chips manufactured using High-NA EUV lithography technology.",
-    "readmoreURL": ""
-  },
-  {
-    "imageURL": "",
-    "title": "Original Apollo 11 Guidance Computer source code for command and lunar modules",
-    "description": "The original assembly source code for the Apollo 11 command and lunar module guidance computers, preserved on GitHub.",
-    "readmoreURL": ""
-  },
-  {
-    "imageURL": "",
-    "title": "Advertise in ChatGPT",
-    "description": "OpenAI opens up an advertising platform allowing brands to place ads within ChatGPT conversations.",
-    "readmoreURL": ""
-  },
-  {
-    "imageURL": "",
-    "title": "FreeInk: Open ecosystem for e-readers",
-    "description": "A new open-source ecosystem aiming to bring open standards and freedom to e-reader devices.",
-    "readmoreURL": ""
-  },
-  {
-    "imageURL": "",
-    "title": "Late.sh – a command-line Clubhouse for computer people",
-    "description": "A terminal-based social audio app inspired by Clubhouse, built for developers and command-line enthusiasts.",
-    "readmoreURL": ""
-  },
-  {
-    "imageURL": "",
-    "title": "Judge approves $1.5B Anthropic settlement for pirated books used to train Claude",
-    "description": "A federal judge has approved a $1.5 billion settlement in the case over pirated books used to train Anthropic's Claude models.",
-    "readmoreURL": ""
-  },
-  {
-    "imageURL": "",
-    "title": "Gemini 3.6 Flash, 3.5 Flash-Lite, and 3.5 Flash Cyber",
-    "description": "Google announces new Gemini Flash model variants focused on speed and cost efficiency.",
-    "readmoreURL": ""
-  },
-  {
-    "imageURL": "",
-    "title": "A digestion of the Jacobian conjecture counterexample",
-    "description": "A detailed breakdown and analysis of a proposed counterexample to the Jacobian conjecture.",
-    "readmoreURL": ""
-  },
-  {
-    "imageURL": "",
-    "title": "Codeberg: ToU extension to prohibit LLM-extrusions",
-    "description": "Codeberg updates its Terms of Use to explicitly prohibit content generated by extracting or scraping via LLMs.",
-    "readmoreURL": ""
-  },
-  {
-    "imageURL": "",
-    "title": "Show HN: A new kind of FPS aim trainer",
-    "description": "A Show HN submission introducing a novel approach to first-person-shooter aim training tools.",
-    "readmoreURL": ""
-  },
-  {
-    "imageURL": "",
-    "title": "Ten Steps Towards Happiness (2015)",
-    "description": "A 2015 essay outlining ten practical steps for achieving greater personal happiness.",
-    "readmoreURL": ""
+    "title": "Ambiguity-tolerant leaders may sustain performance under prolonged overload",
+    "description": "When leaders stay above a high workload threshold for weeks, those with greater ambiguity tolerance are expected to hold performance better and show less burnout than similar peers. The effect should be strongest in volatile, uncertain roles, where faster decisions and fewer avoidable delays can protect both execution and well-being.",
+    "readmoreURL": "sample_data/hypotheses/hist_591deab240a2.html",
+    "reaction": "none",
+    "organization_id": "shl-sample-cohort",
+    "lens": "burnout_resilience",
+    "statement": "In roles that remain above a pre-defined workload threshold for at least 12 weeks (for example: top quartile in hours worked, incident volume, span of control, or active priorities), leaders with high ambiguity tolerance will show less performance decay and lower burnout incidence than otherwise similar leaders, as measured by KPI attainment, milestone slippage, and validated burnout scores or health-leave/attrition risk. The effect should be stronger in roles with higher volatility and decision uncertainty, and should be tested against controls for level, function, manager, geography, baseline performance, and prior burnout indicators.",
+    "mechanism": "The mechanism is not generic resilience; it is workload-specific preservation of execution capacity. Under sustained overload, ambiguity tolerance should reduce decision hesitation and rework, which lowers error rates and schedule slippage. That preserved execution flow helps prevent the compounding cycle in which missed decisions, backlog growth, and recovery failure drive both performance decay and burnout. In other words, the trait matters because it changes observable intermediate processes under pressure—fewer avoidable errors, faster issue resolution, and less weekly output volatility—not simply because some leaders are more stress-tolerant in the abstract.",
+    "target_constructs": [
+      "high workload exposure",
+      "burnout escalation",
+      "performance under sustained demand",
+      "ambiguity tolerance",
+      "self-management",
+      "learning agility",
+      "stress resilience",
+      "capability profile shape"
+    ],
+    "scorecard": {
+      "business_value": 0.78,
+      "novelty": 0.56,
+      "depth": 0.84,
+      "actionability": 0.84,
+      "strategic_importance": 0.78,
+      "feasibility": 0.2,
+      "organizational_impact": 0.72,
+      "expected_insight": 0.74,
+      "confidence": 0.71,
+      "future_extensibility": 0.86,
+      "composite": 0.707,
+      "dimension_notes": {
+        "business_value": "This has solid business value because it could change how leaders are selected and matched to high-demand roles, improving performance and reducing burnout risk, though it is still somewhat specialized and not obviously decision-changing for every leadership context.",
+        "strategic_importance": "This hypothesis is strategically important because it directly affects how leaders are selected and placed into high-demand roles that shape performance, retention, and succession, though it is somewhat narrower than a company-wide priority because it focuses on a specific subset of contexts rather than the whole organization.",
+        "actionability": "If confirmed, the finding directly supports staffing, role-matching, and development interventions by identifying which leaders should be placed in sustained high-demand environments versus buffered contexts, making it highly actionable rather than merely descriptive.",
+        "organizational_impact": "If confirmed, this would affect leadership selection, role placement, and workload design across a meaningful slice of the organization, but it is still limited to high-demand leadership cohorts rather than the entire business.",
+        "feasibility": "0/8 target constructs map onto known data categories.",
+        "novelty": "The hypothesis is more nuanced than a generic high-potential comparison because it focuses on a specific stress-buffered capability profile and burnout-mediated divergence over time, but it still draws on fairly familiar themes in leadership, resilience, and workload performance rather than introducing a truly uncommon construct.",
+        "depth": "This hypothesis goes beyond a surface association by proposing a specific mechanism of stress conversion—how certain capability profiles preserve cognitive flexibility, recovery, and execution under load—though it still stops short of a fully specified causal model.",
+        "expected_insight": "If confirmed, this would be meaningfully informative because it distinguishes baseline leadership strength from stress-buffered capacity under sustained load, but the core idea is still a plausible and fairly common resilience/fit pattern rather than a highly surprising mechanism.",
+        "confidence": "The mechanism is plausible and consistent with how ambiguity tolerance, self-management, and learning agility should buffer sustained demand, but it still risks confounding with baseline talent, role fit, and measurement noise around burnout and performance over time.",
+        "future_extensibility": "This hypothesis is highly extensible because a confirmed burnout-resilience signal would naturally lead to follow-on questions about role-context fit, threshold effects, development interventions, and how capability profiles interact with different operating environments over time."
+      }
+    },
+    "critique": {
+      "is_obvious": true,
+      "executive_relevance": "Moderate at best. Executives may care about burnout and sustained performance, but this formulation is still too abstract and reads like a generic people-analytics truism unless it is tied to a concrete staffing or retention decision with measurable ROI.",
+      "creates_actionable_decision": true,
+      "similar_to_prior": false,
+      "similar_prior_ids": [],
+      "reveals_hidden_mechanism": true,
+      "downstream_feasible": true,
+      "issues": [
+        "The core claim is basically common sense: people who cope better with stress will perform better under stress and burn out less. That is not novel enough on its own.",
+        "It is not clearly distinct from the prior hypotheses in the same family of 'profile + context + outcome' logic; it just swaps in burnout/resilience language.",
+        "The mechanism is plausible but still broad. 'Differential stress conversion' is a label, not a mechanism unless you specify which observable intermediate processes change: error rates, recovery time, schedule slippage, decision quality degradation, absenteeism, or disengagement.",
+        "The hypothesis bundles three traits (ambiguity tolerance, self-management, learning agility) into one profile, which makes it harder to test and interpret. If the effect exists, you will not know which ingredient matters.",
+        "'Stronger performance' and 'less burnout escalation' are underspecified. Executives need a defined performance metric and a defined burnout metric, otherwise this becomes unfalsifiable. ",
+        "'Sustained high workload' is vague. Is that hours, project intensity, span of control, incident load, or duration above threshold? Without a threshold the analysis will be mush.",
+        "The phrase 'similarly capable peers whose strengths are broader but less stress-buffered' is slippery and risks post-hoc slicing. Broad vs stress-buffered sounds like a narrative after the fact rather than a pre-registered segment.",
+        "It may be confounded by role assignment: resilient people may simply be placed into harder jobs, so observed performance/burnout differences could reflect selection effects rather than the profile itself.",
+        "The hypothesis assumes a stable trait-like resilience effect, but burnout is often driven by job design, manager quality, workload volatility, and recovery opportunity. Ignoring these makes the hypothesis too simplistic.",
+        "There is no clear decision implication beyond the generic 'staff high-demand roles with resilient people,' which executives already believe. That is not a strong strategic insight unless you quantify tradeoffs versus other high-potential profiles."
+      ],
+      "suggested_improvements": [
+        "Split the compound trait bundle into a testable composite or, better, test interactions: e.g., ambiguity tolerance × workload intensity, self-management × workload volatility, learning agility × rate of change.",
+        "Define concrete outcomes: performance as KPI attainment, issue resolution speed, objective rating, or project milestone completion; burnout as attrition risk, health leave, engagement decline, or validated burnout survey scores.",
+        "Operationalize workload with a measurable threshold and time window, such as top quartile of hours, active initiatives, span of control, or months above capacity.",
+        "Specify the comparison group and rule out selection bias by controlling for role level, function, manager, geography, baseline performance, and prior burnout indicators.",
+        "Turn the hypothesis into an actual decision test: whether these traits improve promotion success, retention, or project outcomes in high-load roles enough to justify prioritizing them in staffing.",
+        "If you want a hidden mechanism, articulate the intermediate path explicitly: better recovery, fewer execution errors, faster learning from failure, or lower variance in weekly output under load.",
+        "Consider reframing to a sharper, more executive-relevant claim: 'For roles with sustained overload, one additional point of stress-buffered capability predicts X% lower performance decay and Y% lower burnout incidence than equally rated but less resilient profiles.'"
+      ],
+      "critic_name": "checklist_critic"
+    },
+    "search_stats": {
+      "iterations_run": 6,
+      "candidates_generated": 6,
+      "candidates_discarded": 5,
+      "lenses_explored": [
+        "burnout_resilience",
+        "leadership_influence",
+        "promotion_equity",
+        "skill_concentration"
+      ],
+      "diversity_score": 0.6666666666666666,
+      "termination_reason": "converged"
+    },
+    "generated_at": "2026-07-22T20:07:28.857237+00:00"
   }
 ]

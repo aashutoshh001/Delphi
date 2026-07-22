@@ -1,0 +1,39 @@
+[project]
+name = "hypothesis-agent"
+version = "0.1.0"
+description = "Autonomous Hypothesis Agent for the Delphi People Analytics platform — searches organizational hypothesis space and emits a single Structured Hypothesis Package for downstream agents."
+requires-python = ">=3.10"
+dependencies = [
+    "langgraph>=0.6,<2.0",
+    "pydantic>=2.7,<3.0",
+    "pyyaml>=6.0,<7.0",
+    "python-dotenv>=1.0,<2.0",
+]
+
+[project.optional-dependencies]
+llm-openai = ["openai>=1.40"]
+llm-litellm = ["litellm>=1.50"]
+deep-agents = ["deepagents>=0.6"]
+strands = ["strands-agents>=1.0"]
+server = ["fastapi>=0.110", "uvicorn[standard]>=0.30", "openpyxl>=3.1"]
+sample-data = ["openpyxl>=3.1"]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.24",
+    "httpx>=0.27",
+]
+all = ["hypothesis-agent[llm-openai,llm-litellm,deep-agents,strands,server,sample-data,dev]"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+hypothesis_agent = ["prompts/templates/*.yaml", "config/*.yaml"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
