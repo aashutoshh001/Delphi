@@ -56,15 +56,50 @@ function saveFeedback() {
 
 const feedback = loadFeedback();
 
-function toggleFeedback(index, value, upBtn, downBtn) {
+// A story's reaction buttons can exist in two places at once (the Cards
+// deck and the Headlines list), since both views are built up front. Look
+// up the value fresh from `feedback` rather than trusting the button that
+// was clicked, so every rendered copy stays in sync.
+function toggleFeedback(index, value) {
   feedback[index] = feedback[index] === value ? undefined : value;
   if (feedback[index] === undefined) delete feedback[index];
   saveFeedback();
 
-  upBtn.classList.toggle("active", feedback[index] === "up");
+  document.querySelectorAll(`[data-reactions-for="${index}"]`).forEach((group) => {
+    const upBtn = group.querySelector(".up");
+    const downBtn = group.querySelector(".down");
+    upBtn.classList.toggle("active", feedback[index] === "up");
+    upBtn.setAttribute("aria-pressed", String(feedback[index] === "up"));
+    downBtn.classList.toggle("active", feedback[index] === "down");
+    downBtn.setAttribute("aria-pressed", String(feedback[index] === "down"));
+  });
+}
+
+function buildReactionGroup(index) {
+  const reactions = document.createElement("div");
+  reactions.className = "reaction-group";
+  reactions.dataset.reactionsFor = index;
+
+  const upBtn = document.createElement("button");
+  upBtn.type = "button";
+  upBtn.className = "reaction-btn up" + (feedback[index] === "up" ? " active" : "");
+  upBtn.setAttribute("aria-label", "Thumbs up");
   upBtn.setAttribute("aria-pressed", String(feedback[index] === "up"));
-  downBtn.classList.toggle("active", feedback[index] === "down");
+  upBtn.innerHTML = THUMB_SVG;
+
+  const downBtn = document.createElement("button");
+  downBtn.type = "button";
+  downBtn.className = "reaction-btn down thumb-down" + (feedback[index] === "down" ? " active" : "");
+  downBtn.setAttribute("aria-label", "Thumbs down");
   downBtn.setAttribute("aria-pressed", String(feedback[index] === "down"));
+  downBtn.innerHTML = THUMB_SVG;
+
+  upBtn.addEventListener("click", () => toggleFeedback(index, "up"));
+  downBtn.addEventListener("click", () => toggleFeedback(index, "down"));
+
+  reactions.appendChild(upBtn);
+  reactions.appendChild(downBtn);
+  return reactions;
 }
 
 // ---------------------------------------------------------
@@ -72,7 +107,9 @@ function toggleFeedback(index, value, upBtn, downBtn) {
 const cardViewport = document.getElementById("cardViewport");
 const progressTrack = document.getElementById("progressTrack");
 const nextBtn = document.getElementById("nextBtn");
-const viewToggle = document.getElementById("viewToggle");
+const headlineList = document.getElementById("headlineList");
+const layoutToggle = document.getElementById("layoutToggle");
+const deviceToggle = document.getElementById("deviceToggle");
 const body = document.body;
 
 let currentIndex = 0;
@@ -134,32 +171,9 @@ function buildCard(index) {
       <path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>`;
 
-  const reactions = document.createElement("div");
-  reactions.className = "reaction-group";
-
-  const upBtn = document.createElement("button");
-  upBtn.type = "button";
-  upBtn.className = "reaction-btn up" + (feedback[index] === "up" ? " active" : "");
-  upBtn.setAttribute("aria-label", "Thumbs up");
-  upBtn.setAttribute("aria-pressed", String(feedback[index] === "up"));
-  upBtn.innerHTML = THUMB_SVG;
-
-  const downBtn = document.createElement("button");
-  downBtn.type = "button";
-  downBtn.className = "reaction-btn down thumb-down" + (feedback[index] === "down" ? " active" : "");
-  downBtn.setAttribute("aria-label", "Thumbs down");
-  downBtn.setAttribute("aria-pressed", String(feedback[index] === "down"));
-  downBtn.innerHTML = THUMB_SVG;
-
-  upBtn.addEventListener("click", () => toggleFeedback(index, "up", upBtn, downBtn));
-  downBtn.addEventListener("click", () => toggleFeedback(index, "down", upBtn, downBtn));
-
-  reactions.appendChild(upBtn);
-  reactions.appendChild(downBtn);
-
   const actions = document.createElement("div");
   actions.className = "footer-actions";
-  actions.appendChild(reactions);
+  actions.appendChild(buildReactionGroup(index));
   actions.appendChild(link);
 
   footer.appendChild(source);
@@ -192,6 +206,61 @@ function initCards() {
   const card = buildCard(currentIndex);
   cardViewport.appendChild(card);
   renderProgress();
+}
+
+function buildHeadlineItem(index) {
+  const story = STORIES[index];
+
+  const item = document.createElement("div");
+  item.className = "headline-item";
+
+  const rank = document.createElement("span");
+  rank.className = "headline-rank";
+  rank.textContent = `${index + 1}.`;
+
+  const main = document.createElement("div");
+  main.className = "headline-main";
+
+  const titleRow = document.createElement("div");
+  titleRow.className = "headline-title-row";
+
+  const title = document.createElement("a");
+  title.className = "headline-title";
+  title.href = story.readmoreURL;
+  title.target = "_blank";
+  title.rel = "noopener noreferrer";
+  title.textContent = story.title;
+
+  const domain = document.createElement("span");
+  domain.className = "headline-domain";
+  domain.textContent = "(shl.com)";
+
+  titleRow.appendChild(title);
+  titleRow.appendChild(domain);
+
+  const desc = document.createElement("p");
+  desc.className = "headline-desc";
+  desc.textContent = story.description;
+
+  const meta = document.createElement("div");
+  meta.className = "headline-meta";
+  meta.appendChild(buildReactionGroup(index));
+
+  main.appendChild(titleRow);
+  main.appendChild(desc);
+  main.appendChild(meta);
+
+  item.appendChild(rank);
+  item.appendChild(main);
+
+  return item;
+}
+
+function renderHeadlines() {
+  headlineList.innerHTML = "";
+  STORIES.forEach((_, index) => {
+    headlineList.appendChild(buildHeadlineItem(index));
+  });
 }
 
 function goTo(nextIndex, direction) {
@@ -282,22 +351,35 @@ cardViewport.addEventListener(
   { passive: true }
 );
 
-// ---------------- View toggle (Web / Mobile) ----------------
+// ---------------- Toggle pills (Cards/Headlines, Web/Mobile) ----------------
 
-viewToggle.addEventListener("click", (e) => {
-  const btn = e.target.closest(".toggle-option");
-  if (!btn) return;
-  const mode = btn.dataset.mode;
+function setupPillToggle(toggle, onChange) {
+  toggle.addEventListener("click", (e) => {
+    const btn = e.target.closest(".toggle-option");
+    if (!btn) return;
+    const value = btn.dataset.value;
+    if (toggle.dataset.active === value) return;
 
-  viewToggle.dataset.active = mode;
-  viewToggle.querySelectorAll(".toggle-option").forEach((opt) => {
-    opt.setAttribute("aria-pressed", opt.dataset.mode === mode ? "true" : "false");
+    toggle.dataset.active = value;
+    toggle.querySelectorAll(".toggle-option").forEach((opt) => {
+      opt.setAttribute("aria-pressed", opt.dataset.value === value ? "true" : "false");
+    });
+
+    onChange(value);
   });
+}
 
-  body.classList.toggle("mode-mobile", mode === "mobile");
+setupPillToggle(layoutToggle, (layout) => {
+  body.classList.toggle("layout-cards", layout === "cards");
+  body.classList.toggle("layout-headlines", layout === "headlines");
+});
+
+setupPillToggle(deviceToggle, (mode) => {
   body.classList.toggle("mode-web", mode === "web");
+  body.classList.toggle("mode-mobile", mode === "mobile");
 });
 
 // ---------------- Init ----------------
 
 initCards();
+renderHeadlines();

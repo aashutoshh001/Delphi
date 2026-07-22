@@ -7,7 +7,7 @@
 <link rel="icon" type="image/png" href="assets/shl-logo.png" />
 <link rel="stylesheet" href="styles.css" />
 </head>
-<body class="mode-web">
+<body class="mode-web layout-cards">
 
   <header class="topbar">
     <div class="brand">
@@ -15,10 +15,18 @@
       <span class="brand-name">Delphi</span>
     </div>
 
-    <div class="view-toggle" id="viewToggle" data-active="web" role="group" aria-label="Display mode">
-      <span class="toggle-knob" aria-hidden="true"></span>
-      <button type="button" class="toggle-option" data-mode="web" aria-pressed="true">Web</button>
-      <button type="button" class="toggle-option" data-mode="mobile" aria-pressed="false">Mobile</button>
+    <div class="toggle-group">
+      <div class="view-toggle" id="layoutToggle" data-active="cards" role="group" aria-label="Interface style">
+        <span class="toggle-knob" aria-hidden="true"></span>
+        <button type="button" class="toggle-option" data-value="cards" aria-pressed="true">Cards</button>
+        <button type="button" class="toggle-option" data-value="headlines" aria-pressed="false">Headlines</button>
+      </div>
+
+      <div class="view-toggle" id="deviceToggle" data-active="web" role="group" aria-label="Display mode">
+        <span class="toggle-knob" aria-hidden="true"></span>
+        <button type="button" class="toggle-option" data-value="web" aria-pressed="true">Web</button>
+        <button type="button" class="toggle-option" data-value="mobile" aria-pressed="false">Mobile</button>
+      </div>
     </div>
   </header>
 
@@ -30,6 +38,11 @@
       </div>
 
       <div class="app-shell">
+        <div class="app-topbar">
+          <img src="assets/shl-logo.png" alt="SHL" class="app-topbar-logo" />
+          <span class="app-topbar-name">Delphi</span>
+        </div>
+
         <div class="progress-track" id="progressTrack"></div>
 
         <div class="card-viewport" id="cardViewport" tabindex="0" aria-label="Story cards"></div>
@@ -39,6 +52,8 @@
             <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </button>
+
+        <div class="headline-list" id="headlineList" aria-label="Story headlines"></div>
 
       </div>
 
