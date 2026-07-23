@@ -671,7 +671,7 @@
     "title": "A few engineers may be carrying too much of Acme Labs’ leadership load",
     "description": "The hypothesis says Acme Labs’ strongest engineering teams may rely on a small number of high-performing ICs and managers for mentoring, coordination, escalations, and change leadership. That concentration could make those employees more likely to burn out or leave, while also slowing the development of ready successors. For leaders, the risk is a stronger team today but a more fragile organizati…",
     "readmoreURL": "sample_data/hypotheses/hist_04d1dd298f33.html",
-    "reaction": "none",
+    "reaction": "up",
     "organization_id": "acme-labs",
     "lens": "skill_concentration",
     "statement": "Acme Labs likely has a measurable leadership-load concentration problem in its engineering org: a small set of high-performing ICs and first-line managers are absorbing a disproportionate share of mentoring, cross-team coordination, incident escalation, and change leadership work, and that concentration is most pronounced in teams with strong execution but thin backup coverage. The result is not generic overload; it is a specific pattern where the same people become both the informal glue of delivery and the highest-probability candidates for promotion, making those teams more vulnerable to attrition and slower to produce ready successors than comparably performing teams with more distributed leadership load.",
@@ -1250,7 +1250,7 @@
     "title": "Dense team networks may improve early retention for high-potential hires",
     "description": "The hypothesis says high-potential employees in interdependent roles are more likely to stay when their first team has strong local collaboration, even if that does not speed promotion. For leaders, it suggests team design in the first six months can shape whether top talent settles in or exits early, especially in early-tenure roles.",
     "readmoreURL": "sample_data/hypotheses/hist_0e96fcb21201.html",
-    "reaction": "none",
+    "reaction": "up",
     "organization_id": "shl-sample-cohort",
     "lens": "network_effects",
     "statement": "Among assessed high-potential employees in high-interdependence roles, assignment to teams with high local collaboration density in the first 6 months after placement will improve 12-month retention but not necessarily accelerate promotion, relative to comparable employees placed in low-density teams, after controlling for assessment scores, level, function, location, and baseline performance. The effect should be strongest for early-tenure employees and weakest in roles whose work can be completed independently.",
@@ -1349,7 +1349,7 @@
     "title": "Leadership potential matters only if it improves succession decisions",
     "description": "The hypothesis says SHL/UCF leadership-potential scores add value only when they help managers make better talent decisions: judging readiness more accurately and placing people into the right development moves. If the scores do not predict faster promotion and internal mobility beyond team quality and context, they should not drive succession calibration.",
     "readmoreURL": "sample_data/hypotheses/hist_7ad369cc1921.html",
-    "reaction": "none",
+    "reaction": "up",
     "organization_id": "shl-sample-cohort",
     "lens": "leadership_influence",
     "statement": "Managers with higher SHL/UCF leadership-potential scores will add measurable value only when those scores predict better succession-calibration decisions—specifically, they will identify readiness more accurately and place team members into development moves that accelerate time-to-first-promotion and 18-month internal mobility, above and beyond team composition, business-unit context, and the manager’s own performance rating. If SHL scores do not predict these downstream talent-decision outcomes after controlling for inherited team quality, they should not be used as a gate or weight in succession calibration for managers.",
@@ -1532,5 +1532,905 @@
     },
     "generated_at": "2026-07-23T17:37:35.293254+00:00",
     "insightId": "insight_6ac2c2213a11"
+  },
+  {
+    "id": "hist_be50a714e2fc",
+    "imageURL": "sample_data/card_images/hist_be50a714e2fc.svg",
+    "title": "Assessment scores predict promotion better under strong managers",
+    "description": "The hypothesis says HiPo assessment scores will better forecast 12-month promotion velocity when employees report to highly effective managers, and will be less accurate under weaker managers. In low-effectiveness settings, the same scores may overstate who is truly ready for advancement. For executives, that means manager quality can determine whether talent assessments are genuinely calibrated…",
+    "readmoreURL": "sample_data/hypotheses/hist_be50a714e2fc.html",
+    "reaction": "up",
+    "organization_id": "shl-sample-cohort",
+    "lens": "leadership_influence",
+    "statement": "Assessment scores will be more predictive of 12-month promotion velocity for HiPo employees who report to managers in the top quartile of a pre-registered manager-effectiveness index than for otherwise similar HiPos reporting to bottom-quartile managers; in low-effectiveness-manager settings, the same scores will be systematically over-calibrated relative to realized advancement.",
+    "mechanism": "The specific causal path is that manager effectiveness determines whether psychometric promise is translated into promotable evidence. High-effectiveness managers convert latent potential into visible advancement by assigning stretch work, giving frequent corrective feedback, sponsoring employees into calibration discussions, and advocating for readiness at promotion checkpoints. Low-effectiveness managers do the opposite: they narrow exposure, delay feedback, and suppress sponsorship, so assessed potential does not accumulate the work signals that promotion committees use. As a result, the assessment model is better calibrated when manager behavior creates the intermediate evidence needed for advancement, and it overstates readiness when that conversion process is weak. This makes manager quality a validation control on the assessment system, not just a general employee-outcome moderator.",
+    "target_constructs": [
+      "manager quality",
+      "leadership effectiveness",
+      "psychometric / HiPo assessment scores",
+      "performance ratings",
+      "promotion velocity",
+      "voluntary attrition",
+      "retention",
+      "manager coaching / feedback quality",
+      "stretch opportunity exposure"
+    ],
+    "scorecard": {
+      "business_value": 0.84,
+      "novelty": 0.61,
+      "depth": 0.84,
+      "actionability": 0.84,
+      "strategic_importance": 0.84,
+      "feasibility": 0.3555555555555555,
+      "organizational_impact": 0.74,
+      "expected_insight": 0.68,
+      "confidence": 0.67,
+      "future_extensibility": 0.82,
+      "composite": 0.7352444444444444,
+      "dimension_notes": {
+        "business_value": "This could materially change executive choices about whether to invest in manager capability versus rely on assessment-based talent pipelines, and it is strategically important, actionable, and likely to yield useful insight—though its value is capped somewhat by modest outcome data and the risk that the effect is not fully separable from other confounders.",
+        "strategic_importance": "This is strategically important because it directly affects the organization’s core talent-pipeline question—whether assessment-based HiPo signals can reliably predict leadership success once manager quality is accounted for—and the answer would shape both succession decisions and manager-development investment.",
+        "actionability": "If confirmed, this points directly to two concrete levers—manager-quality intervention and better targeting of HiPo/assessment signals by context—making it highly actionable, though not quite maximally so because the org would still need to identify which manager behaviors to change and how to operationalize them.",
+        "organizational_impact": "If true, this would affect a large share of the talent pipeline by changing how the organization interprets assessment signals, develops managers, and allocates promotion/succession decisions, but it is still concentrated on high-potential populations rather than the whole business.",
+        "feasibility": "2/9 target constructs map onto known data categories.",
+        "novelty": "The idea is more sophisticated than a standard manager-quality versus performance comparison because it frames managers as moderators of how psychometric potential translates into outcomes, but the underlying theme is still a well-trodden HR question about leadership effect and talent development.",
+        "depth": "This hypothesis goes beyond a surface correlation by positing a leader-mediated conversion mechanism—manager quality changes whether psychometric potential translates into realized outcomes—but it is still a fairly standard moderation/enablement story rather than a deeply novel causal model.",
+        "expected_insight": "If true, this would be meaningfully informative because it links psychometric potential to realized outcomes through manager quality, but it is also a fairly plausible and well-known moderation effect in talent systems, so the likely insight is solid rather than truly surprising.",
+        "confidence": "The mechanism is highly plausible and consistent with known manager effects on development and retention, but confidence is only moderate because it depends on separating true manager-quality effects from selection, team-context, and measurement bias with limited longitudinal validation data.",
+        "future_extensibility": "If supported, this would open a highly productive program of follow-on questions about manager quality as a moderator of talent signals, enabling segmentation by role/family, coaching interventions, and refinement of promotion/attrition models across contexts."
+      }
+    },
+    "critique": {
+      "is_obvious": true,
+      "executive_relevance": "Moderate, but diluted. Executives may care about manager quality as a talent-multiplier, but this version is framed as an analytical observation rather than a decision point. It does not clearly tell leaders what to do, where to intervene, or how much value is at stake.",
+      "creates_actionable_decision": true,
+      "similar_to_prior": false,
+      "similar_prior_ids": [
+        "hist_7ad369cc1921",
+        "hist_781188e22517",
+        "hist_0e96fcb21201"
+      ],
+      "reveals_hidden_mechanism": true,
+      "downstream_feasible": true,
+      "issues": [
+        "The core idea is not novel: manager quality affecting employee outcomes is a standard, almost default HR hypothesis. The only interesting part is the interaction with psychometric promise, but that is underdeveloped.",
+        "It is too broad and too many outcomes are bundled together (performance, promotion velocity, attrition). That makes it look like a generic talent-management claim rather than a sharp testable hypothesis.",
+        "The mechanism is plausible but still high-level. ‘Manager quality amplifies or suppresses return on assessment signals’ is intuitive, not a hidden mechanism. It needs a more specific causal path and measurable manager behaviors.",
+        "It risks confounding selection effects: higher-potential employees may be assigned to better managers, or better managers may be placed in stronger business units. Without a credible identification strategy, any observed effect will be hard to interpret.",
+        "The hypothesis does not specify what ‘lower-quality managers’ means operationally, which matters because the construct could be past performance, engagement scores, coaching behavior, attrition rates, or something else entirely.",
+        "It is not clear whether the executive decision is about manager development, talent placement, succession calibration, or assessment-model weighting. A hypothesis should support one primary decision, not four.",
+        "Compared with the prior hypotheses, this is very similar in structure: it is another moderator-style claim about when talent signals convert into downstream outcomes, so it is unlikely to be viewed as additive insight rather than repetition.",
+        "The business implication is stated, but not quantified. Executives need to know whether the effect size is large enough to justify changing manager development or placement policy.",
+        "There is a risk of tautology: if managers are part of the system that determines performance and promotion, saying manager quality affects those outcomes can become self-fulfilling unless the analysis isolates incremental effects beyond prior performance and team context.",
+        "The hypothesis is framed in a way that a downstream agent could test only if it has clean manager-quality measures, stable employee-manager links, and longitudinal outcome data. The current data description suggests those inputs may be thin or noisy."
+      ],
+      "suggested_improvements": [
+        "Narrow the hypothesis to one primary outcome, ideally promotion velocity or attrition, and one time window.",
+        "Define manager quality using a concrete, pre-registered metric: e.g., 360 feedback, team engagement delta, calibrated manager effectiveness score, or subordinate promotion/retention residuals.",
+        "Specify the interaction more sharply: for example, ‘assessment score predicts promotion only under top-quartile managers, not bottom-quartile managers.’",
+        "State the executive decision explicitly: should the org target manager development, prioritize HiPo placement under stronger managers, or down-weight psychometrics in succession planning when manager quality is low?",
+        "Add a causal identification plan or at least a comparison strategy that reduces confounding, such as same-function/business-unit comparisons, manager fixed effects, or quasi-random manager assignment where available.",
+        "Replace the generic ‘amplifies or suppresses’ language with a measurable mediator, such as feedback frequency, stretch assignment allocation, or sponsorship visibility.",
+        "If the goal is strategic, elevate the claim from ‘manager quality matters’ to ‘manager quality changes the validity of the assessment model,’ because that is the more consequential executive question.",
+        "Consider reframing around calibration error: ‘Assessment scores overpredict success in low-quality-manager environments and are better calibrated in high-quality-manager environments.’ That is more diagnostic and testable.",
+        "If the organization wants a real decision, ask whether to invest in manager capability as a governance control on pipeline prediction, not merely as a culture initiative."
+      ],
+      "critic_name": "checklist_critic"
+    },
+    "search_stats": {
+      "iterations_run": 9,
+      "candidates_generated": 9,
+      "candidates_discarded": 0,
+      "lenses_explored": [
+        "burnout_resilience",
+        "compensation_fairness",
+        "leadership_influence",
+        "learning_velocity",
+        "promotion_equity",
+        "psychometric_fit",
+        "skill_concentration"
+      ],
+      "diversity_score": 0.7777777777777778,
+      "termination_reason": "converged"
+    },
+    "generated_at": "2026-07-23T18:21:40.975612+00:00",
+    "insightId": "insight_f21da007bdcd"
+  },
+  {
+    "id": "hist_59b0f1485014",
+    "imageURL": "sample_data/card_images/hist_59b0f1485014.svg",
+    "title": "The best predictor of performance depends on the role’s decision structure",
+    "description": "The hypothesis says different traits matter in different jobs: adaptability and learning agility should matter more in matrixed, cross-functional roles, while conscientiousness, persistence, and discipline should matter more in standardized, execution-heavy roles. If true, companies could improve performance and promotion forecasts by matching assessment signals to job design instead of relying o…",
+    "readmoreURL": "sample_data/hypotheses/hist_59b0f1485014.html",
+    "reaction": "up",
+    "organization_id": "shl-sample-cohort",
+    "lens": "psychometric_fit",
+    "statement": "Pre-specified psychometric signals will have differential predictive power by job architecture: in matrixed, cross-functional roles with high decision latency and dependency on influence, adaptability and learning agility will more strongly predict 12–24 month performance and promotion; in standardized, authority-led roles with low decision latency and high execution interdependence, conscientiousness, persistence, and task discipline will more strongly predict those same outcomes. The executive test is whether these trait-by-role interactions materially improve out-of-sample forecast accuracy for performance and promotion over a universal high-potential model.",
+    "mechanism": "The mechanism is not generic person–context fit but variation in which capability converts into downstream business value under different decision environments. When roles require navigation across functions, ambiguity, and delayed information, traits that support rapid updating, social influence, and comfort with incomplete structure should translate into higher performance and faster advancement. When roles are defined by clear procedures, tight accountability, and repeatable execution, traits that support consistency, follow-through, and rule adherence should matter more. If the psychometrics are measuring real signal rather than assessment theater, these interactions should show up in pre-registered models and should separately move performance and promotion; if they do not, the evidence points to assessment invalidity or promotion-process noise rather than a true context effect.",
+    "target_constructs": [
+      "psychometric assessment scores",
+      "UCF / HiPo / leadership constructs",
+      "learning agility",
+      "adaptability",
+      "ambiguity tolerance",
+      "cross-functional influence",
+      "persistence",
+      "execution discipline",
+      "role family",
+      "role ambiguity",
+      "authority level",
+      "manager feedback",
+      "performance acceleration",
+      "promotion velocity",
+      "tenure",
+      "compensation progression"
+    ],
+    "scorecard": {
+      "business_value": 0.78,
+      "novelty": 0.68,
+      "depth": 0.86,
+      "actionability": 0.83,
+      "strategic_importance": 0.82,
+      "feasibility": 0.375,
+      "organizational_impact": 0.72,
+      "expected_insight": 0.71,
+      "confidence": 0.68,
+      "future_extensibility": 0.9,
+      "composite": 0.7404,
+      "dimension_notes": {
+        "business_value": "This would materially affect how executives validate and deploy talent models—potentially changing promotion, assessment, and development decisions by role family—though the value is tempered by limited downstream outcome data and the need to prove the fit effect before broad operational use.",
+        "strategic_importance": "This is strategically important because it directly affects succession planning, promotion decisions, and the credibility of the talent pipeline, with implications for leadership bench strength across role families; it is just below the very top tier because it is more of a talent-system optimization issue than a company-wide existential priority.",
+        "actionability": "If confirmed, the hypothesis directly supports concrete actions—building separate validation models by role family, tailoring selection criteria to decision context, and targeting development/placement to the environments where each profile is most predictive—making it highly operational rather than merely descriptive.",
+        "organizational_impact": "If validated, this would influence talent identification, role placement, and promotion decisions across multiple role families, affecting a meaningful slice of the leadership pipeline rather than a narrow process, though it likely stops short of changing core business strategy for the whole organization.",
+        "feasibility": "4/16 target constructs map onto known data categories.",
+        "novelty": "The hypothesis is more nuanced than a standard “high potential predicts performance” claim because it introduces role-family-specific person–context fit and different trait weights by decision environment, but the underlying idea is still a familiar and widely studied HR/psychometrics theme rather than a highly original mechanism.",
+        "depth": "This hypothesis goes beyond a surface correlation by proposing a specific person–context fit mechanism—different traits predicting success depending on role ambiguity and authority structure—which is a genuinely deeper explanatory layer than simply saying some assessments work better than others.",
+        "expected_insight": "This hypothesis is likely to produce moderately high insight because it goes beyond a generic psychometric–performance link by positing a role-context interaction mechanism that could explain why the same traits predict advancement in some jobs but not others; however, the idea is still fairly plausible and familiar to talent practitioners, so the expected surprise is meaningful but not exceptional.",
+        "confidence": "The person–context fit mechanism is plausible and consistent with prior evidence on role contingency in talent prediction, but the current evidence base described is thin and vulnerable to confounding, so confidence is moderate rather than high.",
+        "future_extensibility": "This hypothesis is highly extensible because a confirmed person–context fit effect would naturally generate follow-on work on role-family-specific validation, segmentation of assessment models, development targeting, and broader tests across functions, geographies, and time horizons."
+      }
+    },
+    "critique": {
+      "is_obvious": true,
+      "executive_relevance": "Moderate, but diluted by being a generic person–context fit claim. Executives may care in principle, yet this is not a sharp decision premise unless it is tied to concrete allocation choices (selection, promotion, rotation, or assessment design).",
+      "creates_actionable_decision": true,
+      "similar_to_prior": false,
+      "similar_prior_ids": [
+        "hist_781188e22517",
+        "hist_7ad369cc1921",
+        "hist_f27b65d5060d"
+      ],
+      "reveals_hidden_mechanism": true,
+      "downstream_feasible": true,
+      "issues": [
+        "The core idea is unsurprising: everyone already expects different roles to value different traits. That makes it weak as a hypothesis unless it identifies a specific, testable interaction with large effect size.",
+        "It is too broad. 'Role family' and 'decision context' are vague catch-alls. Without a pre-specified taxonomy, the analysis will be p-hacking in disguise.",
+        "It overlaps heavily with prior hypotheses about context-conditioned predictive validity and sponsorship/visibility effects. It adds little new mechanism beyond a dressed-up fit argument.",
+        "The mechanism is plausible but not yet discriminating. 'Person–context fit' explains almost anything after the fact; it does not specify why existing assessments should fail in one context and succeed in another.",
+        "It does not clearly distinguish whether the problem is assessment validity, job design, or promotion process noise. Executives need to know which lever to change.",
+        "The outcome bundle is muddy: 'later performance and promotion' are not the same outcome and may move differently. Mixing them weakens the test.",
+        "There is no clear threshold for what would falsify it. If some traits correlate in some roles, does that confirm the hypothesis or just show noisy heterogeneity?",
+        "The hypothesis risks tautology: if a role rewards adaptability, adaptable people do better. That is not a strategic insight unless it changes how the org selects, places, or develops talent.",
+        "It lacks a direct business consequence. 'Separate validation models by role context' is a process recommendation, not an executive decision with clear tradeoffs.",
+        "Downstream testing is feasible, but only if role families, outcome windows, and assessment constructs are frozen in advance; otherwise the analysis will be too flexible to trust."
+      ],
+      "suggested_improvements": [
+        "Narrow the hypothesis to a specific contrast, e.g., 'assessment scores for adaptability will predict promotion in matrixed roles but not in standardized roles, while conscientiousness will show the opposite pattern.'",
+        "Define role families operationally using an existing job architecture or decision taxonomy, not broad labels like 'ambiguous' versus 'clear.'",
+        "Split outcomes: test performance, promotion, compensation progression, and tenure separately, rather than bundling them.",
+        "Specify the mechanism in a way that can fail, such as 'decision latency and cross-functional dependency increase the value of ambiguity tolerance, which should strengthen predictive validity in matrixed roles.'",
+        "State the executive decision implied: change assessment weighting by role family, alter placement rules, or retire specific constructs that do not generalize.",
+        "Pre-register the trait-by-role interactions to avoid retrospective storytelling and multiple-comparison inflation.",
+        "Consider adding a comparison to visible operational metrics, e.g., whether the same psychometric profile predicts manager-rated execution versus objective business outcomes, to determine whether the assessments are measuring signal or theater.",
+        "If the real question is pipeline quality, rewrite as a validation hypothesis about which constructs improve forecast accuracy for specific downstream decisions, not a generic fit statement."
+      ],
+      "critic_name": "checklist_critic"
+    },
+    "search_stats": {
+      "iterations_run": 7,
+      "candidates_generated": 7,
+      "candidates_discarded": 0,
+      "lenses_explored": [
+        "attrition_hidden_drivers",
+        "burnout_resilience",
+        "compensation_fairness",
+        "network_effects",
+        "psychometric_fit"
+      ],
+      "diversity_score": 0.7142857142857143,
+      "termination_reason": "converged"
+    },
+    "generated_at": "2026-07-23T18:25:10.150687+00:00",
+    "insightId": "insight_068160d3cb63"
+  },
+  {
+    "id": "hist_7322a891da85",
+    "imageURL": "sample_data/card_images/hist_7322a891da85.svg",
+    "title": "Brokerage traits may predict faster advancement in roles that depend on coordination",
+    "description": "The hypothesis says SHL brokerage and influence scores could add predictive value for promotion and pay growth among early-tenure employees in matrixed, high-dependency jobs, even after accounting for level, function, geography, prior performance, and cognitive ability. In low-interdependence roles, the same traits should matter much less. If validated, that would help leaders weight succession a…",
+    "readmoreURL": "sample_data/hypotheses/hist_7322a891da85.html",
+    "reaction": "none",
+    "organization_id": "shl-sample-cohort",
+    "lens": "network_effects",
+    "statement": "Among early-tenure employees in matrixed or high-dependency roles, SHL brokerage/influence scores will add incremental predictive power for 12–24 month promotion probability and compensation growth beyond level, function, geography, prior performance, and cognitive ability; in low-interdependence roles, the same scores will show little or no incremental lift. This should inform whether SHL brokerage traits are weighted more heavily for succession slates and high-mobility placements in roles that require cross-functional coordination.",
+    "mechanism": "The mechanism is role-exposure matching. Brokerage-oriented traits create measurable value only when the job architecture forces repeated coordination across teams, decision rights, or stakeholder groups. In those roles, the person can convert influence capacity into faster information flow, better issue resolution, and more visible contribution, which increases the odds of pay growth and promotion. In low-interdependence roles, the same trait has fewer opportunities to create observable performance signals, so its incremental effect should collapse toward zero. To make this testable, define role interdependence using job-family dependency maps, span of internal stakeholders, cross-functional project load, or manager-rated coordination intensity, then validate the interaction out of sample against a simpler baseline model.",
+    "target_constructs": [
+      "SHL cross-functional brokerage potential",
+      "SHL influence/relationship management constructs",
+      "role network centrality / bridge-point exposure",
+      "compensation growth",
+      "promotion or advancement velocity",
+      "business performance outcomes"
+    ],
+    "scorecard": {
+      "business_value": 0.84,
+      "novelty": 0.7,
+      "depth": 0.88,
+      "actionability": 0.74,
+      "strategic_importance": 0.74,
+      "feasibility": 0.43333333333333335,
+      "organizational_impact": 0.62,
+      "expected_insight": 0.78,
+      "confidence": 0.61,
+      "future_extensibility": 0.87,
+      "composite": 0.7312666666666665,
+      "dimension_notes": {
+        "business_value": "This hypothesis has strong business value because it could change how SHL is used for selection, role design, and promotion by identifying when assessment signals actually convert into performance, though the impact is somewhat constrained by the cohort’s limited organizational context and the risk of overfitting to network effects in a single data asset.",
+        "strategic_importance": "This hypothesis is strategically important because it could materially improve how the organization predicts and rewards leadership potential by aligning talent decisions to role network conditions, but it is still a secondary lever relative to broader workforce design and performance management priorities.",
+        "actionability": "If validated, this would directly inform role design, placement, and talent deployment decisions by identifying where brokerage-oriented profiles are likely to pay off, though the intervention is more about matching people to network-rich roles than changing the underlying behavior itself.",
+        "organizational_impact": "If true, this would meaningfully affect how the organization interprets assessment data, role design, and promotion decisions across a broad talent pipeline, but its impact is bounded by the fact that it applies mainly to roles with real network bridge exposure rather than the whole workforce.",
+        "feasibility": "2/6 target constructs map onto known data categories.",
+        "novelty": "The hypothesis is fairly novel because it moves beyond a generic ‘high potential predicts performance’ claim to a contingent person–role/network interaction, but the underlying brokerage-to-advancement logic is still a known people-analytics theme rather than a highly original concept.",
+        "depth": "This hypothesis goes beyond a surface correlation by specifying a contingent person–role mechanism—brokerage competencies matter only when the role provides network bridge exposure—so it explains why the same profile can succeed or fail depending on context.",
+        "expected_insight": "This hypothesis is likely to yield fairly informative, non-obvious insight because it tests a contingent person–role mechanism rather than a simple trait-outcome link, but the expected surprise is moderated by the risk that any apparent network effect is partly a proxy for role level, visibility, or already-known promotion dynamics.",
+        "confidence": "The mechanism is plausible and well-grounded in job design and network theory, but confidence is only moderate because the cohort lacks direct measures of actual network position, lived context, and 360/engagement data, making it easy to mistake role selection effects or assessment signal for true brokerage-driven performance.",
+        "future_extensibility": "This hypothesis is highly extensible because a confirmed person–role interaction around brokerage would naturally open follow-on questions about boundary conditions, job design, team network structure, and whether similar contingent effects hold for other competencies, outcomes, and business contexts."
+      }
+    },
+    "critique": {
+      "is_obvious": true,
+      "executive_relevance": "Moderate, but currently too abstract. Executives may care about improving talent allocation and avoiding false positives in leadership potential, but this is framed as an analytics thesis, not a decision. It needs a direct link to a policy choice: where to place, promote, or fast-track people based on SHL profiles and role network structure.",
+      "creates_actionable_decision": false,
+      "similar_to_prior": false,
+      "similar_prior_ids": [
+        "hist_0e96fcb21201",
+        "hist_fdf0704cbbf5",
+        "hist_59b0f1485014"
+      ],
+      "reveals_hidden_mechanism": true,
+      "downstream_feasible": true,
+      "issues": [
+        "This is a near-duplicate of prior hypotheses: role-context moderation of psychometric signals and brokerage effects on compensation/promotion are already established in the record.",
+        "The main claim is unsurprising: network-oriented traits matter more in networked roles than in siloed roles. That is a generic interaction, not a sharp hypothesis.",
+        "It is not yet tied to a specific executive decision. Should the company redesign roles, change assessment cutoffs, alter succession slates, or prioritize certain placements?",
+        "The proposed mechanism is plausible but still surface-level unless you define measurable network exposure, interdependence, and bridge-point roles in operational terms.",
+        "The dependent variables are broad and partly conflated. Compensation growth, advancement, and business results are not the same outcome and may move on different timelines.",
+        "The cohort lacks hierarchy, 360s, and engagement data, so the hypothesis may be underidentified if you expect to infer “business value” from assessment profiles alone.",
+        "There is a substantial risk of post-hoc overfitting: brokerage-like competencies often correlate with generic managerial success, so any apparent effect could just be role seniority, visibility, or job family effects.",
+        "The hypothesis does not specify the baseline model, comparison group, or time horizon clearly enough for a downstream test.",
+        "It is unclear how SHL profiles would validly measure “cross-functional brokerage and influence” without constructing the feature in a way that is partly tautological.",
+        "The statement that isolated roles may mask value is testable, but as written it is too broad to reject or confirm cleanly."
+      ],
+      "suggested_improvements": [
+        "Convert this into a single falsifiable interaction: e.g., brokerage score × role interdependence predicts pay growth over 12–24 months, controlling for level, function, geography, and prior performance.",
+        "Define bridge-point roles operationally using job architecture data, dependency maps, meeting/network traces, or manager-reported interdependence, not vague labels.",
+        "Split outcomes into one primary executive-relevant outcome and one secondary outcome. Example: promotion probability as primary, compensation growth as secondary.",
+        "State the business decision explicitly: should SHL scores be weighted differently by role family when selecting candidates for high-mobility or leadership tracks?",
+        "Add a null expectation and effect direction. For example, brokerage should have near-zero incremental lift in low-interdependence roles.",
+        "Pre-register the interaction and include an out-of-sample validation plan to avoid story-fitting.",
+        "If possible, compare against a simpler baseline such as general cognitive ability or prior performance to show incremental value, not just correlation.",
+        "Narrow the hypothesis to a specific cohort segment where the mechanism is most likely to operate, such as early-tenure employees in matrixed roles.",
+        "Operationalize business results in a way that a downstream analysis agent can actually test, such as revenue per head, project outcomes, or bonus progression.",
+        "Avoid claiming the assessment profile predicts both “business value” and “network position” unless you can separate trait measurement from role exposure; otherwise the mechanism is muddled."
+      ],
+      "critic_name": "checklist_critic"
+    },
+    "search_stats": {
+      "iterations_run": 4,
+      "candidates_generated": 4,
+      "candidates_discarded": 0,
+      "lenses_explored": [
+        "compensation_fairness",
+        "leadership_influence",
+        "network_effects",
+        "skill_concentration"
+      ],
+      "diversity_score": 1.0,
+      "termination_reason": "converged"
+    },
+    "generated_at": "2026-07-23T18:27:53.048695+00:00",
+    "insightId": "insight_105846777a1e"
+  },
+  {
+    "id": "hist_9103d3dc9c63",
+    "imageURL": "sample_data/card_images/hist_9103d3dc9c63.svg",
+    "title": "Leadership scores predict promotions more than day-to-day performance",
+    "description": "The hypothesis says baseline SHL leadership scores will forecast 12-month promotion speed and pay growth more strongly than same-level performance, especially in functions with high internal mobility and leadership-track progression. If true, the scores are less a measure of current effectiveness than a signal of who gets broader opportunities next.",
+    "readmoreURL": "sample_data/hypotheses/hist_9103d3dc9c63.html",
+    "reaction": "none",
+    "organization_id": "shl-sample-cohort",
+    "lens": "leadership_influence",
+    "statement": "Baseline SHL leadership competency scores will predict 12-month promotion velocity and compensation growth more strongly than they predict same-level performance, and that predictive value will be concentrated in roles and functions with high internal mobility and leadership-track progression. We expect the effect to be largest for top-decile leadership scores and to weaken materially in low-mobility roles, because the score is primarily a signal of advancement readiness rather than a universal proxy for on-role effectiveness.",
+    "mechanism": "The proposed mechanism is opportunity mediation, but framed as a testable selection process rather than a hidden causal claim: stronger SHL results increase the likelihood that managers place people on promotion slates, assign broader scope, nominate them for stretch work, or move them into higher-exposure roles. Those opportunity gains are what then translate into faster pay and level progression. To avoid conflating this with prior performance, the design should be time-ordered: baseline SHL -> subsequent exposure proxies (lateral moves, scope changes, interim assignments, leadership-program nominations, promotion slate inclusion, manager changes) -> later promotion/compensation outcomes, with lagged controls for prior level and prior performance where available. The falsifiable test is whether SHL retains incremental predictive power after these exposure proxies are added: if it does, SHL is doing more than selecting people into opportunity; if it largely disappears, its value is mainly as an access-to-opportunity signal, especially in leadership-track roles.",
+    "target_constructs": [
+      "SHL leadership competency scores",
+      "business outcomes",
+      "on-role performance",
+      "stretch assignments",
+      "role complexity",
+      "internal visibility",
+      "promotion opportunities",
+      "assignment quality"
+    ],
+    "scorecard": {
+      "business_value": 0.82,
+      "novelty": 0.73,
+      "depth": 0.84,
+      "actionability": 0.78,
+      "strategic_importance": 0.83,
+      "feasibility": 0.375,
+      "organizational_impact": 0.66,
+      "expected_insight": 0.74,
+      "confidence": 0.67,
+      "future_extensibility": 0.88,
+      "composite": 0.7414000000000001,
+      "dimension_notes": {
+        "business_value": "If validated, this would materially change how executives interpret leadership scores—separating true in-role effectiveness from opportunity access—while informing promotion, assignment, and talent-mobility decisions, though the impact is somewhat limited by the cohort’s lack of lived organizational context and the risk of overfitting to assessment data.",
+        "strategic_importance": "This hypothesis is strategically important because it directly affects how the organization interprets leadership scores for promotion, succession, and talent investment decisions, which are top-tier priorities, though its scope is somewhat narrowed by the cohort’s lack of broader operational context.",
+        "actionability": "If confirmed, this would directly inform how SHL should use leadership scores in promotion and talent-mobility decisions—separating assessment signal from actual performance—but the intervention is somewhat indirect because it mostly changes decision-making rules and data controls rather than a single operational lever.",
+        "organizational_impact": "If validated, this would affect promotion, stretch-assignment, and talent-mobility decisions across the assessed population and likely influence how leadership potential is interpreted enterprise-wide, but the impact is bounded by the fact that this is still a cohort-level talent system rather than a full organizational operating model.",
+        "feasibility": "2/8 target constructs map onto known data categories.",
+        "novelty": "The hypothesis is meaningfully more novel than a standard leadership-to-performance check because it tests an opportunity-mediated mechanism (stretch assignments, visibility, promotion access) rather than a direct predictive link, but the general idea of assessment scores shaping advancement and then outcomes is familiar in talent analytics rather than truly groundbreaking.",
+        "depth": "This hypothesis goes beyond a surface correlation by positing a clear mediation mechanism—assessment signals driving opportunity access, which then drives outcomes—and even specifies the conditional test needed to separate apparent from true performance effects.",
+        "expected_insight": "This hypothesis is likely to yield fairly insightful results because it tests a non-obvious mediation story—whether leadership scores predict outcomes mainly by unlocking opportunities rather than by directly improving performance—but the insight is limited somewhat by the cohort’s thin organizational-context data and the real risk that any observed attenuation could reflect measurement gaps or selection effects rather than a true mechanism.",
+        "confidence": "The opportunity-mediation mechanism is plausible and consistent with how leadership assessments often influence access to stretch roles, but the cohort’s lack of hierarchy, 360s, and engagement data makes it hard to rule out confounding or overfitting, so confidence is moderate rather than high.",
+        "future_extensibility": "This hypothesis is highly extensible because testing opportunity mediation would naturally branch into follow-on questions about role criticality, promotion gating, manager bias, and whether the SHL constructs generalize across contexts, creating a durable research program rather than a one-off finding."
+      }
+    },
+    "critique": {
+      "is_obvious": false,
+      "executive_relevance": "Moderate. Executives would care if the claim changes how they use assessment scores in promotion and succession decisions, but the current framing is too abstract and data-dependent to drive an immediate decision. It needs a clear testable business choice: when to trust SHL scores, when to discount them, and what decision rule changes as a result.",
+      "creates_actionable_decision": true,
+      "similar_to_prior": false,
+      "similar_prior_ids": [
+        "hist_781188e22517",
+        "hist_be50a714e2fc",
+        "hist_e27270e5fa60"
+      ],
+      "reveals_hidden_mechanism": true,
+      "downstream_feasible": true,
+      "issues": [
+        "The mechanism is plausible but not cleanly separable from selection bias: stretch assignments and promotions are usually themselves based on prior performance and manager judgment, so the hypothesis risks re-describing the same gatekeeping process rather than identifying an independent mechanism.",
+        "It may be impossible to distinguish 'assessment predicts opportunity' from 'assessment predicts performance that earns opportunity' without very strong time-ordering and exposure data.",
+        "'Business outcomes' is too broad. Promotion velocity, compensation growth, and performance are different outcomes with different causal paths; bundling them weakens the hypothesis.",
+        "The claim could be confounded by role family and level: leadership scores may matter more in roles that are already on a leadership track, which makes the finding partly tautological.",
+        "The hypothesis is not very novel relative to the prior items. It is essentially another version of 'assessment scores work through manager-mediated opportunity and visibility,' just with different covariates.",
+        "The phrase 'once opportunity exposure is held constant' is doing too much work. If opportunity is measured crudely, controlling for it may induce bad adjustment or hide the real effect.",
+        "There is no explicit decision threshold or expected direction by subgroup. Without that, executives cannot tell whether to change assessment use, manager calibration, or succession policy.",
+        "The asset is described as weak on lived organizational context, yet this hypothesis requires exactly that missing context (stretch assignments, visibility, role complexity). It may not be testable at the claimed fidelity from the available data.",
+        "The hypothesis risks overclaiming causality from observational data. At best, you can test incremental predictive power and mediation patterns, not prove the hidden mechanism.",
+        "If leadership scores only predict access to opportunity, that may still be valuable; the hypothesis currently frames direct performance prediction as the baseline without clarifying why that distinction matters operationally."
+      ],
+      "suggested_improvements": [
+        "Narrow the outcome to one primary business decision, such as promotion within 12 months or compensation progression, rather than 'business outcomes' generally.",
+        "Pre-register a time-ordered mediation design: SHL score at baseline -> subsequent assignment exposure -> later promotion/performance, with lagged controls for prior performance and level.",
+        "Specify measurable proxies for 'opportunity exposure' using data that likely exist: lateral moves, scope changes, manager changes, interim assignments, leadership program nominations, and promotion slates.",
+        "State the executive decision explicitly: for example, 'use SHL as an access-to-opportunity signal only in roles with high internal mobility, and downweight it for direct performance forecasting.'",
+        "Test heterogeneity by role criticality, function, and level instead of assuming a single global mechanism.",
+        "Separate two hypotheses: one about prediction of opportunity, one about prediction of post-opportunity performance, so each can be tested cleanly.",
+        "Add a falsifiable contrast: if SHL remains predictive after accounting for opportunity exposure, the mechanism is not just mediation; if it disappears, the score is mostly a selection/access tool.",
+        "Define whether 'leadership competency' means a composite, specific UCF dimensions, or top-decile scores. Executives need to know which construct matters.",
+        "Avoid saying 'hidden mechanism' unless you can actually observe the mediator. Rename it as 'hypothesized opportunity mediation' to reduce overstatement."
+      ],
+      "critic_name": "checklist_critic"
+    },
+    "search_stats": {
+      "iterations_run": 6,
+      "candidates_generated": 6,
+      "candidates_discarded": 0,
+      "lenses_explored": [
+        "attrition_hidden_drivers",
+        "leadership_influence",
+        "network_effects",
+        "psychometric_fit"
+      ],
+      "diversity_score": 0.6666666666666666,
+      "termination_reason": "converged"
+    },
+    "generated_at": "2026-07-23T18:31:01.534729+00:00",
+    "insightId": "insight_3b29705775a7"
+  },
+  {
+    "id": "hist_0b390f651ca9",
+    "imageURL": "sample_data/card_images/hist_0b390f651ca9.svg",
+    "title": "Promotion becomes less tied to rewards as roles get more senior",
+    "description": "The hypothesis argues that strong ratings, bonuses, or pay growth may predict promotion at lower levels, but matter less as employees move up. At higher levels, advancement depends more on evidence of strategic judgment, learning speed, and influence. For executives, that suggests promotion systems may be rewarding current performance while selecting future leaders by a different standard.",
+    "readmoreURL": "sample_data/hypotheses/hist_0b390f651ca9.html",
+    "reaction": "none",
+    "organization_id": "shl-sample-cohort",
+    "lens": "promotion_equity",
+    "statement": "Controlling for job level, function, tenure, manager, prior promotion opportunity, and formal performance-rating criteria, employees with higher short-term reward signals (performance rating, bonus/merit growth, or pay progression) will not be equally likely to be promoted if their SHL UCF profile is concentrated in execution-oriented competencies rather than strategic-adaptation competencies (e.g., strategic thinking, learning agility, influence/impact). Specifically, the predictive gap between reward and promotion will widen with seniority: at higher job levels, promotion will depend more on strategic-adaptation scores than on contemporaneous reward signals, and this divergence will be strongest in functions or geographies with greater role complexity or smaller promotion pools.",
+    "mechanism": "The hidden mechanism is not merely that senior roles require 'more leadership,' but that organizations implicitly switch the decision rule as employees move up the hierarchy. Near the middle levels, reward systems primarily reinforce visible current performance, while promotion decisions increasingly weight evidence of cross-boundary influence, learning speed, and readiness for ambiguity. This creates a measurable decoupling between being rewarded for execution and being selected for advancement: the same employee profile can continue to earn strong ratings or compensation growth yet fall short on the specific competency mix used to justify upward movement. The critical test is the level-by-level interaction: if the reward-to-promotion relationship weakens as strategic-adaptation competencies become more decisive, that indicates a real shift in merit criteria rather than a generic performance-promotion gap. If the gap is absent after controlling for promotion opportunity and role constraints, the hypothesis is falsified; if it is concentrated in particular functions or strata, that identifies where the hidden filter is operating and what promotion architecture or calibration policy should be changed.",
+    "target_constructs": [
+      "current performance rating",
+      "compensation",
+      "promotion or next-level advancement",
+      "job level",
+      "strategic adaptation",
+      "learning agility",
+      "leadership potential",
+      "role fit"
+    ],
+    "scorecard": {
+      "business_value": 0.72,
+      "novelty": 0.62,
+      "depth": 0.78,
+      "actionability": 0.78,
+      "strategic_importance": 0.84,
+      "feasibility": 0.46249999999999997,
+      "organizational_impact": 0.71,
+      "expected_insight": 0.78,
+      "confidence": 0.63,
+      "future_extensibility": 0.84,
+      "composite": 0.715,
+      "dimension_notes": {
+        "business_value": "This hypothesis could meaningfully shape promotion and talent-review decisions by revealing a hidden gap between reward and advancement criteria, and it is actionable with existing assessment data, though its value is tempered by reliance on proxy outcomes and the likelihood that it confirms a fairly familiar but still important HR pattern.",
+        "strategic_importance": "Promotion equity tied to the split between current performance and leadership-readiness is highly strategic because it directly affects succession, retention, and leadership pipeline quality, though it is still somewhat narrower than a core enterprise outcome like revenue or risk.",
+        "actionability": "If confirmed, the hypothesis points to a clear intervention: decouple reward and promotion criteria, audit level-specific promotion signals, and redesign competency models so advancement weights strategic adaptation and leadership potential more explicitly, especially at higher job levels.",
+        "organizational_impact": "If true, this would affect a broad swath of promotion, reward, and succession decisions across multiple levels, so the organizational footprint is substantial, though it is still narrower than a companywide operating issue because it centers on talent progression rather than core business operations.",
+        "feasibility": "3/8 target constructs map onto known data categories.",
+        "novelty": "The hypothesis is more interesting than a standard promotion-gap comparison because it posits a two-stage merit filter that shifts with job level, but it still builds on a fairly familiar talent-management idea about performance versus leadership potential.",
+        "depth": "The hypothesis goes beyond a surface correlation by proposing a two-stage promotion mechanism that separates short-term performance rewards from hidden leadership-readiness criteria, especially at higher levels, though it is still partly inferential because the available data only indirectly observe the mechanism.",
+        "expected_insight": "If supported, the hypothesis would reveal a fairly informative two-stage merit system—where promotion criteria diverge from reward criteria and tighten with level—offering more insight than a simple performance-promotion correlation, though the pattern is still plausible and not highly novel in leadership-selection settings.",
+        "confidence": "The mechanism is plausible and aligns with common promotion-versus-performance divergence, but the reliance on proxy outcomes, missing context, and likely confounding by job family/level keep confidence moderate rather than high.",
+        "future_extensibility": "If supported, this would open a strong research program on whether promotion criteria shift from performance to leadership-readiness across levels, enabling follow-on studies on competency thresholds, job-family differences, and predictive validity of assessment constructs."
+      }
+    },
+    "critique": {
+      "is_obvious": true,
+      "executive_relevance": "Moderate at best. Executives already know that promotion criteria differ from performance criteria; this reads like a generic talent-management truism unless it can show a measurable, decision-relevant gap by level, function, or process stage. As written, it is more diagnostic theater than a strategic lever.",
+      "creates_actionable_decision": false,
+      "similar_to_prior": false,
+      "similar_prior_ids": [
+        "hist_f27b65d5060d",
+        "hist_e27270e5fa60",
+        "hist_781188e22517"
+      ],
+      "reveals_hidden_mechanism": true,
+      "downstream_feasible": true,
+      "issues": [
+        "The core claim is close to obvious: high performance does not always translate to promotion, and higher roles often emphasize broader leadership traits. That is standard HR doctrine, not a sharp hypothesis.",
+        "The hypothesis is under-specified. 'Strong current performance signals,' 'weaker strategic-adaptation and leadership-potential competencies,' and 'larger at higher job levels' are too vague to test cleanly without explicit measurement definitions and thresholds.",
+        "It conflates two different outcomes: reward in the present versus promotion later. Those may move together, separate, or be driven by different processes; the hypothesis should specify which proxy outcome is expected to diverge and by how much.",
+        "The proposed mechanism is plausible but not hidden enough. A 'second-stage filter' for leadership readiness is exactly what many promotion systems are designed to do. Saying organizations use broader leadership criteria is not revealing a novel mechanism.",
+        "The hypothesis risks tautology: if leadership-potential competencies are part of promotion criteria, then of course low scores on them predict lower promotion. The interesting part would be whether the gap widens after controlling for formal promotion criteria and role-level constraints.",
+        "It does not clearly identify the decision point executives would act on. Knowing there is a reward-to-promotion gap does not tell them whether to change calibration, redesign promotion criteria, retrain managers, or alter leveling architecture.",
+        "The comparison across job levels may be confounded by changing candidate pools, smaller promotion opportunities, different pay systems, and eligibility rules. A widening gap might reflect structural bottlenecks rather than a different merit model.",
+        "It is similar in spirit to the recorded hypotheses about sponsorship, HiPo status, and succession-pool attrition: all are about hidden filters beyond performance that affect advancement.",
+        "The available outcomes named in the narrative are proxies, but the hypothesis still assumes promotion is observed well enough to compare against rewards. If promotion data are weak or inconsistent, the test may be noisy or biased.",
+        "The hypothesis does not propose a clear falsifier. If the gap is flat across levels, is that because the mechanism is false, because competencies are mismeasured, or because promotion processes are uniform?",
+        "The phrase 'rewarded in the present' is ambiguous: pay, bonus, performance rating, assignment quality, visibility, or recognition? Each would imply a different mechanism and test."
+      ],
+      "suggested_improvements": [
+        "Reframe into a sharper, falsifiable question: 'After controlling for level, function, tenure, manager, and prior promotion opportunity, does performance-based reward predict promotion less strongly than leadership-potential competency, and does that differential increase at higher levels?'",
+        "Define the exact reward outcome and promotion outcome separately, using observable proxies such as performance rating, bonus, merit increase, pay growth, job-level increase, or successor nomination.",
+        "Specify the competency dimensions operationally, preferably from SHL UCF scores, and pre-register a small set of constructs such as strategic adaptability, learning agility, and influence.",
+        "Add a mechanism test: compare level-by-level marginal effects of performance versus leadership-potential scores on promotion, rather than just comparing raw promotion rates.",
+        "Make the hypothesis decision-relevant by tying it to a policy choice, e.g., whether to modify promotion calibration criteria, build level-specific competency weights, or separate compensation from promotion more explicitly.",
+        "If possible, include a benchmark against role complexity or job family so the analysis can distinguish true readiness filtering from structural promotion scarcity.",
+        "Strengthen novelty by testing whether the reward-to-promotion gap is concentrated in certain functions, geographies, or manager strata, which would reveal where the hidden filter actually operates.",
+        "State a clear null hypothesis and expected direction with an explicit interaction term for job level."
+      ],
+      "critic_name": "checklist_critic"
+    },
+    "search_stats": {
+      "iterations_run": 4,
+      "candidates_generated": 4,
+      "candidates_discarded": 0,
+      "lenses_explored": [
+        "communication_protection",
+        "leadership_influence",
+        "network_effects",
+        "promotion_equity"
+      ],
+      "diversity_score": 1.0,
+      "termination_reason": "converged"
+    },
+    "generated_at": "2026-07-23T18:33:24.388673+00:00",
+    "insightId": "insight_ef42a771607a"
+  },
+  {
+    "id": "hist_13b1643ad582",
+    "imageURL": "sample_data/card_images/hist_13b1643ad582.svg",
+    "title": "HiPos advance faster under managers with a proven development record",
+    "description": "The hypothesis says that among similarly assessed high-potential candidates, those led by managers who create stretch opportunities and sponsor promotions should turn potential into readiness and internal movement more quickly. For executives, that means slower progression may reflect the manager’s development environment, not the person’s underlying capability.",
+    "readmoreURL": "sample_data/hypotheses/hist_13b1643ad582.html",
+    "reaction": "none",
+    "organization_id": "shl-sample-cohort",
+    "lens": "leadership_influence",
+    "statement": "Among otherwise similar assessed HiPo candidates, exposure to managers who demonstrably create stretch assignments and sponsor promotions should predict faster conversion of psychometric potential into successor readiness and internal movement; the actionable decision is whether to route HiPos toward managers with a proven development record and to discount delayed advancement when a candidate has been held in a low-development assignment environment.",
+    "mechanism": "The mechanism is not generic ‘good management,’ but development capacity: some managers systematically transform latent potential into visible readiness by (1) allocating broader, higher-risk assignments, (2) calibrating and advocating readiness at the point of promotion review, and (3) creating internal mobility opportunities that bypass local promotion scarcity. If this mechanism is real, the signal should appear when the same candidate is exposed to different managers over time or after manager changes, and it should be strongest for manager behaviors that are measurable in prior direct reports’ stretch exposure, readiness calibration accuracy, and promotion/mobility timing. This also makes the hypothesis testable as a decision rule: when assigning or calibrating HiPos, weight psychometrics more heavily only if the manager’s development/sponsorship track record is strong; otherwise treat slower progression as more likely an artifact of the environment than of the candidate’s underlying potential.",
+    "target_constructs": [
+      "assessed high-potential / psychometric potential",
+      "leadership quality",
+      "developmental stretch exposure",
+      "manager sponsorship / advocacy",
+      "succession readiness",
+      "role progression / promotion velocity",
+      "tenure",
+      "performance rating",
+      "compensation"
+    ],
+    "scorecard": {
+      "business_value": 0.81,
+      "novelty": 0.62,
+      "depth": 0.84,
+      "actionability": 0.74,
+      "strategic_importance": 0.79,
+      "feasibility": 0.5111111111111111,
+      "organizational_impact": 0.77,
+      "expected_insight": 0.78,
+      "confidence": 0.43,
+      "future_extensibility": 0.86,
+      "composite": 0.7254888888888891,
+      "dimension_notes": {
+        "business_value": "This hypothesis has high business value because it could materially change succession, promotion, and manager-development decisions by showing that leadership quality moderates whether high-potential talent actually advances; it is actionable and strategically important, though the impact is somewhat tempered by reliance on proxy outcomes and the risk that the mechanism may be harder to validate cleanly in the available data.",
+        "strategic_importance": "This hypothesis sits close to a top talent-management priority because it targets succession readiness and promotion velocity—decisions with real leadership pipeline consequences—though it is somewhat narrower than a full enterprise strategy question and is constrained by proxy outcomes.",
+        "actionability": "If confirmed, the hypothesis points to a concrete intervention—improving leader quality, stretch assignments, and sponsorship for high-potentials—so it is fairly actionable, though the intervention is somewhat broad and would still need more precise operational definitions and measurement to implement well.",
+        "organizational_impact": "If true, this would affect succession, promotion, and development decisions across a broad share of the talent pipeline, with potential spillover into leadership bench strength and retention, though the impact is bounded by the fact that it primarily concerns assessed candidates and internal progression rather than the whole business.",
+        "feasibility": "4/9 target constructs map onto known data categories.",
+        "novelty": "The hypothesis is more nuanced than a standard high-potential-versus-performance comparison because it introduces a leader-quality moderation mechanism, but the underlying idea that talent needs managerial sponsorship and stretch is familiar in HR/leadership research.",
+        "depth": "This hypothesis goes beyond a simple correlation between potential and promotion by proposing a moderating mechanism—leadership quality as a multiplier that converts latent ability into observable progression—which makes it meaningfully explanatory rather than merely descriptive.",
+        "expected_insight": "If confirmed, this would be fairly informative because it tests a non-obvious interaction between potential and leadership context that can explain why similar talent profiles progress differently, though the insight is somewhat bounded by the use of proxy outcomes and the likelihood that some of the effect is already familiar to talent leaders.",
+        "confidence": "The mechanism is plausible and consistent with leadership-development theory, but without strong organizational context, direct measures of leader quality, and clear causal identification, it is only moderately credible rather than highly confident.",
+        "future_extensibility": "If validated, this would open a broad research program on leader-as-multiplier effects, enabling follow-on questions about which leader behaviors, contexts, and candidate profiles most reliably convert potential into succession readiness and promotion velocity."
+      }
+    },
+    "critique": {
+      "is_obvious": true,
+      "executive_relevance": "Moderate at best. Executives may care about succession and leadership development, but this is still framed as an analytical interaction effect on proxy outcomes, not a clear business decision. It reads like a research question for HR analytics, not a leadership policy lever that would change capital allocation, structure, or succession governance.",
+      "creates_actionable_decision": false,
+      "similar_to_prior": false,
+      "similar_prior_ids": [
+        "hist_be50a714e2fc",
+        "hist_781188e22517",
+        "hist_7ad369cc1921"
+      ],
+      "reveals_hidden_mechanism": true,
+      "downstream_feasible": true,
+      "issues": [
+        "This is largely a restatement of the common-sense idea that manager quality affects employee growth. That is not novel.",
+        "It is too close to the prior hypotheses: it reuses the same interaction structure (potential x manager quality) and the same advancement proxies (promotion velocity, readiness, internal mobility, compensation, ratings).",
+        "The mechanism is plausible but still generic. 'High-quality leaders provide stretch, feedback, and sponsorship' is a bundle of behaviors, not a testable mechanism unless decomposed.",
+        "The hypothesis depends on poorly observed constructs: 'high-potential,' 'high-quality leaders,' and 'faster role progression' are all noisy and potentially endogenous. Stronger employees may be assigned to better managers, which can create reverse causality.",
+        "It does not specify a decision threshold or what executives should do differently if true. Should they change assignment policy, manager selection, succession calibration, or development investments?",
+        "The phrase 'under weaker leadership, the same psychometric potential will translate into slower advancement despite similar tenure, ratings, and compensation trajectories' is too conditional and likely underpowered once you control for those variables; it risks becoming an overfit artifact rather than a clear signal.",
+        "It does not clearly separate effects of manager quality from team context, business unit, job architecture, or local promotion scarcity, all of which are likely major confounders.",
+        "The proposition that 'apparent gaps in promotion or readiness may reflect ... whether the surrounding leadership environment allows potential to become visible' is plausible, but it is more explanatory than actionable unless tied to a measurable intervention.",
+        "Downstream testing is feasible in principle, but only if there is a clean longitudinal linking of candidate assessments to subsequent manager quality and well-defined promotion/sponsorship events; otherwise the test will be too noisy to trust."
+      ],
+      "suggested_improvements": [
+        "Narrow the outcome to a single operational decision, such as whether to weight psychometrics differently when assigning HiPos to managers or when calibrating succession slates.",
+        "Replace the vague 'high-quality leaders' construct with a preregistered, measurable manager index using specific behaviors or outcomes: rate of stretch assignments, internal mobility, calibrated readiness accuracy, or promotion timing of prior direct reports.",
+        "Specify a stronger causal contrast: compare the same HiPo under different managers over time, or exploit manager changes/reshuffles, rather than a cross-sectional interaction.",
+        "Define the intervention executives could take if the hypothesis holds: for example, route HiPos to high-development managers, require sponsorship coverage, or discount promotion lag under low-quality managers in calibration.",
+        "Disaggregate the mechanism into separable components—stretch, feedback, sponsorship—so the analysis can test which lever actually drives progression.",
+        "Use a more concrete and less redundant framing than 'potential only converts when placed under high-quality leaders'; that is intuitive. A better hypothesis would identify a specific moderation pattern and a decision rule.",
+        "Add a business-relevant endpoint beyond promotion velocity, such as successor readiness, retention of critical talent, or time-to-fill key roles, if the organization actually cares about leadership pipeline health.",
+        "Pre-register controls for business unit, geography, job family, level, prior performance, and promotion opportunity density to reduce the chance that the result is just selection bias.",
+        "Consider whether this is too similar to a prior hypothesis to justify another execution unless you can isolate a new mechanism or a new decision context."
+      ],
+      "critic_name": "checklist_critic"
+    },
+    "search_stats": {
+      "iterations_run": 5,
+      "candidates_generated": 5,
+      "candidates_discarded": 0,
+      "lenses_explored": [
+        "attrition_hidden_drivers",
+        "leadership_influence",
+        "learning_velocity",
+        "promotion_equity",
+        "skill_concentration"
+      ],
+      "diversity_score": 1.0,
+      "termination_reason": "converged"
+    },
+    "generated_at": "2026-07-23T18:36:34.526387+00:00",
+    "insightId": "insight_fa2e89c6c7da"
+  },
+  {
+    "id": "hist_0d26db4e16a6",
+    "imageURL": "sample_data/card_images/hist_0d26db4e16a6.svg",
+    "title": "Strong potential can still lead to exit when leadership fit is poor",
+    "description": "High-potential employees may leave sooner when they are placed in leadership roles that do not fit the local manager or team context, even if their performance signals and pay progression are strong. The hypothesis suggests retention depends not just on talent and compensation, but on how well a person’s style matches the role environment. For executives, that means attrition risk can hide in pla…",
+    "readmoreURL": "sample_data/hypotheses/hist_0d26db4e16a6.html",
+    "reaction": "up",
+    "organization_id": "shl-sample-cohort",
+    "lens": "attrition_hidden_drivers",
+    "statement": "High-potential employees will be more likely to leave when they are placed into leadership roles where their style is a poor fit for the local manager/team context, even if their assessment scores and compensation trajectory are strong.",
+    "mechanism": "The hidden mechanism is that retention is being driven less by raw potential or pay and more by immediate social and role-context fit at the point of placement. When a leader’s working style, decision cadence, or influence orientation clashes with the manager’s expectations or the team’s norms, the employee is more likely to experience friction, reduced psychological reward, and stalled opportunity translation—turning a strong talent signal into early exit risk. This would create false negatives in retention analyses that rely mainly on assessment and compensation data, because the true driver is contextual misalignment rather than underpayment or lack of capability.",
+    "target_constructs": [
+      "perceived leader-team fit",
+      "voluntary attrition",
+      "regrettable attrition",
+      "SHL leadership style / psychometric profile",
+      "assessment scores",
+      "compensation trajectory",
+      "manager context",
+      "team context",
+      "placement into leadership role"
+    ],
+    "scorecard": {
+      "business_value": 0.86,
+      "novelty": 0.68,
+      "depth": 0.88,
+      "actionability": 0.82,
+      "strategic_importance": 0.88,
+      "feasibility": 0.43333333333333335,
+      "organizational_impact": 0.73,
+      "expected_insight": 0.78,
+      "confidence": 0.67,
+      "future_extensibility": 0.88,
+      "composite": 0.7702666666666667,
+      "dimension_notes": {
+        "business_value": "This hypothesis has high business value because confirming it would change leadership placement, retention-risk targeting, and manager matching decisions across a meaningful talent cohort, while also revealing a more actionable retention mechanism than pay or assessment scores alone.",
+        "strategic_importance": "This hypothesis is highly strategic because leadership placement, regrettable attrition, and manager/team fit sit directly on top of succession, retention, and internal mobility priorities that materially affect organizational performance and talent investment.",
+        "actionability": "A confirmed answer would point to concrete interventions—better role placement, manager/team matching, and post-placement support for high-potential leaders—so it is highly actionable, though not maximally so because the data may still limit precise prescription on how to redesign placements at scale.",
+        "organizational_impact": "If true, this would affect leadership placement, retention risk, and succession decisions across a meaningful slice of the talent pipeline, though the impact is concentrated in promoted high-potential employees rather than the entire workforce.",
+        "feasibility": "3/9 target constructs map onto known data categories.",
+        "novelty": "The hypothesis is meaningfully more novel than a standard attrition-by-pay or performance comparison because it centers on a hidden context-fit mechanism for high-potential leaders, but it still sits within a well-explored HR theme of person–manager/team fit and retention.",
+        "depth": "This hypothesis goes beyond a surface retention correlation by positing a specific hidden mechanism—contextual misfit between leadership style and local manager/team norms—that can convert strong potential into attrition risk, making it a genuinely deep explanatory model rather than a simple pattern description.",
+        "expected_insight": "If confirmed, the hypothesis would be meaningfully informative because it reframes attrition as a context-fit problem rather than a pure talent or pay issue, revealing a hidden mechanism that many assessment-led models miss; however, the insight is not completely novel in HR and will partly depend on how much contextual signal the dataset can actually capture.",
+        "confidence": "The mechanism is plausible and consistent with well-known retention dynamics around manager/team fit, but the available data description suggests limited direct contextual evidence, so confidence is moderate rather than high.",
+        "future_extensibility": "A confirmed result would likely open a rich follow-on agenda around fit-by-context models, placement optimization, manager/team interaction effects, and identifying when psychometric signals fail or need recalibration across roles and environments."
+      }
+    },
+    "critique": {
+      "is_obvious": true,
+      "executive_relevance": "Moderate, but mostly as a generic retention/fits-and-gaps story. Executives will care only if this can be turned into a placement or manager-assignment policy with measurable attrition reduction. As written, it reads like a commonsense statement that poor fit increases exit risk.",
+      "creates_actionable_decision": false,
+      "similar_to_prior": false,
+      "similar_prior_ids": [
+        "hist_13b1643ad582",
+        "hist_781188e22517",
+        "hist_0b390f651ca9"
+      ],
+      "reveals_hidden_mechanism": false,
+      "downstream_feasible": true,
+      "issues": [
+        "The core claim is not new: poor manager/team fit increases attrition. That is obvious and already implied by the three prior hypotheses about manager quality, pay progression, and reward-vs-promotion gaps.",
+        "It does not isolate a specific, testable mechanism beyond vague 'context fit' and 'social reward.' 'Poor fit' is too mushy to operationalize without defining dimensions of fit and timing.",
+        "It overlaps heavily with existing hypotheses that already cover manager effects, development opportunity, and the disconnect between assessment signals and advancement/exit. It is not distinct enough to justify executive attention as a separate hypothesis.",
+        "It mixes three different causal stories: leadership placement, manager/team mismatch, and underpayment/limited opportunity. That makes it harder to test and easier to explain away.",
+        "The proposition is directionally plausible but not decision-grade. It does not specify what action should change: placement rules, manager selection, team composition, or compensation calibration.",
+        "It risks being a tautology in the data available. If attrition is higher after leadership placement, that could reflect bad fit, bad managers, or simply that tougher roles burn people out. Without contextual data, the hypothesis may be untestable or confounded.",
+        "The phrase 'high-potential employees' is too broad; executives need a narrower segment where the prediction failure matters, such as first-time managers, lateral hires, or specific leadership bands.",
+        "The 'false positives in retention analyses' framing is weak. The real issue is selection bias and omitted variable bias, but that is an analytic concern, not yet an actionable business decision."
+      ],
+      "suggested_improvements": [
+        "Narrow the hypothesis to a concrete placement decision, e.g., 'First-time people leaders with a high influence orientation but low directive-style fit with the receiving manager will have materially higher 12-month exit risk.'",
+        "Define measurable fit dimensions using existing data or proxies: manager style, team norm, cadence of feedback, decision autonomy, span of control, or assessment dimensions tied to influence vs. execution.",
+        "Specify the outcome window and event: voluntary exit, internal transfer, role rejection, or failure to remain in role after X months.",
+        "State the executive decision explicitly: whether to screen placements, pair leaders with compatible managers, or delay leadership assignments until a fit threshold is met.",
+        "Make the mechanism sharper and less generic by identifying a moderation effect, not just a main effect—for example, the attrition penalty appears only when strong potential is paired with low-context support or when the role demands a style opposite to the candidate's profile.",
+        "If context data are sparse, recast the hypothesis around observable proxies that a downstream analysis agent could actually test, such as manager tenure, team turnover, role autonomy, or prior success in similar environments.",
+        "Differentiate it from the existing hypotheses by focusing on post-promotion retention among HiPos placed into leadership roles, rather than broader development or compensation effects."
+      ],
+      "critic_name": "checklist_critic"
+    },
+    "search_stats": {
+      "iterations_run": 6,
+      "candidates_generated": 6,
+      "candidates_discarded": 0,
+      "lenses_explored": [
+        "attrition_hidden_drivers",
+        "burnout_resilience",
+        "learning_velocity",
+        "promotion_equity",
+        "psychometric_fit"
+      ],
+      "diversity_score": 0.8333333333333334,
+      "termination_reason": "converged"
+    },
+    "generated_at": "2026-07-23T18:40:58.671968+00:00",
+    "insightId": "insight_893bfe1e6849"
+  },
+  {
+    "id": "hist_8d7d5e5f44a5",
+    "imageURL": "sample_data/card_images/hist_8d7d5e5f44a5.svg",
+    "title": "High-quality managers may accelerate promotion for equally qualified employees",
+    "description": "Employees matched on role, tenure, geography, and assessed potential may be promoted faster when they report to managers with stronger people-management behaviors. The effect is expected to be strongest where promotion decisions leave room for judgment, suggesting managers can turn latent talent into visible advancement. For executives, that points to people management as a lever for retaining an…",
+    "readmoreURL": "sample_data/hypotheses/hist_8d7d5e5f44a5.html",
+    "reaction": "none",
+    "organization_id": "shl-sample-cohort",
+    "lens": "leadership_influence",
+    "statement": "Among employees matched on level, function, tenure, geography, and assessed potential, those assigned to managers with independently measured high-quality people-management behaviors will show faster 12-month promotion velocity, primarily in roles where advancement is discretionary rather than formulaic.",
+    "mechanism": "The mechanism is not broad performance uplift but conversion of latent potential into decision-relevant evidence. High-quality managers more consistently allocate stretch assignments, visible work, and calibration advocacy, which increases the probability that assessed potential is observed and rewarded in promotion decisions. If the manager effect weakens materially after controlling for actual exposure to these opportunities, that would support opportunity allocation as the main pathway; if it persists, that would imply additional mechanisms such as better advocacy, team reputation, or reduced selection friction. The prediction should be strongest in contexts with high managerial discretion and weakest where promotion and pay decisions are tightly standardized.",
+    "target_constructs": [
+      "assessed potential",
+      "manager quality",
+      "stretch assignment access",
+      "visibility/sponsorship",
+      "promotion velocity",
+      "compensation growth",
+      "leadership readiness"
+    ],
+    "scorecard": {
+      "business_value": 0.78,
+      "novelty": 0.72,
+      "depth": 0.87,
+      "actionability": 0.71,
+      "strategic_importance": 0.89,
+      "feasibility": 0.4,
+      "organizational_impact": 0.74,
+      "expected_insight": 0.78,
+      "confidence": 0.67,
+      "future_extensibility": 0.84,
+      "composite": 0.7464,
+      "dimension_notes": {
+        "business_value": "This has strong business value because confirming that manager quality moderates the conversion of assessed potential into promotions and pay would materially affect talent review, manager development, and internal mobility decisions, though the impact is limited somewhat by feasibility and the need to rule out confounding with team context and opportunity access.",
+        "strategic_importance": "This hypothesis directly targets a top leadership priority—how talent is converted into promotion and pay outcomes—and, if true, would materially affect succession planning, manager development, and calibration decisions across the organization.",
+        "actionability": "If confirmed, this would directly suggest interventions around manager selection, manager training, sponsorship processes, and calibration of promotion decisions, though the path from finding to action depends on whether the organization can actually measure and change manager quality and opportunity allocation.",
+        "organizational_impact": "If true, this would affect a large share of leadership-pipeline employees and materially shape promotion, pay, and succession decisions across the organization, though the impact is somewhat bounded by the cohort size and the fact that it primarily influences high-potential talent rather than the entire workforce.",
+        "feasibility": "2/7 target constructs map onto known data categories.",
+        "novelty": "This goes beyond a generic ‘manager matters’ claim by proposing a moderation mechanism linking assessed potential to promotions and pay via opportunity allocation and sponsorship, but it still sits within a well-studied HR pattern rather than being truly unusual or field-defining.",
+        "depth": "This hypothesis goes beyond a surface correlation by positing a concrete latent mechanism—manager-mediated opportunity allocation and sponsorship—that explains why equal assessed potential can translate into different advancement outcomes across contexts.",
+        "expected_insight": "If true, this would be quite informative because it reframes promotion and pay gaps as partly a manager-mediated conversion problem rather than a pure talent-signal issue, though the basic idea is plausible and not wholly surprising in people analytics.",
+        "confidence": "The mechanism is plausible and well-grounded in talent management theory, but confidence is tempered by the likely confounding between manager quality, team context, and employee assignment/selection effects, especially given the stated lack of relational and contextual data.",
+        "future_extensibility": "This hypothesis should open a productive follow-on research agenda because it naturally extends into manager-level moderation, opportunity-allocation pathways, and fairness checks across talent models, though its next-step value is somewhat bounded by the cohort’s limited relational/contextual data."
+      }
+    },
+    "critique": {
+      "is_obvious": true,
+      "executive_relevance": "Moderate. Executives may care about manager quality affecting promotion and pay equity, but this formulation is too generic and already sounds like standard HR wisdom. It does not yet point to a distinct decision about where to intervene, how much to invest, or what would change in policy.",
+      "creates_actionable_decision": true,
+      "similar_to_prior": false,
+      "similar_prior_ids": [
+        "hist_be50a714e2fc",
+        "hist_781188e22517",
+        "hist_0e96fcb21201"
+      ],
+      "reveals_hidden_mechanism": true,
+      "downstream_feasible": true,
+      "issues": [
+        "The hypothesis is mostly a dressed-up version of a common claim: good managers create opportunities and bad managers suppress them. That is not a sharp insight.",
+        "It bundles multiple outcomes (promotion, compensation, stretch assignments, visibility, sponsorship) into one narrative, making it hard to test cleanly or isolate the causal path.",
+        "Manager quality is undefined. Without a pre-registered, independent measure, this risks becoming circular: managers are 'good' because their people advance, and people advance because the manager is 'good'.",
+        "The hidden mechanism is plausible but not uniquely identified. Opportunity allocation, calibration bias, team reputation, and selection effects are all confounded here.",
+        "The hypothesis does not specify the comparison population clearly enough. 'Similar assessed potential' is too vague unless you define level, function, tenure, geography, performance, and role type.",
+        "Executives will likely ask: so what? Even if true, the implication is obvious—improve managers. The hypothesis does not tell them which managerial behaviors matter or how to target remediation.",
+        "It may simply restate a well-known organizational funnel effect: context moderates prediction. That is analytically true but not strategically novel.",
+        "The proposal risks overclaiming around compensation. Pay decisions often reflect policy bands, market adjustments, and level constraints, not just manager advocacy.",
+        "The narrative suggests assessment scores may be over-weighted, but the hypothesis itself does not test mis-weighting or false positives directly; it tests moderation by manager quality.",
+        "There is a serious endogeneity problem: strong managers may inherit stronger talent, better orgs, or higher-growth business units, so any observed effect could be selection rather than conversion of latent potential.",
+        "The hypothesis is broad enough that a downstream analyst could test it, but the resulting finding may still be ambiguous without stronger design or exogenous variation."
+      ],
+      "suggested_improvements": [
+        "Narrow the outcome to one primary decision variable, such as 12-month promotion velocity or lateral stretch-assignment receipt, instead of bundling compensation and visibility together.",
+        "Define manager quality using an external, pre-registered index unrelated to subordinate outcomes if possible, or use quasi-experimental variation in manager assignment.",
+        "Specify the exact matching criteria for 'similar assessed potential' and separate within-level, within-function, and within-tenure comparisons.",
+        "Replace the general opportunity-allocation story with a testable mediator: number of stretch assignments, sponsor nominations, calibration ratings, or high-visibility project exposure.",
+        "Add a falsifiable prediction about heterogeneity: the effect should be strongest where promotion decisions are discretionary and weakest where pay/promotion are tightly standardized.",
+        "If the executive goal is intervention, reframe the question toward leverage: which manager behaviors most increase realization of assessed potential, and what is the expected ROI of manager training or reassignment?",
+        "Consider splitting this into two hypotheses: one on promotion velocity and one on pay progression, because they are governed by different mechanisms and decision rules.",
+        "If you want hidden mechanism, test whether the manager effect persists after controlling for actual opportunity exposure; if it disappears, that would support the mediation claim more strongly.",
+        "Use language that distinguishes correlation from conversion of potential into opportunity, rather than implying causality before the analysis can establish it."
+      ],
+      "critic_name": "checklist_critic"
+    },
+    "search_stats": {
+      "iterations_run": 6,
+      "candidates_generated": 6,
+      "candidates_discarded": 0,
+      "lenses_explored": [
+        "burnout_resilience",
+        "communication_protection",
+        "leadership_influence",
+        "network_effects",
+        "promotion_equity"
+      ],
+      "diversity_score": 0.8333333333333334,
+      "termination_reason": "converged"
+    },
+    "generated_at": "2026-07-23T18:45:41.891924+00:00",
+    "insightId": "insight_d1c25eda5ae3"
+  },
+  {
+    "id": "hist_5f89562d09d2",
+    "imageURL": "sample_data/card_images/hist_5f89562d09d2.svg",
+    "title": "High-potential employees in low-stretch roles are more likely to quit",
+    "description": "The hypothesis says that employees with strong leadership potential are more likely to leave when their jobs give them too little decision authority, complexity, or team scope. The risk appears highest when they have not had an internal move or promotion in the past year. For leaders, the implication is to spot and redesign underchallenging roles before top talent exits.",
+    "readmoreURL": "sample_data/hypotheses/hist_5f89562d09d2.html",
+    "reaction": "up",
+    "organization_id": "shl-sample-cohort",
+    "lens": "attrition_hidden_drivers",
+    "statement": "Among employees at the same level, function, geography, performance band, and tenure band, those in the top quartile of SHL leadership potential who are assigned to bottom-quartile job stretch (measured by a composite of decision-right scope, role complexity, and supervisory span) will have a higher probability of external attrition within the next 6–12 months than similarly rated peers in higher-stretch roles. This effect should be strongest among employees with no internal move or promotion in the prior year, indicating a retention risk driven by capability–role mismatch rather than mobility-driven exit.",
+    "mechanism": "The mechanism is a specific capability–role misalignment on stretch, not a generic dissatisfaction story. High-potential employees are more likely to leave when their current job architecture underuses their assessed leadership capacity: they have little decision authority, limited complexity, and insufficient supervisory scope relative to what their SHL profile indicates they can handle. That mismatch creates a clearer exit signal than pay or tenure alone, because the employee can see a gap between their demonstrated capability and the developmental or advancement content of the role. By contrast, if a high-potential employee moves internally or is promoted, the same signal should not translate into undesirable attrition. This makes the testable business lever not broad manager matching, but targeted action for top-potential employees in low-stretch roles: retention review, accelerated placement, or redesign of the role to increase autonomy and scope.",
+    "target_constructs": [
+      "assessed leadership potential",
+      "supervisory demands of current role",
+      "attrition / short-term retention",
+      "compensation",
+      "tenure",
+      "role-context fit / mismatch",
+      "managerial autonomy / stretch"
+    ],
+    "scorecard": {
+      "business_value": 0.72,
+      "novelty": 0.7,
+      "depth": 0.74,
+      "actionability": 0.81,
+      "strategic_importance": 0.71,
+      "feasibility": 0.5,
+      "organizational_impact": 0.68,
+      "expected_insight": 0.71,
+      "confidence": 0.46,
+      "future_extensibility": 0.84,
+      "composite": 0.6961999999999999,
+      "dimension_notes": {
+        "business_value": "If validated, this would materially affect retention and internal mobility decisions for high-potential employees, offering a clear intervention path through role matching and manager assignment; however, its business value is tempered by the fact that the mechanism is somewhat specialized, may be hard to prove cleanly with incomplete performance/360 data, and is likely more useful for targeted talent segments than for broad enterprise strategy.",
+        "strategic_importance": "This hypothesis is strategically important because it targets a core talent-retention problem in leadership pipelines—losing high-potential employees due to poor role-context fit—which can materially affect succession, bench strength, and future management capacity, though it is not as universally top-tier as direct revenue or workforce-wide attrition drivers.",
+        "actionability": "If validated, the hypothesis points to concrete retention levers—targeted internal mobility, manager-role matching, and stretch assignment decisions for high-potential employees in low-autonomy contexts—so it is highly actionable, though not fully because the intervention depends on proving the mismatch signal is real and causally relevant.",
+        "organizational_impact": "If true, this would mainly affect a meaningful subset of high-potential employees in misaligned supervisory contexts rather than the whole workforce, but the implications for retention, internal mobility, and leadership pipeline management are substantial enough to matter at scale.",
+        "feasibility": "3/7 target constructs map onto known data categories.",
+        "novelty": "The hypothesis is more novel than a standard attrition-versus-pay or tenure analysis because it posits a specific mismatch mechanism between assessed leadership potential and supervisory stretch, but it still sits within a well-explored HR theme of high-potential disengagement and internal mobility friction.",
+        "depth": "This hypothesis goes beyond a simple attrition correlation by proposing a specific hidden mechanism—role–person mismatch and unmet stretch/autonomy needs among high-potential employees—that could explain why some leave despite comparable pay and tenure.",
+        "expected_insight": "If true, this would surface a non-obvious retention mechanism—high-potential employees leaving because their current role under-stretches them—offering more insight than a generic pay/tenure model, though the effect may still be moderated by missing performance and manager-context data.",
+        "confidence": "The mechanism is plausible and testable with the available tenure/comp data plus leadership assessments, but incomplete performance and nearly absent 360/motivation data make it hard to rule out spurious selection effects, so confidence is only moderate.",
+        "future_extensibility": "If this relationship holds, it naturally opens a broader research program on role–person fit, manager-match effects, stretch/autonomy thresholds, and which assessment constructs generalize across contexts, making it a strong launch point for successive hypotheses rather than a one-off finding."
+      }
+    },
+    "critique": {
+      "is_obvious": true,
+      "executive_relevance": "Moderate at best. Executives may care about regrettable attrition in high-potential talent, but this framing is still mostly a generic HR truism unless it can identify a specific, scarce segment where intervention changes outcomes. As written, it does not clearly connect to a material business decision beyond 'watch high potentials more closely.'",
+      "creates_actionable_decision": true,
+      "similar_to_prior": false,
+      "similar_prior_ids": [
+        "hist_0d26db4e16a6",
+        "hist_781188e22517",
+        "hist_0b390f651ca9"
+      ],
+      "reveals_hidden_mechanism": true,
+      "downstream_feasible": true,
+      "issues": [
+        "The hypothesis is mostly a restatement of an intuitive idea: 'high-potential people leave when underutilized.' That is obvious and not especially novel.",
+        "The mechanism is plausible but underspecified. 'Higher relative to supervisory demands' is vague: relative to what metric, measured how, and on what scale?",
+        "It conflates several different mechanisms: mismatch, lack of autonomy, insufficient stretch, and advancement expectations. Those are not the same and would imply different interventions.",
+        "It does not cleanly separate attrition from internal mobility. A person leaving because they took a better internal role is not the same as undesirable external attrition.",
+        "The comparison set is weakly defined. 'Similarly paid, similarly tenured peers' is not enough; pay and tenure alone will not address level, function, geography, performance, manager, and labor market differences that drive attrition.",
+        "It may be too dependent on a latent construct from SHL scores that executives may not trust without strong validation against hard outcomes.",
+        "The phrase 'supervisory demands of their current role' is ambiguous: are you measuring manager span, autonomy, complexity, direct reports, decision rights, or team quality?",
+        "The hypothesis assumes high assessed leadership potential should create dissatisfaction in low-stretch roles, but that may just as plausibly correlate with promotion pressure or external marketability rather than role-person mismatch.",
+        "The proposed decision lever is broad and mushy. 'Internal placement and manager-match decisions' is not a concrete policy lever unless you specify threshold rules or a routing action.",
+        "It is highly similar to the prior hypotheses about fit, pay progression, and promotion differences driven by SHL profile and seniority."
+      ],
+      "suggested_improvements": [
+        "Narrow the construct to one measurable mismatch dimension, such as autonomy, role complexity, or managerial span, rather than bundling multiple mechanisms together.",
+        "Define the exposure explicitly: e.g., an interaction between SHL leadership potential percentile and a quantified job-demand index built from level, scope, direct reports, decision rights, or role complexity.",
+        "State a sharper outcome window and outcome type: external attrition within 6-12 months, excluding internal moves and promotions if that is the business concern.",
+        "Add a stronger causal contrast or threshold: for example, compare high-potential employees in low-stretch roles versus high-stretch roles within the same level/function/geography and manager band.",
+        "Specify the business action: 'flag top-decile potential employees in bottom-quartile stretch roles for retention review or accelerated placement.'",
+        "Include a falsifiable prediction about heterogeneity, such as the effect being strongest for employees with recent promotion eligibility, strong external labor-market demand, or no recent internal mobility.",
+        "If you want distinctiveness from prior hypotheses, shift away from pay/reward and toward an explicit role architecture problem: whether mismatch between assessed capability and job design predicts exit even when compensation and tenure are controlled.",
+        "Use hard operational definitions for 'high potential' and 'supervisory demands' so a downstream agent can actually test it without inventing proxies."
+      ],
+      "critic_name": "checklist_critic"
+    },
+    "search_stats": {
+      "iterations_run": 4,
+      "candidates_generated": 4,
+      "candidates_discarded": 0,
+      "lenses_explored": [
+        "attrition_hidden_drivers",
+        "burnout_resilience",
+        "leadership_influence",
+        "promotion_equity"
+      ],
+      "diversity_score": 1.0,
+      "termination_reason": "converged"
+    },
+    "generated_at": "2026-07-23T18:47:57.198935+00:00",
+    "insightId": "insight_311f6538e61b"
   }
 ]
