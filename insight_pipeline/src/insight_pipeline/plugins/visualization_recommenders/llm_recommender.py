@@ -32,7 +32,10 @@ class LLMVisualizationRecommender(VisualizationRecommenderPlugin):
         self._prompts = prompts
 
     async def recommend(
-        self, insights: BusinessInsights, analytics: AnalyticsResult
+        self,
+        insights: BusinessInsights,
+        analytics: AnalyticsResult,
+        session_id: str | None = None,
     ) -> VisualizationPlan:
         columns = _available_columns(analytics)
         template = self._prompts.get("visualization_plan")
@@ -51,6 +54,7 @@ class LLMVisualizationRecommender(VisualizationRecommenderPlugin):
                 LLMMessage(role="user", content=rendered.user),
             ],
             temperature=0.5,
+            metadata={"session_id": session_id} if session_id else {},
         )
         plan = await self._llm.complete_structured(request, VisualizationPlan)
         known = set(columns)

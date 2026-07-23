@@ -25,7 +25,9 @@ def make_critique_node(deps: AgentDependencies):
             )
 
         context = CriticContext(
-            understanding=state["organization_understanding"], similar_prior=similar_prior
+            understanding=state["organization_understanding"],
+            similar_prior=similar_prior,
+            session_id=state.get("session_id"),
         )
         result = await critic_chain.run(candidate, context)
 

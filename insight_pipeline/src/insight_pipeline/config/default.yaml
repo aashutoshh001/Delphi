@@ -2,11 +2,12 @@ backends:
   organization_knowledge_repository: in_memory
   organization_knowledge_retriever: embedding
   employee_data_repository: excel
-  query_planner: direct_llm
+  query_planner: grounded
   plotting_engine: matplotlib
   insight_package_repository: json_file
   root_cause_strategy: direct_llm
-  excel_path: "Book1.xlsx"
+  construct_grounding_engine: direct_llm
+  excel_path: "Book1_standardized.xlsx"
   insight_store_path: "sample_data/insights.json"
 
 analytics:

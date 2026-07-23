@@ -14,5 +14,8 @@ class UnderstandingEngine(ABC):
 
     @abstractmethod
     async def understand(
-        self, profile: OrganizationProfile, landscape: EmployeeDataLandscape
+        self,
+        profile: OrganizationProfile,
+        landscape: EmployeeDataLandscape,
+        session_id: str | None = None,
     ) -> OrganizationUnderstanding: ...

@@ -1,5 +1,5 @@
 """Exercises the FastAPI app against a temp insight store (never the real
-sample_data/insights.json) and the real Book1.xlsx (read-only), offline via
+sample_data/insights.json) and the real Book1_standardized.xlsx (read-only), offline via
 MockLLMService."""
 
 from __future__ import annotations
@@ -10,9 +10,9 @@ from pathlib import Path
 import pytest
 from fastapi.testclient import TestClient
 
-_XLSX_PATH = Path(__file__).parents[3] / "Book1.xlsx"
+_XLSX_PATH = Path(__file__).parents[3] / "Book1_standardized.xlsx"
 
-pytestmark = pytest.mark.skipif(not _XLSX_PATH.exists(), reason="Book1.xlsx not present")
+pytestmark = pytest.mark.skipif(not _XLSX_PATH.exists(), reason="Book1_standardized.xlsx not present")
 
 
 @pytest.fixture

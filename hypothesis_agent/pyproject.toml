@@ -17,12 +17,21 @@ deep-agents = ["deepagents>=0.6"]
 strands = ["strands-agents>=1.0"]
 server = ["fastapi>=0.110", "uvicorn[standard]>=0.30", "openpyxl>=3.1"]
 sample-data = ["openpyxl>=3.1"]
+# Optional: every LLM call made through LiteLLMService is traced to Langfuse
+# for free once this + the three LANGFUSE_* env vars are present — see
+# LiteLLMService.__init__. No code calling it needs to change either way.
+# Pinned <3: litellm's built-in "langfuse" callback (as of litellm 1.93.0,
+# latest at time of writing) reads `langfuse.version.__version__`, which the
+# v3+ SDK's OTEL-based rewrite removed — installing langfuse>=3 here makes
+# every real LLM call raise instead of just skipping tracing. Confirmed
+# working against langfuse 2.60.10.
+observability = ["langfuse>=2.0,<3", "mcp>=1.0"]
 dev = [
     "pytest>=8.0",
     "pytest-asyncio>=0.24",
     "httpx>=0.27",
 ]
-all = ["hypothesis-agent[llm-openai,llm-litellm,deep-agents,strands,server,sample-data,dev]"]
+all = ["hypothesis-agent[llm-openai,llm-litellm,deep-agents,strands,server,sample-data,observability,dev]"]
 
 [build-system]
 requires = ["setuptools>=68"]

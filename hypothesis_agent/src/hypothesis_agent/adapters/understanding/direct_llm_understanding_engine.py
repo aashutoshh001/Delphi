@@ -31,7 +31,10 @@ class DirectLLMUnderstandingEngine(UnderstandingEngine):
         self._prompts = prompts
 
     async def understand(
-        self, profile: OrganizationProfile, landscape: EmployeeDataLandscape
+        self,
+        profile: OrganizationProfile,
+        landscape: EmployeeDataLandscape,
+        session_id: str | None = None,
     ) -> OrganizationUnderstanding:
         template = self._prompts.get("understand_organization")
         core_attributes = "\n".join(f"- {k}: {v}" for k, v in profile.core_attributes.items()) or "(none provided)"
@@ -50,6 +53,7 @@ class DirectLLMUnderstandingEngine(UnderstandingEngine):
                 LLMMessage(role="user", content=rendered.user),
             ],
             temperature=0.4,
+            metadata={"session_id": session_id} if session_id else {},
         )
         result = await self._llm.complete_structured(request, UnderstandingExtractionResponse)
         return OrganizationUnderstanding(

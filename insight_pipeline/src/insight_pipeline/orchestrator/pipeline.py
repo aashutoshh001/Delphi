@@ -35,6 +35,7 @@ class InvestigationPipeline:
 
         package = InsightPackage(
             hypothesis_package=hypothesis_package,
+            grounding_map=final_state["grounding_map"],
             investigation_plan=final_state["investigation_plan"],
             analytics_results=final_state["analytics_result"],
             root_cause_graph=final_state["root_cause_graph"],

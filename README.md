@@ -133,15 +133,15 @@ cd ~/AI-Thon/Delphie?/Delphi
 # --- Hypothesis Agent ---
 cd hypothesis_agent
 python3 -m venv .venv && source .venv/bin/activate
-pip install -e ".[server,llm-litellm,sample-data]"
-cp .env.example .env   # then fill in LITELLM_API_KEY — everything else is pre-filled
+pip install -e ".[server,llm-litellm,sample-data,observability]"
+cp .env.example .env   # then fill in LITELLM_API_KEY (+ optionally LANGFUSE_*) — everything else is pre-filled
 deactivate
 cd ..
 
 # --- Investigation Pipeline (depends on hypothesis_agent above) ---
 cd insight_pipeline
 python3 -m venv .venv && source .venv/bin/activate
-pip install -e ../hypothesis_agent
+pip install -e "../hypothesis_agent[llm-litellm,observability]"
 pip install -e ".[dev,analytics,plotting,data-excel,server]"
 deactivate
 cd ..
@@ -150,11 +150,25 @@ cd ..
 `hypothesis_agent/.env` already points at the SHL internal LiteLLM endpoint
 (`https://labs.shl.com/llm-internal/`) and activates it
 (`HYPOTHESIS_AGENT__BACKENDS__LLM=litellm`) — the key is the only thing you
-need to add. `insight_pipeline` reuses that same `.env` (no separate key).
+need to add. `insight_pipeline` reuses that same `.env` (no separate key),
+including the optional `LANGFUSE_*` keys — see "Observability" below.
 Both packages' own test suites and offline demo scripts always force the
 offline `MockLLMService` regardless of `.env`, so `pytest` and
 `examples/*.py` keep working with zero setup either way — only the two
 servers use whatever `.env` says.
+
+### Observability (optional)
+
+If `hypothesis_agent/.env` has `LANGFUSE_PUBLIC_KEY` and `LANGFUSE_SECRET_KEY`
+set, every real LLM call made by either server (Investigation Planner,
+Query Planner, Root Cause, Business Insight, Narrative, ...) is automatically
+traced to that Langfuse project — this is a single guarded check in
+[`LiteLLMService.__init__`](hypothesis_agent/src/hypothesis_agent/adapters/llm/litellm_llm_service.py),
+not something any call site needs to know about. Requires the
+`observability` extra (`langfuse>=2.0,<3` — pinned, see the comment next to
+it in `pyproject.toml`) installed in **both** venvs, since each server
+process makes its own real LLM calls. Unset either key (or don't install
+the extra) and nothing changes — no tracing, no behavior difference.
 
 ### Terminal 1 — static frontend
 

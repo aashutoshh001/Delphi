@@ -16,7 +16,23 @@ from insight_pipeline.adapters.organization_knowledge.in_memory_repository impor
     InMemoryOrganizationKnowledgeRepository,
 )
 from insight_pipeline.agents.investigation_planner.facade import InvestigationPlannerAgent
+from insight_pipeline.contracts.grounding import GroundedConstruct, GroundingMap
 from insight_pipeline.prompts.registry import default_prompt_registry
+
+
+def _grounding_map() -> GroundingMap:
+    return GroundingMap(
+        hypothesis_package_id="pkg-1",
+        grounded=[
+            GroundedConstruct(
+                construct_name="burnout",
+                columns=["4_personality"],
+                role="independent",
+                rationale="test",
+            )
+        ],
+        outcome_columns_available=["tenure_years"],
+    )
 
 
 def _hypothesis_package() -> HypothesisPackage:
@@ -41,7 +57,7 @@ async def test_investigation_planner_produces_a_plan():
     )
     agent = InvestigationPlannerAgent(engine, retriever)
 
-    plan = await agent.run(_hypothesis_package())
+    plan = await agent.run(_hypothesis_package(), _grounding_map())
 
     assert plan.hypothesis_package_id
     assert plan.organization_id == "org-1"
@@ -58,5 +74,5 @@ async def test_investigation_planner_works_with_empty_knowledge_base():
     )
     agent = InvestigationPlannerAgent(engine, retriever)
 
-    plan = await agent.run(_hypothesis_package())
+    plan = await agent.run(_hypothesis_package(), _grounding_map())
     assert plan.relevant_knowledge == []

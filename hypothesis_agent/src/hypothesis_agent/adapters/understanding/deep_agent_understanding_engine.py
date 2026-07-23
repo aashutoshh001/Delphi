@@ -56,7 +56,10 @@ class DeepAgentUnderstandingEngine(UnderstandingEngine):
         self._llm = llm_service
 
     async def understand(
-        self, profile: OrganizationProfile, landscape: EmployeeDataLandscape
+        self,
+        profile: OrganizationProfile,
+        landscape: EmployeeDataLandscape,
+        session_id: str | None = None,
     ) -> OrganizationUnderstanding:
         profile_json = profile.model_dump_json(indent=2)
         landscape_json = landscape.model_dump_json(indent=2)
@@ -115,6 +118,7 @@ class DeepAgentUnderstandingEngine(UnderstandingEngine):
                 ),
             ],
             temperature=0.0,
+            metadata={"session_id": session_id} if session_id else {},
         )
         extracted = await self._llm.complete_structured(extraction_request, UnderstandingExtractionResponse)
         return OrganizationUnderstanding(

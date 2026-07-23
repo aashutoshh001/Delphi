@@ -41,6 +41,7 @@ class ChecklistCritic(Critic):
                 LLMMessage(role="user", content=rendered.user),
             ],
             temperature=0.3,
+            metadata={"session_id": context.session_id} if context.session_id else {},
         )
         result = await self._llm.complete_structured(request, _ChecklistResponse)
         result.critic_name = self.name

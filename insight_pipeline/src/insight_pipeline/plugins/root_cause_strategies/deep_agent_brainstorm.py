@@ -98,6 +98,7 @@ class DeepAgentMechanismBrainstormPlugin(RootCauseStrategyPlugin):
                 LLMMessage(role="user", content=f"Analyst notes:\n{notes}"),
             ],
             temperature=0.0,
+            metadata={"session_id": plan.hypothesis_package_id} if plan.hypothesis_package_id else {},
         )
         extracted = await self._llm.complete_structured(extraction_request, RootCauseResponse)
         return RootCauseGraph(

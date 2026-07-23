@@ -11,10 +11,12 @@ class BusinessEvaluatorContext:
         analytics: AnalyticsResult,
         root_cause: RootCauseGraph,
         knowledge: list[OrganizationKnowledge],
+        session_id: str | None = None,
     ) -> None:
         self.analytics = analytics
         self.root_cause = root_cause
         self.knowledge = knowledge
+        self.session_id = session_id
 
 
 class BusinessEvaluatorPlugin(ABC):

@@ -85,9 +85,30 @@ class BusinessInsightAgent:
             if query
             else []
         )
-        context = BusinessEvaluatorContext(analytics=analytics, root_cause=root_cause, knowledge=knowledge)
+        context = BusinessEvaluatorContext(
+            analytics=analytics,
+            root_cause=root_cause,
+            knowledge=knowledge,
+            session_id=plan.hypothesis_package_id,
+        )
         partials = [await evaluator.evaluate(context) for evaluator in self._evaluators]
         insights = _merge(partials)
+
+        # V2 architecture plan Part 4E: a finding with zero evidence_refs is
+        # unsupported synthesis, not a grounded finding — drop it rather
+        # than let it stand next to properly-evidenced ones. Risks/
+        # opportunities/recommendations stay prose-level business judgment
+        # (consulting synthesis, not a statistical claim), so they aren't
+        # held to the same citation requirement.
+        grounded_findings = [f for f in insights.findings if f.evidence_refs]
+        dropped = len(insights.findings) - len(grounded_findings)
+        if dropped:
+            logger.warning(
+                "dropped unevidenced business finding(s)",
+                extra={"extra_fields": {"dropped": dropped, "kept": len(grounded_findings)}},
+            )
+        insights = insights.model_copy(update={"findings": grounded_findings})
+
         logger.info(
             "business insights produced",
             extra={

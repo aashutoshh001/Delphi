@@ -19,8 +19,10 @@ class VisualizationPlannerAgent:
         self._recommender = recommender
         self._max_figures = max_figures
 
-    async def run(self, insights: BusinessInsights, analytics: AnalyticsResult) -> VisualizationPlan:
-        plan = await self._recommender.recommend(insights, analytics)
+    async def run(
+        self, insights: BusinessInsights, analytics: AnalyticsResult, session_id: str | None = None
+    ) -> VisualizationPlan:
+        plan = await self._recommender.recommend(insights, analytics, session_id=session_id)
         specs = sorted(plan.specs, key=lambda s: s.priority)[: self._max_figures]
         logger.info(
             "visualization plan produced",

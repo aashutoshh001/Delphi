@@ -1,5 +1,5 @@
 id: visualization_plan
-version: "1"
+version: "2"
 system: |
   You are a visualization planner for an executive report, in the style of
   McKinsey/BCG/Bain. You decide WHAT charts communicate the evidence best —
@@ -18,7 +18,15 @@ user_template: |
   $available_columns
 
   Supported chart types (use exactly these strings for visualization_type):
-  bar, scatter, heatmap, histogram, boxplot
+  bar, scatter, heatmap, histogram, boxplot, quadrant_divergence
+
+  quadrant_divergence: use for exactly two numeric/ordinal grounded variables
+  when the finding IS the divergence/gap between them (e.g. a
+  quadrant_divergence or rater_gap_360 analytics result, a self-vs-manager
+  360 rating pair, a fit-vs-experience pair). Draws threshold lines and an
+  x=y reference diagonal so a systematic gap is visible at a glance — prefer
+  this over a plain scatter whenever the point of the chart is "how far
+  apart are these two things," not just "are they related."
 
   For each chart, produce: title, business_objective, variables (must be
   from the available columns list), visualization_type (one of the

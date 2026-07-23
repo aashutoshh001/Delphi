@@ -1,8 +1,9 @@
 """Today: Excel. Tomorrow: SQL/Snowflake/HRIS — same EmployeeDataRepository
-port, only this file changes. Reuses the same Book1.xlsx sample cohort the
-Hypothesis Agent's landscape adapter reads, but this one actually returns
-data (scoped to what an InvestigationPlan asked for), never dumped into a
-contract — the resulting DataFrame goes straight into the handle cache."""
+port, only this file changes. Reuses the same Book1_standardized.xlsx sample
+cohort the Hypothesis Agent's landscape adapter reads, but this one actually
+returns data (scoped to what an InvestigationPlan asked for), never dumped
+into a contract — the resulting DataFrame goes straight into the handle
+cache."""
 
 from __future__ import annotations
 
@@ -37,8 +38,8 @@ class ExcelEmployeeDataRepository(EmployeeDataRepository):
                 "none of the requested fields matched known columns — returning full table",
                 extra={"extra_fields": {"requested": query.requested_fields}},
             )
-            requested = [c for c in df.columns if c != "Candidate_ID"]
-        id_col = ["Candidate_ID"] if "Candidate_ID" in df.columns else []
+            requested = [c for c in df.columns if c != "candidate_id"]
+        id_col = ["candidate_id"] if "candidate_id" in df.columns else []
         selected = df[id_col + [c for c in requested if c not in id_col]].copy()
 
         # Filters/segmentation from InvestigationPlan are free-text (LLM-authored

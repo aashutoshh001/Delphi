@@ -64,6 +64,7 @@ class LLMMechanismBrainstormPlugin(RootCauseStrategyPlugin):
                 LLMMessage(role="user", content=rendered.user),
             ],
             temperature=0.6,
+            metadata={"session_id": plan.hypothesis_package_id} if plan.hypothesis_package_id else {},
         )
         result = await self._llm.complete_structured(request, RootCauseResponse)
         return RootCauseGraph(

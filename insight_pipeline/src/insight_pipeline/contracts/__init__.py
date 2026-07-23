@@ -12,6 +12,11 @@ from insight_pipeline.contracts.dataset import (
     RetrievalQuery,
     RetrievedDataset,
 )
+from insight_pipeline.contracts.grounding import (
+    GroundedConstruct,
+    GroundingMap,
+    UngroundedConstruct,
+)
 from insight_pipeline.contracts.insight_package import InsightPackage
 from insight_pipeline.contracts.investigation import (
     InvestigationPlan,
@@ -47,6 +52,9 @@ __all__ = [
     "DatasetHandle",
     "DatasetMetadata",
     "GeneratedFigure",
+    "GroundedConstruct",
+    "GroundingMap",
+    "UngroundedConstruct",
     "InsightPackage",
     "InvestigationPlan",
     "Narrative",

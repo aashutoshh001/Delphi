@@ -5,6 +5,7 @@ this hypothesis?"."""
 from __future__ import annotations
 
 from hypothesis_agent.contracts.hypothesis import HypothesisPackage
+from insight_pipeline.contracts.grounding import GroundingMap
 from insight_pipeline.contracts.investigation import InvestigationPlan
 from insight_pipeline.logging_setup import get_logger
 from insight_pipeline.ports.investigation_planner_engine import InvestigationPlannerEngine
@@ -22,12 +23,12 @@ class InvestigationPlannerAgent:
         self._engine = engine
         self._knowledge_retriever = knowledge_retriever
 
-    async def run(self, hypothesis_package: HypothesisPackage) -> InvestigationPlan:
+    async def run(self, hypothesis_package: HypothesisPackage, grounding_map: GroundingMap) -> InvestigationPlan:
         query = f"{hypothesis_package.hypothesis_statement} {hypothesis_package.mechanism_explanation}"
         relevant_knowledge = await self._knowledge_retriever.retrieve(
             query, hypothesis_package.organization_id, top_k=5
         )
-        plan = await self._engine.plan(hypothesis_package, relevant_knowledge)
+        plan = await self._engine.plan(hypothesis_package, relevant_knowledge, grounding_map)
         logger.info(
             "investigation plan produced",
             extra={

@@ -16,13 +16,18 @@ class RuleBasedVisualizationRecommender(VisualizationRecommenderPlugin):
     strategy_name = "rule_based"
 
     async def recommend(
-        self, insights: BusinessInsights, analytics: AnalyticsResult
+        self,
+        insights: BusinessInsights,
+        analytics: AnalyticsResult,
+        session_id: str | None = None,
     ) -> VisualizationPlan:
         chart_type_by_method = {
             "correlation": "scatter",
             "simple_linear_regression": "scatter",
             "one_way_anova": "boxplot",
             "chi_square_independence": "bar",
+            "quadrant_divergence": "quadrant_divergence",
+            "rater_gap_360": "quadrant_divergence",
         }
         specs = []
         for i, result in enumerate(analytics.methods_run):

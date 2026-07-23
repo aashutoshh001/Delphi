@@ -39,6 +39,11 @@ class ResolvedChartData(BaseModel):
     raw_points: list[tuple[float, float]] | None = None
     matrix: list[list[float]] | None = None  # e.g. correlation matrices, heatmaps
     matrix_labels: list[str] | None = None
+    # Quadrant-divergence charts only (see tools/plot_generation and
+    # framework/derived_metrics.quadrant_divergence) — threshold lines
+    # dividing raw_points into four quadrants.
+    x_threshold: float | None = None
+    y_threshold: float | None = None
 
 
 class ChartTheme(BaseModel):

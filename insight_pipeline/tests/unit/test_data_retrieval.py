@@ -6,9 +6,9 @@ from insight_pipeline.adapters.employee_data.excel_repository import ExcelEmploy
 from insight_pipeline.adapters.employee_data.handle_cache import InMemoryDatasetHandleCache
 from insight_pipeline.contracts.dataset import RetrievalQuery
 
-_XLSX_PATH = Path(__file__).parents[3] / "Book1.xlsx"
+_XLSX_PATH = Path(__file__).parents[3] / "Book1_standardized.xlsx"
 
-pytestmark = pytest.mark.skipif(not _XLSX_PATH.exists(), reason="Book1.xlsx not present")
+pytestmark = pytest.mark.skipif(not _XLSX_PATH.exists(), reason="Book1_standardized.xlsx not present")
 
 
 async def test_resolve_returns_handle_with_requested_columns():
@@ -16,16 +16,16 @@ async def test_resolve_returns_handle_with_requested_columns():
     repo = ExcelEmployeeDataRepository(_XLSX_PATH, cache)
     query = RetrievalQuery(
         organization_id="shl-sample-cohort",
-        requested_fields=["Decision_Making", "Leadership", "Resilience"],
+        requested_fields=["4_personality", "tenure_years", "360.1_self"],
     )
     handle = await repo.resolve(query)
-    assert handle.row_count == 378
+    assert handle.row_count == 402
 
     df = cache.load(handle)
-    assert "Decision_Making" in df.columns
-    assert "Leadership" in df.columns
-    assert "Candidate_ID" in df.columns
-    assert len(df) == 378
+    assert "4_personality" in df.columns
+    assert "tenure_years" in df.columns
+    assert "candidate_id" in df.columns
+    assert len(df) == 402
 
 
 async def test_resolve_falls_back_to_full_table_on_no_match():

@@ -61,6 +61,7 @@ class LLMBusinessSynthesisEvaluator(BusinessEvaluatorPlugin):
                 LLMMessage(role="user", content=rendered.user),
             ],
             temperature=0.5,
+            metadata={"session_id": context.session_id} if context.session_id else {},
         )
         result = await self._llm.complete_structured(request, BusinessSynthesisResponse)
         return result.model_dump()

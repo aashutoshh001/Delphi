@@ -23,6 +23,10 @@ from hypothesis_agent.contracts.organization import (
 class HypothesisSearchState(TypedDict, total=False):
     organization_id: str
     max_iterations: int
+    # Groups every LLM call this search run makes into one Langfuse session
+    # (see reasoning/observability.py). None when Langfuse isn't configured
+    # or the caller didn't ask for one — every node treats it as optional.
+    session_id: str | None
 
     organization_profile: OrganizationProfile
     data_landscape: EmployeeDataLandscape
@@ -43,10 +47,13 @@ class HypothesisSearchState(TypedDict, total=False):
     final_package: HypothesisPackage
 
 
-def new_initial_state(organization_id: str, max_iterations: int) -> HypothesisSearchState:
+def new_initial_state(
+    organization_id: str, max_iterations: int, session_id: str | None = None
+) -> HypothesisSearchState:
     return HypothesisSearchState(
         organization_id=organization_id,
         max_iterations=max_iterations,
+        session_id=session_id,
         iteration=0,
         frontier=[],
         archive=[],

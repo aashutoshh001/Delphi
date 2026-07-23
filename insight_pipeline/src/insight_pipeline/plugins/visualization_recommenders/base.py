@@ -13,5 +13,8 @@ class VisualizationRecommenderPlugin(ABC):
 
     @abstractmethod
     async def recommend(
-        self, insights: BusinessInsights, analytics: AnalyticsResult
+        self,
+        insights: BusinessInsights,
+        analytics: AnalyticsResult,
+        session_id: str | None = None,
     ) -> VisualizationPlan: ...

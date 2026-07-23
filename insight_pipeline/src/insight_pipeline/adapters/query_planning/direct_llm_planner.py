@@ -57,6 +57,9 @@ class DirectLLMQueryPlanner(QueryPlanner):
                 LLMMessage(role="user", content=rendered.user),
             ],
             temperature=0.2,
+            metadata={"session_id": investigation_plan.hypothesis_package_id}
+            if investigation_plan.hypothesis_package_id
+            else {},
         )
         result = await self._llm.complete_structured(request, QueryPlanResponse)
         known_fields = {f.name for f in landscape.available_fields}

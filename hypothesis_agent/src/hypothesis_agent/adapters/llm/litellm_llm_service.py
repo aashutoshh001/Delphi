@@ -1,11 +1,23 @@
 """LLMService backed by the `litellm` package: one unified `model` string
 routes to whatever provider (or self-hosted LiteLLM proxy) `api_base` points
 at, using a single `api_key`. This is the adapter meant for local/testing use
-with a LiteLLM key — see .env.example for the three env vars it reads."""
+with a LiteLLM key — see .env.example for the three env vars it reads.
+
+Observability: if LANGFUSE_PUBLIC_KEY/LANGFUSE_SECRET_KEY are set (see
+.env.example), every acompletion() call below is traced to Langfuse via
+litellm's built-in callback — litellm reads LANGFUSE_PUBLIC_KEY/
+LANGFUSE_SECRET_KEY/LANGFUSE_HOST from the environment itself. Callers group
+related calls into one Langfuse session by setting
+`LLMRequest.metadata["session_id"]` (see reasoning/observability.py) — that
+dict is forwarded to litellm's `metadata=` kwarg below unchanged, which is
+the convention its Langfuse integration reads session_id/trace_name/etc
+from. insight_pipeline reuses this same LiteLLMService instance, so its
+calls are covered too, with zero changes on that side."""
 
 from __future__ import annotations
 
 import json
+import os
 from typing import TypeVar
 
 from pydantic import BaseModel
@@ -48,6 +60,9 @@ class LiteLLMService(LLMService):
         # (e.g. some GPT-5-family models reject temperature != 1). Drop
         # whatever a given model doesn't support instead of failing the call.
         litellm.drop_params = True
+        if os.environ.get("LANGFUSE_PUBLIC_KEY") and os.environ.get("LANGFUSE_SECRET_KEY"):
+            litellm.success_callback = ["langfuse"]
+            litellm.failure_callback = ["langfuse"]
         self._litellm = litellm
 
     async def complete(self, request: LLMRequest) -> LLMResponse:
@@ -59,6 +74,7 @@ class LiteLLMService(LLMService):
             api_key=self._api_key,
             api_base=self._api_base,
             timeout=self._timeout,
+            metadata=request.metadata or None,
         )
         content = response.choices[0].message.content or ""
         return LLMResponse(content=content, raw=response.model_dump())
@@ -72,6 +88,7 @@ class LiteLLMService(LLMService):
             api_key=self._api_key,
             api_base=self._api_base,
             timeout=self._timeout,
+            metadata=request.metadata or None,
         )
         content = response.choices[0].message.content
         if not content:

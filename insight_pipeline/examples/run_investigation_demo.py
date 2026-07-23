@@ -1,5 +1,5 @@
 """End-to-end demo: Hypothesis Agent -> Investigation Pipeline, offline
-(MockLLMService, real Book1.xlsx cohort data, real scipy/matplotlib).
+(MockLLMService, real Book1_standardized.xlsx cohort data, real scipy/matplotlib).
 
     cd insight_pipeline && python examples/run_investigation_demo.py
 """
@@ -17,7 +17,7 @@ from insight_pipeline.config.settings import PipelineConfig
 from insight_pipeline.di.container import build_pipeline_dependencies
 from insight_pipeline.orchestrator.pipeline import InvestigationPipeline
 
-_XLSX_PATH = Path(__file__).parents[2] / "Book1.xlsx"
+_XLSX_PATH = Path(__file__).parents[2] / "Book1_standardized.xlsx"
 
 
 async def main() -> None:

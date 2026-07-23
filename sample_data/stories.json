@@ -470,5 +470,684 @@
     },
     "generated_at": "2026-07-23T07:55:04.760139+00:00",
     "insightId": "insight_e05875416e23"
+  },
+  {
+    "id": "hist_f4ee965ca692",
+    "imageURL": "",
+    "title": "Cross-functional network reach may cut attrition for new engineering leaders",
+    "description": "The hypothesis says engineering leaders moving into heavy-coordination roles may see lower regretted attrition when their prior networks gave them strong cross-functional reach and fast access to escalation paths. The advantage should matter most before managerial load becomes too high, when centrality helps decisions move faster instead of adding overload.",
+    "readmoreURL": "sample_data/hypotheses/hist_f4ee965ca692.html",
+    "reaction": "none",
+    "organization_id": "acme-labs",
+    "lens": "network_effects",
+    "statement": "Among engineering leaders promoted into high-coordination roles, those whose pre-promotion networks show high cross-functional betweenness and rapid escalation access will have lower 12-month team regretted attrition than similarly high-performing leaders with similarly heavy spans but low-betweenness, siloed networks. This effect should weaken or reverse once managerial load exceeds a threshold, because network centrality helps only when it improves decision latency and escalation resolution faster than it adds interruption burden.",
+    "mechanism": "The mechanism is not that “more ties are good,” but that certain network positions change how managerial work is processed. Leaders who sit on critical cross-functional paths can resolve ambiguity faster, route blockers earlier, and convert fragile coordination into timely decisions; that reduces the delay, rework, and frustration that typically trigger regretted exits. The same position can also create overload, so the effect is conditional: centrality is beneficial only when it increases effective control over coordination without pushing the leader past a load threshold. This makes the hypothesis a test of whether network position is a readiness signal for scalable leadership, not a generic proxy for performance, and it separates selection effects by comparing leaders with similar prior performance, span, and team maturity.",
+    "target_constructs": [
+      "cross-functional incoming network ties",
+      "brokered connections / betweenness centrality",
+      "engineering leader performance",
+      "burnout",
+      "regretted attrition risk",
+      "team readiness / leadership bench readiness"
+    ],
+    "scorecard": {
+      "business_value": 0.78,
+      "novelty": 0.64,
+      "depth": 0.84,
+      "actionability": 0.79,
+      "strategic_importance": 0.78,
+      "feasibility": 0.55,
+      "organizational_impact": 0.78,
+      "expected_insight": 0.74,
+      "confidence": 0.42,
+      "future_extensibility": 0.79,
+      "composite": 0.7260000000000001,
+      "dimension_notes": {
+        "business_value": "This is fairly high business value because it targets a strategic leadership-scaling problem that could change promotion, development, and retention decisions for a large engineering population, though the underlying mechanism is plausible rather than yet strongly validated and may not be uniquely decision-changing if simpler performance and manager-effectiveness signals already exist.",
+        "strategic_importance": "This hypothesis targets a top priority for a growing engineering organization—retention, leadership bench strength, and burnout—so a validated answer could meaningfully influence succession, promotion, and operating-model decisions, though it is still one step removed from the company’s core revenue or product strategy.",
+        "actionability": "If confirmed, this points to a concrete intervention set—altering leader selection, development, and team design based on network position—so the answer would directly inform staffing and succession decisions, though execution is somewhat less straightforward because network centrality is a diagnostic lever more than an easily manipulated cause.",
+        "organizational_impact": "If true, this would affect a meaningful slice of the engineering leadership layer and, through them, team readiness, retention, and execution across many downstream teams, but it is still concentrated in the leadership population rather than the whole enterprise.",
+        "feasibility": "3/6 target constructs map onto known data categories.",
+        "novelty": "This goes beyond a standard performance-or-attrition analysis by linking leadership outcomes to network position and brokerage, but the underlying idea is still a fairly established people-analytics pattern rather than a highly novel mechanism.",
+        "depth": "This hypothesis goes beyond a surface correlation by proposing a specific hidden mechanism—leaders’ network position shaping information flow, support, and leadership load—which meaningfully explains why otherwise strong performers may burn out or struggle to scale.",
+        "expected_insight": "If confirmed, this would likely surface a non-obvious network mechanism linking leadership positioning to burnout and retention, offering more insight than a standard performance/attrition analysis, though it is still somewhat intuitive and not guaranteed to be highly surprising.",
+        "confidence": "The mechanism is plausible and testable, but the claim that network bottlenecks directly reduce burnout and attrition is still fairly speculative and vulnerable to confounding by role, seniority, and team context.",
+        "future_extensibility": "If validated, this hypothesis would naturally extend into a broader program of studying organizational network position as a predictor of leader effectiveness, burnout, and succession readiness, with many follow-on questions about thresholds, interventions, and role-specific patterns."
+      }
+    },
+    "critique": {
+      "is_obvious": true,
+      "executive_relevance": "Moderate at best. Executives may care about burnout and regretted attrition, but this version is mostly a rephrasing of 'leaders with better network position may do better.' It does not yet point to a clear intervention, ownership, or decision lever.",
+      "creates_actionable_decision": false,
+      "similar_to_prior": false,
+      "similar_prior_ids": [
+        "hist_d88d17ac90e4",
+        "hist_c3d0f8284825"
+      ],
+      "reveals_hidden_mechanism": false,
+      "downstream_feasible": true,
+      "issues": [
+        "The hypothesis is largely obvious: people with more cross-functional ties often have more information and influence, so expecting them to perform better is not novel.",
+        "It is too close to the prior attrition/promotion-capacity hypothesis. This appears to be the same broad story with a different surface variable (network position instead of workload/fit).",
+        "The mechanism is not truly hidden. 'More ties -> more info -> better coordination' is a generic organizational cliché, not a mechanism executives would treat as insight.",
+        "It bundles three outcomes (burnout, regretted attrition risk, team readiness) into one claim, making it hard to falsify cleanly and easy to hand-wave if only one outcome moves.",
+        "The constructs are mushy. 'Network bottlenecks,' 'incoming ties,' 'brokering collaboration paths,' and 'team readiness' need operational definitions before this is testable.",
+        "There is a major confounding risk: better leaders may attract more ties because they are already effective, not the other way around. The hypothesis does not separate cause from selection effects.",
+        "It ignores that high network centrality can also increase overload, interruptions, and emotional labor, which could worsen burnout rather than reduce it.",
+        "The claim about 'lower regretted attrition risk' is especially weak unless tied to a specific path like manager support, decision latency, or escalation handling.",
+        "It is unclear what executive decision follows. Should Acme promote network-central people, build networks for siloed leaders, or redistribute collaboration load? The hypothesis does not say.",
+        "The hypothesis is likely less informative than direct measures of managerial effectiveness, span/load, or team health because it may just proxy those variables.",
+        "The framing leans speculative ('likely,' 'probably,' 'hidden risk') and overstates certainty without evidence.",
+        "Similar historical hypotheses already cover the broader idea that leadership readiness mismatch drives attrition; this adds network centrality as a possible correlate, not a distinct mechanism."
+      ],
+      "suggested_improvements": [
+        "Narrow to one primary outcome, e.g. 'Leaders with higher cross-functional betweenness will have lower team regretted attrition over 12 months, controlling for span, level, and prior performance.'",
+        "Specify a testable mechanism that is not just 'more ties are good.' For example: network-central leaders have faster escalation resolution, which mediates attrition.",
+        "Define network metrics precisely: inbound degree, betweenness, cross-functional density, weighted by tie strength or interaction frequency.",
+        "Add a comparison that creates a real decision, such as whether Acme should prioritize promotions for network-central candidates versus training/sponsorship for siloed high performers.",
+        "Control for obvious confounders: org size, manager level, team maturity, span of control, prior attrition, performance rating, and promotion timing.",
+        "Make the hypothesis directional and bounded: e.g. 'Above a threshold of managerial load, network centrality no longer helps and may increase burnout.' That would be more interesting than a blanket positive claim.",
+        "If the intent is executive action, translate it into an intervention: 'Increase cross-functional exposure before promotion' or 'Use network signals as a readiness screen.'",
+        "Consider reframing around a tradeoff or nonlinear effect, since a simple monotonic 'more central = better' story is weak and easy to dismiss.",
+        "If you want novelty, test whether network position moderates the effect of promotion into high-coordination roles, rather than asserting it directly improves burnout and retention.",
+        "Separate individual-level and team-level effects; a leader can feel less burnt out while their team still churns, or vice versa."
+      ],
+      "critic_name": "checklist_critic"
+    },
+    "search_stats": {
+      "iterations_run": 4,
+      "candidates_generated": 4,
+      "candidates_discarded": 0,
+      "lenses_explored": [
+        "network_effects",
+        "promotion_equity",
+        "skill_concentration"
+      ],
+      "diversity_score": 0.75,
+      "termination_reason": "converged"
+    },
+    "generated_at": "2026-07-23T08:15:59.817506+00:00",
+    "insightId": "insight_6cf4963bc88d"
+  },
+  {
+    "id": "hist_33d44041137e",
+    "imageURL": "",
+    "title": "Opaque pay and promotion signals can drive top engineers to stall or leave",
+    "description": "The hypothesis argues that even market-competitive compensation can backfire when high-performing engineers cannot see how pay changes and promotions connect to leadership readiness. That ambiguity can erode trust, raise flight risk among likely future leaders, and slow succession by weakening their willingness to invest in leadership behaviors.",
+    "readmoreURL": "sample_data/hypotheses/hist_33d44041137e.html",
+    "reaction": "none",
+    "organization_id": "acme-labs",
+    "lens": "compensation_fairness",
+    "statement": "High-performing engineers are more likely to become regretted attrition risks and stall in leadership progression when compensation changes and promotion outcomes are perceived as opaque or weakly linked to demonstrated leadership readiness, even if their absolute pay remains market-competitive.",
+    "mechanism": "The hidden mechanism is fairness-based disengagement: employees who see rewards as inconsistently tied to the criteria that supposedly drive advancement may conclude that effort, readiness, and leadership capability do not reliably translate into recognition. That perception can reduce trust in the talent system, increase flight risk among the people most likely to be promoted, and slow succession because potential leaders either leave or stop investing in leadership behaviors. The effect should be strongest where performance is high but promotion and pay communication are ambiguous.",
+    "target_constructs": [
+      "high performance",
+      "perceived compensation opacity",
+      "perceived fairness of promotion decisions",
+      "leadership readiness",
+      "regretted attrition",
+      "succession / bench strength",
+      "promotion outcomes",
+      "compensation changes"
+    ],
+    "scorecard": {
+      "business_value": 0.79,
+      "novelty": 0.58,
+      "depth": 0.88,
+      "actionability": 0.84,
+      "strategic_importance": 0.87,
+      "feasibility": 0.55,
+      "organizational_impact": 0.83,
+      "expected_insight": 0.76,
+      "confidence": 0.68,
+      "future_extensibility": 0.84,
+      "composite": 0.7632,
+      "dimension_notes": {
+        "business_value": "This hypothesis is strategically important and actionable because it could change how Acme sets pay, promotion, and leadership-development policy for a critical engineering population, and although it is somewhat familiar in theme, the specific fairness-to-regretted-attrition mechanism is deep enough to guide a meaningful test and intervention.",
+        "strategic_importance": "This hypothesis directly touches two top engineering priorities—retaining high-performing talent and strengthening the leadership bench—so if validated it would materially affect succession planning, promotion design, and compensation policy.",
+        "actionability": "If confirmed, the hypothesis points to concrete interventions—making compensation and promotion criteria more transparent, tightening links between leadership behaviors and advancement, and targeting retention actions for high performers—so it clearly leads to actionable policy changes, though the exact remedy would still require follow-up diagnosis.",
+        "organizational_impact": "If true, this hypothesis could affect a substantial share of high-performing engineers and the leadership pipeline they feed, with downstream impact on retention, succession strength, and engineering continuity across the organization.",
+        "feasibility": "4/8 target constructs map onto known data categories.",
+        "novelty": "This is moderately novel: it goes beyond the usual pay-for-performance or retention analysis by linking compensation and promotion opacity to leadership readiness and regretted attrition, but the core fairness/disengagement mechanism is still a fairly common HR hypothesis.",
+        "depth": "This hypothesis goes beyond a simple pay/turnover correlation by positing a fairness-based disengagement mechanism linking compensation opacity and promotion signaling to both regretted attrition and leadership stagnation, which is a genuinely deeper causal story.",
+        "expected_insight": "This hypothesis is likely to produce moderately high insight because it goes beyond simple pay/attrition correlations to test a fairness-and-readiness mechanism that could explain both regretted attrition and weak succession, though the underlying idea is still common enough in HR analytics that the result may be informative rather than truly revelatory.",
+        "confidence": "The mechanism is plausible and consistent with well-known fairness/retention dynamics, but the claim is still moderately indirect because it hinges on perceived opacity and leadership-readiness signaling that are often only partially observable and can be confounded by pay, manager quality, and career stage.",
+        "future_extensibility": "This hypothesis is likely to open a productive follow-on research agenda because it links compensation fairness to retention and succession through measurable intermediates, enabling deeper segmentation by team, manager, role level, and promotion timing, while also suggesting additional tests around communication transparency, leadership readiness signals, and downstream bench-strength effects."
+      }
+    },
+    "critique": {
+      "is_obvious": true,
+      "executive_relevance": "Moderate at best. Executives may care about regretted attrition and succession, but this framing is too generic and mostly restates a standard retention/fairness trope. It does not yet specify a decision they could make beyond \"communicate compensation better\" or \"improve promotion transparency,\" which is obvious HR hygiene.",
+      "creates_actionable_decision": false,
+      "similar_to_prior": false,
+      "similar_prior_ids": [
+        "hist_c3d0f8284825",
+        "hist_d88d17ac90e4",
+        "hist_f4ee965ca692"
+      ],
+      "reveals_hidden_mechanism": false,
+      "downstream_feasible": true,
+      "issues": [
+        "The claim is mostly a surface-level fairness story; nothing here is surprising. \"Opaque comp/promotion leads to disengagement\" is a generic organizational cliché, not a sharp hypothesis.",
+        "It overlaps heavily with the existing hypotheses on promotion readiness, promotion outcomes, and leadership progression. The novelty is low and it may be redundant rather than additive.",
+        "It bundles multiple constructs at once: high performance, regretted attrition, leadership progression, compensation changes, promotion outcomes, perceived opacity, and market competitiveness. That makes it hard to test cleanly and easy to explain away.",
+        "The mechanism is underspecified. \"Perceived as opaque\" is not directly observable unless you have survey/communications data, and you have not defined how to measure fairness perceptions robustly.",
+        "It does not clearly establish a causal path. Are people leaving because of compensation dissatisfaction, promotion disappointment, lower trust, or a general sense of stalled career growth? Those are different interventions.",
+        "The phrase \"even if their absolute pay remains market-competitive\" weakens the hypothesis by making it harder to action. If pay is already competitive, the proposed fix may not be compensation at all.",
+        "\"High-performing engineers\" is too broad. The effect likely depends on tenure, promotion eligibility, manager quality, or current level; without segmentation this will be noisy.",
+        "It does not reveal a hidden mechanism beyond a common mediation story: fairness perception -> disengagement -> attrition / slower leadership investment. That is plausible, but not hidden or especially diagnostic.",
+        "There is no clear threshold or comparison group. Without a specific contrast, a downstream analyst will struggle to test whether the effect is unique to opaque comp/promotion versus any dissatisfaction source.",
+        "The hypothesis mixes two outcomes that may not move together: regretted attrition risk and leadership progression stall. Those should be separated or linked with a clear sequence."
+      ],
+      "suggested_improvements": [
+        "Narrow the hypothesis to one outcome and one mechanism. For example: \"Among promotion-eligible engineers, opaque promotion communication predicts a higher 12-month regretted attrition hazard, especially for top-quartile performers.\"",
+        "Make the fairness mechanism measurable: use promotion cycle communication clarity, comp-change explanation quality, calibration transparency, or employee survey sentiment as the exposure.",
+        "Separate compensation from promotion. If you want both, define which one matters more and why, or test them as distinct predictors.",
+        "Add a boundary condition that makes it non-obvious, such as impact being strongest for employees with recent promotion denials, high manager turnover, or mismatch between self-rated and manager-rated readiness.",
+        "Translate the hypothesis into an intervention decision. Example: \"If promotion-eligible high performers with low transparency scores show elevated attrition, Acme should redesign promotion communication before changing pay bands.\"",
+        "Use a more diagnostic comparison: compare high performers with similar pay but different promotion communication experiences, or compare teams with different calibration transparency.",
+        "If leadership bench is the concern, specify a measurable proxy such as future promotion rate to engineering manager, leadership competency ratings, or successor coverage, rather than the vague phrase \"leadership progression.\""
+      ],
+      "critic_name": "checklist_critic"
+    },
+    "search_stats": {
+      "iterations_run": 4,
+      "candidates_generated": 4,
+      "candidates_discarded": 0,
+      "lenses_explored": [
+        "attrition_hidden_drivers",
+        "burnout_resilience",
+        "compensation_fairness"
+      ],
+      "diversity_score": 0.75,
+      "termination_reason": "converged"
+    },
+    "generated_at": "2026-07-23T09:40:47.006264+00:00",
+    "insightId": "insight_decae95e45a5"
+  },
+  {
+    "id": "hist_04d1dd298f33",
+    "imageURL": "",
+    "title": "A few engineers may be carrying too much of Acme Labs’ leadership load",
+    "description": "The hypothesis says Acme Labs’ strongest engineering teams may rely on a small number of high-performing ICs and managers for mentoring, coordination, escalations, and change leadership. That concentration could make those employees more likely to burn out or leave, while also slowing the development of ready successors. For leaders, the risk is a stronger team today but a more fragile organizati…",
+    "readmoreURL": "sample_data/hypotheses/hist_04d1dd298f33.html",
+    "reaction": "none",
+    "organization_id": "acme-labs",
+    "lens": "skill_concentration",
+    "statement": "Acme Labs likely has a measurable leadership-load concentration problem in its engineering org: a small set of high-performing ICs and first-line managers are absorbing a disproportionate share of mentoring, cross-team coordination, incident escalation, and change leadership work, and that concentration is most pronounced in teams with strong execution but thin backup coverage. The result is not generic overload; it is a specific pattern where the same people become both the informal glue of delivery and the highest-probability candidates for promotion, making those teams more vulnerable to attrition and slower to produce ready successors than comparably performing teams with more distributed leadership load.",
+    "mechanism": "The mechanism is a concentration-to-fragility effect that can be tested with existing operational proxies: high calendar load, high cross-functional meeting density, repeated ownership of difficult conversations or incident response, skip-level dependence, and persistent after-hours work should cluster in a small number of individuals. When those individuals sit at the center of coordination and mentoring networks, they create two measurable downstream risks. First, retention risk rises because their workload grows faster than their formal authority, so burnout and disengagement emerge earlier than in similarly high-performing but less central peers. Second, pipeline quality deteriorates because promotion decisions are being made from performance evidence that is confounded by hidden leadership load; the people doing the most informal leadership work may appear ready for more scope, but their development becomes fragile if that work is not redistributed or backfilled. The hypothesis is confirmed if top-decile leadership-load holders show materially higher attrition or stalled readiness than matched peers with similar performance and role level but lower load concentration; it is weakened if the same outcomes do not diverge once load concentration is controlled for. The actionable implication is to identify the over-centralized nodes, cap or redistribute their coordination and mentoring burden, and build explicit backup coverage for change leadership before asking them to absorb additional scope.",
+    "target_constructs": [
+      "leadership capability concentration",
+      "change-management capability concentration",
+      "mentoring and coaching load",
+      "cross-functional coordination load",
+      "communication competency",
+      "burnout risk",
+      "flight risk / attrition risk",
+      "succession readiness",
+      "promotion potential",
+      "span of influence"
+    ],
+    "scorecard": {
+      "business_value": 0.81,
+      "novelty": 0.62,
+      "depth": 0.84,
+      "actionability": 0.79,
+      "strategic_importance": 0.86,
+      "feasibility": 0.48,
+      "organizational_impact": 0.71,
+      "expected_insight": 0.74,
+      "confidence": 0.64,
+      "future_extensibility": 0.84,
+      "composite": 0.7386,
+      "dimension_notes": {
+        "business_value": "This hypothesis would likely materially influence retention, succession-planning, and leadership-development decisions because it targets a hidden capability bottleneck tied to two top priorities, and if confirmed it suggests a concrete intervention around workload redistribution and leadership coverage; however, the mechanism is still moderately inferential and not guaranteed to be sufficiently novel or surprising to push it into the very highest tier.",
+        "strategic_importance": "This hypothesis sits squarely on two top executive priorities—retaining key talent and building a scalable leadership bench—and, if true, it would affect succession, execution capacity, and attrition risk across the engineering organization rather than a narrow HR subproblem.",
+        "actionability": "If confirmed, the hypothesis points to concrete interventions—redistributing mentoring and coordination load, strengthening succession coverage, and targeting burnout/retention support for overloaded high-leverage employees—so it is fairly actionable, though not fully precise without better visibility into the underlying capability bottlenecks.",
+        "organizational_impact": "If true, this would likely affect a meaningful slice of the engineering organization by exposing a concentration of leadership and change-load that can drive both attrition and succession gaps, though it is still concentrated in a subset of high-performing ICs and managers rather than the entire enterprise.",
+        "feasibility": "4/10 target constructs map onto known data categories.",
+        "novelty": "The hypothesis is more nuanced than a generic attrition-or-pipeline story because it links retention, succession, and overloaded change-leadership capability as a hidden concentration mechanism, but it still sits within a fairly common HR analytics pattern rather than a highly original or surprising frame.",
+        "depth": "This hypothesis goes beyond a surface retention/promotion pattern by proposing a specific hidden mechanism—concentrated leadership, coordination, and change-management load in a small set of people—that could simultaneously drive burnout, attrition, and weak succession readiness.",
+        "expected_insight": "This hypothesis is likely to yield fairly informative insight because it connects retention and succession through a specific hidden bottleneck in leadership-capability concentration, which is more diagnostic than a generic attrition or promotion analysis, though the expected surprise is moderated by the fact that overloaded high performers as single points of failure is a common organizational pattern.",
+        "confidence": "The mechanism is plausible and consistent with common leadership-pipeline and burnout dynamics, but the evidence described is indirect and partial, so confidence is moderate rather than high.",
+        "future_extensibility": "This hypothesis is highly extensible because if confirmed it would naturally branch into multiple follow-on analyses—mapping overload and informal leadership concentration, identifying successor gaps, testing burnout/attrition pathways, and prioritizing interventions—though the current evidence still leaves some uncertainty about how broadly the mechanism generalizes."
+      }
+    },
+    "critique": {
+      "is_obvious": true,
+      "executive_relevance": "Moderate, but mostly as a generic risk story. Executives already know overloaded leaders and weak pipelines are bad; this does not yet identify a specific decision they should make.",
+      "creates_actionable_decision": false,
+      "similar_to_prior": false,
+      "similar_prior_ids": [
+        "hist_33d44041137e",
+        "hist_d88d17ac90e4",
+        "hist_c3d0f8284825"
+      ],
+      "reveals_hidden_mechanism": false,
+      "downstream_feasible": true,
+      "issues": [
+        "This is a familiar, broad management trope: key people are overloaded, burnout rises, attrition and succession suffer. It does not meaningfully sharpen the organizational diagnosis.",
+        "It overlaps heavily with prior hypotheses about weak leadership readiness, mismatched manager capacity, and attrition from promotion/workload mismatch. The new framing is mostly a rewording with 'capability bottleneck' language.",
+        "The causal chain is vague and internally underspecified: it assumes a small set of people disproportionately carry mentoring, coordination, and change work, but gives no observable proxy for that concentration.",
+        "It conflates two different problems—retention risk and leadership pipeline quality—without showing that the same bottleneck drives both rather than merely correlating with them.",
+        "The 'hidden mechanism' is not actually hidden. Overload, burnout, and concentration of informal leadership work are common, expected failure modes.",
+        "It does not specify which employees, teams, or roles are most affected, so executives cannot target an intervention.",
+        "It lacks a falsifiable threshold or comparative prediction. A downstream analyst could test whether a small number of people are overloaded, but the hypothesis as written does not state what pattern would confirm or disconfirm it.",
+        "The narrative leans on missing data ('only partially covered') instead of a measurable claim, which makes it feel like a data-quality observation more than a strategic insight.",
+        "It does not propose a distinct action beyond 'be more aware of bottlenecks,' so it does not yet support a concrete managerial decision."
+      ],
+      "suggested_improvements": [
+        "Make the claim narrower and testable: identify a specific concentration metric, such as top-decile individuals absorbing a disproportionate share of mentoring, incident response, cross-team coordination, or change leadership work.",
+        "Specify the expected observable pattern: e.g., overloaded first-line managers or ICs with high network centrality should show higher attrition and slower succession readiness than similarly performing peers with lower load.",
+        "Separate the two outcomes: one hypothesis for retention risk, one for pipeline bottlenecks, unless you can show the same individuals drive both through the same mechanism.",
+        "Add a decision implication: e.g., redistribute coordination work, cap span-of-control, or create backup leadership coverage for the most central contributors.",
+        "Use a counterfactual comparison: compare teams with similar performance but different levels of leadership-load concentration to see whether attrition and promotion readiness diverge.",
+        "Define the hidden mechanism in measurable terms using proxies already available or collectible—calendar load, mentorship load, cross-team dependencies, manager skip-level coverage, or after-hours burden.",
+        "If the real concern is burnout, state it directly and tie it to a measurable leading indicator rather than inferring it from incomplete coverage."
+      ],
+      "critic_name": "checklist_critic"
+    },
+    "search_stats": {
+      "iterations_run": 4,
+      "candidates_generated": 4,
+      "candidates_discarded": 0,
+      "lenses_explored": [
+        "burnout_resilience",
+        "psychometric_fit",
+        "skill_concentration"
+      ],
+      "diversity_score": 0.75,
+      "termination_reason": "converged"
+    },
+    "generated_at": "2026-07-23T10:54:02.788380+00:00",
+    "insightId": "insight_bd5c842b462d"
+  },
+  {
+    "id": "hist_9a2a2ba3cda5",
+    "imageURL": "",
+    "title": "Fast-tracked first-time managers may be at higher attrition risk",
+    "description": "The hypothesis is that engineers promoted quickly into their first people-manager roles are more likely to leave than peers promoted more gradually, even after accounting for pay. If true, the issue is not compensation alone but whether the organization is promoting people before they are ready to lead. For executives, that points to better promotion gating and readiness checks as a retention lev…",
+    "readmoreURL": "sample_data/hypotheses/hist_9a2a2ba3cda5.html",
+    "reaction": "none",
+    "organization_id": "acme-labs",
+    "lens": "attrition_hidden_drivers",
+    "statement": "Engineers promoted into first-time people-manager roles with rapid promotion velocity but weak pre-promotion leadership readiness signals will show higher regretted attrition than similarly promoted peers whose promotions were slower, even after accounting for pay changes.",
+    "mechanism": "The hidden mechanism is promotion mismatch: the organization may be using promotion timing as a proxy for readiness, but in practice fast-tracked technical stars may enter management before they have enough evidence of leadership capability, causing avoidable role strain, credibility loss, and disengagement. If this is true, the attrition risk is driven less by compensation and more by prematurely placing under-assessed leaders into roles that require interpersonal influence, prioritization, and coaching skill. That would mean the company’s real retention lever is tighter gating and readiness validation for first-time manager promotions, not just pay adjustments.",
+    "target_constructs": [
+      "first-time people-manager promotion",
+      "promotion velocity",
+      "pre-promotion leadership readiness signals",
+      "regretted attrition",
+      "pay change after promotion",
+      "manager role strain"
+    ],
+    "scorecard": {
+      "business_value": 0.86,
+      "novelty": 0.61,
+      "depth": 0.86,
+      "actionability": 0.9,
+      "strategic_importance": 0.83,
+      "feasibility": 0.6666666666666666,
+      "organizational_impact": 0.72,
+      "expected_insight": 0.74,
+      "confidence": 0.66,
+      "future_extensibility": 0.79,
+      "composite": 0.7729333333333333,
+      "dimension_notes": {
+        "business_value": "This hypothesis has high business value because a confirmed result would directly affect promotion gating, manager development, and retention strategy for a high-leverage population, with clear implications for reducing regretted attrition and improving leadership bench strength.",
+        "strategic_importance": "This hypothesis is strategically important because first-time manager readiness and regretted attrition directly affect leadership bench strength, succession coverage, and retention in a scaling engineering org, though it is still somewhat narrower than a company-wide priority and may not dominate the executive agenda on its own.",
+        "actionability": "If confirmed, the finding points to a concrete intervention—tightening promotion gates and adding readiness validation/coaching for first-time people managers—so the organization can directly reduce regretted attrition rather than relying only on pay adjustments.",
+        "organizational_impact": "If true, this hypothesis could affect a meaningful slice of the engineering organization’s management pipeline and retention outcomes, especially in a scaling company where first-time managers are numerous and influential, though it is unlikely to impact the entire workforce or core business on its own.",
+        "feasibility": "4/6 target constructs map onto known data categories.",
+        "novelty": "This is moderately novel: promotion-related attrition is a common HR theme, but the specific mechanism of first-time manager promotion velocity interacting with weak pre-promotion leadership readiness signals is a more nuanced, less overused angle than simple pay-or-engagement comparisons.",
+        "depth": "This hypothesis goes beyond a simple promotion/attrition correlation by positing a concrete hidden mechanism—promotion mismatch and inadequate leadership readiness—through which fast-tracked first-time managers may generate regretted attrition even after pay is controlled.",
+        "expected_insight": "If true, this would be meaningfully informative because it targets a non-obvious mechanism—promotion mismatch rather than pay or generic attrition—and could reveal a hidden failure mode in first-time manager transitions, though it is still a fairly plausible and commonly encountered scaling problem rather than a highly surprising one.",
+        "confidence": "The mechanism is plausible and consistent with known first-time manager failure modes, but it remains moderately uncertain because promotion velocity, leadership readiness, and regretted attrition can all be confounded by team context, pay, and selection effects, so the claim is credible but not yet strongly evidenced.",
+        "future_extensibility": "This is fairly extensible because a confirmed promotion-mismatch effect would naturally lead to follow-on questions about readiness signals, team-level thresholds, ramp support, and succession design, though it is still centered on a specific first-time manager transition rather than a broad theory of attrition."
+      }
+    },
+    "critique": {
+      "is_obvious": true,
+      "executive_relevance": "Moderate at best. Executives may care about first-time manager attrition, but this version reads like a generic scaling trope: promote fast, assess readiness better, reduce attrition. It does not yet isolate a decision executives would make differently tomorrow.",
+      "creates_actionable_decision": false,
+      "similar_to_prior": false,
+      "similar_prior_ids": [
+        "hist_d88d17ac90e4",
+        "hist_04d1dd298f33",
+        "hist_33d44041137e"
+      ],
+      "reveals_hidden_mechanism": false,
+      "downstream_feasible": true,
+      "issues": [
+        "The hypothesis is mostly a repackaging of the prior hypotheses: promotion mismatch, readiness gaps, and attrition in first-time manager roles are already stated.",
+        "'Rapid promotion velocity' and 'weak pre-promotion leadership readiness signals' are vague and likely correlated with many other factors, making the test muddy and hard to interpret.",
+        "'After accounting for pay changes' does not adequately control for the obvious confounders: team strain, manager quality, business-criticality, voluntary transfer, role scope, location, and whether the promotion followed a retention event or reorg.",
+        "It assumes promotion timing is used as a proxy for readiness, but that is a shallow organizational trope rather than a hidden mechanism. The real mechanism would need to specify why fast promotion harms retention at Acme specifically.",
+        "The mechanism claims role strain, credibility loss, and disengagement, but does not specify which of these is the mediating channel or how it would be observed in data.",
+        "It is not yet clear whether the relevant unit is the individual, the team, or the manager-subordinate dyad; that ambiguity weakens testability.",
+        "Executives may not care about the abstract pattern unless it ties to a specific operational loss: turnover cost, bench weakness, or leadership pipeline failure in critical orgs."
+      ],
+      "suggested_improvements": [
+        "Narrow the scope to a clearly defined population, e.g. engineers promoted to first-time manager within X months of prior promotion, in teams above a workload or incident threshold.",
+        "Make the readiness signal explicit and measurable: prior mentorship load, cross-functional ownership, people-lead feedback, skip-level feedback, or assessment score.",
+        "State the outcome window and comparison group precisely: e.g. regretted attrition within 12 months versus slower-promoted peers matched on level, team, function, and pay trajectory.",
+        "Separate the mechanism from the prediction. Example: fast promotion increases attrition only when the new manager inherits a high-coordination, high-conflict team; otherwise no effect.",
+        "Test a stronger, more decision-relevant version: should Acme slow down first-time manager promotions in certain readiness bands, or add a required people-lead apprenticeship before promotion?",
+        "If the goal is executive usefulness, connect to an action: revise promotion gating, create a pre-manager rotation, or limit first-time manager assignments in overloaded teams."
+      ],
+      "critic_name": "checklist_critic"
+    },
+    "search_stats": {
+      "iterations_run": 5,
+      "candidates_generated": 5,
+      "candidates_discarded": 0,
+      "lenses_explored": [
+        "attrition_hidden_drivers",
+        "burnout_resilience",
+        "communication_protection",
+        "network_effects"
+      ],
+      "diversity_score": 0.8,
+      "termination_reason": "converged"
+    },
+    "generated_at": "2026-07-23T12:19:03.710086+00:00",
+    "insightId": "insight_f7931106e2fd"
+  },
+  {
+    "id": "hist_db6ad6b91c14",
+    "imageURL": "",
+    "title": "Rapid scope growth in engineering leaders may be driving regretted attrition",
+    "description": "The hypothesis is that engineering leaders whose responsibilities expand faster than their leadership skills are more likely to lose valued employees, even after accounting for tenure and promotion history. For executives, that suggests regretted attrition may be a signal of underprepared managers taking on too much, not just a retention problem among individual contributors.",
+    "readmoreURL": "sample_data/hypotheses/hist_db6ad6b91c14.html",
+    "reaction": "none",
+    "organization_id": "acme-labs",
+    "lens": "attrition_hidden_drivers",
+    "statement": "At Acme Labs, engineering leaders whose role scope expands faster than their demonstrated leadership competency are more likely to drive regretted attrition than leaders whose scope and competency grow in step, even after accounting for tenure and promotion history.",
+    "mechanism": "The hidden mechanism is a mismatch between formal responsibility and actual leadership readiness: as managers or tech leads absorb larger teams, broader coordination, or more cross-functional complexity without equivalent growth in coaching, prioritization, and people-management skill, they likely create chronic overload, weaker support for direct reports, and lower-quality decision-making. That strain can surface as burnout and disengagement among both the leader and their team, making regretted attrition a downstream symptom of under-supported scope creep rather than simple time-in-role. If true, the key intervention is not just faster succession or more promotions, but earlier role redesign, load reduction, and targeted leadership development for rapidly expanding leaders.",
+    "target_constructs": [
+      "role scope growth",
+      "demonstrated leadership competency",
+      "regretted attrition",
+      "tenure",
+      "promotion history",
+      "engineering leaders"
+    ],
+    "scorecard": {
+      "business_value": 0.81,
+      "novelty": 0.68,
+      "depth": 0.88,
+      "actionability": 0.9,
+      "strategic_importance": 0.88,
+      "feasibility": 0.55,
+      "organizational_impact": 0.78,
+      "expected_insight": 0.73,
+      "confidence": 0.61,
+      "future_extensibility": 0.84,
+      "composite": 0.777,
+      "dimension_notes": {
+        "business_value": "If confirmed, this would directly influence succession planning, leadership development, workload design, and retention interventions for a strategically important engineering population, with clear executive implications and actionable fixes, though it is still a fairly common kind of management-scope/attrition question and may not be universally high-confidence without stronger leadership-competency data.",
+        "strategic_importance": "This hypothesis sits squarely on two top-tier talent priorities for a 3,200-person engineering organization—retaining critical talent and building a reliable leadership bench—so a confirmed link would meaningfully shape succession, development, and retention strategy.",
+        "actionability": "A confirmed finding would point directly to concrete interventions—role-scope throttling, targeted leadership coaching, succession timing, and load redistribution for rapidly expanding managers—so the path from insight to action is unusually clear.",
+        "organizational_impact": "If true, this would affect a meaningful slice of Acme’s engineering organization by influencing leader workload, team stability, and regretted attrition, with downstream effects on retention, succession, and delivery, though it is still concentrated in a subset of leaders rather than the entire company.",
+        "feasibility": "3/6 target constructs map onto known data categories.",
+        "novelty": "The hypothesis is more novel than a standard attrition-versus-tenure or promotion analysis because it focuses on mismatch between expanding scope and lagging leadership competency as a hidden driver, but it still sits within a fairly well-known HR pattern about manager overload and readiness.",
+        "depth": "This hypothesis goes beyond a surface retention comparison by positing a specific hidden mechanism—scope expanding faster than leadership competency leading to overload, weaker management, and downstream regretted attrition—so it has strong explanatory depth.",
+        "expected_insight": "If confirmed, this would be fairly informative because it moves beyond simple tenure/promotion correlations to a more diagnostic explanation of regretted attrition driven by scope-readiness mismatch, though the core idea is still a plausible and somewhat familiar management-risk pattern rather than a highly surprising one.",
+        "confidence": "The mechanism is plausible and directionally consistent with common management failure modes, but confidence is only moderate because it depends on accurately measuring leadership competency and scope growth, and the claim could be confounded by team quality, org changes, and preexisting attrition risk.",
+        "future_extensibility": "This hypothesis is highly extensible because a confirmed scope-versus-readiness mismatch would naturally branch into follow-on questions about workload thresholds, leadership development timing, team-level burnout signals, and which role transitions most reliably predict attrition, creating a productive agenda for successive interventions and model refinement."
+      }
+    },
+    "critique": {
+      "is_obvious": true,
+      "executive_relevance": "Moderate. Executives care about regretted attrition and leadership bench risk, but this formulation is still too generic and reads like standard HR common sense: overloaded managers can cause turnover. It does not yet isolate a distinct, high-value decision tradeoff or quantify impact in a way that would change executive behavior.",
+      "creates_actionable_decision": true,
+      "similar_to_prior": false,
+      "similar_prior_ids": [
+        "hist_04d1dd298f33",
+        "hist_f4ee965ca692",
+        "hist_33d44041137e"
+      ],
+      "reveals_hidden_mechanism": true,
+      "downstream_feasible": true,
+      "issues": [
+        "The core claim is close to a tautology: leaders with more scope than skill will underperform and may contribute to attrition. That is intuitive, not a sharp hypothesis.",
+        "It overlaps heavily with prior hypotheses about leadership load concentration, network centrality, and promotion opacity. The novelty is weak.",
+        "The mechanism is plausible, but it is still framed at a surface level: 'scope creep causes burnout.' That is not a hidden mechanism; it is the expected mechanism.",
+        "'Leadership competency' is underspecified and likely noisy. If only 50% coverage exists, any test will be underpowered and vulnerable to measurement bias.",
+        "The causal direction is muddled. High attrition may also cause scope expansion and leadership strain, not just the other way around.",
+        "The hypothesis bundles multiple phenomena: role scope, leadership readiness, tenure, promotion history, regretted attrition. That makes it harder to test cleanly and easier to fit post hoc.",
+        "It does not specify the scope expansion metric, the time window, or what counts as 'grow in step,' making it difficult for a downstream analyst to operationalize.",
+        "Executive decision value is limited unless it clearly points to a prioritization rule: who should be de-scoped, developed, or replaced first.",
+        "It may simply restate a familiar management principle rather than uncover a differentiated risk pattern specific to Acme's data landscape."
+      ],
+      "suggested_improvements": [
+        "Tighten the hypothesis to one measurable relationship, e.g. 'A >X% increase in span-of-control or coordination load within Y months without a corresponding improvement in leadership competency score predicts a higher 12-month regretted attrition rate on the leader's team.'",
+        "Define explicit proxies for role scope and leadership competency, and state the lag structure.",
+        "Add a threshold or nonlinearity claim if that is the real insight: e.g. the effect only appears after certain team size / cross-functional complexity levels.",
+        "Separate leader-level attrition risk from team-level regretted attrition so the mechanism is testable.",
+        "State what executive action follows: freeze scope growth, trigger coaching, redesign roles, or slow promotion for specific risk bands.",
+        "If you want hidden mechanism, focus on a less obvious mediator than burnout—e.g. decision latency, reduced escalation quality, or coaching frequency as the path to attrition.",
+        "Control for compensation, org health, manager tenure, and role family explicitly if the downstream analysis is meant to be credible.",
+        "Collapse the comparison to a crisp contrast group: rapidly expanding leaders vs matched leaders with stable scope and similar baseline competency."
+      ],
+      "critic_name": "checklist_critic"
+    },
+    "search_stats": {
+      "iterations_run": 6,
+      "candidates_generated": 6,
+      "candidates_discarded": 0,
+      "lenses_explored": [
+        "attrition_hidden_drivers",
+        "burnout_resilience",
+        "communication_protection",
+        "compensation_fairness",
+        "promotion_equity"
+      ],
+      "diversity_score": 0.8333333333333334,
+      "termination_reason": "converged"
+    },
+    "generated_at": "2026-07-23T13:32:26.884481+00:00",
+    "insightId": "insight_5520c0e3cb67"
+  },
+  {
+    "id": "hist_f27b65d5060d",
+    "imageURL": "",
+    "title": "Senior sponsorship may turn strong assessment scores into promotions",
+    "description": "The hypothesis says high-scoring candidates are more likely to advance when a senior leader explicitly backs them in talent reviews or calibration. The effect should be strongest for people with less tenure or visibility, and weaker for those already well known to decision-makers. For executives, it suggests promotion decisions may depend not just on capability, but on who helps make that capabil…",
+    "readmoreURL": "sample_data/hypotheses/hist_f27b65d5060d.html",
+    "reaction": "none",
+    "organization_id": "shl-sample-cohort",
+    "lens": "promotion_equity",
+    "statement": "Among candidates with comparably high SHL-derived capability scores, those who receive explicit senior-endorsed sponsorship in calibration or talent-review processes will have a higher probability of near-term advancement outcomes—defined as promotion within 12 months or, where promotion is unavailable, a higher pay-growth / pay-recommendation outcome—than equally scored candidates without such endorsement. This sponsorship premium should be strongest for candidates with low role tenure or low prior visibility, and weakest for candidates who are already well-legitimized by time in role and prior progression.",
+    "mechanism": "The mechanism is not that assessments lack validity, but that advancement decisions are made under uncertainty and therefore depend on legitimacy cues that make the assessed signal actionable. In this setting, SHL-style scores provide capability information, but talent reviewers treat them as insufficient on their own when the candidate has little tenure, limited decision-maker exposure, or no named advocate in the review process. Explicit sponsorship functions as an uncertainty-reduction signal: it lowers perceived risk, increases credibility, and converts abstract potential into a promotable narrative. The testable implication is an interaction, not a general moderation: high-assessment candidates without documented sponsorship should be less likely to advance than similarly scored candidates with sponsorship, even after controlling for level, function, manager, and prior performance; if no such gap appears, the hypothesis is not supported.",
+    "target_constructs": [
+      "OPQ",
+      "GSA",
+      "MQ",
+      "360 feedback",
+      "leader-challenge ratings",
+      "high-potential designation",
+      "tenure in role",
+      "sponsorship/advocacy visibility",
+      "promotion outcomes",
+      "pay progression"
+    ],
+    "scorecard": {
+      "business_value": 0.72,
+      "novelty": 0.72,
+      "depth": 0.84,
+      "actionability": 0.66,
+      "strategic_importance": 0.73,
+      "feasibility": 0.41000000000000003,
+      "organizational_impact": 0.58,
+      "expected_insight": 0.74,
+      "confidence": 0.62,
+      "future_extensibility": 0.78,
+      "composite": 0.6874000000000001,
+      "dimension_notes": {
+        "business_value": "This hypothesis could materially inform promotion and pay policy by revealing whether advancement depends on hidden sponsorship and tenure filters beyond assessed merit, and it is plausible to test with the available data, but its business value is moderated by the limited organizational context and the risk that any finding will be more diagnostic than immediately decisive.",
+        "strategic_importance": "This is strategically important because promotion and pay equity directly affect leadership pipeline quality, retention, and perceived fairness, though in this talent-lab context it is somewhat narrower than a full enterprise-level operating priority.",
+        "actionability": "If confirmed, the hypothesis suggests concrete interventions around promotion calibration, sponsorship visibility, and tenure-aware review processes, but it is less directly actionable because the dataset cannot itself specify which lever to change or how to redesign decisions in a formal operating context.",
+        "organizational_impact": "If true, this would affect promotion and pay decisions for a meaningful subset of assessed talent and could improve fairness in advancement, but the impact is bounded by the lack of formal organizational context and the likely narrow scope of the 402-candidate cohort.",
+        "feasibility": "3/10 target constructs map onto known data categories.",
+        "novelty": "The hypothesis is more novel than a standard assessment-to-promotion correlation because it posits a specific gatekeeping mechanism—tenure and sponsorship amplifying psychometric signal—but it still sits within a familiar and well-studied theme in talent analytics.",
+        "depth": "This hypothesis goes beyond a surface correlation by positing a specific hidden gatekeeping mechanism—tenure and sponsorship amplifying the credibility of assessment signals before promotion/pay decisions are made—though it is still somewhat constrained by being framed as a conditional explanation within a context-light talent dataset.",
+        "expected_insight": "This hypothesis is likely to yield moderately high insight because it probes a non-obvious conversion gap between assessment quality and advancement, but the finding would still be somewhat expected in a context-light talent dataset where tenure and sponsorship often matter.",
+        "confidence": "The mechanism is plausible and partially grounded in known promotion bias and sponsorship effects, but the context-light sample, construct overlap, and lack of a formal hierarchy make it hard to be highly confident that the observed conversion gap is causal rather than spurious or organization-specific.",
+        "future_extensibility": "If supported, this would open a strong follow-on research program on how assessment validity interacts with visibility, tenure, and sponsorship across roles and contexts, though the limited organizational structure may constrain how broadly the line of inquiry generalizes."
+      }
+    },
+    "critique": {
+      "is_obvious": true,
+      "executive_relevance": "Moderate at best. Executives may care about promotion equity and hidden gatekeeping, but this version reads like a generic HR truism: advancement depends on more than assessment scores. It does not yet identify a decision point they can act on, nor a specific organizational lever beyond vague sponsorship and tenure effects.",
+      "creates_actionable_decision": false,
+      "similar_to_prior": false,
+      "similar_prior_ids": [
+        "hist_781188e22517",
+        "hist_591deab240a2",
+        "hist_247b072fdb06"
+      ],
+      "reveals_hidden_mechanism": true,
+      "downstream_feasible": true,
+      "issues": [
+        "The core claim is largely obvious: promotion and pay are rarely driven by psychometrics alone, so the hypothesis risks sounding like a dressed-up common sense statement.",
+        "It overlaps strongly with prior hypotheses about visibility, calibration, role context, and external gating; it is not sufficiently distinct from the existing promotion-pool/visibility idea.",
+        "The mechanism is under-specified. 'Sponsorship signals' and 'visible role tenure' are vague proxies and not clearly separable from simple tenure, manager exposure, or performance history.",
+        "It does not specify the unit of analysis or exact outcome definition: promotion, pay growth, pay ratio, time-to-promotion, or promotion probability? Those are not interchangeable.",
+        "There is no clear threshold or interaction structure that would make the hypothesis testable beyond a generic moderation claim.",
+        "The organizational narrative itself warns that this is not a formal operating organization. In that context, 'promotion' may be too thin or noisy a criterion unless the dataset has explicit role progression and comp records.",
+        "The hypothesis implies causality ('translate into') but the data likely only support association unless sponsorship and tenure are measured prospectively and independently of the outcome.",
+        "It risks construct overlap: sponsorship may be confounded with manager ratings, 360 visibility, or prior performance, making any observed effect hard to interpret.",
+        "It is not clear why SHL-style scores should lose value absent sponsorship beyond the banal idea that all talent systems are socially mediated. That does not reveal a hidden mechanism; it restates a known one.",
+        "The phrase 'technically strong candidates' is imprecise and could mean different SHL dimensions, competency composites, or actual job performance."
+      ],
+      "suggested_improvements": [
+        "Define a precise outcome: e.g., probability of promotion within 12 months, compa-ratio growth, or time-to-next-level, and separate them if possible.",
+        "Operationalize sponsorship with observable proxies: named advocate in talent review, number of senior references, calibration endorsements, stretch-assignment nomination, or sponsor-network centrality.",
+        "Turn the claim into a stronger interaction: high assessment scores predict advancement only above a visibility/sponsorship threshold, not merely 'when paired' with it.",
+        "Add a falsifiable negative control: if sponsorship matters, high scores without sponsorship should underperform high scores with sponsorship even after controlling for tenure, function, level, and manager.",
+        "Specify whether visible role tenure is a moderator or a mediator; right now it is ambiguous and muddles the mechanism.",
+        "Narrow the hypothesis to a single context where promotion decisions are actually made, such as annual calibration or succession slates, rather than the entire population.",
+        "Replace generic 'high assessment scores' with a defined composite or limited construct set to reduce overlap with 360 and manager ratings.",
+        "If the goal is equity, make the equity angle explicit: test whether the conversion gap differs by demographic group, function, or manager, rather than just saying strong candidates are under-advanced.",
+        "Frame the hidden mechanism as uncertainty reduction or risk aversion in calibration, and test that directly with visible endorsement data or decision-maker variance.",
+        "If no real promotion process exists, pivot to a more valid outcome such as perceived readiness, slate inclusion, or pay recommendation rather than actual promotion."
+      ],
+      "critic_name": "checklist_critic"
+    },
+    "search_stats": {
+      "iterations_run": 5,
+      "candidates_generated": 5,
+      "candidates_discarded": 1,
+      "lenses_explored": [
+        "burnout_resilience",
+        "compensation_fairness",
+        "leadership_influence",
+        "promotion_equity",
+        "skill_concentration"
+      ],
+      "diversity_score": 1.0,
+      "termination_reason": "converged"
+    },
+    "generated_at": "2026-07-23T14:06:28.044949+00:00",
+    "insightId": "insight_3e11b7eb59f5"
+  },
+  {
+    "id": "hist_fdf0704cbbf5",
+    "imageURL": "",
+    "title": "Cross-boundary brokers may advance faster in roles that depend on coordination",
+    "description": "The hypothesis says employees who bridge groups in informal networks are more likely to see faster pay growth and promotion or high-potential nominations, even after accounting for prior performance and role context. The effect should be strongest in work that relies on cross-team coordination, and minimal in tightly structured, low-interdependence roles.",
+    "readmoreURL": "sample_data/hypotheses/hist_fdf0704cbbf5.html",
+    "reaction": "none",
+    "organization_id": "shl-sample-cohort",
+    "lens": "network_effects",
+    "statement": "After controlling for prior performance, SHL/360/competency profiles, and assignment context, pre-outcome cross-boundary brokerage (measured as time-lagged betweenness or cross-cluster bridging in the informal collaboration network) will predict faster pay progression and higher probability of promotion/high-potential nomination, but primarily in roles or projects with high interdependence or weak formal coordination. Brokerage should add little or no predictive value in stable, low-coordination roles.",
+    "mechanism": "The mechanism is not generic networking but coordination leverage: brokers reduce information frictions, translate across groups, and gain early access to decision-relevant problems, which increases their visibility and the perceived value of their contribution in settings where work depends on cross-boundary coordination. This effect should be separable from simple sponsorship or baseline talent only if brokerage is measured before the outcome window and tested net of role, manager, function, and prior performance. If the brokerage effect disappears in tightly structured roles or after those controls, the result would indicate that what looked like a brokerage advantage was really context or visibility; if it survives, it would show that network position creates incremental advancement value beyond individual assessment scores.",
+    "target_constructs": [
+      "cross-boundary brokerage",
+      "informal collaboration network position",
+      "tenure",
+      "pay progression",
+      "hi-po status",
+      "SHL psychometric scores (OPQ, GSA, MQ)",
+      "360 ratings",
+      "competency scores"
+    ],
+    "scorecard": {
+      "business_value": 0.76,
+      "novelty": 0.67,
+      "depth": 0.84,
+      "actionability": 0.74,
+      "strategic_importance": 0.63,
+      "feasibility": 0.2,
+      "organizational_impact": 0.56,
+      "expected_insight": 0.74,
+      "confidence": 0.57,
+      "future_extensibility": 0.84,
+      "composite": 0.667,
+      "dimension_notes": {
+        "business_value": "If validated, this would meaningfully change talent decisions by identifying high-value connector roles that standard assessments miss, and the existing rich dataset makes the question feasible and potentially surprising, though the absent formal organizational context and likely confounding keep it below truly executive-defining impact.",
+        "strategic_importance": "The hypothesis is strategically important because it could change how the organization identifies and retains high-value employees beyond standard assessment scores, but its relevance is moderated by the lack of formal organizational context and the fact that it primarily informs talent management rather than a broader business-critical priority.",
+        "actionability": "If confirmed, the hypothesis yields a concrete intervention—identify, retain, and intentionally place brokerage-heavy employees into integrator roles or development pipelines—though the lack of formal organizational context limits how directly those actions can be operationalized.",
+        "organizational_impact": "If true, the hypothesis could affect how a meaningful subset of employees are identified, developed, and retained, but its organizational reach is limited by the cohort’s unclear business context and the likelihood that brokerage matters most in specific roles rather than across the whole organization.",
+        "feasibility": "0/8 target constructs map onto known data categories.",
+        "novelty": "The hypothesis is moderately novel because it shifts from standard individual-assessment comparisons to informal network brokerage as a driver of advancement, but network effects in talent outcomes are a well-established idea in people analytics rather than a highly original frame.",
+        "depth": "This hypothesis goes beyond a surface association by positing a hidden relational mechanism—brokerage creating value through information flow, visibility, and coordination that standard assessments miss—so it has strong mechanistic depth, though the claim is still bounded by possible confounding with role context and selection effects.",
+        "expected_insight": "If supported, the hypothesis would be fairly informative because it tests a less-obvious network mechanism that can explain advancement beyond individual assessment scores, though the insight is tempered by the likely overlap with visibility, role importance, and other unobserved confounds in a context-light dataset.",
+        "confidence": "The mechanism is plausible and testable with the described network-and-outcome data, but confidence is only moderate because brokerage effects are often confounded by role, visibility, team context, and selection into central positions, especially in a sample lacking strong organizational structure.",
+        "future_extensibility": "If supported, this would open a durable research program on informal network roles as a complement to psychometrics, enabling follow-on questions about role-specific fit, retention levers, succession risk, and how brokerage interacts with context, making it highly extensible beyond the initial pay/tenure outcome test."
+      }
+    },
+    "critique": {
+      "is_obvious": false,
+      "executive_relevance": "Moderate. Executives may care if network position predicts pay, tenure, and HiPo designation beyond assessment scores, but in this setting it risks sounding like a generic \"connectors matter\" story. Without a clear organizational use-case, it is more analytics curiosity than decision-grade insight.",
+      "creates_actionable_decision": true,
+      "similar_to_prior": false,
+      "similar_prior_ids": [],
+      "reveals_hidden_mechanism": true,
+      "downstream_feasible": true,
+      "issues": [
+        "The hypothesis is directionally plausible but not surprising: cross-boundary brokers often get visibility, which can affect rewards. It needs stronger novelty than \"networking helps careers.\"",
+        "It is too broad across outcomes. Faster pay progression, longer tenure, and higher HiPo designation are different mechanisms and may not move together; bundling them weakens testability and invites mixed results.",
+        "The mechanism is asserted, not isolated. Visibility, sponsorship, access to opportunities, and actual performance are all tangled together. This is not yet a clean test of brokerage versus general effectiveness.",
+        "The sample context is fragile: without formal hierarchy, role family, and business-unit context, network effects may just be proxies for unobserved role type or project assignment. That makes causal interpretation weak.",
+        "'Informal collaboration network' is underspecified. If network construction is noisy or time-varying, the result may be an artifact of the measurement method rather than a real mechanism.",
+        "Matching on 'equally strong peers with similar SHL, 360, and competency profiles' is underpowered if those constructs overlap heavily. You risk comparing people who are still very different on unmeasured factors like function, manager quality, or project criticality.",
+        "HiPo designation is especially dangerous as an outcome because it may be endogenous to visibility and network position. If the talent process already rewards connectors, the hypothesis may simply rediscover calibration bias.",
+        "Longer tenure is ambiguous: brokers may stay because they are valued, or they may stay because their role is sticky. That does not necessarily imply personal contribution; it may reflect organizational lock-in.",
+        "The hypothesis would be stronger if it specified whether brokerage predicts advancement above and beyond formal performance, or whether it only matters in low-structure, high-coordination roles.",
+        "It is similar in spirit to the sponsorship/visibility prior hypothesis and partly overlaps with the cross-functional stress-context hypothesis because both mix network access with advancement or performance advantages. It may be redundant unless sharpened around informal brokerage specifically.",
+        "Executives would need an answer to 'what do we do differently?' Right now the implication is vague: retain integrators. That is too generic unless tied to specific talent actions or succession rules.",
+        "The hypothesized value mechanism could be reversed: high performers may become brokers because others seek them out, not the other way around. The current statement does not address directionality or temporal ordering."
+      ],
+      "suggested_improvements": [
+        "Narrow the hypothesis to one primary outcome, preferably pay progression or promotion/HiPo designation, and treat tenure separately.",
+        "Define brokerage precisely: e.g., betweenness centrality or cross-cluster bridging measured on a pre-outcome time window.",
+        "Add a time-lagged design to establish ordering: network position at t0 predicting outcomes at t+12/t+24 months.",
+        "Control explicitly for role, function, manager, site, project type, and prior performance/visibility to reduce the chance that brokerage is just a proxy.",
+        "Test an interaction instead of a blanket main effect: brokerage should matter more in high-interdependence or low-formality roles than in stable, individual-contributor roles.",
+        "Separate visibility/sponsorship from brokerage by adding measures of nomination, manager endorsement, or talent-review exposure, so you can tell whether the effect is relational leverage or just attention.",
+        "If the executive action is to identify 'integrators,' define an operational threshold and a retention/promotion intervention, not just an interpretive label.",
+        "State a falsifiable alternative: brokerage should have no effect after controlling for prior performance and role context if advancement is purely merit-based; that would make the analysis sharper.",
+        "Consider reframing to ask whether brokerage moderates the payoff of SHL scores, rather than claiming it independently drives outcomes. That would better reveal a hidden mechanism and fit the existing battery.",
+        "If possible, segment by context where the network should matter most, such as matrix teams, cross-functional programs, or change-heavy assignments, to avoid a noisy average effect across the whole cohort."
+      ],
+      "critic_name": "checklist_critic"
+    },
+    "search_stats": {
+      "iterations_run": 4,
+      "candidates_generated": 4,
+      "candidates_discarded": 0,
+      "lenses_explored": [
+        "burnout_resilience",
+        "learning_velocity",
+        "network_effects",
+        "promotion_equity"
+      ],
+      "diversity_score": 1.0,
+      "termination_reason": "converged"
+    },
+    "generated_at": "2026-07-23T14:09:52.771939+00:00",
+    "insightId": "insight_7f24a54dc649"
   }
 ]

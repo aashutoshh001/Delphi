@@ -16,8 +16,10 @@ class NarrativeAgent:
     def __init__(self, strategy: NarrativeStrategyPlugin) -> None:
         self._strategy = strategy
 
-    async def run(self, insights: BusinessInsights, root_cause: RootCauseGraph) -> Narrative:
-        narrative = await self._strategy.narrate(insights, root_cause)
+    async def run(
+        self, insights: BusinessInsights, root_cause: RootCauseGraph, session_id: str | None = None
+    ) -> Narrative:
+        narrative = await self._strategy.narrate(insights, root_cause, session_id=session_id)
         logger.info(
             "narrative produced",
             extra={"extra_fields": {"key_messages": len(narrative.key_messages)}},

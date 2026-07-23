@@ -20,6 +20,7 @@ _BAR_TYPES = {"bar", "grouped_bar", "bar_chart"}
 _SCATTER_TYPES = {"scatter", "scatter_plot"}
 _HISTOGRAM_TYPES = {"histogram", "distribution"}
 _BOXPLOT_TYPES = {"boxplot", "box_plot"}
+_QUADRANT_TYPES = {"quadrant_divergence", "quadrant_scatter"}
 
 
 class DefaultChartDataResolver(ChartDataResolver):
@@ -34,6 +35,8 @@ class DefaultChartDataResolver(ChartDataResolver):
 
         if spec.visualization_type in _CORRELATION_TYPES:
             return self._correlation_matrix(df, columns)
+        if spec.visualization_type in _QUADRANT_TYPES and len(columns) >= 2:
+            return self._quadrant(df, columns[0], columns[1])
         if spec.visualization_type in _SCATTER_TYPES and len(columns) >= 2:
             return self._scatter(df, columns[0], columns[1])
         if spec.visualization_type in _HISTOGRAM_TYPES and columns:
@@ -57,6 +60,26 @@ class DefaultChartDataResolver(ChartDataResolver):
         ys = pd.to_numeric(df[y_col], errors="coerce")
         points = [(float(x), float(y)) for x, y in zip(xs, ys) if x == x and y == y]
         return ResolvedChartData(categories=[x_col, y_col], raw_points=points)
+
+    def _quadrant(self, df: pd.DataFrame, x_col: str, y_col: str) -> ResolvedChartData:
+        """Same midpoint-threshold convention as
+        plugins/analysis_methods/quadrant_divergence.py, so the chart's
+        quadrant lines match whatever the analytics angle already reported
+        for this same pair of grounded columns."""
+        xs = pd.to_numeric(df[x_col], errors="coerce")
+        ys = pd.to_numeric(df[y_col], errors="coerce")
+        points = [(float(x), float(y)) for x, y in zip(xs, ys) if x == x and y == y]
+        if not points:
+            return ResolvedChartData(categories=[x_col, y_col])
+        xs_valid, ys_valid = zip(*points)
+        x_threshold = (min(xs_valid) + max(xs_valid)) / 2
+        y_threshold = (min(ys_valid) + max(ys_valid)) / 2
+        return ResolvedChartData(
+            categories=[x_col, y_col],
+            raw_points=points,
+            x_threshold=round(x_threshold, 4),
+            y_threshold=round(y_threshold, 4),
+        )
 
     def _histogram(self, df: pd.DataFrame, column: str) -> ResolvedChartData:
         values = pd.to_numeric(df[column], errors="coerce").dropna()

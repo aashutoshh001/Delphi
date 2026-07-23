@@ -13,7 +13,7 @@ logger = get_logger("nodes.understand_organization")
 def make_understand_organization_node(deps: AgentDependencies):
     async def understand_organization(state: HypothesisSearchState) -> dict[str, Any]:
         understanding = await deps.understanding_engine.understand(
-            state["organization_profile"], state["data_landscape"]
+            state["organization_profile"], state["data_landscape"], session_id=state.get("session_id")
         )
         logger.info(
             "synthesized organization understanding",

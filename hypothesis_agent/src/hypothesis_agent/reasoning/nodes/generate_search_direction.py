@@ -9,6 +9,7 @@ from hypothesis_agent.contracts.llm import LLMMessage, LLMRequest
 from hypothesis_agent.contracts.memory import ReasoningTraceEntry
 from hypothesis_agent.logging_setup import get_logger
 from hypothesis_agent.reasoning.dependencies import AgentDependencies
+from hypothesis_agent.reasoning.observability import session_metadata
 from hypothesis_agent.reasoning.search.frontier import explored_lens_summary
 from hypothesis_agent.reasoning.state import HypothesisSearchState
 
@@ -44,6 +45,7 @@ def make_generate_search_direction_node(deps: AgentDependencies):
                 LLMMessage(role="user", content=rendered.user),
             ],
             temperature=0.6,
+            metadata=session_metadata(state.get("session_id")),
         )
         result = await deps.llm_service.complete_structured(request, _DirectiveResponse)
 

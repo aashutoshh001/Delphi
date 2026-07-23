@@ -4,6 +4,8 @@ module and `contracts.HypothesisPackage`."""
 
 from __future__ import annotations
 
+import uuid
+
 from hypothesis_agent.config.settings import AgentConfig
 from hypothesis_agent.contracts.hypothesis import HypothesisPackage
 from hypothesis_agent.contracts.memory import FeedbackSummary, HistoricalHypothesisRecord
@@ -34,10 +36,22 @@ class HypothesisAgent:
         """Runs the full search loop and returns exactly one Structured
         Hypothesis Package. Also persists it to historical memory and offers
         it to the (currently no-op) downstream Analysis Agent gateway."""
+        # Same shape as HistoricalHypothesisRecord's own default id (see
+        # contracts/memory.py) — generated up front instead of left to that
+        # model's default_factory so every LLM call made *during* this run
+        # can already be tagged with the id the record ends up saved under,
+        # grouping the whole run into one Langfuse session (see
+        # reasoning/observability.py). A caller that later POSTs this
+        # hypothesis to the Investigation Pipeline tagged with this same id
+        # (the frontend already does, for an unrelated reason — see
+        # script.js's requestInvestigation) gets that run folded into the
+        # same session too, for free.
+        session_id = f"hist_{uuid.uuid4().hex[:12]}"
         graph = build_hypothesis_graph(self._deps)
         initial_state = new_initial_state(
             organization_id=organization_id,
             max_iterations=self._deps.config.search.max_iterations,
+            session_id=session_id,
         )
         logger.info("starting hypothesis discovery", extra={"extra_fields": {"organization_id": organization_id}})
 
@@ -46,6 +60,7 @@ class HypothesisAgent:
 
         await self._deps.historical_memory_repository.save(
             HistoricalHypothesisRecord(
+                id=session_id,
                 organization_id=package.organization_id,
                 headline=package.headline,
                 summary=package.summary,

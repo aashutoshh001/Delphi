@@ -10,9 +10,11 @@ class CriticContext:
         self,
         understanding: OrganizationUnderstanding,
         similar_prior: list[HistoricalHypothesisRecord],
+        session_id: str | None = None,
     ) -> None:
         self.understanding = understanding
         self.similar_prior = similar_prior
+        self.session_id = session_id
 
 
 class Critic(ABC):

@@ -16,6 +16,7 @@ from hypothesis_agent.contracts.llm import LLMMessage, LLMRequest
 from hypothesis_agent.contracts.memory import ReasoningTraceEntry
 from hypothesis_agent.logging_setup import get_logger
 from hypothesis_agent.reasoning.dependencies import AgentDependencies
+from hypothesis_agent.reasoning.observability import session_metadata
 from hypothesis_agent.reasoning.search.frontier import diversity_score
 from hypothesis_agent.reasoning.state import HypothesisSearchState
 
@@ -33,7 +34,7 @@ def _clip(text: str, limit: int) -> str:
 
 
 async def _generate_headline_and_summary(
-    deps: AgentDependencies, statement: str, mechanism: str, lens: str
+    deps: AgentDependencies, statement: str, mechanism: str, lens: str, session_id: str | None
 ) -> _HeadlineResponse:
     """Soft length limits, enforced in code rather than schema validation —
     an LLM-produced string that's a few characters over a hard `max_length`
@@ -47,6 +48,7 @@ async def _generate_headline_and_summary(
             LLMMessage(role="user", content=rendered.user),
         ],
         temperature=0.6,
+        metadata=session_metadata(session_id),
     )
     result = await deps.llm_service.complete_structured(request, _HeadlineResponse)
     return _HeadlineResponse(
@@ -56,7 +58,13 @@ async def _generate_headline_and_summary(
 
 
 async def _generate_investigation_seed(
-    deps: AgentDependencies, narrative: str, statement: str, mechanism: str, lens: str, constructs: list[str]
+    deps: AgentDependencies,
+    narrative: str,
+    statement: str,
+    mechanism: str,
+    lens: str,
+    constructs: list[str],
+    session_id: str | None,
 ) -> InvestigationSeed:
     template = deps.prompts.get("investigation_seed")
     rendered = template.render(
@@ -72,6 +80,7 @@ async def _generate_investigation_seed(
             LLMMessage(role="user", content=rendered.user),
         ],
         temperature=0.5,
+        metadata=session_metadata(session_id),
     )
     return await deps.llm_service.complete_structured(request, InvestigationSeed)
 
@@ -111,7 +120,7 @@ def make_finalize_node(deps: AgentDependencies):
             notes="Hints only — the Hypothesis Agent has no knowledge of downstream agent capabilities.",
         )
         headline_and_summary = await _generate_headline_and_summary(
-            deps, best.statement, best.mechanism, best.lens
+            deps, best.statement, best.mechanism, best.lens, state.get("session_id")
         )
         investigation_seed = None
         if deps.config.search.generate_investigation_seed:
@@ -122,6 +131,7 @@ def make_finalize_node(deps: AgentDependencies):
                 best.mechanism,
                 best.lens,
                 best.target_constructs,
+                state.get("session_id"),
             )
         package = HypothesisPackage(
             organization_id=state["organization_id"],

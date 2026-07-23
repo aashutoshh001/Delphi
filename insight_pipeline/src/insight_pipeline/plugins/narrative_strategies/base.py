@@ -12,5 +12,8 @@ class NarrativeStrategyPlugin(ABC):
 
     @abstractmethod
     async def narrate(
-        self, insights: BusinessInsights, root_cause: RootCauseGraph
+        self,
+        insights: BusinessInsights,
+        root_cause: RootCauseGraph,
+        session_id: str | None = None,
     ) -> Narrative: ...

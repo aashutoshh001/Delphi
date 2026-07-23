@@ -1,7 +1,7 @@
-"""Analytics Agent against the real Book1.xlsx cohort — real scipy
-statistics, not mocked, so this validates the whole plugin selection +
-concurrent execution path against real data shapes (numeric granular
-indicators, categorical competency buckets)."""
+"""Analytics Agent against the real Book1_standardized.xlsx cohort — real
+scipy statistics, not mocked, so this validates the whole plugin selection +
+concurrent execution path against real data shapes (numeric OPQ domain
+scores, categorical OPQ facet bands and MQ categories)."""
 
 from pathlib import Path
 
@@ -15,9 +15,9 @@ from insight_pipeline.contracts.investigation import InvestigationPlan, Populati
 from insight_pipeline.plugins.analysis_methods import default_analysis_method_registry
 from hypothesis_agent.contracts.organization import AttributeField
 
-_XLSX_PATH = Path(__file__).parents[3] / "Book1.xlsx"
+_XLSX_PATH = Path(__file__).parents[3] / "Book1_standardized.xlsx"
 
-pytestmark = pytest.mark.skipif(not _XLSX_PATH.exists(), reason="Book1.xlsx not present")
+pytestmark = pytest.mark.skipif(not _XLSX_PATH.exists(), reason="Book1_standardized.xlsx not present")
 
 
 async def _retrieve(cache, requested_fields):
@@ -36,17 +36,17 @@ async def test_analytics_agent_runs_correlation_regression_anova_chi_square():
     cache = InMemoryDatasetHandleCache()
     handle = await _retrieve(
         cache,
-        ["Makes_Quick_Decisions", "Takes_Responsibility", "Decision_Making", "Leadership"],
+        ["4_personality", "7_personality", "1.1_personality", "MQ.E.1_cat"],
     )
     dataset = RetrievedDataset(
         investigation_plan_id="plan_test",
         handle=handle,
         metadata=DatasetMetadata(
             fields=[
-                _field("Makes_Quick_Decisions", "behavioural_competency", "ordinal"),
-                _field("Takes_Responsibility", "behavioural_competency", "ordinal"),
-                _field("Decision_Making", "behavioural_competency", "categorical"),
-                _field("Leadership", "behavioural_competency", "categorical"),
+                _field("4_personality", "opq_domain", "numeric"),
+                _field("7_personality", "opq_domain", "numeric"),
+                _field("1.1_personality", "opq_facet", "categorical"),
+                _field("MQ.E.1_cat", "motivation_item", "categorical"),
             ]
         ),
     )
@@ -56,10 +56,10 @@ async def test_analytics_agent_runs_correlation_regression_anova_chi_square():
         organization_id="shl-sample-cohort",
         target_population=PopulationSpec(description="all candidates"),
         variables_required=[
-            VariableSpec(name="Makes_Quick_Decisions", role="independent", expected_type="numeric"),
-            VariableSpec(name="Takes_Responsibility", role="dependent", expected_type="numeric"),
-            VariableSpec(name="Decision_Making", role="independent", expected_type="categorical"),
-            VariableSpec(name="Leadership", role="control", expected_type="categorical"),
+            VariableSpec(name="4_personality", role="independent", expected_type="numeric"),
+            VariableSpec(name="7_personality", role="dependent", expected_type="numeric"),
+            VariableSpec(name="1.1_personality", role="independent", expected_type="categorical"),
+            VariableSpec(name="MQ.E.1_cat", role="control", expected_type="categorical"),
         ],
     )
     registry = default_analysis_method_registry(cache)
@@ -72,14 +72,16 @@ async def test_analytics_agent_runs_correlation_regression_anova_chi_square():
     assert "simple_linear_regression" in methods
     assert "one_way_anova" in methods
     assert "chi_square_independence" in methods
+    hypothesis_test_methods = {"correlation", "simple_linear_regression", "one_way_anova", "chi_square_independence"}
     for r in result.methods_run:
-        assert r.p_value is not None, f"{r.method} produced no p_value"
+        if r.method in hypothesis_test_methods:
+            assert r.p_value is not None, f"{r.method} produced no p_value"
         print(r.method, r.interpretation_notes)
 
 
 async def test_analytics_agent_handles_no_applicable_methods_gracefully():
     cache = InMemoryDatasetHandleCache()
-    handle = await _retrieve(cache, ["Candidate_ID"])
+    handle = await _retrieve(cache, ["candidate_id"])
     dataset = RetrievedDataset(
         investigation_plan_id="plan_empty",
         handle=handle,

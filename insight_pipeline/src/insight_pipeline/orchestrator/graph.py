@@ -13,6 +13,7 @@ from langgraph.graph import END, START, StateGraph
 
 from insight_pipeline.agents.analytics.facade import AnalyticsAgent
 from insight_pipeline.agents.business_insight.facade import BusinessInsightAgent
+from insight_pipeline.agents.construct_grounding.facade import ConstructGroundingAgent
 from insight_pipeline.agents.data_retrieval.facade import DataRetrievalAgent
 from insight_pipeline.agents.investigation_planner.facade import InvestigationPlannerAgent
 from insight_pipeline.agents.narrative.facade import NarrativeAgent
@@ -35,6 +36,7 @@ def _trace(state: PipelineState, step: str, summary: str) -> list[ReasoningTrace
 
 
 def build_pipeline_graph(deps: PipelineDependencies):
+    construct_grounding = ConstructGroundingAgent(deps.construct_grounding_engine)
     investigation_planner = InvestigationPlannerAgent(
         deps.investigation_planner_engine, deps.knowledge_retriever
     )
@@ -52,8 +54,20 @@ def build_pipeline_graph(deps: PipelineDependencies):
         DefaultChartDataResolver(deps.handle_cache), deps.plotting_engine, ChartTheme()
     )
 
+    async def construct_grounding_node(state: PipelineState) -> dict[str, Any]:
+        grounding_map = await construct_grounding.run(state["hypothesis_package"], deps.framework_registry)
+        return {
+            "grounding_map": grounding_map,
+            "trace": _trace(
+                state,
+                "construct_grounding",
+                f"{len(grounding_map.grounded)} construct(s) grounded, "
+                f"{len(grounding_map.ungrounded)} ungrounded",
+            ),
+        }
+
     async def investigation_planner_node(state: PipelineState) -> dict[str, Any]:
-        plan = await investigation_planner.run(state["hypothesis_package"])
+        plan = await investigation_planner.run(state["hypothesis_package"], state["grounding_map"])
         return {
             "investigation_plan": plan,
             "trace": _trace(state, "investigation_planner", f"{len(plan.variables_required)} variables planned"),
@@ -90,11 +104,19 @@ def build_pipeline_graph(deps: PipelineDependencies):
         }
 
     async def narrative_node(state: PipelineState) -> dict[str, Any]:
-        result = await narrative.run(state["business_insights"], state["root_cause_graph"])
+        result = await narrative.run(
+            state["business_insights"],
+            state["root_cause_graph"],
+            session_id=state["hypothesis_package"].package_id,
+        )
         return {"narrative": result, "trace": _trace(state, "narrative", result.executive_summary[:120])}
 
     async def visualization_planner_node(state: PipelineState) -> dict[str, Any]:
-        plan = await visualization_planner.run(state["business_insights"], state["analytics_result"])
+        plan = await visualization_planner.run(
+            state["business_insights"],
+            state["analytics_result"],
+            session_id=state["hypothesis_package"].package_id,
+        )
         return {
             "visualization_plan": plan,
             "trace": _trace(state, "visualization_planner", f"{len(plan.specs)} chart(s) planned"),
@@ -113,6 +135,7 @@ def build_pipeline_graph(deps: PipelineDependencies):
         }
 
     builder = StateGraph(PipelineState)
+    builder.add_node("construct_grounding", construct_grounding_node)
     builder.add_node("investigation_planner", investigation_planner_node)
     builder.add_node("data_retrieval", data_retrieval_node)
     builder.add_node("analytics", analytics_node)
@@ -122,7 +145,8 @@ def build_pipeline_graph(deps: PipelineDependencies):
     builder.add_node("visualization_planner", visualization_planner_node)
     builder.add_node("plot_generation", plot_generation_node)
 
-    builder.add_edge(START, "investigation_planner")
+    builder.add_edge(START, "construct_grounding")
+    builder.add_edge("construct_grounding", "investigation_planner")
     builder.add_edge("investigation_planner", "data_retrieval")
     builder.add_edge("data_retrieval", "analytics")
     builder.add_edge("analytics", "root_cause")

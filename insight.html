@@ -43,6 +43,24 @@
     font-size: 0.75rem; padding: 0.15rem 0.55rem; border-radius: 6px;
     margin: 0 0.35rem 0.35rem 0;
   }
+  .evidence-chip {
+    display: inline-block; background: #f2f2f2; border: 1px solid #ddd; color: #555;
+    font-size: 0.72rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    padding: 0.12rem 0.5rem; border-radius: 5px; margin: 0.2rem 0.35rem 0 0;
+  }
+  .ground-row {
+    border-bottom: 1px solid var(--border); padding: 0.6rem 0; font-size: 0.92rem;
+  }
+  .ground-row:last-child { border-bottom: none; }
+  .role-badge {
+    display: inline-block; font-size: 0.68rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.02em; padding: 0.1rem 0.45rem; border-radius: 5px; margin-right: 0.5rem;
+    background: #e5eefc; color: #1a4c8f;
+  }
+  .ungrounded-row {
+    border-bottom: 1px solid var(--border); padding: 0.6rem 0; font-size: 0.92rem; color: #96700f;
+  }
+  .ungrounded-row:last-child { border-bottom: none; }
   .badge {
     display: inline-block; font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
     letter-spacing: 0.02em; padding: 0.12rem 0.5rem; border-radius: 5px; margin-right: 0.4rem;
@@ -115,6 +133,11 @@ function statSummary(m) {
   return parts.join(" &middot; ");
 }
 
+function evidenceChips(refs) {
+  if (!refs || !refs.length) return `<span class="muted">no cited evidence</span>`;
+  return refs.map((r) => `<span class="evidence-chip">${esc(r)}</span>`).join("");
+}
+
 function renderReport(pkg) {
   const hp = pkg.hypothesis_package;
   const narrative = pkg.narrative || {};
@@ -123,6 +146,7 @@ function renderReport(pkg) {
   const rootCause = pkg.root_cause_graph || { nodes: [], edges: [] };
   const insights = pkg.business_insights || {};
   const figures = pkg.generated_figures || [];
+  const grounding = pkg.grounding_map || { grounded: [], ungrounded: [], outcome_columns_available: [] };
 
   document.title = `${hp.headline || hp.hypothesis_statement.slice(0, 60)} — Delphi Insight Report`;
 
@@ -149,6 +173,25 @@ function renderReport(pkg) {
     <p>${esc(hp.mechanism_explanation)}</p>
     <h3>Target constructs</h3>
     <div>${chips(hp.target_constructs)}</div>
+
+    <h2>SHL grounding map</h2>
+    <p class="muted">Every construct below was mapped only to real assessment/outcome columns present in the
+      organization's data — nothing on this page is an invented metric.</p>
+    ${(grounding.grounded || []).length ? grounding.grounded.map((g) => `
+      <div class="ground-row">
+        <span class="role-badge">${esc(g.role)}</span><strong>${esc(g.construct_name)}</strong>
+        <div>${chips(g.columns)}</div>
+        ${g.rationale ? `<p class="muted">${esc(g.rationale)}</p>` : ""}
+      </div>`).join("") : `<p class="muted">No constructs were grounded.</p>`}
+    ${(grounding.ungrounded || []).length ? `
+      <h3>Constructs without a measurable SHL proxy</h3>
+      ${grounding.ungrounded.map((u) => `
+        <div class="ungrounded-row">
+          <strong>${esc(u.construct_name)}</strong> &mdash; ${esc(u.reason)}
+        </div>`).join("")}` : ""}
+    ${(grounding.outcome_columns_available || []).length ? `
+      <h3>Outcome columns available</h3>
+      <div>${chips(grounding.outcome_columns_available)}</div>` : ""}
 
     <h2>Executive narrative</h2>
     <div class="card">
@@ -189,7 +232,8 @@ function renderReport(pkg) {
       <div class="node-row">
         <strong>${esc(e.source)}</strong> <span class="edge-arrow">&rarr; ${esc(e.relationship_type)} &rarr;</span> <strong>${esc(e.target)}</strong>
         <span class="muted"> (strength ${Number(e.strength).toFixed(2)}, confidence ${Number(e.confidence).toFixed(2)})</span>
-      </div>`).join("") : `<p class="muted">No causal edges identified.</p>`}
+        <div>${evidenceChips(e.evidence_refs)}</div>
+      </div>`).join("") : `<p class="muted">No causal edges identified (every proposed edge lacked grounded evidence and was dropped).</p>`}
     <h3>Potential mechanisms</h3>
     ${list(rootCause.potential_mechanisms)}
     <h3>Alternative explanations</h3>
@@ -198,7 +242,8 @@ function renderReport(pkg) {
     <h2>Business insights</h2>
     <h3>Findings</h3>
     ${(insights.findings || []).length ? insights.findings.map((f) => `
-      <div class="finding">${esc(f.statement)} <span class="muted">(confidence ${((f.confidence || 0) * 100).toFixed(0)}%)</span></div>`).join("")
+      <div class="finding">${esc(f.statement)} <span class="muted">(confidence ${((f.confidence || 0) * 100).toFixed(0)}%)</span>
+      <div>${evidenceChips(f.evidence_refs)}</div></div>`).join("")
       : `<p class="muted">None recorded.</p>`}
     <h3>Risks</h3>
     ${(insights.risks || []).length ? insights.risks.map((r) => `

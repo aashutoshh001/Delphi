@@ -26,13 +26,14 @@ class BackendsSettings(BaseModel):
     organization_knowledge_repository: str = "in_memory"
     organization_knowledge_retriever: str = "embedding"
     employee_data_repository: str = "excel"
-    query_planner: str = "direct_llm"
+    query_planner: str = "grounded"
     plotting_engine: str = "matplotlib"
     insight_package_repository: str = "json_file"
     root_cause_strategy: str = "direct_llm"
+    construct_grounding_engine: str = "direct_llm"
     # If relative, anchored to the Delphi/ repo root (see _REPO_ROOT /
     # PipelineConfig.load below) rather than the process's cwd.
-    excel_path: str = "Book1.xlsx"
+    excel_path: str = "Book1_standardized.xlsx"
     insight_store_path: str = "sample_data/insights.json"
 
 

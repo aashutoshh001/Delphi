@@ -15,6 +15,7 @@ from hypothesis_agent.contracts.hypothesis import HypothesisPackage
 from hypothesis_agent.contracts.memory import ReasoningTraceEntry
 from insight_pipeline.contracts.analytics import AnalyticsResult
 from insight_pipeline.contracts.business_insight import BusinessInsights
+from insight_pipeline.contracts.grounding import GroundingMap
 from insight_pipeline.contracts.investigation import InvestigationPlan
 from insight_pipeline.contracts.narrative import Narrative
 from insight_pipeline.contracts.root_cause import RootCauseGraph
@@ -29,6 +30,7 @@ class InsightPackage(BaseModel):
     id: str = Field(default_factory=lambda: _new_id("insight"))
     generated_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
     hypothesis_package: HypothesisPackage
+    grounding_map: GroundingMap
     investigation_plan: InvestigationPlan
     analytics_results: AnalyticsResult
     root_cause_graph: RootCauseGraph

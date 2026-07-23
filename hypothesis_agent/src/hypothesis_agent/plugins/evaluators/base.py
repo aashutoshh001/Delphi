@@ -12,10 +12,12 @@ class EvaluationContext:
         understanding: OrganizationUnderstanding,
         landscape_categories: set[str],
         archive: list[HypothesisCandidate],
+        session_id: str | None = None,
     ) -> None:
         self.understanding = understanding
         self.landscape_categories = landscape_categories
         self.archive = archive
+        self.session_id = session_id
 
 
 class Evaluator(ABC):

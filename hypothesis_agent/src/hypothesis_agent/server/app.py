@@ -81,11 +81,11 @@ def _seed_acme_demo_organization(deps: AgentDependencies) -> None:
 
 
 def _seed_shl_sample_cohort(deps: AgentDependencies) -> str | None:
-    """Real sample data (Book1.xlsx, 378 candidates x 153 SHL competency/
-    psychometric attributes), loaded as schema-level landscape info only —
-    see adapters/shl_sample_cohort.py. Returns the organization_id if the
-    file was found and loaded, else None (server still starts, falls back
-    to the synthetic Acme Labs org)."""
+    """Real sample data (Book1_standardized.xlsx, 402 candidates x 235 SHL
+    assessment + HR outcome columns), loaded as schema-level landscape info
+    only — see adapters/shl_sample_cohort.py. Returns the organization_id if
+    the file was found and loaded, else None (server still starts, falls
+    back to the synthetic Acme Labs org)."""
     from hypothesis_agent.adapters.shl_sample_cohort import (
         load_organization_and_landscape,
     )
@@ -94,7 +94,7 @@ def _seed_shl_sample_cohort(deps: AgentDependencies) -> str | None:
         profile, landscape = load_organization_and_landscape()
     except FileNotFoundError:
         logger.warning(
-            "Book1.xlsx not found (expected at repo root) — "
+            "Book1_standardized.xlsx not found (expected at repo root) — "
             "skipping the real sample cohort, only Acme Labs demo data is available"
         )
         return None

@@ -7,10 +7,15 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
+import pandas as pd
+
 from hypothesis_agent.ports.embedding_service import EmbeddingService
 from hypothesis_agent.ports.employee_repository import EmployeeRepository
 from hypothesis_agent.ports.llm_service import LLMService
 from hypothesis_agent.reasoning.dependencies import AgentDependencies
+from insight_pipeline.adapters.construct_grounding.direct_llm_engine import (
+    DirectLLMConstructGroundingEngine,
+)
 from insight_pipeline.adapters.dataset_retrieval.default_retriever import DefaultDatasetRetriever
 from insight_pipeline.adapters.employee_data.excel_repository import ExcelEmployeeDataRepository
 from insight_pipeline.adapters.employee_data.handle_cache import InMemoryDatasetHandleCache
@@ -24,8 +29,9 @@ from insight_pipeline.adapters.organization_knowledge.in_memory_repository impor
     InMemoryOrganizationKnowledgeRepository,
 )
 from insight_pipeline.adapters.plotting.matplotlib_engine import MatplotlibPlottingEngine
-from insight_pipeline.adapters.query_planning.direct_llm_planner import DirectLLMQueryPlanner
+from insight_pipeline.adapters.query_planning.grounded_planner import GroundedQueryPlanner
 from insight_pipeline.config.settings import PipelineConfig
+from insight_pipeline.framework.registry import FrameworkRegistry
 from insight_pipeline.plugins.analysis_methods import default_analysis_method_registry
 from insight_pipeline.plugins.analysis_methods.base import AnalysisMethodPlugin
 from insight_pipeline.plugins.business_evaluators.llm_synthesis import LLMBusinessSynthesisEvaluator
@@ -37,6 +43,7 @@ from insight_pipeline.plugins.root_cause_strategies.llm_mechanism_brainstorm imp
 from insight_pipeline.plugins.visualization_recommenders.llm_recommender import (
     LLMVisualizationRecommender,
 )
+from insight_pipeline.ports.construct_grounding_engine import ConstructGroundingEngine
 from insight_pipeline.ports.dataset_retriever import DatasetRetriever
 from insight_pipeline.ports.insight_package_repository import InsightPackageRepository
 from insight_pipeline.ports.investigation_planner_engine import InvestigationPlannerEngine
@@ -57,6 +64,8 @@ class PipelineDependencies:
     employee_repository: EmployeeRepository
     knowledge_repository: OrganizationKnowledgeRepository
     knowledge_retriever: OrganizationKnowledgeRetriever
+    framework_registry: FrameworkRegistry
+    construct_grounding_engine: ConstructGroundingEngine
     dataset_retriever: DatasetRetriever
     handle_cache: InMemoryDatasetHandleCache
     analysis_method_registry: PluginRegistry[AnalysisMethodPlugin]
@@ -82,9 +91,14 @@ def build_pipeline_dependencies(
     knowledge_repository = InMemoryOrganizationKnowledgeRepository()
     knowledge_retriever = EmbeddingOrganizationKnowledgeRetriever(knowledge_repository, embedding_service)
 
+    # Schema-level only (V2 architecture plan Part 4A) — built once from the
+    # real sheet's column names/dtypes/coverage, never row values. This is
+    # what Construct Grounding constrains every downstream LLM call to.
+    framework_registry = FrameworkRegistry.from_dataframe(pd.read_excel(cfg.backends.excel_path))
+
     handle_cache = InMemoryDatasetHandleCache()
     employee_data_repository = ExcelEmployeeDataRepository(cfg.backends.excel_path, handle_cache)
-    query_planner = DirectLLMQueryPlanner(llm_service, prompts)
+    query_planner = GroundedQueryPlanner()  # 0 LLM calls — see adapters/query_planning/grounded_planner.py
     dataset_retriever = DefaultDatasetRetriever(
         hypothesis_deps.employee_repository, query_planner, employee_data_repository
     )
@@ -97,6 +111,8 @@ def build_pipeline_dependencies(
         employee_repository=hypothesis_deps.employee_repository,
         knowledge_repository=knowledge_repository,
         knowledge_retriever=knowledge_retriever,
+        framework_registry=framework_registry,
+        construct_grounding_engine=DirectLLMConstructGroundingEngine(llm_service, prompts),
         dataset_retriever=dataset_retriever,
         handle_cache=handle_cache,
         analysis_method_registry=default_analysis_method_registry(handle_cache),

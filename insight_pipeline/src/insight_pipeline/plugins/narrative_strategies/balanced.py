@@ -20,7 +20,12 @@ class BalancedNarrativeStrategy(NarrativeStrategyPlugin):
         self._llm = llm_service
         self._prompts = prompts
 
-    async def narrate(self, insights: BusinessInsights, root_cause: RootCauseGraph) -> Narrative:
+    async def narrate(
+        self,
+        insights: BusinessInsights,
+        root_cause: RootCauseGraph,
+        session_id: str | None = None,
+    ) -> Narrative:
         template = self._prompts.get("narrative")
         rendered = template.render(
             findings="\n".join(f"- {f.statement}" for f in insights.findings) or "(none)",
@@ -37,5 +42,6 @@ class BalancedNarrativeStrategy(NarrativeStrategyPlugin):
                 LLMMessage(role="user", content=rendered.user),
             ],
             temperature=0.6,
+            metadata={"session_id": session_id} if session_id else {},
         )
         return await self._llm.complete_structured(request, Narrative)

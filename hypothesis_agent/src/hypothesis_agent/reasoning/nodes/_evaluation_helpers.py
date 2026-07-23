@@ -18,6 +18,7 @@ async def run_evaluators(
         understanding=state["organization_understanding"],
         landscape_categories=state["data_landscape"].categories(),
         archive=state["archive"],
+        session_id=state.get("session_id"),
     )
     # Each dimension's evaluator is independent (reads the same immutable
     # context, no shared mutation) — run them concurrently rather than
