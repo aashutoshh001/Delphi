@@ -391,6 +391,10 @@ function prev() {
 nextBtn.addEventListener("click", next);
 
 document.addEventListener("keydown", (e) => {
+  // Don't hijack keys while the user is typing in a field (e.g. the Delphi Bot
+  // input) — otherwise Space/arrows would page cards instead of typing.
+  const t = e.target;
+  if (t && (t.tagName === "INPUT" || t.tagName === "TEXTAREA" || t.isContentEditable)) return;
   if (["ArrowDown", "PageDown", " "].includes(e.key)) {
     e.preventDefault();
     next();
@@ -585,3 +589,182 @@ async function init() {
 }
 
 init();
+
+// ---------------------------------------------------------
+// Delphi Bot — web-only search assistant over EXISTING hypotheses.
+//
+// Deterministic (no LLM): keyword/overlap scoring over the live feed, with a
+// two-gate scheme — a domain gate (is this even a people-analytics query?) and
+// a match gate (is anything close enough?). It only ever suggests existing
+// hypotheses and links straight to them; it never creates anything.
+// ---------------------------------------------------------
+(function initDelphiBot() {
+  const root = document.getElementById("delphiBot");
+  if (!root) return;
+
+  const launcher = document.getElementById("dbLauncher");
+  const minimizeBtn = document.getElementById("dbMinimize");
+  const hideBtn = document.getElementById("dbHide");
+  const form = document.getElementById("dbForm");
+  const input = document.getElementById("dbInput");
+  const messagesEl = document.getElementById("dbMessages");
+
+  const MATCH_THRESHOLD = 0.18; // tune: min normalized score to count as a match
+  const MAX_RESULTS = 5;
+
+  // Small stopword set + a curated seed of people-analytics terms so the domain
+  // gate works even against a tiny feed. The rest of the domain vocabulary is
+  // derived live from the fetched hypotheses.
+  const STOPWORDS = new Set(("a an the of to in on for and or is are be do does can could may might will would " +
+    "about tell me show give i my we our you your it its as at by with from into over under this that these those " +
+    "what which who whom how why when where whether if then than so such more most less least all any some " +
+    "hypothesis hypotheses insight insights delphi").split(/\s+/));
+  const SEED_DOMAIN = new Set(("attrition burnout retention turnover promotion promotions tenure leadership leader " +
+    "compensation pay salary engagement performance skill skills competency competencies manager managers management " +
+    "team teams department departments departmental succession hipo potential motivation resilience network networks " +
+    "workload culture hiring talent employee employees workforce assessment role roles seniority").split(/\s+/));
+
+  let rawStories = [];
+  let domainVocab = new Set(SEED_DOMAIN);
+  let loaded = false;
+  let greeted = false;
+
+  function tokenize(text) {
+    return (text || "")
+      .toLowerCase()
+      .replace(/[^a-z0-9\s]/g, " ")
+      .split(/\s+/)
+      .filter((t) => t.length > 2 && !STOPWORDS.has(t));
+  }
+
+  async function ensureLoaded() {
+    if (loaded) return;
+    try {
+      const res = await fetch(`${API_BASE}/api/stories`, { cache: "no-store" });
+      rawStories = res.ok ? await res.json() : [];
+    } catch (e) {
+      rawStories = [];
+    }
+    // Domain vocabulary for the off-topic gate: the curated seed + only the
+    // HIGH-SIGNAL, domain-specific fields (title / lens / target_constructs).
+    // Deliberately excludes statement/mechanism prose, which is full of generic
+    // English ("today", "reflect", …) that would make the gate too permissive
+    // and let off-topic queries slip through. (Scoring still uses the prose.)
+    domainVocab = new Set(SEED_DOMAIN);
+    for (const s of rawStories) {
+      const blob = [s.title, s.lens, (s.target_constructs || []).join(" ")].join(" ");
+      for (const tok of tokenize(blob)) domainVocab.add(tok);
+    }
+    loaded = true;
+  }
+
+  // Weighted searchable text per story: title/lens/constructs count most.
+  function scoreStory(story, queryTokens) {
+    if (!queryTokens.length) return 0;
+    const high = tokenize([story.title, story.lens, (story.target_constructs || []).join(" ")].join(" "));
+    const mid = tokenize(story.statement);
+    const low = tokenize(story.mechanism);
+    const highSet = new Set(high);
+    const midSet = new Set(mid);
+    const lowSet = new Set(low);
+    let score = 0;
+    const seen = new Set();
+    for (const qt of queryTokens) {
+      if (seen.has(qt)) continue;
+      seen.add(qt);
+      if (highSet.has(qt)) score += 1.0;
+      else if (midSet.has(qt)) score += 0.6;
+      else if (lowSet.has(qt)) score += 0.3;
+    }
+    return score / new Set(queryTokens).size; // normalize by distinct query terms
+  }
+
+  function normalizedStory(raw) {
+    // reuse the app's link logic; raw entries carry id + insightId + readmoreURL
+    return {
+      id: raw.id,
+      title: raw.title || "(untitled)",
+      insightId: raw.insightId || null,
+      readmoreURL: raw.readmoreURL || DUMMY_URL,
+    };
+  }
+
+  function addMessage(role, html) {
+    const el = document.createElement("div");
+    el.className = `db-msg db-msg-${role}`;
+    el.innerHTML = html;
+    messagesEl.appendChild(el);
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+  }
+
+  function escText(value) {
+    const div = document.createElement("div");
+    div.textContent = value == null ? "" : String(value);
+    return div.innerHTML;
+  }
+
+  function resultsHtml(matches) {
+    const items = matches.map((m) => {
+      const story = normalizedStory(m.story);
+      const href = readMoreHref(story);
+      return `<a class="db-result" href="${href}" target="_blank" rel="noopener noreferrer">
+        <span class="db-result-title">${escText(story.title)}</span>
+        <span class="db-result-go">Open ›</span>
+      </a>`;
+    }).join("");
+    return `<p>Here ${matches.length === 1 ? "is a matching hypothesis" : "are matching hypotheses"}:</p>${items}`;
+  }
+
+  async function handleQuery(query) {
+    addMessage("user", escText(query));
+    await ensureLoaded();
+
+    const queryTokens = tokenize(query);
+    const onDomain = queryTokens.some((t) => domainVocab.has(t));
+
+    if (!onDomain) {
+      addMessage("bot", "I am not designed for such queries — I only surface hypotheses that already exist in Delphi.");
+      return;
+    }
+
+    const scored = rawStories
+      .map((story) => ({ story, score: scoreStory(story, queryTokens) }))
+      .filter((r) => r.score >= MATCH_THRESHOLD)
+      .sort((a, b) => b.score - a.score)
+      .slice(0, MAX_RESULTS);
+
+    if (!scored.length) {
+      addMessage("bot", "No existing hypothesis closely matches your query. Try generating a new hypothesis from the feed.");
+      return;
+    }
+    addMessage("bot", resultsHtml(scored));
+  }
+
+  function greet() {
+    if (greeted) return;
+    greeted = true;
+    addMessage("bot", "Ask me about a topic and I will point you to existing hypotheses — for example, “burnout in departments” or “pay and promotion”.");
+  }
+
+  function open() {
+    root.classList.remove("db-collapsed");
+    root.classList.add("db-open");
+    greet();
+    setTimeout(() => input && input.focus(), 60);
+  }
+  function collapse() {
+    root.classList.remove("db-open");
+    root.classList.add("db-collapsed");
+  }
+
+  launcher.addEventListener("click", open);
+  minimizeBtn.addEventListener("click", collapse);
+  hideBtn.addEventListener("click", collapse);
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const q = input.value.trim();
+    if (!q) return;
+    input.value = "";
+    handleQuery(q);
+  });
+})();

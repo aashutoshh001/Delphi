@@ -49,23 +49,44 @@ It's a static site — plain HTML/CSS/JS, no build step, no backend, no dependen
 - One live run genuinely caught its own analysis's weak spot: the Investigation Planner asked for constructs the real cohort data doesn't literally have, and rather than fabricating a conclusion, Root Cause/Business Insight correctly flagged the data-model mismatch as the actual finding — a legitimate example of the "internal critic" philosophy carrying through the whole pipeline, not just the Hypothesis Agent.
 - 86 tests passing across both packages (`hypothesis_agent` + `insight_pipeline`), including an architecture-boundary test enforcing that contracts/ports never import `pandas`/`matplotlib`/etc. and that `hypothesis_agent` never imports `insight_pipeline`.
 
+**Phase 5 — SHL-grounded insight engine (V2)**
+- Reworked the whole insight pipeline so every downstream conclusion is grounded in *real* SHL data. A new **Construct Grounding** stage maps each free-text hypothesis construct to actual assessment/outcome columns via a code-level `FrameworkRegistry` (built from the real `Book1_standardized.xlsx` schema) — the system is now structurally incapable of inventing a metric: an unmeasurable construct is reported honestly, never fabricated into a fake variable or a data-free causal edge. (Platform design: [docs/PLATFORM_ARCHITECTURE.md](docs/PLATFORM_ARCHITECTURE.md).)
+- Added multi-angle analytics (descriptive stats, quadrant-divergence, 360 rater-gap), a generalized **quadrant-divergence scatter** chart type, and evidence-ref enforcement on Root Cause edges and Business Insight findings (unevidenced ones are dropped, not rendered).
+- `insight.html` now surfaces the **SHL grounding map** (which construct mapped to which real columns, and which were honestly flagged unmeasurable) and evidence-cited findings, with charts interleaved next to the analysis that produced them.
+
+**Phase 6 — Workday HRIS integration**
+- Added a Workday-backed data "door" (`hypothesis_agent/.../adapters/repositories/workday_employee_repository.py`) so the Hypothesis Agent forms hypotheses aware of live Workday HRIS data (compensation, tenure, performance, org structure) alongside the SHL assessments — schema-level only, never employee rows (the PII boundary holds).
+- Offline-safe by default (a curated landscape); a live probe confirms the real worker count from the Workday Staffing API using the OAuth refresh-token flow, and persists the rotated refresh token back to a gitignored `.env`. The `:8200` server defaults to this door, so **"+ Generate hypothesis"** reasons over Workday + SHL data. Verified live against the tenant (378 workers).
+
+**Phase 7 — Conversational layer: two assistants + expert feedback**
+- **Delphi Bot** (feed, web-only): a right-docked search assistant on the Cards/Headlines views. *Deterministic, no LLM* — it matches a query against existing hypotheses and links straight to each one's report; it declines off-topic queries ("I am not designed for such queries") and, when nothing matches, suggests generating a new hypothesis. Pure client-side, zero backend change.
+- **Delphi Research Engine** (report, web-only): a right-docked chat on `insight.html` that answers questions about *that specific insight*, grounded in the report + the SHL framework/metrics. Live LLM with graceful fallback; declines anything unrelated to the report.
+- **Expert-gated feedback**: inside the Research Engine, a feedback channel that unlocks only for subject-matter experts — a **server-side** credential check (`subjectexpert` / `delphie123`, the password never reaches the browser), storing text to `sample_data/insight_feedback.json`. New `:8300` endpoints: `/api/insights/{id}/chat`, `/api/expert/login`, `/api/insights/{id}/feedback`.
+- Both assistants are SHL-themed, minimalistic, and **web-only** (hidden in Mobile mode). Verified end-to-end in headless Chromium; both packages' offline suites stay green.
+
 ## Project structure
 
 ```
 Delphi/
-├── index.html          # page structure (header, both toggles, card viewport, headline list)
-├── styles.css           # SHL theme, web/mobile layouts, card styles, headline-list styles
-├── script.js             # live feed fetch + card/headline rendering, navigation, toggles, reactions
+├── index.html          # feed page (header, both toggles, card viewport, headline list, Delphi Bot)
+├── insight.html         # single-insight report page + Delphi Research Engine chat & expert feedback
+├── styles.css           # SHL theme, web/mobile layouts, card styles, Delphi Bot styles
+├── script.js             # live feed fetch + card/headline rendering, toggles, reactions, Delphi Bot
+├── run_delphi.sh          # one-command launcher for the whole system (frontend + both APIs)
+├── run_observed.py        # offline demo: Hypothesis Agent through the Workday door
 ├── assets/
 │   └── shl-logo.png     # SHL logo — used in the header and as the fallback card image
 ├── sample_data/
 │   ├── stories.json      # THE LIVE HYPOTHESIS FEED — starts as [], grows as you generate
+│   ├── insights.json      # generated InsightPackages served by the pipeline API
+│   ├── insight_feedback.json # subject-matter-expert feedback on insights (gitignored content)
 │   ├── hypotheses/       # generated "read more" detail pages, one per hypothesis (gitignored content)
+│   ├── card_images/       # generated per-hypothesis SVG card images (gitignored content)
 │   └── insights/figures/ # generated report charts, one per InsightPackage (gitignored content)
 ├── docs/
 │   └── PLATFORM_ARCHITECTURE.md   # design for the full multi-agent platform
-├── hypothesis_agent/    # the autonomous Hypothesis Agent — see its own README + docs/ARCHITECTURE.md
-├── insight_pipeline/    # HypothesisPackage -> InsightPackage pipeline — see its own README
+├── hypothesis_agent/    # the autonomous Hypothesis Agent (+ Workday door) — see its own README
+├── insight_pipeline/    # HypothesisPackage -> InsightPackage pipeline (+ chat/feedback API) — see its own README
 └── README.md
 ```
 
@@ -237,6 +258,11 @@ Investigation Pipeline design.
 | Open full story | Click the title (**Headlines**) or **Read more** (**Cards**) — opens the generated hypothesis detail page |
 | React to a story | Click 👍 or 👎 next to the story (click again to undo) — synced across both interface styles, and persisted server-side via the Hypothesis Agent API if it's running |
 | Generate a new hypothesis | Click **"+ Generate hypothesis"** in the header (requires the API running — see above) |
+| Find an existing hypothesis *(Web only)* | Open the **Delphi Bot** launcher (bottom-right of the feed), type a topic (e.g. "burnout in departments") — it links you straight to matching hypotheses, or tells you none exist |
+| Ask about a report *(Web only)* | On a `insight.html` page open the **Delphi Research Engine** (bottom-right) and ask about that insight — it answers grounded in the report + SHL metrics, and declines unrelated questions (requires the `:8300` API + a working LLM) |
+| Submit expert feedback *(Web only)* | In the Research Engine, open **Expert feedback**, enter the subject-matter-expert credentials, click **Unlock**, then write and submit. Non-experts see the field locked |
+
+> The two assistants appear on the **Web** device layout only (they're hidden in Mobile mode).
 
 ## Customizing
 

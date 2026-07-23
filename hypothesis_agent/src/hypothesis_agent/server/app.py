@@ -13,6 +13,7 @@ default relative `sample_data/stories.json` path resolves correctly:
 
 from __future__ import annotations
 
+import os
 from pathlib import Path
 from typing import Literal
 
@@ -46,6 +47,14 @@ def _build_server_config() -> AgentConfig:
     # two backends regardless of whatever config/env is otherwise set.
     config.backends.historical_memory_repository = "json_file"
     config.backends.feedback_repository = "json_file"
+    # Default the live feed to the Workday landscape door, so "+ Generate
+    # hypothesis" reasons over Workday HRIS + SHL assessment data and confirms
+    # the worker count live (falls back to the offline count if the token is
+    # missing/expired — never blocks). Explicit override still wins:
+    #   HYPOTHESIS_AGENT__BACKENDS__EMPLOYEE_REPOSITORY=in_memory
+    if "HYPOTHESIS_AGENT__BACKENDS__EMPLOYEE_REPOSITORY" not in os.environ:
+        config.backends.employee_repository = "workday"
+        config.backends.workday_probe = True
     return config
 
 
@@ -63,21 +72,25 @@ def _seed_acme_demo_organization(deps: AgentDependencies) -> None:
             },
         )
     )
-    deps.employee_repository.add(
-        EmployeeDataLandscape(
-            organization_id=ACME_DEMO_ORGANIZATION_ID,
-            employee_count_estimate=3200,
-            available_fields=[
-                AttributeField(name="performance_rating", category="performance", coverage_ratio=0.95),
-                AttributeField(name="burnout_index", category="burnout", coverage_ratio=0.6),
-                AttributeField(name="communication_competency", category="communication", coverage_ratio=0.7),
-                AttributeField(name="tenure_months", category="tenure", coverage_ratio=1.0),
-                AttributeField(name="leadership_competency", category="leadership", coverage_ratio=0.5),
-                AttributeField(name="technical_competency", category="technical_competency", coverage_ratio=0.8),
-                AttributeField(name="promotion_last_18mo", category="promotion", coverage_ratio=1.0),
-            ],
+    # Only fixture-backed doors (in_memory) accept a seeded landscape; the
+    # Workday door supplies its own landscape for any org, so skip when it's
+    # not addable.
+    if hasattr(deps.employee_repository, "add"):
+        deps.employee_repository.add(
+            EmployeeDataLandscape(
+                organization_id=ACME_DEMO_ORGANIZATION_ID,
+                employee_count_estimate=3200,
+                available_fields=[
+                    AttributeField(name="performance_rating", category="performance", coverage_ratio=0.95),
+                    AttributeField(name="burnout_index", category="burnout", coverage_ratio=0.6),
+                    AttributeField(name="communication_competency", category="communication", coverage_ratio=0.7),
+                    AttributeField(name="tenure_months", category="tenure", coverage_ratio=1.0),
+                    AttributeField(name="leadership_competency", category="leadership", coverage_ratio=0.5),
+                    AttributeField(name="technical_competency", category="technical_competency", coverage_ratio=0.8),
+                    AttributeField(name="promotion_last_18mo", category="promotion", coverage_ratio=1.0),
+                ],
+            )
         )
-    )
 
 
 def _seed_shl_sample_cohort(deps: AgentDependencies) -> str | None:
@@ -105,7 +118,11 @@ def _seed_shl_sample_cohort(deps: AgentDependencies) -> str | None:
         )
         return None
     deps.organization_repository.add(profile)
-    deps.employee_repository.add(landscape)
+    # See _seed_acme_demo_organization: the Workday door isn't addable and
+    # provides its own landscape, so only seed the xlsx landscape for
+    # fixture-backed doors.
+    if hasattr(deps.employee_repository, "add"):
+        deps.employee_repository.add(landscape)
     return profile.organization_id
 
 

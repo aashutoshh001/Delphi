@@ -62,6 +62,41 @@
     </div>
   </main>
 
+  <!-- Delphi Bot — web-only search assistant for existing hypotheses.
+       Lives outside .app-shell so layout-cards/headlines rules never hide it. -->
+  <div id="delphiBot" class="db-collapsed" aria-live="polite">
+    <button type="button" id="dbLauncher" class="db-launcher" aria-label="Open Delphi Bot">
+      <span class="db-launcher-dot" aria-hidden="true"></span>
+      <span class="db-launcher-text">
+        <span class="db-launcher-title">Delphi Bot</span>
+        <span class="db-launcher-sub">Ask about existing hypotheses</span>
+      </span>
+    </button>
+
+    <section class="db-panel" role="dialog" aria-label="Delphi Bot">
+      <header class="db-header">
+        <div class="db-header-titles">
+          <span class="db-title">Delphi Bot</span>
+          <span class="db-subtitle">Finds existing hypotheses</span>
+        </div>
+        <button type="button" id="dbMinimize" class="db-icon-btn" aria-label="Minimize">
+          <svg viewBox="0 0 24 24" fill="none" width="16" height="16"><path d="M5 12h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+        </button>
+      </header>
+
+      <div id="dbMessages" class="db-messages"></div>
+
+      <form id="dbForm" class="db-input-row" autocomplete="off">
+        <input id="dbInput" class="db-input" type="text" placeholder="Ask about a hypothesis…" aria-label="Message" />
+        <button type="submit" id="dbSend" class="db-send" aria-label="Send">
+          <svg viewBox="0 0 24 24" fill="none" width="18" height="18"><path d="M5 12h13M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </form>
+
+      <button type="button" id="dbHide" class="db-hide">Hide assistant</button>
+    </section>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>

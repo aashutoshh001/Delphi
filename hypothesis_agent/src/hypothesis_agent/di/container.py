@@ -23,6 +23,9 @@ from hypothesis_agent.adapters.llm.openai_llm_service import OpenAILLMService
 from hypothesis_agent.adapters.repositories.in_memory_employee_repository import (
     InMemoryEmployeeRepository,
 )
+from hypothesis_agent.adapters.repositories.workday_employee_repository import (
+    WorkdayEmployeeRepository,
+)
 from hypothesis_agent.adapters.repositories.in_memory_feedback_repository import (
     InMemoryFeedbackRepository,
 )
@@ -94,6 +97,13 @@ _ORGANIZATION_REPOSITORY_BACKENDS: dict[str, Callable[[AgentConfig], Organizatio
 
 _EMPLOYEE_REPOSITORY_BACKENDS: dict[str, Callable[[AgentConfig], EmployeeRepository]] = {
     "in_memory": lambda cfg: InMemoryEmployeeRepository(),
+    # New door: advertises Workday HRIS + SHL assessment data as a landscape.
+    # Offline-safe by default; set backends.workday_probe=True to confirm the
+    # worker count live from the Workday tenant (needs creds in the env file).
+    "workday": lambda cfg: WorkdayEmployeeRepository(
+        env_path=getattr(cfg.backends, "workday_env_path", None) or None,
+        probe_workday=getattr(cfg.backends, "workday_probe", False),
+    ),
 }
 
 _ANALYSIS_GATEWAY_BACKENDS: dict[str, Callable[[AgentConfig], AnalysisAgentGateway]] = {

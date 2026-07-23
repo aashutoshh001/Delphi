@@ -77,6 +77,12 @@ class BackendsSettings(BaseModel):
     critics: list[str] = Field(default_factory=lambda: ["checklist"])
     organization_repository: str = "in_memory"
     employee_repository: str = "in_memory"
+    # Workday landscape door (employee_repository="workday"): confirm the live
+    # worker count from the Workday tenant when True (needs WORKDAY_* creds in
+    # the env file); offline curated landscape when False. workday_env_path
+    # overrides where those creds are read from (default: hypothesis_agent/.env).
+    workday_probe: bool = False
+    workday_env_path: str | None = None
     historical_memory_repository: str = "in_memory"
     feedback_repository: str = "in_memory"
     analysis_agent_gateway: str = "noop"

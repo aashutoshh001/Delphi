@@ -96,6 +96,105 @@
   #status, #error { max-width: 860px; margin: 4rem auto; text-align: center; color: #777; }
   #error { color: #a12626; }
   .stat-row { display: flex; flex-wrap: wrap; gap: 1.5rem; font-size: 0.85rem; color: #666; margin-top: 0.3rem; }
+
+  /* ---------------- Delphi Research Engine (web-only chat) ---------------- */
+  #researchBot { position: fixed; right: 22px; bottom: 22px; z-index: 60; }
+  .re-launcher {
+    display: flex; align-items: center; gap: 11px; padding: 11px 16px 11px 13px;
+    background: #fff; border: 1px solid var(--border); border-radius: 999px;
+    box-shadow: 0 14px 34px -14px rgba(0,0,0,0.28); cursor: pointer;
+    transition: transform 0.15s ease;
+  }
+  .re-launcher:hover { transform: translateY(-2px); }
+  .re-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--green);
+    box-shadow: 0 0 0 4px rgba(120,214,75,0.18); flex-shrink: 0; }
+  .re-launcher-text { display: flex; flex-direction: column; line-height: 1.25; text-align: left; }
+  .re-launcher-title { font-size: 13.5px; font-weight: 700; color: #191919; }
+  .re-launcher-sub { font-size: 11.5px; color: #888; }
+
+  #researchBot.re-collapsed .re-panel { display: none; }
+  #researchBot.re-open .re-launcher { display: none; }
+
+  .re-panel {
+    position: fixed; top: 0; right: 0; bottom: 0; width: 380px; max-width: 100vw;
+    display: flex; flex-direction: column;
+    background: #fff; border-left: 1px solid var(--border);
+    box-shadow: -18px 0 44px -24px rgba(0,0,0,0.3);
+  }
+  .re-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 15px 17px; border-bottom: 1px solid var(--border); background: #fafafa;
+  }
+  .re-header-titles { display: flex; flex-direction: column; line-height: 1.3; }
+  .re-title { font-size: 14.5px; font-weight: 700; color: #191919; }
+  .re-subtitle { font-size: 11.5px; color: #888; }
+  .re-icon-btn {
+    width: 30px; height: 30px; border-radius: 8px; border: 1px solid var(--border);
+    background: #fff; color: var(--grey); cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .re-icon-btn:hover { background: #eef8e6; color: var(--green-dark); }
+
+  .re-messages { flex: 1; min-height: 0; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 11px; }
+  .re-msg { font-size: 13px; line-height: 1.55; padding: 10px 13px; border-radius: 12px; max-width: 90%; }
+  .re-msg-user { align-self: flex-end; background: var(--green); color: #14320a; border-bottom-right-radius: 4px; }
+  .re-msg-bot { align-self: flex-start; background: #f4faef; color: #232823; border: 1px solid var(--border); border-bottom-left-radius: 4px; white-space: pre-wrap; }
+  .re-typing { align-self: flex-start; color: #999; font-size: 12.5px; font-style: italic; }
+
+  .re-input-row { display: flex; align-items: center; gap: 8px; padding: 12px 13px; border-top: 1px solid var(--border); }
+  .re-input {
+    flex: 1; height: 40px; padding: 0 14px; border: 1px solid var(--border);
+    border-radius: 999px; font-size: 13px; color: #232823; background: #fafafa; outline: none;
+  }
+  .re-input:focus { border-color: var(--green); background: #fff; }
+  .re-send {
+    width: 40px; height: 40px; flex-shrink: 0; border: none; border-radius: 50%;
+    background: var(--green); color: #16330b; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .re-send:hover { background: var(--green-dark); color: #fff; }
+  .re-send:disabled { opacity: 0.5; cursor: default; }
+
+  /* Expert feedback section */
+  .re-feedback { border-top: 1px solid var(--border); background: #fafafa; padding: 12px 15px 15px; }
+  .re-fb-toggle {
+    display: flex; align-items: center; justify-content: space-between; width: 100%;
+    background: none; border: none; padding: 4px 0; cursor: pointer;
+    font-size: 12.5px; font-weight: 700; color: var(--grey); letter-spacing: 0.02em;
+  }
+  .re-fb-toggle:hover { color: var(--green-dark); }
+  .re-fb-body { display: none; margin-top: 10px; }
+  .re-feedback.re-fb-open .re-fb-body { display: block; }
+  .re-fb-note { font-size: 11.5px; color: #999; margin: 0 0 8px; }
+  .re-fb-lock-row { display: flex; flex-direction: column; gap: 7px; margin-bottom: 8px; }
+  .re-fb-field {
+    width: 100%; height: 36px; padding: 0 12px; border: 1px solid var(--border);
+    border-radius: 7px; font-size: 12.5px; background: #fff; outline: none; color: #232823;
+    box-sizing: border-box;
+  }
+  .re-fb-field:focus { border-color: var(--green); }
+  .re-fb-unlock { width: 100%; }
+  .re-fb-unlock, .re-fb-submit {
+    height: 36px; padding: 0 14px; border: none; border-radius: 7px;
+    background: var(--green); color: #16330b; font-size: 12.5px; font-weight: 700; cursor: pointer;
+  }
+  .re-fb-unlock:hover, .re-fb-submit:hover { background: var(--green-dark); color: #fff; }
+  .re-fb-text {
+    width: 100%; min-height: 76px; resize: vertical; padding: 10px 12px;
+    border: 1px solid var(--border); border-radius: 8px; font: inherit; font-size: 12.5px;
+    color: #232823; background: #fff; outline: none; box-sizing: border-box;
+  }
+  .re-fb-text:disabled { background: #f0f0f0; color: #aaa; cursor: not-allowed; }
+  .re-fb-text:focus { border-color: var(--green); }
+  .re-fb-submit-row { display: flex; justify-content: flex-end; margin-top: 8px; }
+  .re-fb-status { font-size: 11.5px; margin-top: 7px; }
+  .re-fb-status.ok { color: var(--green-dark); }
+  .re-fb-status.err { color: #a12626; }
+
+  .re-hide { border: none; background: transparent; padding: 4px 12px 12px; font-size: 12px; color: #999; cursor: pointer; text-align: center; }
+  .re-hide:hover { color: var(--grey); text-decoration: underline; }
+
+  @media (max-width: 900px) { #researchBot { display: none; } }
 </style>
 </head>
 <body>
@@ -107,6 +206,60 @@
   <a class="back" href="index.html">&larr; Back to feed</a>
   <div id="content"></div>
 </main>
+
+<!-- Delphi Research Engine — web-only chat about THIS insight + expert feedback -->
+<div id="researchBot" class="re-collapsed" style="display:none">
+  <button type="button" id="reLauncher" class="re-launcher" aria-label="Open Delphi Research Engine">
+    <span class="re-dot" aria-hidden="true"></span>
+    <span class="re-launcher-text">
+      <span class="re-launcher-title">Delphi Research Engine</span>
+      <span class="re-launcher-sub">Ask about this insight</span>
+    </span>
+  </button>
+
+  <section class="re-panel" role="dialog" aria-label="Delphi Research Engine">
+    <header class="re-header">
+      <div class="re-header-titles">
+        <span class="re-title">Delphi Research Engine</span>
+        <span class="re-subtitle">Grounded in this report</span>
+      </div>
+      <button type="button" id="reMinimize" class="re-icon-btn" aria-label="Minimize">
+        <svg viewBox="0 0 24 24" fill="none" width="16" height="16"><path d="M5 12h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+      </button>
+    </header>
+
+    <div id="reMessages" class="re-messages"></div>
+
+    <form id="reForm" class="re-input-row" autocomplete="off">
+      <input id="reInput" class="re-input" type="text" placeholder="Ask about this insight…" aria-label="Message" />
+      <button type="submit" id="reSend" class="re-send" aria-label="Send">
+        <svg viewBox="0 0 24 24" fill="none" width="18" height="18"><path d="M5 12h13M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </form>
+
+    <div id="reFeedback" class="re-feedback">
+      <button type="button" id="reFbToggle" class="re-fb-toggle">
+        <span>Expert feedback</span>
+        <span aria-hidden="true">+</span>
+      </button>
+      <div class="re-fb-body">
+        <p class="re-fb-note">Feedback is restricted to authorized subject-matter experts.</p>
+        <div id="reFbLock" class="re-fb-lock-row">
+          <input id="reFbUser" class="re-fb-field" type="text" placeholder="Username" aria-label="Username" autocomplete="off" />
+          <input id="reFbPass" class="re-fb-field" type="password" placeholder="Password" aria-label="Password" autocomplete="off" />
+          <button type="button" id="reFbUnlock" class="re-fb-unlock">Unlock</button>
+        </div>
+        <textarea id="reFbText" class="re-fb-text" placeholder="Expert access required to write feedback." disabled></textarea>
+        <div class="re-fb-submit-row">
+          <button type="button" id="reFbSubmit" class="re-fb-submit" disabled>Submit feedback</button>
+        </div>
+        <div id="reFbStatus" class="re-fb-status"></div>
+      </div>
+    </div>
+
+    <button type="button" id="reHide" class="re-hide">Hide assistant</button>
+  </section>
+</div>
 
 <script>
 const INSIGHT_API = "http://127.0.0.1:8300";
@@ -352,11 +505,160 @@ async function main() {
     renderReport(pkg);
     statusEl.style.display = "none";
     document.getElementById("report").style.display = "block";
+    initResearchBot(id);
   } catch (e) {
     statusEl.style.display = "none";
     errorEl.style.display = "block";
     errorEl.textContent = `Couldn't load this report: ${e.message}. Is the Investigation Pipeline API (port 8300) running?`;
   }
+}
+
+// ---------------------------------------------------------
+// Delphi Research Engine — web-only chat about THIS insight + expert feedback.
+// ---------------------------------------------------------
+function initResearchBot(insightId) {
+  const root = document.getElementById("researchBot");
+  if (!root || !insightId) return;
+  root.style.display = "";
+
+  const $ = (id) => document.getElementById(id);
+  const messagesEl = $("reMessages");
+  const input = $("reInput");
+  const sendBtn = $("reSend");
+  const history = [];
+  let greeted = false;
+  let authed = false;
+
+  function addMsg(role, text) {
+    const el = document.createElement("div");
+    el.className = `re-msg re-msg-${role}`;
+    el.textContent = text;
+    messagesEl.appendChild(el);
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+    return el;
+  }
+  function greet() {
+    if (greeted) return;
+    greeted = true;
+    addMsg("bot", "Ask me anything about this insight — its findings, the analytics behind it, the SHL metrics, or what to do next.");
+  }
+  function open() {
+    root.classList.remove("re-collapsed");
+    root.classList.add("re-open");
+    greet();
+    setTimeout(() => input && input.focus(), 60);
+  }
+  function collapse() {
+    root.classList.remove("re-open");
+    root.classList.add("re-collapsed");
+  }
+
+  async function ask(message) {
+    addMsg("user", message);
+    history.push({ role: "user", content: message });
+    sendBtn.disabled = true;
+    const typing = addMsg("bot", "Thinking…");
+    typing.classList.add("re-typing");
+    try {
+      const res = await fetch(`${INSIGHT_API}/api/insights/${encodeURIComponent(insightId)}/chat`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message, history: history.slice(0, -1) }),
+      });
+      const data = res.ok ? await res.json() : { reply: "Sorry, something went wrong.", available: false };
+      typing.classList.remove("re-typing");
+      typing.textContent = data.reply || "(no response)";
+      if (data.available) history.push({ role: "assistant", content: data.reply });
+    } catch (e) {
+      typing.classList.remove("re-typing");
+      typing.textContent = "The research assistant is unreachable. Is the pipeline API (port 8300) running?";
+    } finally {
+      sendBtn.disabled = false;
+    }
+  }
+
+  $("reLauncher").addEventListener("click", open);
+  $("reMinimize").addEventListener("click", collapse);
+  $("reHide").addEventListener("click", collapse);
+  $("reForm").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const q = input.value.trim();
+    if (!q) return;
+    input.value = "";
+    ask(q);
+  });
+
+  // --- Expert feedback gate (server-side credential check) ---
+  const fb = $("reFeedback");
+  const fbUser = $("reFbUser");
+  const fbPass = $("reFbPass");
+  const fbText = $("reFbText");
+  const fbSubmit = $("reFbSubmit");
+  const fbStatus = $("reFbStatus");
+
+  function setStatus(msg, kind) {
+    fbStatus.textContent = msg || "";
+    fbStatus.className = "re-fb-status" + (kind ? " " + kind : "");
+  }
+
+  $("reFbToggle").addEventListener("click", () => fb.classList.toggle("re-fb-open"));
+
+  // Pressing Enter in either credential field triggers Unlock.
+  [fbUser, fbPass].forEach((el) => el.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") { e.preventDefault(); $("reFbUnlock").click(); }
+  }));
+
+  $("reFbUnlock").addEventListener("click", async () => {
+    const username = fbUser.value.trim();
+    const password = fbPass.value;
+    if (!username || !password) { setStatus("Enter username and password.", "err"); return; }
+    try {
+      const res = await fetch(`${INSIGHT_API}/api/expert/login`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, password }),
+      });
+      const data = await res.json();
+      if (data.ok) {
+        authed = true;
+        fbText.disabled = false;
+        fbSubmit.disabled = false;
+        fbText.placeholder = "Enter expert feedback on this insight…";
+        setStatus("Expert access granted.", "ok");
+      } else {
+        authed = false;
+        fbText.disabled = true;
+        fbSubmit.disabled = true;
+        setStatus("Invalid credentials. Access denied.", "err");
+      }
+    } catch (e) {
+      setStatus("Could not reach the server.", "err");
+    }
+  });
+
+  fbSubmit.addEventListener("click", async () => {
+    if (!authed) return;
+    const feedback = fbText.value.trim();
+    if (!feedback) { setStatus("Feedback is empty.", "err"); return; }
+    fbSubmit.disabled = true;
+    try {
+      const res = await fetch(`${INSIGHT_API}/api/insights/${encodeURIComponent(insightId)}/feedback`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username: fbUser.value.trim(), password: fbPass.value, feedback }),
+      });
+      if (res.ok) {
+        fbText.value = "";
+        setStatus("Feedback submitted. Thank you.", "ok");
+      } else {
+        setStatus(res.status === 401 ? "Session expired — unlock again." : "Submission failed.", "err");
+      }
+    } catch (e) {
+      setStatus("Could not reach the server.", "err");
+    } finally {
+      fbSubmit.disabled = false;
+    }
+  });
 }
 
 main();
