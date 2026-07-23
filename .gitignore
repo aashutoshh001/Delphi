@@ -55,3 +55,4 @@ yarn-error.log
 *.log
 .cache/
 tmp/
+.run_logs/

@@ -60,6 +60,17 @@ The full system is **three long-running processes** (frontend + two APIs), plus
 an optional command to drive one investigation. Everything is anchored to the
 repo root: `Delphi/`.
 
+> **Shortcut — one script does all of this.** From the repo root:
+> ```bash
+> ./run_delphi.sh --setup   # once: creates both venvs + installs (then add LITELLM_API_KEY to hypothesis_agent/.env)
+> ./run_delphi.sh           # starts frontend + both APIs, waits until healthy, Ctrl+C stops them
+> ```
+> It derives the repo root from its own location (so the `?` in the folder name
+> is a non-issue), skips any port already in use, streams logs to `.run_logs/`,
+> and cleans up on Ctrl+C. Ports are overridable via `FRONTEND_PORT`,
+> `HYPOTHESIS_AGENT_SERVER_PORT`, `INSIGHT_PIPELINE_SERVER_PORT`. The manual
+> steps below are the same thing spelled out, for understanding or fine control.
+
 > **Path note:** the repo lives under a directory literally named `Delphie?` (the
 > `?` is part of the folder name), so **always quote the path** in a shell —
 > `cd "/home/aashutosh.joshi/AI-Thon/Delphie?/Delphi"`. Adjust the base path if
