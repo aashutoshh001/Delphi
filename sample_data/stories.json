@@ -1243,5 +1243,294 @@
     },
     "generated_at": "2026-07-23T14:52:35.954890+00:00",
     "insightId": "insight_a4dd833e14c5"
+  },
+  {
+    "id": "hist_0e96fcb21201",
+    "imageURL": "sample_data/card_images/hist_0e96fcb21201.svg",
+    "title": "Dense team networks may improve early retention for high-potential hires",
+    "description": "The hypothesis says high-potential employees in interdependent roles are more likely to stay when their first team has strong local collaboration, even if that does not speed promotion. For leaders, it suggests team design in the first six months can shape whether top talent settles in or exits early, especially in early-tenure roles.",
+    "readmoreURL": "sample_data/hypotheses/hist_0e96fcb21201.html",
+    "reaction": "none",
+    "organization_id": "shl-sample-cohort",
+    "lens": "network_effects",
+    "statement": "Among assessed high-potential employees in high-interdependence roles, assignment to teams with high local collaboration density in the first 6 months after placement will improve 12-month retention but not necessarily accelerate promotion, relative to comparable employees placed in low-density teams, after controlling for assessment scores, level, function, location, and baseline performance. The effect should be strongest for early-tenure employees and weakest in roles whose work can be completed independently.",
+    "mechanism": "The mechanism is not that dense networks are universally better; it is that dense local cohesion reduces the execution and social-friction costs that most often derail high-potential employees before their capabilities can convert into stable tenure. In tightly connected teams, frequent tie repetition creates faster feedback loops, clearer informal norms, and quicker problem resolution, which helps new hires build fit and avoid early disengagement. That same density should matter less for promotion than for retention because advancement depends more on cross-boundary visibility and sponsorship than on local cohesion. If the hypothesis is right, the observable path is: density increases early feedback frequency and sponsor access within the team, which then improves short-term retention; if those intermediates do not move, or if the effect vanishes after accounting for manager quality and role interdependence, the claim is not supported.",
+    "target_constructs": [
+      "SHL-derived potential / leadership / competency scores",
+      "informal collaboration network density",
+      "retention / tenure",
+      "promotion velocity / progression",
+      "performance outcomes",
+      "formal manager level",
+      "title"
+    ],
+    "scorecard": {
+      "business_value": 0.78,
+      "novelty": 0.67,
+      "depth": 0.86,
+      "actionability": 0.79,
+      "strategic_importance": 0.77,
+      "feasibility": 0.5,
+      "organizational_impact": 0.64,
+      "expected_insight": 0.78,
+      "confidence": 0.62,
+      "future_extensibility": 0.83,
+      "composite": 0.7304000000000002,
+      "dimension_notes": {
+        "business_value": "If validated, this would meaningfully change talent placement, promotion, and development decisions by showing that role network density moderates whether assessed potential turns into outcomes, though the value is tempered by the likelihood that leaders already suspect collaboration-rich roles matter and by the need to separate the effect from selection bias and formal hierarchy.",
+        "strategic_importance": "This is strategically important because it directly informs how the organization should place and develop high-potential talent to improve retention and progression, though it is more a high-leverage talent-management question than an enterprise-level priority on the scale of revenue or operations.",
+        "actionability": "A confirmed result would directly inform role design, placement, and internal mobility decisions by identifying which jobs need denser collaboration to convert talent into outcomes, though it is somewhat less immediately actionable than a simple selection or compensation rule because network structure is harder to redesign quickly.",
+        "organizational_impact": "If valid, this would affect placement, development, and retention decisions for a sizable assessed talent pool and could influence broader talent policy, but it still touches a subset of employees and roles rather than the whole enterprise.",
+        "feasibility": "3/7 target constructs map onto known data categories.",
+        "novelty": "The hypothesis is more novel than a standard assessment-vs-performance comparison because it brings informal network structure into the talent-succession story, but the underlying idea that role context and collaboration density affect outcomes is a fairly established HR and organizational network concept rather than a highly unusual one.",
+        "depth": "This hypothesis goes beyond a surface association between talent and outcomes by proposing a specific mediating mechanism—informal network density converting assessed potential into retention and progression—making it a strong hidden-cause explanation rather than a simple correlational pattern.",
+        "expected_insight": "If tested well, this could reveal a non-obvious context effect showing that assessed potential only translates into outcomes when roles are network-rich, which would be more informative than a simple score-to-performance correlation, though the insight is somewhat limited by likely confounding and the fact that similar network/role-context arguments are common in talent analytics.",
+        "confidence": "The mechanism is plausible and grounded in well-known effects of informal networks on visibility, feedback, and advancement, but the weak evidence on daily context, motivation, and true collaboration quality makes it only moderately confident rather than strong.",
+        "future_extensibility": "If confirmed, this would open a highly productive research program on how role network structure mediates the conversion of assessed potential into retention, promotion, and performance, enabling follow-on questions about which contexts, functions, managers, and collaboration patterns most reliably amplify or suppress talent outcomes."
+      }
+    },
+    "critique": {
+      "is_obvious": true,
+      "executive_relevance": "Moderate. Executives may care about retention and progression, but this version reads like a generic 'context matters' statement rather than a decision-grade insight. It does not yet specify a policy lever they could pull (e.g., redesign roles, alter placement, change staffing rules, or intervene on collaboration structure).",
+      "creates_actionable_decision": false,
+      "similar_to_prior": false,
+      "similar_prior_ids": [
+        "hist_fdf0704cbbf5",
+        "hist_781188e22517",
+        "hist_f27b65d5060d"
+      ],
+      "reveals_hidden_mechanism": true,
+      "downstream_feasible": true,
+      "issues": [
+        "The core claim is directionally obvious: people generally do better in better-connected roles. That is not a sharp hypothesis; it is a truism unless you define a non-intuitive threshold or interaction.",
+        "It is too broad and muddled across three outcomes—retention, progression, and performance. Each likely has different mechanisms and time horizons, so a downstream analyst will struggle to test a single clean effect.",
+        "The hypothesis risks confounding role design with selection: denser-network roles may simply attract stronger, more visible, or more politically connected employees, so any observed effect may not be causal.",
+        "'Denser informal collaboration networks' is underspecified and probably not stable enough as a treatment. Density at what level—role, team, function, location, project? Over what window?",
+        "'Equivalent talent' is vague and likely not defensible statistically without a precise matching or fixed-effects design across assessment scores, level, function, location, and baseline performance.",
+        "It duplicates existing network hypotheses on brokerage and sponsorship, only repackaging them as network density. That makes it look like another surface variant rather than a distinct mechanism.",
+        "The proposed mechanism is generic: access to information, sponsorship, feedback, and problem-solving. That is not a hidden mechanism; it is a shopping list of plausible positives.",
+        "It does not distinguish whether network density helps because of learning, because of visibility, or because of manager access. Without that distinction, it is hard to design a test or intervention.",
+        "The hypothesis assumes denser networks are always beneficial, but in some contexts dense networks can also increase conformity, overload, coordination drag, and political exposure. The sign may vary by role type.",
+        "The current data architecture appears weak on informal network data quality and context. If the collaboration network is inferred noisily, the analyst may generate spurious findings that executives should not trust.",
+        "Even if true, the finding may not change a decision unless paired with a staffing rule: which roles should receive high-potential employees, and what network threshold qualifies as 'dense enough'?"
+      ],
+      "suggested_improvements": [
+        "Narrow the outcome to one primary business metric, e.g. 12- or 24-month retention or time-to-next-level promotion.",
+        "Define the network construct precisely: team-level collaboration density, cross-functional tie count, or communication graph density, measured in a fixed pre-placement window.",
+        "Add a non-obvious interaction that would make the hypothesis worth testing, such as the effect being strongest for low-tenure high-potentials, for ambiguous roles, or for roles with high interdependence.",
+        "Convert the statement into a causal or quasi-causal design: compare similarly assessed employees placed into roles that differ exogenously in network density, using level/function/location fixed effects or placement shocks.",
+        "Specify an executive decision: prioritize high-potential placements into network-rich roles, redesign isolated roles with formal connection points, or avoid placing early-career talent in structurally isolated jobs.",
+        "Separate mechanism from outcome by testing whether network density predicts intermediate signals like sponsor counts, feedback frequency, or internal mobility, not just end outcomes.",
+        "State what would falsify the hypothesis, e.g. no incremental effect after controlling for manager quality, role criticality, and baseline performance, or the effect disappears outside high-interdependence roles.",
+        "Make it more distinct from prior hypotheses by contrasting density with brokerage or sponsorship: e.g. 'dense local cohesion helps retention, while cross-boundary brokerage helps promotion.'"
+      ],
+      "critic_name": "checklist_critic"
+    },
+    "search_stats": {
+      "iterations_run": 6,
+      "candidates_generated": 6,
+      "candidates_discarded": 0,
+      "lenses_explored": [
+        "communication_protection",
+        "leadership_influence",
+        "learning_velocity",
+        "network_effects",
+        "skill_concentration"
+      ],
+      "diversity_score": 0.8333333333333334,
+      "termination_reason": "converged"
+    },
+    "generated_at": "2026-07-23T17:23:25.984906+00:00",
+    "insightId": "insight_a7fd4ffdc4de"
+  },
+  {
+    "id": "hist_7ad369cc1921",
+    "imageURL": "sample_data/card_images/hist_7ad369cc1921.svg",
+    "title": "Leadership potential matters only if it improves succession decisions",
+    "description": "The hypothesis says SHL/UCF leadership-potential scores add value only when they help managers make better talent decisions: judging readiness more accurately and placing people into the right development moves. If the scores do not predict faster promotion and internal mobility beyond team quality and context, they should not drive succession calibration.",
+    "readmoreURL": "sample_data/hypotheses/hist_7ad369cc1921.html",
+    "reaction": "none",
+    "organization_id": "shl-sample-cohort",
+    "lens": "leadership_influence",
+    "statement": "Managers with higher SHL/UCF leadership-potential scores will add measurable value only when those scores predict better succession-calibration decisions—specifically, they will identify readiness more accurately and place team members into development moves that accelerate time-to-first-promotion and 18-month internal mobility, above and beyond team composition, business-unit context, and the manager’s own performance rating. If SHL scores do not predict these downstream talent-decision outcomes after controlling for inherited team quality, they should not be used as a gate or weight in succession calibration for managers.",
+    "mechanism": "The mechanism is not generic ‘better leadership,’ but decision accuracy in talent allocation. Managers with stronger SHL/UCF profiles should be better at three observable behaviors: (1) rating readiness in line with subsequent promotion outcomes, (2) assigning stretch roles and mobility moves to the right people at the right time, and (3) avoiding both over-promotion of weak fits and under-placement of strong fits. That should show up as lower calibration error, fewer regretted attrition cases among high-potential employees, and faster progression for direct reports—even when the manager’s own performance ratings do not differ materially. The clean test is whether SHL adds explanatory power for downstream progression after controlling for team baseline quality, function, geography, and manager fixed effects; if it only predicts manager ratings or only reflects stronger inherited teams, it is not evidence of decision-quality leadership.",
+    "target_constructs": [
+      "SHL leadership potential score",
+      "UCF competency scores",
+      "manager talent-placement quality",
+      "promotion velocity",
+      "internal mobility",
+      "team-level performance ratings",
+      "employee retention after promotion"
+    ],
+    "scorecard": {
+      "business_value": 0.66,
+      "novelty": 0.68,
+      "depth": 0.78,
+      "actionability": 0.78,
+      "strategic_importance": 0.79,
+      "feasibility": 0.4,
+      "organizational_impact": 0.67,
+      "expected_insight": 0.72,
+      "confidence": 0.54,
+      "future_extensibility": 0.82,
+      "composite": 0.6888000000000001,
+      "dimension_notes": {
+        "business_value": "This hypothesis could materially inform leadership selection and succession decisions by testing whether SHL scores predict downstream talent outcomes through managerial judgment, but its business value is moderated by the current data limits and the fact that it would likely refine rather than overturn an executive strategy.",
+        "strategic_importance": "This hypothesis is strategically important because it targets a core executive priority—improving leadership selection and talent allocation to accelerate internal mobility and promotion outcomes—which can materially affect succession, retention, and workforce productivity, though it is still somewhat secondary to direct revenue or operating metrics.",
+        "actionability": "If confirmed, the hypothesis directly suggests actionable talent moves—using SHL/UCF scores to identify managers who make better placement and development decisions, then targeting stretch assignments, succession planning, and calibration of promotion criteria—but it is slightly limited by the current data gaps around true decision quality and downstream outcomes.",
+        "organizational_impact": "If validated, this would affect manager selection, promotion, internal mobility, and development decisions across many teams, but it is still narrower than a company-wide operating model and its impact is tempered by the current data gaps and likely partial coverage of leadership roles.",
+        "feasibility": "2/7 target constructs map onto known data categories.",
+        "novelty": "The hypothesis is meaningfully more novel than a standard manager-performance comparison because it shifts the unit of analysis to leadership judgment as a talent-allocation mechanism, but it still sits within a well-explored HR theme of leader quality affecting team outcomes through development and promotion decisions.",
+        "depth": "This is fairly deep because it proposes an indirect, mechanism-level explanation—leader judgment shaping talent placement and mobility rather than just direct performance—but it still sits within a familiar HR causal chain rather than revealing a highly novel or multi-layered organizational dynamic.",
+        "expected_insight": "If confirmed, this would be fairly informative because it tests a non-obvious managerial leverage mechanism—leader quality affecting outcomes through talent decisions rather than direct performance—but the insight is moderated by the likelihood that results will be partly confounded by role level, team context, and already-known promotion predictors.",
+        "confidence": "The mechanism is plausible and testable with SHL, promotion, and mobility data, but confidence is only moderate because the likely evidence is observational, longitudinal coverage is thin, and unmeasured manager/role effects could easily explain the pattern.",
+        "future_extensibility": "If supported, this hypothesis would open a productive program of follow-on questions around leader talent-judgment quality, stretch assignment allocation, and downstream mobility/retention pathways, making it a strong platform for further inquiry rather than a one-off finding."
+      }
+    },
+    "critique": {
+      "is_obvious": true,
+      "executive_relevance": "Moderate at best. Executives may care about better talent decisions, but this is framed as an incremental validation question rather than a decision that changes policy, spend, or org design. It reads more like an analytics exercise than a strategic choice.",
+      "creates_actionable_decision": false,
+      "similar_to_prior": false,
+      "similar_prior_ids": [
+        "hist_781188e22517",
+        "hist_f27b65d5060d",
+        "hist_0e96fcb21201"
+      ],
+      "reveals_hidden_mechanism": false,
+      "downstream_feasible": true,
+      "issues": [
+        "The core idea is obvious: better leaders should make better talent decisions. That is a standard, expected claim, not a novel hypothesis.",
+        "It is too close to the prior hypotheses about sponsorship, pipeline progression, and team context. This is basically another angle on 'high-potential signals predict advancement via talent processes.'",
+        "The mechanism is asserted, not demonstrated. 'Judgment' and 'better placement decisions' are vague and not operationalized, so a downstream analyst would struggle to test whether the effect is actually decision quality versus simple team quality or manager charisma.",
+        "The outcome set is muddy. 'Promotion velocity' and 'internal mobility' are organizational outcomes, but the hypothesis also says direct performance ratings may not move. That creates identification problems: are we testing manager quality, HR allocation, or employee self-selection?",
+        "There is a serious confounding risk: managers with strong SHL profiles may simply inherit stronger teams, better business units, or more resourced functions. Any observed mobility effect could reflect context, not managerial judgment.",
+        "The hypothesis does not specify a comparison group or timeframe tightly enough. Without a clear counterfactual, it will be easy to over-interpret correlational noise.",
+        "Executives will not care about the distinction between 'leader produces performance' and 'leader improves placement decisions' unless it changes how SHL is used in hiring, promotion, or succession calibration.",
+        "The word 'indirectly' makes it harder to test and easier to excuse null results. If the goal is to justify SHL as a predictor of leader impact, the hypothesis should connect measurable manager traits to measurable decision outcomes directly."
+      ],
+      "suggested_improvements": [
+        "Reframe around a concrete decision: e.g., 'Should SHL leadership-potential scores be used as a gate or weight in succession calibration for managers?'",
+        "Operationalize the hidden mechanism with observable intermediate measures: stretch assignment quality, promotion readiness accuracy, regretted attrition of managed talent, or calibration override rates.",
+        "Define a clean causal test: compare teams led by similarly leveled managers within the same function/geography before and after a manager transition, or use matched managers with similar team composition.",
+        "Replace broad outcomes with one primary endpoint and one secondary endpoint, such as 'team members’ time-to-first-promotion' and 'internal mobility rate within 18 months.'",
+        "Add a falsifiable exclusion: if SHL scores predict leader performance ratings but not downstream talent movement, or vice versa, what does that imply for SHL’s use?",
+        "Separate manager fixed effects from team/context effects so the analysis can tell whether the manager adds value beyond inherited talent density.",
+        "If you want executive relevance, tie the hypothesis to a policy choice: invest in using SHL for leader selection only if it predicts downstream talent outcomes better than manager performance ratings do."
+      ],
+      "critic_name": "checklist_critic"
+    },
+    "search_stats": {
+      "iterations_run": 4,
+      "candidates_generated": 4,
+      "candidates_discarded": 0,
+      "lenses_explored": [
+        "burnout_resilience",
+        "communication_protection",
+        "leadership_influence"
+      ],
+      "diversity_score": 0.75,
+      "termination_reason": "converged"
+    },
+    "generated_at": "2026-07-23T17:34:36.243575+00:00",
+    "insightId": "insight_954b45c9457d"
+  },
+  {
+    "id": "hist_d13f62250220",
+    "imageURL": "sample_data/card_images/hist_d13f62250220.svg",
+    "title": "Resilience helps leaders survive bigger moves, but not always prove fit",
+    "description": "The hypothesis says resilience may predict who stays steady after a move into a broader, more complex role, especially in the first 6 months. But executives should read that as an early stability signal, not proof of long-term potential, unless ratings, pay, or scope improve over the next 12–24 months.",
+    "readmoreURL": "sample_data/hypotheses/hist_d13f62250220.html",
+    "reaction": "none",
+    "organization_id": "shl-sample-cohort",
+    "lens": "burnout_resilience",
+    "statement": "For high-potential leaders assigned to broader-business-fit roles, resilience should be treated as a predictor of near-term post-move stability, not of durable value creation. Specifically, in moves that are high in novelty and role-complexity increase, higher resilience will be associated with better 0–6 month survival and flatter immediate rating decline; but only when those moves also produce a positive 12–24 month trajectory in ratings, pay progression, or scope expansion should resilience be interpreted as evidence of fit. In low-novelty moves that mainly increase workload within the same task structure, resilience will predict short-term tolerance without improving 12–24 month performance trajectory.",
+    "mechanism": "The mechanism is a time-lagged distinction between buffering and adaptation. Resilience can absorb the initial shock of a move, which makes a leader look stable early on, but that same buffering does not necessarily indicate that the person is developing the capabilities required by the new role. If the move adds new complexity and novelty, early buffering can be the first step in genuine adaptation and later progression. If the move mostly adds volume or pressure, resilience may simply delay visible deterioration, producing a short-term survivorship signal that later gives way to flat ratings, stalled pay growth, or exit. To make this testable, the analysis should compare pre/post trajectories around the move, use a defined post-move window, and distinguish novelty/complexity increases from pure overload so resilience is read as a conditional stabilizer rather than a standalone promotion signal.",
+    "target_constructs": [
+      "resilience / burnout tolerance",
+      "post-promotion performance trajectory",
+      "role complexity / novelty",
+      "burnout or strain indicators",
+      "attrition / tenure",
+      "high-potential leadership status"
+    ],
+    "scorecard": {
+      "business_value": 0.76,
+      "novelty": 0.67,
+      "depth": 0.82,
+      "actionability": 0.78,
+      "strategic_importance": 0.79,
+      "feasibility": 0.55,
+      "organizational_impact": 0.69,
+      "expected_insight": 0.72,
+      "confidence": 0.54,
+      "future_extensibility": 0.83,
+      "composite": 0.7225999999999999,
+      "dimension_notes": {
+        "business_value": "This hypothesis could materially affect promotion and role-design decisions for high-potential leaders by distinguishing short-term resilience from longer-term fit, and it offers a testable, strategically relevant mechanism tied to burnout risk and post-move performance, though its value is tempered by likely data limitations and only moderate confidence in the causal story.",
+        "strategic_importance": "This hypothesis is strategically important because it directly informs high-potential promotion and post-move leadership selection decisions, which are top talent priorities, though its scope is narrower than a company-wide operating or workforce planning issue.",
+        "actionability": "A confirmed result would directly change promotion and role-design decisions by indicating when resilience should be treated as a short-term overload screen versus a marker of sustainable fit, and it naturally suggests interventions like matching leaders to complexity/novelty levels and monitoring burnout after moves.",
+        "organizational_impact": "If validated, this would influence promotion, role-design, and retention decisions for a meaningful high-potential leadership population, but it is still a subset of the workforce rather than a whole-organization lever.",
+        "feasibility": "3/6 target constructs map onto known data categories.",
+        "novelty": "The hypothesis is more novel than a standard resilience-to-performance claim because it proposes a conditional mechanism—resilience matters differently when role change adds complexity versus merely load—but it still sits within a fairly familiar HR theme of promotion strain, burnout, and post-move performance.",
+        "depth": "The hypothesis goes beyond a simple correlation by proposing a conditional mechanism—resilience as short-term shock absorption versus long-term capacity, moderated by role complexity and novelty—which meaningfully explains why the same trait may predict different outcomes over time.",
+        "expected_insight": "The hypothesis is likely to yield moderately high insight because it probes a non-obvious interaction between resilience and role transition conditions, separating short-term shock tolerance from longer-term fit, though the expected surprise is tempered by the fact that resilience, burnout, and post-promotion performance are already familiar constructs in talent analytics.",
+        "confidence": "The mechanism is plausible and grounded in common promotion-stress dynamics, but confidence is only moderate because it depends on conditional effects, sparse burnout/strain measures, and the risk that resilience mainly proxies selection or role-fit rather than a causal buffer against later performance decline.",
+        "future_extensibility": "This is highly extensible because it naturally opens follow-on questions about role design, lagged burnout effects, boundary conditions around complexity and novelty, and whether resilience should be used as a short-term screen or a longer-horizon predictor across multiple promotion cycles."
+      }
+    },
+    "critique": {
+      "is_obvious": false,
+      "executive_relevance": "Moderate. Executives may care about whether resilience is a useful selection signal versus a misleading short-term proxy, but the current framing is too academic and too conditional to drive a clear talent decision without more evidence.",
+      "creates_actionable_decision": true,
+      "similar_to_prior": false,
+      "similar_prior_ids": [
+        "hist_781188e22517",
+        "hist_0e96fcb21201",
+        "hist_f27b65d5060d"
+      ],
+      "reveals_hidden_mechanism": true,
+      "downstream_feasible": true,
+      "issues": [
+        "The hypothesis is overloaded: it bundles role complexity, novelty, sustained performance, burnout, disengagement, and exit into one statement. That makes it hard to test cleanly and easy to interpret post hoc.",
+        "The main claim is not especially novel. It is a familiar idea that resilience helps people cope with immediate strain but does not guarantee long-term success. Executives have likely heard some version of this already.",
+        "The mechanism is plausible but not yet sharp enough. 'Durable capacity vs temporary shock absorption' sounds insightful, but the observable implications are vague unless translated into specific measurable trajectories.",
+        "The hypothesis does not clearly define what counts as 'broader-business-fit roles,' 'increased role complexity and novelty,' or 'sustained post-move performance.' Without precise operationalization, the analysis will be mushy.",
+        "There is a risk of selection bias: high-potential leaders may already be the people most likely to receive difficult moves, so resilience may just be a correlate of prior endorsement rather than a causal predictor.",
+        "The statement implies a moderation effect, but it does not specify the expected direction or threshold of the interaction clearly enough for a downstream analyst to test without arbitrary choices.",
+        "It partially duplicates the prior hypotheses in structure: it asks whether a people signal predicts advancement/retention outcomes under a contextual moderator, rather than offering a distinct mechanism or decision rule.",
+        "It is unclear what executives would do differently if the hypothesis is confirmed. Should they avoid using resilience in promotion decisions, use it only for stretch roles, or pair it with longer-horizon indicators? The decision implication is underdeveloped.",
+        "The outcome window is underspecified. 'Sustained post-move performance' needs a time horizon; otherwise short-term ratings and long-term erosion cannot be separated reliably.",
+        "There is an internal tension in the wording: if resilience mainly predicts tolerating overload without immediate drop in ratings or tenure, that may still be valuable for executives depending on the role. The hypothesis does not distinguish between harmful masking and strategically useful buffering.",
+        "Because 360 feedback is nearly absent and performance data is incomplete, the proposed mechanism may not be observable well enough to support a strong conclusion about burnout accumulation versus genuine adaptation."
+      ],
+      "suggested_improvements": [
+        "Split into two testable hypotheses: (1) resilience predicts short-term survival after move; (2) the relationship between resilience and 12–24 month performance is positive only in roles with high novelty/complexity.",
+        "Define measurable moderators and outcomes up front: role novelty, role complexity, rating trajectory, pay progression, exits, and time-to-erosion.",
+        "State a concrete executive decision: for example, do not use resilience alone as a promotion signal; use it only as a screen for candidates into high-novelty moves, and require evidence of post-move trajectory gains.",
+        "Add a comparison condition that distinguishes overload from stretch. For example, compare moves that add complexity/novelty versus moves that mostly increase volume within the same task structure.",
+        "Specify the expected pattern over time, such as strong 0–6 month buffering, neutral 6–12 month effect, and negative 12–24 month effect in low-novelty moves.",
+        "If the real concern is burnout masking, consider replacing 'resilience' with a more measurable construct such as stress tolerance, recovery, or persistence under load, then test whether it predicts later decline.",
+        "Make the hypothesis less redundant by tying it to a unique decision point: whether resilience should qualify someone for broader-business-fit roles versus only for temporary overload assignments.",
+        "Use pre/post move analysis with matched controls so the analyst can separate the effect of the move from the effect of being selected as high-potential.",
+        "If possible, require evidence from multiple signals—resilience plus prior trajectory stability—rather than presenting resilience as a standalone selection factor."
+      ],
+      "critic_name": "checklist_critic"
+    },
+    "search_stats": {
+      "iterations_run": 4,
+      "candidates_generated": 4,
+      "candidates_discarded": 0,
+      "lenses_explored": [
+        "burnout_resilience",
+        "learning_velocity",
+        "skill_concentration"
+      ],
+      "diversity_score": 0.75,
+      "termination_reason": "converged"
+    },
+    "generated_at": "2026-07-23T17:37:35.293254+00:00",
+    "insightId": "insight_6ac2c2213a11"
   }
 ]

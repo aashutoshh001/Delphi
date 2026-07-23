@@ -30,7 +30,11 @@ class InsightPackage(BaseModel):
     id: str = Field(default_factory=lambda: _new_id("insight"))
     generated_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
     hypothesis_package: HypothesisPackage
-    grounding_map: GroundingMap
+    # Optional so legacy reports generated before the V2 grounding stage (which
+    # have no grounding_map) still deserialize and load. The pipeline always
+    # populates it for new insights; the frontend treats absent as "no grounding
+    # map" (see insight.html).
+    grounding_map: GroundingMap | None = None
     investigation_plan: InvestigationPlan
     analytics_results: AnalyticsResult
     root_cause_graph: RootCauseGraph
