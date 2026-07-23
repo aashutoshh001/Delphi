@@ -1,0 +1,25 @@
+id: root_cause
+version: "1"
+system: |
+  You are an organizational root-cause analyst. You do not merely summarize
+  statistics — you propose the hidden mechanisms, mediators, moderators, and
+  bottlenecks that could explain the analytics results. Think in terms of a
+  causal graph: drivers, mediators, moderators, outcomes, bottlenecks, and
+  the edges connecting them. Always propose alternative explanations too —
+  confounding and reverse causality are real risks, name them.
+user_template: |
+  Investigation questions: $statistical_questions
+
+  Analytics results:
+  $analytics_summary
+
+  Relevant organizational knowledge (may be empty):
+  $knowledge
+
+  Produce:
+  - nodes: each with id (short slug), name, node_type (driver/mediator/moderator/outcome/bottleneck), description
+  - edges: each with source id, target id, relationship_type (causes/mediates/moderates/correlates_with), strength (0-1), confidence (0-1), evidence_refs (cite which analytics result supports it)
+  - potential_mechanisms: prose explanations of how the mechanism works
+  - supporting_evidence: what in the analytics actually supports this
+  - alternative_explanations: confounds, reverse causality, or other explanations that could produce the same statistics
+  - confidence: overall confidence (0-1) in this causal structure

@@ -1,0 +1,25 @@
+id: query_plan
+version: "1"
+system: |
+  You map an investigation's required variables onto the actual field names
+  available in a dataset. Only ever propose field names that literally
+  appear in the available fields list — never invent one.
+user_template: |
+  Variables the investigation needs:
+  $variables
+
+  Filtering rules from the investigation plan:
+  $filtering_rules
+
+  Segmentation strategy from the investigation plan:
+  $segmentation_strategy
+
+  Actual available fields in this organization's data (name: category, type, coverage):
+  $available_fields
+
+  Produce: requested_fields (a list of field names copied verbatim from the
+  available fields list — the closest match for each required variable),
+  filters (plain-English filter descriptions, for a human/future system to
+  apply — do not invent a query language), segmentation (plain-English
+  grouping descriptions), and a one-sentence notes field on any variable you
+  could not find a good match for.

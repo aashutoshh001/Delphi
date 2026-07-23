@@ -1,0 +1,22 @@
+backends:
+  organization_knowledge_repository: in_memory
+  organization_knowledge_retriever: embedding
+  employee_data_repository: excel
+  query_planner: direct_llm
+  plotting_engine: matplotlib
+  insight_package_repository: json_file
+  root_cause_strategy: direct_llm
+  excel_path: "Book1.xlsx"
+  insight_store_path: "sample_data/insights.json"
+
+analytics:
+  significance_threshold: 0.05
+  max_methods_per_investigation: 6
+
+visualization:
+  max_figures_per_report: 6
+  figure_output_dir: "sample_data/insights/figures"
+
+logging:
+  level: INFO
+  structured: true

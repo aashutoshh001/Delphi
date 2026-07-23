@@ -43,6 +43,12 @@ It's a static site — plain HTML/CSS/JS, no build step, no backend, no dependen
 - The agent guarantees a newly generated hypothesis is never a near-duplicate of one already in the feed (deterministic embedding-similarity check, hard-discarded regardless of score), and softly favors lenses/categories the feed has more thumbs-up on — without ever fully excluding a category.
 - Verified end-to-end in a real headless Chromium session: generate → appears in feed → react → persists across reload → read more → detail page renders scorecard + critique. No console errors.
 
+**Phase 4 — the downstream Investigation Pipeline**
+- Built [insight_pipeline/](insight_pipeline/) per [docs/PLATFORM_ARCHITECTURE.md](docs/PLATFORM_ARCHITECTURE.md): turns a `HypothesisPackage` into a full executive `InsightPackage` — Investigation Planner → Data Retrieval → Analytics → Root Cause Discovery → Business Insight → Narrative → Visualization Planner → Plot Generation. The Hypothesis Agent stays completely independent of all of it (depended *on*, never the reverse).
+- Real, not mocked, where it counts: 4 statistical methods (correlation, regression, ANOVA, chi-square) run real `scipy` against real `Book1.xlsx` rows; 5 chart types render real `matplotlib` PNGs; every LLM-reasoned stage (planning, root-cause, business insight, narrative, visualization selection) is offline-testable via `MockLLMService` and was also run end to end against the real SHL LiteLLM endpoint.
+- One live run genuinely caught its own analysis's weak spot: the Investigation Planner asked for constructs the real cohort data doesn't literally have, and rather than fabricating a conclusion, Root Cause/Business Insight correctly flagged the data-model mismatch as the actual finding — a legitimate example of the "internal critic" philosophy carrying through the whole pipeline, not just the Hypothesis Agent.
+- 86 tests passing across both packages (`hypothesis_agent` + `insight_pipeline`), including an architecture-boundary test enforcing that contracts/ports never import `pandas`/`matplotlib`/etc. and that `hypothesis_agent` never imports `insight_pipeline`.
+
 ## Project structure
 
 ```
@@ -54,8 +60,12 @@ Delphi/
 │   └── shl-logo.png     # SHL logo — used in the header and as the fallback card image
 ├── sample_data/
 │   ├── stories.json      # THE LIVE HYPOTHESIS FEED — starts as [], grows as you generate
-│   └── hypotheses/       # generated "read more" detail pages, one per hypothesis (gitignored content)
+│   ├── hypotheses/       # generated "read more" detail pages, one per hypothesis (gitignored content)
+│   └── insights/figures/ # generated report charts, one per InsightPackage (gitignored content)
+├── docs/
+│   └── PLATFORM_ARCHITECTURE.md   # design for the full multi-agent platform
 ├── hypothesis_agent/    # the autonomous Hypothesis Agent — see its own README + docs/ARCHITECTURE.md
+├── insight_pipeline/    # HypothesisPackage -> InsightPackage pipeline — see its own README
 └── README.md
 ```
 
@@ -101,51 +111,106 @@ open "/home/aashutosh.joshi/AI-Thon/Delphie?/Delphi/index.html"        # macOS
 
 This still works fully offline — if the Hypothesis Agent API (below) isn't running, the page falls back to a small embedded story deck instead of the live feed, so there's no CORS issue from opening via `file://`.
 
-## Running the full loop (live hypothesis feed)
+## Running the complete project
 
-This is what turns the static viewer above into an actual feed of
-AI-generated hypotheses, with real reactions and dedup/soft-bias behavior.
-It needs two things running at once: the static site (above) and the
-Hypothesis Agent's local API.
+The full system is **three independent processes**, each in its own
+terminal, plus a one-time setup pass. Nothing auto-starts anything else —
+if a piece isn't running, its part of the loop just won't work (the
+frontend falls back to an offline demo deck; the Investigation Pipeline
+simply has no `HypothesisPackage` to work from).
 
-1. **One-time setup** — install the agent and add your key:
-   ```bash
-   cd hypothesis_agent
-   python3 -m venv .venv && source .venv/bin/activate
-   pip install -e ".[server,llm-litellm]"
-   cp .env.example .env   # then fill in LITELLM_API_KEY — everything else is pre-filled
-   ```
-   `.env` already points at the SHL internal LiteLLM endpoint
-   (`https://labs.shl.com/llm-internal/`) and activates it
-   (`HYPOTHESIS_AGENT__BACKENDS__LLM=litellm`) — the key is the only thing
-   you need to add. `examples/run_local_demo.py` and the test suite always
-   force the offline `MockLLMService` regardless of `.env`, so they keep
-   working with zero setup either way; the server (below) uses whatever
-   `.env` says. If the endpoint expects a specific model name, also set
-   `HYPOTHESIS_AGENT__LLM__MODEL` in `.env`.
+| # | Terminal | Command | Port | Required for |
+|---|---|---|---|---|
+| 1 | Static frontend | `python3 -m http.server 8100` | 8100 | Viewing the site at all |
+| 2 | Hypothesis Agent API | `python -m hypothesis_agent.server` | 8200 | The live feed / "+ Generate hypothesis" button |
+| 3 | Investigation Pipeline API | `python -m insight_pipeline.server` | 8300 | Turning a hypothesis into a full analytics/root-cause/narrative/chart report (not yet wired into the UI — call it directly, see below) |
 
-2. **Start the API** (from the `Delphi/` repo root, in its own terminal — the
-   relative `sample_data/stories.json` path resolves against the current
-   directory):
-   ```bash
-   cd hypothesis_agent && source .venv/bin/activate && cd ..
-   python -m hypothesis_agent.server
-   ```
-   Serves on `http://127.0.0.1:8200`. `sample_data/stories.json` starts as
-   `[]` — nothing's been generated yet.
+### One-time setup (run once, in any terminal)
 
-3. **Start the static site** (a second terminal, per Option A above):
-   ```bash
-   python3 -m http.server 8100
-   ```
+```bash
+cd ~/AI-Thon/Delphie?/Delphi
 
-4. **Open it**: `http://localhost:8100/` and click **"+ Generate hypothesis"**
-   in the header. A new card appears; reacting 👍/👎 persists to
-   `sample_data/stories.json` (not just this browser); **Read more** opens a
-   generated detail page with the full mechanism, scorecard, and critique.
+# --- Hypothesis Agent ---
+cd hypothesis_agent
+python3 -m venv .venv && source .venv/bin/activate
+pip install -e ".[server,llm-litellm,sample-data]"
+cp .env.example .env   # then fill in LITELLM_API_KEY — everything else is pre-filled
+deactivate
+cd ..
+
+# --- Investigation Pipeline (depends on hypothesis_agent above) ---
+cd insight_pipeline
+python3 -m venv .venv && source .venv/bin/activate
+pip install -e ../hypothesis_agent
+pip install -e ".[dev,analytics,plotting,data-excel,server]"
+deactivate
+cd ..
+```
+
+`hypothesis_agent/.env` already points at the SHL internal LiteLLM endpoint
+(`https://labs.shl.com/llm-internal/`) and activates it
+(`HYPOTHESIS_AGENT__BACKENDS__LLM=litellm`) — the key is the only thing you
+need to add. `insight_pipeline` reuses that same `.env` (no separate key).
+Both packages' own test suites and offline demo scripts always force the
+offline `MockLLMService` regardless of `.env`, so `pytest` and
+`examples/*.py` keep working with zero setup either way — only the two
+servers use whatever `.env` says.
+
+### Terminal 1 — static frontend
+
+```bash
+cd ~/AI-Thon/Delphie?/Delphi
+python3 -m http.server 8100
+```
+Open `http://localhost:8100/`.
+
+### Terminal 2 — Hypothesis Agent API
+
+```bash
+source ~/AI-Thon/Delphie?/Delphi/hypothesis_agent/.venv/bin/activate
+python -m hypothesis_agent.server
+```
+(Data paths like `sample_data/` are anchored to the repo root internally,
+so this works from any starting directory — only the venv needs activating.)
+Serves on `http://127.0.0.1:8200`. `sample_data/stories.json` starts as
+`[]` — nothing's been generated yet. With terminals 1 and 2 running, click
+**"+ Generate hypothesis"** in the header: a new card appears; reacting
+👍/👎 persists to `sample_data/stories.json` (not just the browser);
+**Read more** opens a generated detail page with the full mechanism,
+scorecard, and critique.
+
+### Terminal 3 — Investigation Pipeline API
+
+```bash
+source ~/AI-Thon/Delphie?/Delphi/insight_pipeline/.venv/bin/activate
+python -m insight_pipeline.server
+```
+(same as terminal 2 — `Book1.xlsx` and `sample_data/` resolve to the repo
+root regardless of the starting directory.)
+Serves on `http://127.0.0.1:8300`. Turns one `HypothesisPackage` (e.g. one
+entry already in `sample_data/stories.json`, generated via terminal 2) into
+a full `InsightPackage`: an investigation plan, real statistical analysis,
+a root-cause graph, business findings/risks/recommendations, an executive
+narrative, and rendered chart PNGs under `sample_data/insights/figures/`.
+There's no frontend button for this yet — from a fourth terminal (with
+terminals 2 and 3 both already running, and at least one hypothesis
+already generated via terminal 2's "+ Generate hypothesis" button), run:
+
+```bash
+cd ~/AI-Thon/Delphie?/Delphi/insight_pipeline && source .venv/bin/activate
+python examples/run_investigation_from_server.py
+```
+
+This fetches the most recent hypothesis from terminal 2's API and POSTs it
+to terminal 3's API. Real, non-mocked results take a few minutes (many
+real LLM calls). `GET /api/insights` lists past reports,
+`GET /api/insights/{id}` returns one in full.
 
 See [hypothesis_agent/docs/ARCHITECTURE.md §18](hypothesis_agent/docs/ARCHITECTURE.md#18-frontend-integration-the-live-json-feed--local-api-server)
-for how the pieces fit together, and §11.1 for the dedup/soft-bias guarantees.
+for how the Hypothesis Agent + frontend fit together (§11.1 for the
+dedup/soft-bias guarantees), and
+[docs/PLATFORM_ARCHITECTURE.md](docs/PLATFORM_ARCHITECTURE.md) for the full
+Investigation Pipeline design.
 
 ## Using the app
 

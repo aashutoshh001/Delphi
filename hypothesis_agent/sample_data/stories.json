@@ -1,0 +1,188 @@
+[
+  {
+    "id": "hist_28f12cf1ca13",
+    "imageURL": "",
+    "title": "Stronger engineering managers may cut regretted attrition by spotting overload early",
+    "description": "The hypothesis argues that engineering teams led by stronger managers lose fewer high performers not mainly because morale is higher, but because those managers notice strain sooner and rebalance work before burnout builds. For executives, the implication is that leadership quality can protect retention by preventing hidden overload, especially when demand is rising.",
+    "readmoreURL": "sample_data/hypotheses/hist_28f12cf1ca13.html",
+    "reaction": "up",
+    "organization_id": "acme-labs",
+    "lens": "leadership_influence",
+    "statement": "In engineering teams led by managers with stronger leadership competency ratings, regretted attrition will be lower not because employees are simply more satisfied, but because those managers redistribute workload earlier and surface burnout sooner, preserving high performers who would otherwise exit under sustained strain.",
+    "mechanism": "The hidden mechanism is an indirect leadership effect: stronger managers convert performance into sustainable output by detecting overload early, reallocating work, and intervening before burnout turns into flight risk. This means the apparent retention benefit comes less from generalized morale-boosting and more from operational behaviors that prevent high performers from silently accumulating strain. If true, leadership competency should predict attrition most strongly in teams with rising workload pressure and partial burnout visibility, where manager judgment matters most.",
+    "target_constructs": [
+      "manager leadership competency rating",
+      "regretted attrition",
+      "workload distribution",
+      "burnout detection",
+      "burnout score",
+      "high performer retention",
+      "team workload pressure"
+    ],
+    "scorecard": {
+      "business_value": 0.78,
+      "novelty": 0.68,
+      "depth": 0.84,
+      "actionability": 0.84,
+      "strategic_importance": 0.88,
+      "feasibility": 0.5,
+      "organizational_impact": 0.82,
+      "expected_insight": 0.74,
+      "confidence": 0.63,
+      "future_extensibility": 0.89,
+      "composite": 0.7642000000000001,
+      "dimension_notes": {
+        "business_value": "This hypothesis has solid business value because it directly informs retention and leadership-bench decisions for a scaling engineering org, offers a plausible intervention path (workload redistribution and earlier burnout detection), and could materially change how managers are evaluated, though it is somewhat limited by partial measurement coverage and may not be as executive-defining as a broader workforce strategy question.",
+        "strategic_importance": "This hypothesis is strategically important because it directly connects leadership quality to regretted attrition and high-potential engineering retention—two core enterprise priorities that affect succession depth, execution capacity, and scaling risk.",
+        "actionability": "If confirmed, the hypothesis points to a concrete intervention path—improving manager coaching, workload redistribution, and early burnout escalation—which makes it highly actionable for retention and leadership development, though the partial visibility in the current data tempers how directly it can be operationalized.",
+        "organizational_impact": "If confirmed, this would affect engineering retention, workload management, and leadership development across a core org layer, with downstream impact on high performers and future managers, though it is still somewhat concentrated in engineering rather than enterprise-wide.",
+        "feasibility": "3/7 target constructs map onto known data categories.",
+        "novelty": "This goes beyond the usual manager-performance/attrition comparison by proposing a specific workload-and-burnout mediation mechanism, but it is still grounded in a fairly common leadership-retention narrative rather than a truly unusual or pioneering hypothesis.",
+        "depth": "This hypothesis goes beyond a surface correlation by proposing a specific hidden mechanism—leadership competence reduces regretted attrition through earlier workload reallocation and burnout detection—though it still relies on observable proxies rather than a fully novel causal theory.",
+        "expected_insight": "This hypothesis is likely to yield moderately high insight because it goes beyond a simple manager-retention correlation to test a specific workload/burnout mediation mechanism, but it is still grounded in a fairly common leadership-quality narrative and may only modestly surprise leaders unless the effect is especially strong or concentrated in high-pressure teams.",
+        "confidence": "The mechanism is plausible and consistent with how strong managers can reduce strain-driven attrition, but it remains only moderately confident because leadership ratings, burnout visibility, and workload allocation are all vulnerable to measurement noise and confounding with team quality, tenure, and manager assignment.",
+        "future_extensibility": "If confirmed, this mechanism would naturally extend into a broader program of burnout prediction, workload rebalancing, manager-development diagnostics, and leadership-bench forecasting, creating multiple adjacent questions and interventions rather than a one-off retention finding."
+      }
+    },
+    "critique": {
+      "is_obvious": true,
+      "executive_relevance": "Moderate at best. Executives already know 'better managers reduce attrition' and 'burnout matters.' The hypothesis does not yet specify a decision lever, investment tradeoff, or threshold that would change how leadership intervenes.",
+      "creates_actionable_decision": false,
+      "similar_to_prior": false,
+      "similar_prior_ids": [],
+      "reveals_hidden_mechanism": true,
+      "downstream_feasible": true,
+      "issues": [
+        "Too close to a generic management truism: stronger leaders often retain talent better. This is not novel enough to justify executive attention yet.",
+        "The mechanism is asserted, not evidenced. 'Redistribute workload earlier' and 'surface burnout sooner' are plausible, but the hypothesis does not define observable proxies or distinguish them from broader manager quality effects.",
+        "It conflates leadership competency with multiple latent dimensions: coaching skill, operational planning, empathy, prioritization, and career sponsorship. That makes it hard to test what is actually driving retention.",
+        "The causal direction is weak. Lower attrition may make managers look better, or teams with lower strain may both rate leaders higher and lose fewer people. Reverse causality and selection effects are not addressed.",
+        "The hypothesis depends on partial burnout visibility, but does not say whether missingness is random or systematically worse in certain teams. Without that, the interaction claim is hand-wavy.",
+        "It lacks a decision implication. If true, should Acme train managers, change staffing ratios, instrument burnout, or alter promotion criteria? The narrative does not force a choice.",
+        "'Preserving high performers' is a claim about who leaves, but the hypothesis does not specify whether the effect is concentrated among high performers, high-potential employees, or all employees.",
+        "The phrase 'rising workload pressure' is vague and unmeasured. A downstream analyst would need a concrete definition to test the interaction.",
+        "It risks being tautological: teams with better managers may have lower attrition because they are better-run overall. That does not isolate the leadership-influence mechanism.",
+        "The hypothesis is broader than the available data if leadership competency is only rated on half the population. Coverage gaps may bias results and limit generalizability."
+      ],
+      "suggested_improvements": [
+        "Narrow the outcome: test whether leadership competency predicts regretted attrition specifically among high-performers or high-burnout-risk employees, not overall attrition.",
+        "Operationalize the mechanism with measurable intermediates: workload balance, overtime, on-call burden, project reassignment frequency, burnout survey changes, 1:1 cadence, or promotion/transfer timing.",
+        "State a falsifiable interaction: leadership competency should have a larger protective effect in teams with higher workload growth or rising burnout indicators, and little/no effect in low-strain teams.",
+        "Separate manager quality from team context by controlling for team size, function, tenure mix, performance distribution, and workload intensity.",
+        "Turn it into a decision: e.g., prioritize manager coaching, staffing relief, or leadership promotion only in teams where leadership ratings and workload pressure jointly predict regretted attrition.",
+        "Clarify whether the goal is retention of high performers, reduction of regretted attrition, or development of the leadership bench; each requires a different test and different intervention.",
+        "If possible, specify a threshold or segmentation rule that executives could act on, such as 'teams in the top quartile of workload growth and bottom half of leadership ratings.'"
+      ],
+      "critic_name": "checklist_critic"
+    },
+    "search_stats": {
+      "iterations_run": 4,
+      "candidates_generated": 4,
+      "candidates_discarded": 0,
+      "lenses_explored": [
+        "burnout_resilience",
+        "leadership_influence",
+        "psychometric_fit"
+      ],
+      "diversity_score": 0.75,
+      "termination_reason": "converged"
+    },
+    "generated_at": "2026-07-23T05:38:15.329358+00:00"
+  },
+  {
+    "id": "hist_76acfa88ab48",
+    "imageURL": "",
+    "title": "Promoting engineers to technical lead without broader readiness may raise attrition",
+    "description": "The hypothesis suggests that engineers with strong delivery records but weaker cross-functional and mentoring experience are more likely to leave within a year after their first technical-lead promotion. For leaders, the risk is not promotion itself but a mismatch between the new role’s demands and the skills built beforehand. If true, readiness gates and targeted coaching could reduce avoidable…",
+    "readmoreURL": "sample_data/hypotheses/hist_76acfa88ab48.html",
+    "reaction": "down",
+    "organization_id": "acme-labs",
+    "lens": "learning_velocity",
+    "statement": "Among engineers promoted from senior IC to first-time technical-lead roles, those whose pre-promotion record shows weaker cross-functional collaboration and mentoring exposure—but similar delivery performance, tenure, team type, manager, and compensation—will be more likely to experience regretted attrition within 12 months of promotion than matched peers whose pre-promotion signals indicate readiness for broader influence.",
+    "mechanism": "The mechanism is not generic promotion anxiety; it is a role-capability mismatch that becomes visible only after the job changes. Delivery metrics can stay intact while the new role starts to require influence beyond the team, prioritization across functions, and coaching others. Engineers who have not previously built those muscles may receive the promotion signal without the supporting capability base, then face repeated friction in the first 6-12 months: slower adoption of cross-functional responsibilities, lower feedback uptake, and reduced perceived fit. That combination weakens engagement and creates a concentrated attrition risk in critical teams. The executive lever, if this holds, is not simply to slow all promotions, but to use pre-promotion readiness gates and targeted post-promotion coaching for first-time technical leads.",
+    "target_constructs": [
+      "high-potential engineers",
+      "promotion timing",
+      "learning velocity",
+      "technical leadership / cross-functional skill acquisition",
+      "post-promotion role effectiveness",
+      "promotion-related stagnation",
+      "regretted attrition"
+    ],
+    "scorecard": {
+      "business_value": 0.81,
+      "novelty": 0.59,
+      "depth": 0.82,
+      "actionability": 0.84,
+      "strategic_importance": 0.87,
+      "feasibility": 0.6,
+      "organizational_impact": 0.72,
+      "expected_insight": 0.78,
+      "confidence": 0.58,
+      "future_extensibility": 0.82,
+      "composite": 0.7484,
+      "dimension_notes": {
+        "business_value": "If confirmed, this would meaningfully affect promotion timing, leadership development, and retention decisions for a strategically important engineering population, with a plausible path to action and enough organizational data to test it, though it is not so novel or universally consequential as to merit an exceptionally high score.",
+        "strategic_importance": "This hypothesis is strategically important because it directly affects two top enterprise priorities at once—retaining critical engineering talent and building a reliable leadership pipeline—and, if true, would influence promotion policy, manager development, and retention interventions across a meaningful share of the technical org.",
+        "actionability": "If confirmed, this points to a concrete lever—adjusting promotion timing, readiness criteria, and post-promotion development for technical leaders—which can directly inform retention and leadership-pipeline decisions, though it is not fully prescriptive without knowing the exact interventions that would most improve learning velocity.",
+        "organizational_impact": "If true, this would affect a meaningful subset of high-potential engineers and the management pipeline in a scaled enterprise software business, with spillover into retention, team performance, and succession planning, though it is still narrower than a company-wide workforce issue.",
+        "feasibility": "4/7 target constructs map onto known data categories.",
+        "novelty": "The hypothesis is more nuanced than a generic promotion-or-attrition check because it centers on learning velocity and post-promotion capability mismatch, but it still sits within a well-trodden HR theme about promotion readiness and leadership pipeline fit.",
+        "depth": "This hypothesis goes beyond a surface association by positing a specific hidden mechanism—promotion outrunning learning velocity and causing post-promotion stagnation that leads to regretted attrition—but it still remains a fairly plausible, well-grounded managerial explanation rather than a deeply novel or highly intricate causal model.",
+        "expected_insight": "If validated, this would be fairly informative because it links promotion timing to a specific post-promotion learning-gap mechanism that can explain both stagnation and regretted attrition, though it is not completely surprising in a mature engineering org.",
+        "confidence": "The mechanism is plausible and consistent with common promotion-to-management failure modes, but the hypothesis is still somewhat speculative because it hinges on unobserved learning velocity and cross-functional capability, making the causal link to regretted attrition only moderately confident.",
+        "future_extensibility": "If confirmed, this would open a rich follow-on agenda around promotion readiness, post-promotion development, leadership-pipeline design, and early-warning signals for role mismatch, making it a strong generator of additional hypotheses and interventions."
+      }
+    },
+    "critique": {
+      "is_obvious": true,
+      "executive_relevance": "Moderate at best. Executives may care about regretted attrition and leadership pipeline health, but this is framed as a fairly generic promotion-readiness story. It does not yet isolate a business decision beyond \"promote more carefully\" or \"invest in development,\" which is too vague to drive action.",
+      "creates_actionable_decision": false,
+      "similar_to_prior": false,
+      "similar_prior_ids": [],
+      "reveals_hidden_mechanism": true,
+      "downstream_feasible": true,
+      "issues": [
+        "The hypothesis is close to a common-sense truism: promoting people before they are ready can hurt effectiveness and retention. It does not feel novel enough to justify executive attention without stronger specificity.",
+        "It conflates several outcomes: stagnation in role effectiveness, slower learning, weaker influence, plateaued delivery, and regretted attrition. That makes it hard to test and easy to hand-wave.",
+        "\"High-potential engineers\" is undefined. HIPO labels are often subjective and noisy, so the hypothesis may collapse under measurement bias.",
+        "\"Learning velocity\" is not operationalized. A downstream agent would need a concrete proxy, such as time-to-autonomy, speed of skill acquisition, feedback uptake, or ramp in cross-functional responsibility.",
+        "The causal chain is speculative. Someone could just as easily argue that underperformance causes slower promotions, or that already-disengaged employees are both promoted and later leave for unrelated reasons.",
+        "The comparison group is underspecified. \"Similarly performing peers\" needs exact matching criteria, otherwise selection effects will dominate the result.",
+        "The mechanism is plausible but still surface-level. It gestures at a skill gap, but does not distinguish whether the retention problem is caused by role mismatch, manager support, compensation, team context, or promotion signaling.",
+        "It is not clear what the executive action would be if the hypothesis is true: slow promotions, create pre-promotion readiness thresholds, add post-promotion support, or change role design? Without a specific lever, the hypothesis is not decision-useful.",
+        "It overlaps heavily with existing hypotheses about leadership competency, burnout, and workload redistribution. The new framing may just rename a familiar promotion-readiness problem rather than add incremental insight.",
+        "The organization narrative claims weaker coverage on leadership and moderate coverage on burnout, but the hypothesis relies on those exact blind spots without explaining how the proposed test would overcome them."
+      ],
+      "suggested_improvements": [
+        "Replace \"learning velocity\" with a measurable construct: e.g., change in scope-adaptive performance, time to independent execution, or rate of 360-feedback improvement in the first 6-12 months post-promotion.",
+        "Narrow the population to a specific promotion type, such as IC-to-tech lead, senior-to-staff, or first-time people/technical leads, so the analysis can identify a real inflection point.",
+        "Define the decision variable explicitly: should the company delay promotions, require readiness gates, or provide structured post-promotion coaching?",
+        "Test a clearer mechanism by separating pre-promotion readiness from post-promotion support. For example: are people who had stronger cross-functional/mentoring signals before promotion less likely to leave after promotion, controlling for performance and tenure?",
+        "Add a time window and measurable outcome: e.g., regretted attrition within 12 months of promotion, plus post-promotion plateau in delivery or influence metrics.",
+        "Use matched controls that include tenure, level, team type, manager quality, and compensation so the result is not just a selection bias artifact.",
+        "If executives are the audience, frame it around risk concentration: \"promoting too early into leadership roles increases regretted attrition among top engineers in critical teams\" and quantify the business impact.",
+        "If you want a more hidden mechanism, test whether promotion without prior cross-functional exposure or mentoring experience predicts attrition more strongly than promotion based on pure delivery metrics alone.",
+        "Consider merging with the existing leadership-quality hypothesis only if you can specify a unique channel; otherwise this is redundant and should be dropped.",
+        "Critic Name",
+        "Internal Skeptic"
+      ],
+      "critic_name": "checklist_critic"
+    },
+    "search_stats": {
+      "iterations_run": 8,
+      "candidates_generated": 8,
+      "candidates_discarded": 7,
+      "lenses_explored": [
+        "attrition_hidden_drivers",
+        "communication_protection",
+        "compensation_fairness",
+        "leadership_influence",
+        "learning_velocity"
+      ],
+      "diversity_score": 0.625,
+      "termination_reason": "max_iterations_reached"
+    },
+    "generated_at": "2026-07-23T06:48:36.131715+00:00"
+  }
+]

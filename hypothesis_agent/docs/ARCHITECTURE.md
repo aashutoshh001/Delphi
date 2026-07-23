@@ -5,6 +5,14 @@ Scope: **only** the Hypothesis Agent. Downstream analysis/statistics/visualizati
 recommendation agents are out of scope and are represented solely as an outbound
 interface (`AnalysisAgentGateway`) that this service can call once they exist.
 
+> The full downstream pipeline (Investigation Planner → Data Retrieval →
+> Analytics → Root Cause → Business Insight → Narrative → Visualization →
+> Plot Generation → `InsightPackage`) is now designed in
+> [../../docs/PLATFORM_ARCHITECTURE.md](../../docs/PLATFORM_ARCHITECTURE.md) —
+> design-only, not yet implemented. This document remains authoritative for
+> the Hypothesis Agent itself, which stays fully independent of everything
+> described there.
+
 ## 1. Purpose and boundaries
 
 The Hypothesis Agent's only job:

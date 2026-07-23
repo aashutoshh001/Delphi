@@ -218,3 +218,22 @@ class JsonHypothesisStore(HistoricalMemoryRepository, FeedbackRepository):
             if found:
                 self._write(entries)
             return found
+
+    async def set_insight_reference(self, hypothesis_id: str, insight_package_id: str) -> bool:
+        """Records that an insight_pipeline InsightPackage exists for this
+        hypothesis, so the frontend can link "Read more" straight to the full
+        report. Deliberately just an opaque string on the raw JSON entry (like
+        `reaction`) rather than a HistoricalHypothesisRecord field — this
+        package has no import of, or knowledge of, insight_pipeline's
+        contracts; it only ever stores an id some external caller gave it."""
+        async with self._lock:
+            entries = self._read()
+            found = False
+            for entry in entries:
+                if entry.get("id") == hypothesis_id:
+                    entry["insightId"] = insight_package_id
+                    found = True
+                    break
+            if found:
+                self._write(entries)
+            return found

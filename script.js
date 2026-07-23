@@ -10,6 +10,7 @@
 // ---------------------------------------------------------
 
 const API_BASE = "http://127.0.0.1:8200";
+const INSIGHT_API = "http://127.0.0.1:8300";
 const DUMMY_IMAGE = "assets/shl-logo.png";
 const DUMMY_URL = "https://www.shl.com/careers/";
 
@@ -38,7 +39,19 @@ function normalizeStory(entry, index) {
     imageURL: entry.imageURL || DUMMY_IMAGE,
     readmoreURL: entry.readmoreURL || DUMMY_URL,
     reaction: entry.reaction === "up" || entry.reaction === "down" ? entry.reaction : "none",
+    // Set once the Investigation Pipeline (:8300) has produced a full report
+    // for this hypothesis — see requestInvestigation() below. Null until then.
+    insightId: entry.insightId || null,
   };
+}
+
+// "Read more" target for a story: the full insight report if one's been
+// generated, otherwise the hypothesis-only detail page rendered at
+// generation time.
+function readMoreHref(story) {
+  return story.insightId
+    ? `insight.html?id=${encodeURIComponent(story.insightId)}`
+    : story.readmoreURL;
 }
 
 // Loads the live feed. Returns true if it succeeded (so callers know
@@ -225,7 +238,7 @@ function buildCard(index) {
 
   const link = document.createElement("a");
   link.className = "read-more";
-  link.href = story.readmoreURL;
+  link.href = readMoreHref(story);
   link.target = "_blank";
   link.rel = "noopener noreferrer";
   link.innerHTML = `Read more
@@ -302,7 +315,7 @@ function buildHeadlineItem(index) {
 
   const title = document.createElement("a");
   title.className = "headline-title";
-  title.href = story.readmoreURL;
+  title.href = readMoreHref(story);
   title.target = "_blank";
   title.rel = "noopener noreferrer";
   title.textContent = story.title;
@@ -467,26 +480,103 @@ generateBtn.addEventListener("click", async () => {
   generateBtn.disabled = true;
   const originalLabel = generateBtn.textContent;
   generateBtn.textContent = "Generating…";
+  let res;
   try {
-    const res = await fetch(`${API_BASE}/api/generate`, {
+    res = await fetch(`${API_BASE}/api/generate`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({}), // server defaults organization_id to whatever it seeded
     });
-    if (!res.ok) throw new Error(`API returned ${res.status}`);
-    await fetchStories();
+  } catch (e) {
+    generateBtn.textContent = "API unreachable — is the server running?";
+    setTimeout(() => (generateBtn.textContent = originalLabel), 4000);
+    generateBtn.disabled = false;
+    return;
+  }
+  if (!res.ok) {
+    let detail = null;
+    try {
+      detail = (await res.json()).detail;
+    } catch (_) {
+      // body wasn't JSON — fall back to the generic message below
+    }
+    generateBtn.textContent = detail || `Request failed (${res.status})`;
+    setTimeout(() => (generateBtn.textContent = originalLabel), 4000);
+    generateBtn.disabled = false;
+    return;
+  }
+  let story;
+  try {
+    const rawRes = await fetch(`${API_BASE}/api/stories`, { cache: "no-store" });
+    const rawStories = await rawRes.json();
+    story = rawStories[rawStories.length - 1]; // just-generated entry
+    await fetchStories(); // refresh the normalized deck used by the card/headline views
     currentIndex = STORIES.length - 1;
     initCards();
     renderHeadlines();
   } catch (e) {
-    generateBtn.textContent = "API unreachable — is the server running?";
-    setTimeout(() => (generateBtn.textContent = originalLabel), 2500);
+    generateBtn.textContent = "Generated, but failed to refresh — reload the page";
+    setTimeout(() => (generateBtn.textContent = originalLabel), 4000);
     generateBtn.disabled = false;
     return;
   }
+
+  // Best-effort: also run the new hypothesis through the Investigation
+  // Pipeline (:8300) so "Read more" opens the full analytics/root-cause/
+  // narrative/chart report instead of just the mechanism+critique page.
+  // Several real LLM calls plus real analytics/plotting, so this can take
+  // a few minutes. If the pipeline API isn't running, or the run fails
+  // (e.g. every requested column is missing from the dataset), the
+  // hypothesis itself is still generated fine — only this enrichment step
+  // is skipped, and "Read more" falls back to the hypothesis-only page.
+  if (story) {
+    generateBtn.textContent = "Investigating… (a few minutes)";
+    try {
+      await requestInvestigation(story);
+      await fetchStories(); // pick up the insightId just recorded
+      initCards();
+      renderHeadlines();
+    } catch (e) {
+      console.warn("Investigation Pipeline enrichment skipped:", e);
+    }
+  }
+
   generateBtn.textContent = originalLabel;
   generateBtn.disabled = false;
 });
+
+// Builds a HypothesisPackage-shaped payload from a raw stories.json entry
+// (mirrors insight_pipeline/examples/run_investigation_from_server.py),
+// POSTs it to the Investigation Pipeline API, then records the resulting
+// InsightPackage id back on the story via the Hypothesis Agent API so
+// future page loads know to link "Read more" straight to the full report.
+async function requestInvestigation(story) {
+  const hypothesisPackage = {
+    package_id: story.id, // ties the InsightPackage back to this exact story
+    organization_id: story.organization_id,
+    hypothesis_statement: story.statement,
+    mechanism_explanation: story.mechanism,
+    business_lens: story.lens,
+    target_constructs: story.target_constructs || [],
+    scorecard: story.scorecard,
+    critique: story.critique,
+    search_stats: story.search_stats,
+    headline: story.title || "",
+    summary: story.description || "",
+  };
+  const res = await fetch(`${INSIGHT_API}/api/investigate`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ hypothesis_package: hypothesisPackage }),
+  });
+  if (!res.ok) throw new Error(`Investigation Pipeline API returned ${res.status}`);
+  const result = await res.json();
+  await fetch(`${API_BASE}/api/stories/${encodeURIComponent(story.id)}/insight`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ insight_package_id: result.insight_package_id }),
+  });
+}
 
 // ---------------- Init ----------------
 

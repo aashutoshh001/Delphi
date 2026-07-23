@@ -1,0 +1,29 @@
+id: narrative
+version: "1"
+system: |
+  You are writing the executive narrative for a people-analytics report.
+  Turn isolated findings into one coherent story an executive would actually
+  read — not a bulleted restatement. Be honest about contradictions and
+  open questions; a narrative that hides uncertainty is worse than one that
+  names it.
+user_template: |
+  Findings:
+  $findings
+
+  Risks:
+  $risks
+
+  Opportunities:
+  $opportunities
+
+  Strategic recommendations:
+  $recommendations
+
+  Produce:
+  - executive_summary: 3-5 sentences
+  - storyline: ordered narrative beats (list of short strings)
+  - key_messages: the handful of things that must land
+  - business_narrative: the full prose narrative, several paragraphs
+  - supporting_evidence: the evidence that backs the story
+  - contradictions: any tensions or caveats worth naming honestly
+  - future_questions: what this raises that isn't yet answered

@@ -283,5 +283,192 @@
       "termination_reason": "converged"
     },
     "generated_at": "2026-07-22T20:07:28.857237+00:00"
+  },
+  {
+    "id": "hist_d88d17ac90e4",
+    "imageURL": "",
+    "title": "Attrition may reflect overloaded new managers, not the promotion itself",
+    "description": "The hypothesis is that regretted attrition in engineering rises when technically strong but underprepared managers inherit already strained teams. In that setting, the real issue is a leadership-capacity mismatch: the new manager cannot absorb the added people and coordination demands. For executives, that makes attrition an early warning sign of a miscast or overloaded transition, not just a ret…",
+    "readmoreURL": "sample_data/hypotheses/hist_d88d17ac90e4.html",
+    "reaction": "none",
+    "organization_id": "acme-labs",
+    "lens": "attrition_hidden_drivers",
+    "statement": "At Acme Labs, regretted attrition in engineering teams is likely driven less by the promotion itself than by a mismatch between a new manager’s people-leadership capacity and the workload/coordination demands of the team they inherit, such that technically strong but thinly prepared managers accelerate attrition when they are promoted into already strained teams.",
+    "mechanism": "The hidden mechanism is a capacity mismatch: high-performing engineers may be promoted because of technical excellence, but if their demonstrated people-management skills are still underdeveloped and their new teams are already operating under high load, the manager cannot absorb the added coordination, coaching, and conflict-resolution burden. That overload can reduce manager effectiveness, increase team friction, and weaken psychological safety, which then shows up as regretted attrition among the manager’s direct reports. This would imply that attrition is an early warning signal of a miscast or overloaded leadership transition rather than a stand-alone retention problem.",
+    "target_constructs": [
+      "technical performance pre-promotion",
+      "people-management capacity / leadership readiness",
+      "workload intensity / team strain",
+      "burnout indicators",
+      "new manager promotion timing",
+      "regretted attrition in direct reports"
+    ],
+    "scorecard": {
+      "business_value": 0.81,
+      "novelty": 0.46,
+      "depth": 0.86,
+      "actionability": 0.88,
+      "strategic_importance": 0.89,
+      "feasibility": 0.6666666666666666,
+      "organizational_impact": 0.74,
+      "expected_insight": 0.78,
+      "confidence": 0.63,
+      "future_extensibility": 0.88,
+      "composite": 0.7545333333333334,
+      "dimension_notes": {
+        "business_value": "If confirmed, this would directly affect promotion, manager-selection, and team-loading decisions in a core engineering population, making it highly actionable and strategically relevant to attrition and leadership-bench risk, though not quite at the very highest tier because the mechanism is plausible but still requires stronger evidence to rule out confounding factors.",
+        "strategic_importance": "This hypothesis is strategically important because it sits directly at the intersection of regretted engineering attrition, manager quality, and promotion pipelines—three top priorities that can materially affect execution, retention, and leadership succession in a scaling software company.",
+        "actionability": "If confirmed, the hypothesis points to concrete interventions—better promotion gating for new managers, workload relief for newly promoted leaders, and targeted manager coaching—so it translates directly into actionable talent and org-design changes.",
+        "organizational_impact": "If true, this mechanism could affect a meaningful slice of engineering managers and their direct reports, influencing regretted attrition, team performance, and succession planning across core product orgs, though it is still concentrated rather than enterprise-wide.",
+        "feasibility": "4/6 target constructs map onto known data categories.",
+        "novelty": "The hypothesis is more nuanced than a generic attrition analysis because it links promotion readiness, team strain, and regretted attrition through a plausible overload mechanism, but it still sits within a fairly well-studied HR pattern of new-manager failure and burnout rather than a highly novel organizational insight.",
+        "depth": "This hypothesis goes beyond a surface correlation and specifies a plausible hidden mechanism—promotion into a leadership-capacity/workload mismatch that then drives attrition—making it meaningfully deeper than a generic manager-effect or turnover story.",
+        "expected_insight": "If true, this would reveal a non-obvious, mechanism-level explanation for regretted attrition—linking promotion readiness, team strain, and manager overload—so the insight would be meaningfully more informative than a simple attrition correlation, though still somewhat expected in scaling orgs.",
+        "confidence": "The proposed mechanism is plausible and consistent with known promotion-and-overload failure modes, but it is still inferential: without strong measures of manager readiness, team strain, and timing, causality could easily be confounded by team difficulty, org changes, or preexisting attrition risk.",
+        "future_extensibility": "A confirmed result would likely open a strong follow-on research program on manager readiness, team strain, promotion timing, and burnout precursors, enabling segmentation by team type, workload, and leadership transitions to uncover additional retention mechanisms."
+      }
+    },
+    "critique": {
+      "is_obvious": true,
+      "executive_relevance": "Moderate but currently too generic. Executives care about regretted attrition and leadership bench depth, but this framing is still a familiar HR trope unless it can quantify where, for whom, and how much the promotion/manager-load interaction matters.",
+      "creates_actionable_decision": true,
+      "similar_to_prior": false,
+      "similar_prior_ids": [],
+      "reveals_hidden_mechanism": true,
+      "downstream_feasible": true,
+      "issues": [
+        "This is close to a standard 'first-time manager + overloaded team = attrition' story. It is plausible, but not novel enough to merit executive attention as written.",
+        "The hypothesis is too broad and confounds several drivers: manager capability, team workload, team composition, promotion timing, and regretted attrition. It does not isolate a testable causal interaction cleanly.",
+        "'Technically strong but thinly prepared managers' is vague and hard to operationalize. What metrics define thin preparation: span of control, prior people-leadership experience, performance review signals, skip-level feedback, promotion velocity?",
+        "'Already strained teams' is also vague. The mechanism depends on a measurable workload proxy, but none is specified.",
+        "It assumes a causal direction from manager promotion to attrition without acknowledging reverse causality: teams with attrition or instability may be the ones that get promotable engineers assigned, or managers may be promoted into hard teams because they are seen as safe bets.",
+        "The mechanism is mostly intuitive and does not yet reveal a hidden mechanism beyond a reasonable executive assumption. It needs a sharper, less obvious boundary condition.",
+        "It does not specify the decision it should drive: promotion gating, manager training, team workload rebalancing, or targeted retention interventions. Without a decision, executives will treat it as analysis noise.",
+        "Regretted attrition is a lagging indicator; the hypothesis claims it is an early warning signal, but the design does not define leading indicators or timing windows needed to test that claim.",
+        "The narrative leans on burnout and psychological safety, but your stated data landscape suggests partial visibility into these constructs. If you cannot observe them credibly, they should not sit at the center of the hypothesis.",
+        "The hypothesis is likely to be very similar to many generic internal people-analytics claims, even if no exact prior was found. It risks being seen as obvious and unhelpful unless sharpened."
+      ],
+      "suggested_improvements": [
+        "Narrow the hypothesis to a specific measurable interaction, e.g., 'regretted attrition rises when first-time managers are promoted into teams with above-median workload and low prior managerial support.'",
+        "Define observable proxies for manager readiness: prior people-management exposure, 360/skip-level feedback, promotion path, time since promotion, or historical team retention under the same manager.",
+        "Define workload/coordination demand using hard proxies: incident volume, on-call burden, roadmap volatility, cross-functional dependency count, headcount per manager, meeting load, or sprint churn.",
+        "Specify the outcome window and compare like-for-like groups: attrition within 6-12 months after manager transition versus similar teams with experienced managers.",
+        "Separate two mechanisms: promotion readiness versus team strain. Test the interaction, not just a main effect.",
+        "Add a concrete executive decision attached to the hypothesis: delay first-time manager promotions into high-load teams, cap team complexity during transition, or require a support period/mentor for new managers.",
+        "Include falsification criteria. For example, if attrition does not spike only in high-load teams under first-time managers, then the mechanism is wrong.",
+        "If possible, reframe away from burnout language unless you have actual burnout indicators; focus on operational load and managerial support, which are more measurable and actionable."
+      ],
+      "critic_name": "checklist_critic"
+    },
+    "search_stats": {
+      "iterations_run": 6,
+      "candidates_generated": 6,
+      "candidates_discarded": 0,
+      "lenses_explored": [
+        "attrition_hidden_drivers",
+        "communication_protection",
+        "compensation_fairness",
+        "skill_concentration"
+      ],
+      "diversity_score": 0.6666666666666666,
+      "termination_reason": "converged"
+    },
+    "generated_at": "2026-07-23T07:19:40.692268+00:00",
+    "insightId": "insight_2dfa589a3389"
+  },
+  {
+    "id": "hist_c3d0f8284825",
+    "imageURL": "",
+    "title": "Top engineers may stall on promotion when their skills miss future priorities",
+    "description": "The hypothesis says strong current performers can still learn more slowly and get stuck in place when their capabilities are misaligned with Acme Labs’ next technical needs. That matters because today’s best contributors may not become tomorrow’s leaders, creating a future talent gap. It suggests Acme should reward learning progress, not just legacy performance.",
+    "readmoreURL": "sample_data/hypotheses/hist_c3d0f8284825.html",
+    "reaction": "none",
+    "organization_id": "acme-labs",
+    "lens": "learning_velocity",
+    "statement": "High-performing engineers whose skill profiles are most misaligned with Acme Labs’ next-wave technical priorities will show slower learning uptake and greater promotion stagnation than comparably rated peers, even when current performance remains strong.",
+    "mechanism": "The hidden mechanism is a lag in capability retooling: top performers are being rewarded for existing strengths, which can reduce urgency or exposure to the new experiences needed to build future-critical skills. As strategic needs shift, these employees may continue delivering today’s work while accumulating a widening gap between current output and the competencies required for the next role or architecture. That creates a pipeline risk in which the people most essential to present execution are not the ones adapting fastest to future demands, leaving the organization with a leadership and capability shortfall. If true, Acme should intervene with targeted stretch assignments, skill-specific development plans, and promotion criteria tied to demonstrated learning agility rather than legacy performance alone.",
+    "target_constructs": [
+      "high performance",
+      "skill profile alignment to future technical priorities",
+      "learning uptake / skill acquisition velocity",
+      "promotion stagnation",
+      "current performance stability",
+      "next-role / next-capability requirements"
+    ],
+    "scorecard": {
+      "business_value": 0.79,
+      "novelty": 0.58,
+      "depth": 0.84,
+      "actionability": 0.9,
+      "strategic_importance": 0.89,
+      "feasibility": 0.55,
+      "organizational_impact": 0.78,
+      "expected_insight": 0.74,
+      "confidence": 0.63,
+      "future_extensibility": 0.86,
+      "composite": 0.7587999999999999,
+      "dimension_notes": {
+        "business_value": "If confirmed, this would materially affect promotion criteria, leadership development, and technical workforce planning for a high-impact segment of engineers, with a plausible path to intervention and strategic relevance to both retention and future capability building.",
+        "strategic_importance": "This hypothesis directly concerns a top-tier strategic priority for Acme Labs—preserving high-performing technical talent while building future engineering leadership and capability for the next wave of priorities—so a confirmed result would strongly affect succession, development, and retention decisions.",
+        "actionability": "If confirmed, the hypothesis points directly to concrete interventions—targeted stretch assignments, skill-gap development plans, and promotion criteria that reward learning agility—so the answer would clearly translate into managerial action.",
+        "organizational_impact": "If true, this would affect a strategically important slice of high-performing engineers whose development directly shapes Acme’s future technical capacity and leadership pipeline, so the impact is substantial even if concentrated rather than company-wide.",
+        "feasibility": "3/6 target constructs map onto known data categories.",
+        "novelty": "This goes beyond a generic performance-versus-promotion comparison by tying learning velocity to future skill misalignment and promotion stagnation, but the underlying idea is still a fairly common talent-development pattern rather than a highly unusual HR insight.",
+        "depth": "This hypothesis goes beyond a surface correlation by proposing a specific hidden mechanism—rewarding current performance can mask slower learning and future-role misalignment—though it still rests on a fairly common talent-pipeline explanation rather than a deeply novel one.",
+        "expected_insight": "If confirmed, this would likely reveal a meaningful but not wholly surprising pattern: high performers can lag in retooling for future priorities, exposing a hidden promotion and capability pipeline risk that is more insightful than a basic performance/tenure analysis and likely to inform targeted development actions.",
+        "confidence": "The mechanism is plausible and testable in a mid-scale engineering org with performance, promotion, and skill data, but the key link between skill misalignment, slower learning uptake, and promotion stagnation is still indirect and could easily be confounded by role differences, manager practices, or deliberate specialization.",
+        "future_extensibility": "This hypothesis is highly extensible because confirming skill-mismatch driven learning lag would naturally lead to follow-on questions about role-specific capability gaps, transferability of current top performers, and which development or staffing interventions best preserve future leadership supply."
+      }
+    },
+    "critique": {
+      "is_obvious": true,
+      "executive_relevance": "Moderate at best. Executives may care about pipeline risk, but this reads like a generic talent-management story unless it is tied to a measurable business outcome (delivery risk, attrition, succession failure, time-to-productivity, or org redesign decisions). As written, it is too abstract and easy to nod along with without acting.",
+      "creates_actionable_decision": true,
+      "similar_to_prior": false,
+      "similar_prior_ids": [],
+      "reveals_hidden_mechanism": true,
+      "downstream_feasible": true,
+      "issues": [
+        "The premise is basically 'top performers can stagnate when the company rewards current output over future skills,' which is a common and unsurprising org trope.",
+        "'Skill profiles misaligned with next-wave technical priorities' is underspecified. A downstream analyst cannot test this without knowing which skills, which priorities, and what the comparison group is.",
+        "'Slower learning uptake' is vague and risks being tautological unless defined by observable proxies such as completion of training, adoption of new tools, new architecture contributions, or successful transition into adjacent work.",
+        "Promotion stagnation is not necessarily a consequence of learning velocity; it may instead reflect no open roles, calibration issues, tenure policies, or limited leadership demand. The hypothesis conflates capability with opportunity.",
+        "The mechanism is not very hidden. It just says high performers get comfortable and are not forced to adapt. That is plausible but shallow.",
+        "It overlaps conceptually with the prior hypothesis: both are about mismatch between current capability and future role demands causing stagnation/attrition risks. This is a different surface domain, not a clearly distinct mechanism.",
+        "The hypothesis mixes two outcomes—learning uptake and promotion stagnation—without clarifying whether one causes the other or whether both are independent signals of misfit.",
+        "It does not specify the executive decision it would change: hiring strategy, succession planning, promotion criteria, reskilling investment, or team assignment design.",
+        "It assumes 'high-performing engineers' are the relevant population, but the real risk might be in the broad middle or in people already acting as informal leaders. That is not examined.",
+        "The proposed intervention is generic and unsurprising: stretch assignments, development plans, learning-agility criteria. Those are standard HR prescriptions, not a sharp decision threshold."
+      ],
+      "suggested_improvements": [
+        "Narrow the hypothesis to a specific strategic capability shift, e.g. 'engineers with high past ratings but low exposure to cloud-native architecture will be less likely to move into platform roles within 12 months.'",
+        "Define measurable proxies for learning velocity: time to adopt new stack, number of new-domain contributions, internal mobility into target roles, training completion plus post-training performance, or successful participation in new-technology projects.",
+        "Separate capability gap from opportunity gap by controlling for role openings, manager support, project exposure, and promotion band capacity.",
+        "Make the decision implication explicit: 'If true, Acme should redirect 20% of top-performer development to target-skill rotations and adjust promotion readiness criteria for specific job families.'",
+        "If you want a hidden mechanism, articulate one that is less obvious, such as manager assignment patterns, reward structures that suppress exploration, or project staffing rules that systematically keep future leaders on legacy work.",
+        "Reduce the breadth: focus on one role family, one upcoming technical shift, and one outcome (promotion delay, internal mobility, or attrition).",
+        "Use a comparison that is empirically clean: high performers with high vs. low exposure to the new priority domain, matched on tenure, level, manager, and prior performance."
+      ],
+      "critic_name": "checklist_critic"
+    },
+    "search_stats": {
+      "iterations_run": 15,
+      "candidates_generated": 15,
+      "candidates_discarded": 13,
+      "lenses_explored": [
+        "attrition_hidden_drivers",
+        "communication_protection",
+        "compensation_fairness",
+        "leadership_influence",
+        "learning_velocity",
+        "network_effects",
+        "psychometric_fit",
+        "skill_concentration"
+      ],
+      "diversity_score": 0.5333333333333333,
+      "termination_reason": "max_iterations_reached"
+    },
+    "generated_at": "2026-07-23T07:55:04.760139+00:00",
+    "insightId": "insight_e05875416e23"
   }
 ]

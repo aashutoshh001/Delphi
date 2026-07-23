@@ -1,0 +1,46 @@
+[project]
+name = "insight-pipeline"
+version = "0.1.0"
+description = "Delphi Investigation Pipeline — turns a Hypothesis Agent HypothesisPackage into a full InsightPackage (investigation plan, retrieved data, analytics, root cause, business insight, narrative, visualizations)."
+requires-python = ">=3.10"
+# hypothesis-agent is a path dependency, not published — install it first:
+#   pip install -e ../hypothesis_agent
+# then this package. Not listed here so plain `pip install .` doesn't try
+# (and fail) to resolve it from PyPI.
+dependencies = [
+    "langgraph>=0.6,<2.0",
+    "pydantic>=2.7,<3.0",
+    "pyyaml>=6.0,<7.0",
+    # Core, not optional: the DatasetHandle cache (adapter-internal, never
+    # exposed through a port/contract) is a pandas DataFrame keyed store
+    # regardless of which EmployeeDataRepository backend is active.
+    "pandas>=2.0",
+]
+
+[project.optional-dependencies]
+analytics = ["numpy>=1.26", "scipy>=1.11"]
+plotting = ["matplotlib>=3.8", "numpy>=1.26"]
+data-excel = ["openpyxl>=3.1"]
+strands = ["strands-agents>=1.0"]
+deep-agents = ["deepagents>=0.6"]
+server = ["fastapi>=0.110", "uvicorn[standard]>=0.30"]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.24",
+    "httpx>=0.27",
+]
+all = ["insight-pipeline[analytics,plotting,data-excel,strands,deep-agents,server,dev]"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+insight_pipeline = ["prompts/templates/*.yaml"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]

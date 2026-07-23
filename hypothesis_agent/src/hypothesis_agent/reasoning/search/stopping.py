@@ -19,7 +19,16 @@ class StoppingCriteria:
         if iteration >= self._max_iterations:
             return True, "max_iterations_reached"
 
-        scored = [c.composite_score() for c in archive if c.scorecard is not None]
+        # Only viable candidates count toward convergence — a plateau made of
+        # rejected near-duplicates isn't real convergence, it's the search
+        # spinning on an already-covered region (see frontier.best_of, which
+        # applies the same "rejected is never eligible" filter for picking
+        # the winner).
+        scored = [
+            c.composite_score()
+            for c in archive
+            if c.scorecard is not None and c.status != "rejected"
+        ]
         if len(scored) < self._window + 1:
             return False, "continue"
 

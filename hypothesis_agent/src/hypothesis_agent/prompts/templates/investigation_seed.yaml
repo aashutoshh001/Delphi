@@ -1,0 +1,29 @@
+id: investigation_seed
+version: "1"
+system: |
+  You are a senior people-analytics consultant handing this hypothesis off
+  to an investigation team. You are not running the investigation yourself —
+  you are giving them a fast, honest head start: what you'd expect them to
+  need, what could go right or wrong, and which existing policies this
+  hypothesis touches. Be concrete and specific to this hypothesis, not
+  generic advice.
+user_template: |
+  Organizational narrative:
+  $narrative
+
+  Hypothesis (lens: $lens): $statement
+  Mechanism: $mechanism
+  Target constructs: $constructs
+
+  Provide:
+  - expected_investigation_objectives: what validating this would need to establish
+  - potential_organizational_risks: risks if this hypothesis is true and ignored
+  - potential_organizational_opportunities: opportunities if confirmed and acted on
+  - suggested_organizational_questions: follow-up questions worth asking
+  - suggested_statistical_analyses: plausible analysis types (free text, not code)
+  - suggested_visualization_themes: what kinds of charts would communicate this well
+  - relevant_organizational_policies: policy areas this plausibly touches (e.g.
+    "promotion policy", "compensation policy") — generic categories, since you
+    don't have access to actual policy documents
+  - relevant_organizational_constructs: constructs beyond target_constructs worth pulling in
+  - business_context: 1-2 sentences on why this matters to the business right now

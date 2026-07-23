@@ -6,6 +6,7 @@ search:
   mutation_probability: 0.2
   discard_threshold: 0.35
   duplicate_similarity_threshold: 0.93
+  generate_investigation_seed: false
 
 scoring:
   weights:

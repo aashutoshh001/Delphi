@@ -1,9 +1,17 @@
 # Delphi Platform Architecture — from Hypothesis Engine to Organizational Intelligence Platform
 
-Status: **design only — no implementation yet.** This document extends
+Status: **implemented** — [`../insight_pipeline/`](../insight_pipeline/)
+covers roadmap phases 1-10 (§23): every contract, port, agent, and the
+orchestrator graph are real and tested (`pytest`, both offline via
+`MockLLMService` and live against a real LLM endpoint end to end from
+`HypothesisPackage` through to a rendered figure). Phases 11 (frontend
+Insight Report view) and 12 (production hardening — real SQL/warehouse
+adapters, real document connectors, the remaining chart/analysis-method
+catalog) are not yet built. This document extends
 [hypothesis_agent/docs/ARCHITECTURE.md](../hypothesis_agent/docs/ARCHITECTURE.md)
-(unchanged, still authoritative for the Hypothesis Agent itself) with the
-full downstream pipeline. Implementation begins only once this is reviewed.
+(unchanged, still authoritative for the Hypothesis Agent itself, which
+remains fully independent of everything below) with the full downstream
+pipeline.
 
 ## 0. Framing
 

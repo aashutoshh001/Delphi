@@ -6,11 +6,13 @@ from hypothesis_agent.config.settings import AgentConfig, ScoringSettings
 
 
 def test_load_uses_bundled_defaults(monkeypatch):
-    # Isolated from a local .env's HYPOTHESIS_AGENT__BACKENDS__LLM (loaded as
-    # a side effect of importing hypothesis_agent.di.container elsewhere in
-    # the test session) — this test is specifically about the packaged
-    # default.yaml, not whatever a developer's machine happens to have set.
-    monkeypatch.delenv("HYPOTHESIS_AGENT__BACKENDS__LLM", raising=False)
+    # Isolated from a local .env (loaded as a side effect of importing
+    # hypothesis_agent.di.container elsewhere in the test session) — this
+    # test is specifically about the packaged default.yaml, not whatever a
+    # developer's machine happens to have overridden in .env.
+    for key in list(os.environ):
+        if key.startswith("HYPOTHESIS_AGENT__"):
+            monkeypatch.delenv(key, raising=False)
     config = AgentConfig.load()
     assert config.search.max_iterations == 8
     assert config.backends.llm == "mock"

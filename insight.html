@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Delphi — Insight Report</title>
+<link rel="icon" type="image/png" href="assets/shl-logo.png" />
+<style>
+  :root { --green: #78D64B; --green-dark: #56b52d; --grey: #4A4A4A; --border: #e6e6e6; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 2.5rem 1.5rem 5rem; background: #fafafa; color: var(--grey);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.55;
+  }
+  main { max-width: 860px; margin: 0 auto; }
+  a.back { font-size: 0.85rem; color: var(--grey); text-decoration: none; }
+  a.back:hover { text-decoration: underline; }
+  .lens-tag {
+    display: inline-block; background: var(--green); color: #fff;
+    font-size: 0.75rem; font-weight: 600; letter-spacing: 0.03em;
+    text-transform: uppercase; padding: 0.25rem 0.6rem; border-radius: 999px;
+    margin: 1rem 0 0.8rem;
+  }
+  h1 { font-size: 1.85rem; line-height: 1.3; margin: 0 0 0.6rem; color: #191919; font-weight: 750; }
+  .subtitle { font-size: 1.08rem; color: #444; margin: 0 0 1rem; font-weight: 500; }
+  .meta { font-size: 0.85rem; color: #888; margin-bottom: 2rem; }
+  h2 {
+    font-size: 1.15rem; margin: 2.5rem 0 0.9rem; color: #191919;
+    border-bottom: 2px solid var(--border); padding-bottom: 0.4rem;
+  }
+  h3 { font-size: 0.92rem; margin: 1.1rem 0 0.4rem; color: #222; }
+  .card {
+    background: #fff; border: 1px solid var(--border); border-radius: 10px;
+    padding: 1rem 1.2rem; margin-bottom: 0.8rem;
+  }
+  .statement {
+    background: #fff; border: 1px solid var(--border); border-left: 3px solid var(--green);
+    padding: 0.9rem 1.1rem; border-radius: 6px; font-weight: 500; font-size: 1rem;
+  }
+  .chip {
+    display: inline-block; background: #eef8e6; border: 1px solid #d3ecc2; color: #2d5a1a;
+    font-size: 0.75rem; padding: 0.15rem 0.55rem; border-radius: 6px;
+    margin: 0 0.35rem 0.35rem 0;
+  }
+  .badge {
+    display: inline-block; font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.02em; padding: 0.12rem 0.5rem; border-radius: 5px; margin-right: 0.4rem;
+  }
+  .badge-high, .badge-severe { background: #fde2e2; color: #a12626; }
+  .badge-medium, .badge-moderate { background: #fef3d8; color: #96700f; }
+  .badge-low { background: #e7f3e2; color: #366321; }
+  ul { margin: 0.25rem 0; padding-left: 1.3rem; font-size: 0.92rem; }
+  li { margin-bottom: 0.25rem; }
+  .finding, .risk, .opp, .rec, .method, .node-row {
+    border-bottom: 1px solid var(--border); padding: 0.7rem 0; font-size: 0.92rem;
+  }
+  .finding:last-child, .risk:last-child, .opp:last-child, .rec:last-child,
+  .method:last-child, .node-row:last-child { border-bottom: none; }
+  .rec-title { font-weight: 650; color: #191919; }
+  .fig-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.2rem; margin-top: 1rem;
+  }
+  .fig-card { background: #fff; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+  .fig-card img { width: 100%; display: block; background: #fff; }
+  .fig-caption { padding: 0.7rem 0.9rem; font-size: 0.85rem; color: #555; }
+  .edge-arrow { color: var(--green-dark); font-weight: 700; }
+  .muted { color: #888; font-size: 0.85rem; }
+  #status, #error { max-width: 860px; margin: 4rem auto; text-align: center; color: #777; }
+  #error { color: #a12626; }
+  .stat-row { display: flex; flex-wrap: wrap; gap: 1.5rem; font-size: 0.85rem; color: #666; margin-top: 0.3rem; }
+</style>
+</head>
+<body>
+
+<div id="status">Loading report…</div>
+<div id="error" style="display:none"></div>
+
+<main id="report" style="display:none">
+  <a class="back" href="index.html">&larr; Back to feed</a>
+  <div id="content"></div>
+</main>
+
+<script>
+const INSIGHT_API = "http://127.0.0.1:8300";
+
+function esc(value) {
+  const div = document.createElement("div");
+  div.textContent = value === null || value === undefined ? "" : String(value);
+  return div.innerHTML;
+}
+
+function list(items, mapFn) {
+  if (!items || !items.length) return "<p class=\"muted\">None recorded.</p>";
+  return `<ul>${items.map((i) => `<li>${esc(mapFn ? mapFn(i) : i)}</li>`).join("")}</ul>`;
+}
+
+function chips(items) {
+  if (!items || !items.length) return "<p class=\"muted\">None recorded.</p>";
+  return items.map((i) => `<span class="chip">${esc(i)}</span>`).join("");
+}
+
+function severityBadge(level) {
+  const cls = { high: "badge-high", severe: "badge-severe", medium: "badge-medium",
+                moderate: "badge-moderate", low: "badge-low" }[(level || "").toLowerCase()] || "badge-medium";
+  return `<span class="badge ${cls}">${esc(level || "unknown")}</span>`;
+}
+
+function statSummary(m) {
+  const parts = [];
+  if (m.statistic !== null && m.statistic !== undefined) parts.push(`statistic: ${Number(m.statistic).toFixed(3)}`);
+  if (m.p_value !== null && m.p_value !== undefined) parts.push(`p = ${Number(m.p_value).toFixed(4)}`);
+  if (m.effect_size !== null && m.effect_size !== undefined) parts.push(`effect size: ${Number(m.effect_size).toFixed(3)}`);
+  return parts.join(" &middot; ");
+}
+
+function renderReport(pkg) {
+  const hp = pkg.hypothesis_package;
+  const narrative = pkg.narrative || {};
+  const plan = pkg.investigation_plan || {};
+  const analytics = pkg.analytics_results || { methods_run: [] };
+  const rootCause = pkg.root_cause_graph || { nodes: [], edges: [] };
+  const insights = pkg.business_insights || {};
+  const figures = pkg.generated_figures || [];
+
+  document.title = `${hp.headline || hp.hypothesis_statement.slice(0, 60)} — Delphi Insight Report`;
+
+  const figuresHtml = figures.length
+    ? `<div class="fig-grid">${figures.map((f) => `
+        <div class="fig-card">
+          <img src="${esc(f.file_ref)}" alt="${esc(f.alt_text || f.caption || "")}" loading="lazy" />
+          <div class="fig-caption">${esc(f.caption || "")}</div>
+        </div>`).join("")}</div>`
+    : `<p class="muted">No charts were generated for this investigation.</p>`;
+
+  document.getElementById("content").innerHTML = `
+    <div class="lens-tag">${esc(hp.business_lens)}</div>
+    <h1>${esc(hp.headline || hp.hypothesis_statement)}</h1>
+    <p class="subtitle">${esc(narrative.executive_summary || hp.summary || "")}</p>
+    <div class="meta">
+      Organization: ${esc(hp.organization_id || "unknown")} &middot;
+      Investigated: ${esc(new Date(pkg.generated_at).toLocaleString())}
+    </div>
+
+    <h2>The hypothesis</h2>
+    <p class="statement">${esc(hp.hypothesis_statement)}</p>
+    <h3>Hidden mechanism</h3>
+    <p>${esc(hp.mechanism_explanation)}</p>
+    <h3>Target constructs</h3>
+    <div>${chips(hp.target_constructs)}</div>
+
+    <h2>Executive narrative</h2>
+    <div class="card">
+      <p>${esc(narrative.business_narrative || "")}</p>
+    </div>
+    <h3>Key messages</h3>
+    ${list(narrative.key_messages)}
+    <h3>Storyline</h3>
+    ${list(narrative.storyline)}
+    <h3>Contradictions / open questions</h3>
+    ${list(narrative.contradictions)}
+    ${list(narrative.future_questions)}
+
+    <h2>Investigation plan</h2>
+    <p>${esc(plan.target_population ? plan.target_population.description : "")}</p>
+    <h3>Statistical questions</h3>
+    ${list(plan.statistical_questions)}
+    <h3>Business questions</h3>
+    ${list(plan.business_questions)}
+    <h3>Validation strategy</h3>
+    <p>${esc(plan.validation_strategy || "")}</p>
+
+    <h2>Analytics results</h2>
+    ${analytics.methods_run.length ? analytics.methods_run.map((m) => `
+      <div class="method">
+        <div><strong>${esc(m.method)}</strong></div>
+        <div class="stat-row">${statSummary(m)}</div>
+        <p>${esc(m.interpretation_notes || "")}</p>
+        ${m.caveats && m.caveats.length ? `<p class="muted">Caveats: ${m.caveats.map(esc).join("; ")}</p>` : ""}
+      </div>`).join("") : `<p class="muted">No statistical methods produced results (often because the requested
+      variables don't map to actual columns in the underlying dataset — see Data quality notes).</p>`}
+    <h3>Data quality notes</h3>
+    ${list(analytics.data_quality_notes)}
+
+    <h2>Root cause analysis</h2>
+    <p class="muted">Confidence: ${((rootCause.confidence || 0) * 100).toFixed(0)}%</p>
+    ${(rootCause.edges || []).length ? (rootCause.edges || []).map((e) => `
+      <div class="node-row">
+        <strong>${esc(e.source)}</strong> <span class="edge-arrow">&rarr; ${esc(e.relationship_type)} &rarr;</span> <strong>${esc(e.target)}</strong>
+        <span class="muted"> (strength ${Number(e.strength).toFixed(2)}, confidence ${Number(e.confidence).toFixed(2)})</span>
+      </div>`).join("") : `<p class="muted">No causal edges identified.</p>`}
+    <h3>Potential mechanisms</h3>
+    ${list(rootCause.potential_mechanisms)}
+    <h3>Alternative explanations</h3>
+    ${list(rootCause.alternative_explanations)}
+
+    <h2>Business insights</h2>
+    <h3>Findings</h3>
+    ${(insights.findings || []).length ? insights.findings.map((f) => `
+      <div class="finding">${esc(f.statement)} <span class="muted">(confidence ${((f.confidence || 0) * 100).toFixed(0)}%)</span></div>`).join("")
+      : `<p class="muted">None recorded.</p>`}
+    <h3>Risks</h3>
+    ${(insights.risks || []).length ? insights.risks.map((r) => `
+      <div class="risk">${severityBadge(r.severity)}${esc(r.description)}
+      <div class="muted">Likelihood: ${esc(r.likelihood)} &middot; Affects: ${esc(r.affected_population)}</div></div>`).join("")
+      : `<p class="muted">None recorded.</p>`}
+    <h3>Opportunities</h3>
+    ${(insights.opportunities || []).length ? insights.opportunities.map((o) => `
+      <div class="opp">${esc(o.description)}
+      <div class="muted">Potential value: ${esc(o.potential_value)} &middot; Feasibility: ${esc(o.feasibility)}</div></div>`).join("")
+      : `<p class="muted">None recorded.</p>`}
+    <h3>Strategic recommendations</h3>
+    ${(insights.strategic_recommendations || []).length ? insights.strategic_recommendations
+      .slice().sort((a, b) => (a.priority || 99) - (b.priority || 99)).map((r) => `
+      <div class="rec"><span class="rec-title">#${esc(r.priority)} &mdash; ${esc(r.action)}</span>
+      <p>${esc(r.rationale)}</p>
+      <div class="muted">Expected ROI: ${esc(r.expected_roi)} &middot; Owner: ${esc(r.owner_suggestion)}</div></div>`).join("")
+      : `<p class="muted">None recorded.</p>`}
+
+    <h3>Financial impact</h3>
+    <p>${esc(insights.financial_impact || "")}</p>
+    <h3>Organizational impact</h3>
+    <p>${esc(insights.organizational_impact || "")}</p>
+    <h3>Employee impact</h3>
+    <p>${esc(insights.employee_impact || "")}</p>
+
+    <h2>Charts</h2>
+    ${figuresHtml}
+  `;
+}
+
+async function main() {
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get("id");
+  const statusEl = document.getElementById("status");
+  const errorEl = document.getElementById("error");
+  if (!id) {
+    statusEl.style.display = "none";
+    errorEl.style.display = "block";
+    errorEl.textContent = "No report id given (expected ?id=... in the URL).";
+    return;
+  }
+  try {
+    const res = await fetch(`${INSIGHT_API}/api/insights/${encodeURIComponent(id)}`, { cache: "no-store" });
+    if (!res.ok) throw new Error(res.status === 404 ? "Report not found." : `API returned ${res.status}`);
+    const pkg = await res.json();
+    renderReport(pkg);
+    statusEl.style.display = "none";
+    document.getElementById("report").style.display = "block";
+  } catch (e) {
+    statusEl.style.display = "none";
+    errorEl.style.display = "block";
+    errorEl.textContent = `Couldn't load this report: ${e.message}. Is the Investigation Pipeline API (port 8300) running?`;
+  }
+}
+
+main();
+</script>
+</body>
+</html>

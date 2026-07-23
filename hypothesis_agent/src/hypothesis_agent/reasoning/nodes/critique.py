@@ -30,10 +30,13 @@ def make_critique_node(deps: AgentDependencies):
         result = await critic_chain.run(candidate, context)
 
         # Deterministic dedup guard: don't rely on the LLM to notice a
-        # near-duplicate. Anything above the similarity threshold is flagged
-        # regardless of what the critic said, and unconditionally discarded
-        # later (plugins/search_heuristics/entropy_heuristic.py) — this is
-        # what guarantees a saved hypothesis is never already in the store.
+        # near-duplicate. `similar_to_prior` is fully OVERWRITTEN by the
+        # cosine-similarity check whenever an embedding is available — not
+        # just forced True above the threshold, but also forced False below
+        # it — so the critic's own (often overcautious) opinion can never by
+        # itself discard a candidate, nor let a real near-duplicate through.
+        # This is what guarantees a saved hypothesis is never already in the
+        # store, without also silently blocking healthy, distinct ones.
         if candidate.embedding is not None:
             max_similarity = max(
                 (
@@ -43,17 +46,14 @@ def make_critique_node(deps: AgentDependencies):
                 ),
                 default=0.0,
             )
-            if max_similarity >= duplicate_threshold:
-                result = result.model_copy(
-                    update={
-                        "similar_to_prior": True,
-                        "issues": result.issues
-                        + [
-                            f"Near-duplicate of an existing stored hypothesis "
-                            f"(cosine similarity {max_similarity:.3f} >= {duplicate_threshold})."
-                        ],
-                    }
-                )
+            is_duplicate = max_similarity >= duplicate_threshold
+            issues = result.issues
+            if is_duplicate:
+                issues = issues + [
+                    f"Near-duplicate of an existing stored hypothesis "
+                    f"(cosine similarity {max_similarity:.3f} >= {duplicate_threshold})."
+                ]
+            result = result.model_copy(update={"similar_to_prior": is_duplicate, "issues": issues})
 
         candidate = candidate.model_copy(update={"critique": result, "status": "critiqued"})
 

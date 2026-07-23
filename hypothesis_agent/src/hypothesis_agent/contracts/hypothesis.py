@@ -146,6 +146,27 @@ class Provenance(BaseModel):
     config_snapshot: dict = Field(default_factory=dict)
 
 
+class InvestigationSeed(BaseModel):
+    """Forward-looking hints for the (separate, optional) downstream
+    Investigation Pipeline — see Delphi/docs/PLATFORM_ARCHITECTURE.md §6.
+    Entirely optional and non-authoritative: a future Investigation Planner
+    Agent re-derives its own plan and may agree, extend, or ignore these.
+    Populated only when `search.generate_investigation_seed` is enabled —
+    off by default so a Hypothesis Agent used standalone never pays for an
+    LLM call whose only consumer is a pipeline it may not even have
+    installed."""
+
+    expected_investigation_objectives: list[str] = Field(default_factory=list)
+    potential_organizational_risks: list[str] = Field(default_factory=list)
+    potential_organizational_opportunities: list[str] = Field(default_factory=list)
+    suggested_organizational_questions: list[str] = Field(default_factory=list)
+    suggested_statistical_analyses: list[str] = Field(default_factory=list)
+    suggested_visualization_themes: list[str] = Field(default_factory=list)
+    relevant_organizational_policies: list[str] = Field(default_factory=list)
+    relevant_organizational_constructs: list[str] = Field(default_factory=list)
+    business_context: str = ""
+
+
 class HypothesisPackage(BaseModel):
     """The Structured Hypothesis Package — the entire interface between the
     Hypothesis Agent and every downstream agent."""
@@ -165,4 +186,5 @@ class HypothesisPackage(BaseModel):
     reasoning_path: list["ReasoningTraceEntry"] = Field(default_factory=list)
     search_stats: SearchStatistics
     downstream_hints: DownstreamHints = Field(default_factory=DownstreamHints)
+    investigation_seed: InvestigationSeed | None = None
     provenance: Provenance = Field(default_factory=Provenance)

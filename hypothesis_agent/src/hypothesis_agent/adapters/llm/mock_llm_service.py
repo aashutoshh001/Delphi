@@ -52,9 +52,23 @@ def _fabricate_value(annotation: object, field_name: str, rng: random.Random) ->
     if origin is typing.Union or origin is types.UnionType:
         args = [a for a in get_args(annotation) if a is not type(None)]
         return _fabricate_value(args[0], field_name, rng) if args else None
+    if origin is typing.Literal:
+        choices = get_args(annotation)
+        return rng.choice(choices) if choices else _fabricate_str(rng, field_name)
     if origin in (list, typing.List):
         (inner,) = get_args(annotation) or (str,)
         return [_fabricate_value(inner, field_name, rng) for _ in range(rng.randint(1, 2))]
+    if origin is tuple:
+        inner_types = get_args(annotation) or (float, float)
+        return tuple(_fabricate_value(t, field_name, rng) for t in inner_types)
+    if origin in (dict, typing.Dict):
+        return {}
+    if isinstance(annotation, type) and issubclass(annotation, BaseModel):
+        nested_values = {
+            name: _fabricate_value(field.annotation, name, rng)
+            for name, field in annotation.model_fields.items()
+        }
+        return annotation.model_validate(nested_values)
     if annotation is bool:
         return rng.random() < _BOOL_TRUE_PROBABILITY.get(field_name, 0.5)
     if annotation is float:

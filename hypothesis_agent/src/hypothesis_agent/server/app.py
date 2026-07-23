@@ -144,6 +144,10 @@ class GenerateRequest(BaseModel):
     organization_id: str = DEFAULT_ORGANIZATION_ID
 
 
+class InsightReferenceUpdate(BaseModel):
+    insight_package_id: str
+
+
 @app.get("/api/health")
 async def health() -> dict:
     return {"status": "ok"}
@@ -163,10 +167,40 @@ async def set_reaction(story_id: str, body: ReactionUpdate) -> dict:
     return {"ok": True}
 
 
+@app.post("/api/stories/{story_id}/insight")
+async def set_insight_reference(story_id: str, body: InsightReferenceUpdate) -> dict:
+    """Called by the frontend once it has separately run this story's
+    hypothesis through the Investigation Pipeline API (:8300) — records the
+    resulting InsightPackage id so "Read more" can link straight to the full
+    report next time. This package never calls insight_pipeline itself
+    (that boundary is deliberate); it just remembers an opaque id handed to
+    it by whoever did."""
+    found = await _store.set_insight_reference(story_id, body.insight_package_id)
+    if not found:
+        raise HTTPException(status_code=404, detail="story not found")
+    return {"ok": True}
+
+
 @app.post("/api/generate")
 async def generate(body: GenerateRequest) -> dict:
     logger.info("generate requested", extra={"extra_fields": {"organization_id": body.organization_id}})
-    package = await _agent.discover(body.organization_id)
+    try:
+        package = await _agent.discover(body.organization_id)
+    except RuntimeError as exc:
+        # The search loop's hard dedup guarantee (never store a near-duplicate
+        # of an existing hypothesis) can legitimately exhaust every candidate
+        # in a run once enough hypotheses already exist for this organization.
+        # That's expected behavior, not a server fault — surface it as a
+        # normal 409 with an actionable message instead of a raw 500.
+        raise HTTPException(
+            status_code=409,
+            detail=(
+                "No new hypothesis found this run — every candidate was "
+                "rejected as a near-duplicate of one already stored, or "
+                "scored too low. Try again (search is randomized), or "
+                f"increase search.max_iterations. ({exc})"
+            ),
+        ) from exc
     return {
         "package_id": package.package_id,
         "headline": package.headline,
