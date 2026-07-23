@@ -208,11 +208,6 @@ function buildCard(index) {
   img.alt = story.title;
   media.appendChild(img);
 
-  const tag = document.createElement("span");
-  tag.className = "card-tag";
-  tag.textContent = "SHL Careers";
-  media.appendChild(tag);
-
   const count = document.createElement("span");
   count.className = "card-count";
   count.textContent = `${index + 1} / ${STORIES.length}`;
@@ -221,10 +216,9 @@ function buildCard(index) {
   const bodyEl = document.createElement("div");
   bodyEl.className = "card-body";
 
-  const title = document.createElement("h2");
-  title.className = "card-title";
-  title.textContent = story.title;
-
+  // The hypothesis headline lives inside the generated SVG card image, so it
+  // is deliberately not repeated as a text title here (Headlines view still
+  // shows it as text — see buildHeadlineItem).
   const desc = document.createElement("p");
   desc.className = "card-desc";
   desc.textContent = story.description;
@@ -254,7 +248,6 @@ function buildCard(index) {
   footer.appendChild(source);
   footer.appendChild(actions);
 
-  bodyEl.appendChild(title);
   bodyEl.appendChild(desc);
   bodyEl.appendChild(footer);
 

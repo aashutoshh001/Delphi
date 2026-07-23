@@ -117,3 +117,30 @@ async def test_file_on_disk_is_valid_json_after_save(store):
     parsed = json.loads(raw_text)
     assert len(parsed) == 1
     assert "readmoreURL" in parsed[0]
+
+
+async def test_saved_entry_gets_a_card_image_url_and_file(tmp_path):
+    path = tmp_path / "stories.json"
+    store = JsonHypothesisStore(path, HashEmbeddingService(dimensions=32), render_detail_pages=False)
+    await store.save(_record())
+
+    raw = await store.list_raw()
+    image_url = raw[0]["imageURL"]
+    assert image_url.startswith("sample_data/card_images/")
+    assert image_url.endswith(f"{raw[0]['id']}.svg")
+
+    image_path = path.parent / "card_images" / f"{raw[0]['id']}.svg"
+    assert image_path.exists()
+    assert "<svg" in image_path.read_text()
+
+
+async def test_render_card_images_false_leaves_image_url_empty(tmp_path):
+    path = tmp_path / "stories.json"
+    store = JsonHypothesisStore(
+        path, HashEmbeddingService(dimensions=32), render_detail_pages=False, render_card_images=False
+    )
+    await store.save(_record())
+
+    raw = await store.list_raw()
+    assert raw[0]["imageURL"] == ""
+    assert not (path.parent / "card_images").exists()

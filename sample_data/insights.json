@@ -13019,5 +13019,1540 @@
         "metadata": {}
       }
     ]
+  },
+  {
+    "id": "insight_a4dd833e14c5",
+    "generated_at": "2026-07-23T14:53:37.796849Z",
+    "hypothesis_package": {
+      "package_id": "hist_e27270e5fa60",
+      "organization_id": "shl-sample-cohort",
+      "generated_at": "2026-07-23T14:52:38.719624Z",
+      "headline": "HiPo status predicts promotion only when leadership fit is high",
+      "summary": "The hypothesis argues that high-potential labels add meaningful promotion signal only for employees whose pre-promotion leadership fit is independently strong. For lower-fit employees, the label should add little beyond standard controls. If true, executives should treat HiPo status as a useful endorsement, not a standalone measure of promotability.",
+      "hypothesis_statement": "Controlling for baseline level, function/job family, tenure, manager quality, prior performance, and prior promotion opportunity exposure, HiPo designation will add incremental prediction of promotion within a defined 12–18 month window only when candidates have an independently scored, pre-promotion leadership-challenge fit assessment; in low-fit candidates, HiPo status will not materially improve promotion prediction beyond those controls.",
+      "mechanism_explanation": "HiPo designation is best treated as a composite signal of sponsorship, visibility, and rater endorsement, not as a pure indicator of future leadership capacity. That signal converts into advancement only when the candidate also shows externally measured fit to the organization’s actual promotion-critical challenges, because promotion decisions are then based on both credibility and contextual readiness. Analytically, the key test is incremental validity: whether HiPo predicts promotion after adjusting for opportunity exposure and rater effects, and whether that incremental effect is concentrated in the high-fit subgroup. If the effect disappears once sponsorship, visibility, and strictness are modeled—or is absent for low-fit candidates—that would indicate HiPo is functioning mainly as an endorsement mechanism rather than an independent measure of promotability.",
+      "business_lens": "promotion_equity",
+      "target_constructs": [
+        "HiPo bucket / high-potential designation",
+        "leadership challenge fit",
+        "promotion outcome / next-cycle advancement",
+        "prior performance",
+        "360 feedback",
+        "rater leniency / rater context",
+        "opportunity exposure / high-visibility assignments"
+      ],
+      "proposed_population": null,
+      "scorecard": {
+        "business_value": 0.84,
+        "novelty": 0.67,
+        "depth": 0.82,
+        "actionability": 0.84,
+        "strategic_importance": 0.78,
+        "feasibility": 0.3,
+        "organizational_impact": 0.74,
+        "expected_insight": 0.72,
+        "confidence": 0.58,
+        "future_extensibility": 0.84,
+        "composite": 0.7293999999999999,
+        "dimension_notes": {
+          "business_value": "This hypothesis could materially change promotion and HiPo policy by revealing whether high-potential labels add anything beyond visibility and fit, and it is actionable and feasible with the available data, though confidence is moderated by the risk of confounding and the fact that the impact is strongest for talent-selection decisions rather than enterprise-wide strategy.",
+          "strategic_importance": "This is strategically important because it directly affects promotion equity, talent pipeline decisions, and whether the organization should trust HiPo designations as a core succession signal, though the impact is somewhat narrowed by the atypical sample and uncertain generalizability.",
+          "actionability": "If confirmed, this directly suggests a concrete change to promotion practice: use leadership-challenge fit to validate or gate HiPo status, adjust for rater/opportunity bias, and redesign the promotion rubric rather than treating HiPo as a stand-alone signal.",
+          "organizational_impact": "If validated, this would affect how the organization identifies and advances high-potential talent, potentially changing promotion and pipeline decisions for a meaningful share of candidates, but the impact is bounded by the relatively small sample and the fact that it focuses on one advancement mechanism rather than the whole business.",
+          "feasibility": "1/7 target constructs map onto known data categories.",
+          "novelty": "This goes beyond a standard HiPo-versus-promotion correlation by testing a moderation mechanism—whether leadership-challenge fit determines when HiPo status actually translates into advancement—but it still sits within a fairly well-studied family of promotion equity and selection-validity questions.",
+          "depth": "This hypothesis goes beyond a surface correlation by positing a specific moderation mechanism—HiPo status converting to promotion only when true leadership-challenge fit is high—and explicitly accounts for confounding from rater context and opportunity exposure, which makes the explanation meaningfully deep.",
+          "expected_insight": "This hypothesis is likely to produce moderately high insight because it goes beyond a simple HiPo-versus-promotion check to test a conditional mechanism involving challenge fit, opportunity exposure, and rater context, which could reveal whether the label is substantive or mostly reputational; however, the signal may still be partly familiar and constrained by confounding in a non-hierarchical sample.",
+          "confidence": "The mechanism is plausible and testable with the described data, but confidence is only moderate because HiPo status, 360s, and promotion outcomes are all highly vulnerable to rater/opportunity confounding and missing role-context controls, so the interaction may reflect selection bias as much as true conditional validity.",
+          "future_extensibility": "If confirmed, this would create a reusable framework for separating reputational signal from true promotion potential and could be extended to test other talent labels, rater effects, and opportunity exposures across multiple advancement outcomes."
+        }
+      },
+      "critique": {
+        "is_obvious": true,
+        "executive_relevance": "Moderate at best. Executives may care about whether HiPo is real or just reputational halo, but this is still a fairly standard talent-calibration question unless it clearly changes promotion policy, slate design, or assessment spend. As written it sounds like an academic interaction effect, not a decision trigger.",
+        "creates_actionable_decision": true,
+        "similar_to_prior": false,
+        "similar_prior_ids": [
+          "hist_781188e22517",
+          "hist_f27b65d5060d",
+          "hist_247b072fdb06"
+        ],
+        "reveals_hidden_mechanism": true,
+        "downstream_feasible": true,
+        "issues": [
+          "The core claim is not novel: 'HiPo predicts promotion only when fit is high' is a standard moderation hypothesis and mostly restates that labels and capability interact.",
+          "It is too close to prior hypotheses about sponsorship, visibility, and progression; the mechanism is the same reputational-advantage vs substantive-capability split.",
+          "The phrase 'similar prior performance and 360 feedback' is under-specified. Without exact controls, the estimate will be confounded by level, function, tenure, manager quality, and access to promotion opportunities.",
+          "'Leadership-challenge fit' is vague and likely endogenous: it may itself be assessed using the same information that drives HiPo designation and promotion, creating circularity rather than a clean moderator.",
+          "The hypothesis risks being tautological: if fit predicts promotion, then restricting HiPo’s effect to high-fit candidates simply says 'better-fit people get promoted more.' That is not a hidden mechanism unless fit is independently measured and externally validated.",
+          "The proposed mechanism blurs two different pathways—rater favorability and opportunity exposure—without specifying how to separate them analytically. That makes it hard to test and easy to overinterpret.",
+          "It does not clearly specify the outcome window or whether 'promotion' means promotion speed, probability, level jump, or compensation growth. Those are different executive decisions.",
+          "If the goal is policy, the recommendation 'tighten promotion criteria around verified challenge fit' is premature unless the analysis can show incremental validity beyond existing promotion inputs and adverse impact implications.",
+          "Because the sample has no formal hierarchy or role architecture, promotion outcomes may be too noisy or inconsistent to support a strong inference about 'future leadership potential.'"
+        ],
+        "suggested_improvements": [
+          "Make the hypothesis sharper and more falsifiable: specify the exact promotion outcome, time horizon, and the interaction form (e.g., HiPo x independently scored fit, controlling for level, function, manager, tenure, and prior opportunity).",
+          "Use an external or at least pre-promotion fit measure that is not derived from the same talent review process as HiPo designation.",
+          "Separate reputation from opportunity by explicitly testing rater strictness, manager sponsorship, prior stretch assignments, and visibility exposures as mediators or controls.",
+          "Reframe from 'HiPo predicts promotion' to an incremental-validity question: does HiPo add predictive power above performance, 360, tenure, job family, and sponsorship, and does that incremental power vanish when fit is low?",
+          "If executives need a decision, tie the result to a concrete policy choice: whether to keep HiPo as a gate, require challenge-fit evidence for slate inclusion, or redesign calibration to discount rater halo.",
+          "Consider a stronger hidden-mechanism version: 'HiPo designation is mainly a proxy for sponsorship/visibility and only predicts advancement in contexts with formalized promotion criteria and high challenge fit.' That is more testable and more operationally meaningful.",
+          "Pre-register subgroup definitions and minimum sample sizes for the high-fit/low-fit split, otherwise the interaction will likely be unstable and untrustworthy."
+        ],
+        "critic_name": "checklist_critic"
+      },
+      "reasoning_path": [],
+      "search_stats": {
+        "iterations_run": 5,
+        "candidates_generated": 5,
+        "candidates_discarded": 0,
+        "lenses_explored": [
+          "compensation_fairness",
+          "promotion_equity",
+          "skill_concentration"
+        ],
+        "diversity_score": 0.6,
+        "termination_reason": "converged"
+      },
+      "downstream_hints": {
+        "suggested_analysis_types": [],
+        "relevant_data_categories": [],
+        "notes": ""
+      },
+      "investigation_seed": null,
+      "provenance": {
+        "agent_version": "0.1.0",
+        "llm_model": null,
+        "embedding_model": null,
+        "understanding_engine": null,
+        "generated_by": "hypothesis_agent",
+        "config_snapshot": {}
+      }
+    },
+    "grounding_map": {
+      "id": "grounding_d23a088c5b3b",
+      "hypothesis_package_id": "hist_e27270e5fa60",
+      "grounded": [
+        {
+          "construct_name": "HiPo bucket / high-potential designation",
+          "columns": [
+            "HIPO.1_bucket",
+            "HIPO.2_bucket"
+          ],
+          "role": "independent",
+          "rationale": "These are the direct High-Potential composite scores already computed upstream from OPQ+MQ inputs, so they are the closest available operationalization of HiPo designation."
+        },
+        {
+          "construct_name": "leadership challenge fit",
+          "columns": [
+            "LC.1.a_pct",
+            "LC.1.b_pct",
+            "LC.1.c_pct",
+            "LC.1.d_pct",
+            "LC.1.e_pct",
+            "LC.1.f_pct",
+            "LC.1.g_pct",
+            "LC.2.a_pct",
+            "LC.2.b_pct",
+            "LC.2.c_pct",
+            "LC.2.d_pct",
+            "LC.2.e_pct",
+            "LC.3.a_pct",
+            "LC.3.b_pct",
+            "LC.3.c_pct",
+            "LC.3.d_pct",
+            "LC.3.e_pct",
+            "LC.3.f_pct",
+            "LC.3.g_pct",
+            "LC.3.h_pct",
+            "LC.3.i_pct",
+            "LC.4.a_pct",
+            "LC.4.b_pct",
+            "LC.4.c_pct",
+            "LC.4.d_pct",
+            "LC.4.e_pct",
+            "LC.4.f_pct"
+          ],
+          "role": "moderator",
+          "rationale": "These Leader-Challenge percentile fit scores most directly represent pre-promotion leadership-challenge fit and are best used as the subgrouping or interaction variable in the hypothesis."
+        },
+        {
+          "construct_name": "promotion outcome / next-cycle advancement",
+          "columns": [
+            "tenure_years"
+          ],
+          "role": "dependent",
+          "rationale": "No explicit promotion or advancement column is available; tenure_years is the only HR outcome, but it is not a valid proxy for promotion within a 12–18 month window, so the construct is not really operationalized in the available data."
+        },
+        {
+          "construct_name": "prior performance",
+          "columns": [
+            "360.1_manager",
+            "360.2_manager",
+            "360.3_manager",
+            "360.4_manager",
+            "360.5_manager",
+            "360.6_manager",
+            "360.7_manager",
+            "360.8_manager"
+          ],
+          "role": "control",
+          "rationale": "Manager-perspective 360 ratings are the strongest available prior-performance proxy among the listed columns, though they remain perceptual rather than a direct performance appraisal score."
+        },
+        {
+          "construct_name": "360 feedback",
+          "columns": [
+            "360.1_self",
+            "360.1_manager",
+            "360.1_report",
+            "360.1_colleague",
+            "360.1_other",
+            "360.2_self",
+            "360.2_manager",
+            "360.2_report",
+            "360.2_colleague",
+            "360.2_other",
+            "360.3_self",
+            "360.3_manager",
+            "360.3_report",
+            "360.3_colleague",
+            "360.3_other",
+            "360.4_self",
+            "360.4_manager",
+            "360.4_report",
+            "360.4_colleague",
+            "360.4_other",
+            "360.5_self",
+            "360.5_manager",
+            "360.5_report",
+            "360.5_colleague",
+            "360.5_other",
+            "360.6_self",
+            "360.6_manager",
+            "360.6_report",
+            "360.6_colleague",
+            "360.6_other",
+            "360.7_self",
+            "360.7_manager",
+            "360.7_report",
+            "360.7_colleague",
+            "360.7_other",
+            "360.8_self",
+            "360.8_manager",
+            "360.8_report",
+            "360.8_colleague",
+            "360.8_other"
+          ],
+          "role": "control",
+          "rationale": "The 360_* columns are the available multi-rater feedback measures across perspectives, so they directly operationalize 360 feedback as a contextual control set."
+        },
+        {
+          "construct_name": "rater leniency / rater context",
+          "columns": [
+            "360.1_self",
+            "360.1_manager",
+            "360.1_report",
+            "360.1_colleague",
+            "360.1_other",
+            "360.2_self",
+            "360.2_manager",
+            "360.2_report",
+            "360.2_colleague",
+            "360.2_other",
+            "360.3_self",
+            "360.3_manager",
+            "360.3_report",
+            "360.3_colleague",
+            "360.3_other",
+            "360.4_self",
+            "360.4_manager",
+            "360.4_report",
+            "360.4_colleague",
+            "360.4_other",
+            "360.5_self",
+            "360.5_manager",
+            "360.5_report",
+            "360.5_colleague",
+            "360.5_other",
+            "360.6_self",
+            "360.6_manager",
+            "360.6_report",
+            "360.6_colleague",
+            "360.6_other",
+            "360.7_self",
+            "360.7_manager",
+            "360.7_report",
+            "360.7_colleague",
+            "360.7_other",
+            "360.8_self",
+            "360.8_manager",
+            "360.8_report",
+            "360.8_colleague",
+            "360.8_other"
+          ],
+          "role": "control",
+          "rationale": "Rater strictness or leniency is not directly observed, but systematic differences across rater-perspective 360 ratings are the only available proxy for rater context."
+        }
+      ],
+      "ungrounded": [
+        {
+          "construct_name": "opportunity exposure / high-visibility assignments",
+          "reason": "No column in the available list clearly captures assignment visibility, promotion opportunity exposure, or stretch/high-visibility assignment history."
+        }
+      ],
+      "outcome_columns_available": [
+        "tenure_years",
+        "compensation_annual_usd"
+      ],
+      "rejected_column_names": [],
+      "provenance": {
+        "engine": "direct_llm"
+      }
+    },
+    "investigation_plan": {
+      "id": "plan_3fb38c01b7ec",
+      "hypothesis_package_id": "hist_e27270e5fa60",
+      "organization_id": "shl-sample-cohort",
+      "variables_required": [
+        {
+          "name": "HIPO.1_bucket",
+          "role": "independent",
+          "expected_type": "categorical",
+          "data_category": "HiPo designation"
+        },
+        {
+          "name": "HIPO.2_bucket",
+          "role": "independent",
+          "expected_type": "categorical",
+          "data_category": "HiPo designation"
+        },
+        {
+          "name": "LC.1.a_pct",
+          "role": "moderator",
+          "expected_type": "numeric",
+          "data_category": "leadership challenge fit"
+        },
+        {
+          "name": "LC.1.b_pct",
+          "role": "moderator",
+          "expected_type": "numeric",
+          "data_category": "leadership challenge fit"
+        },
+        {
+          "name": "LC.1.c_pct",
+          "role": "moderator",
+          "expected_type": "numeric",
+          "data_category": "leadership challenge fit"
+        },
+        {
+          "name": "LC.1.d_pct",
+          "role": "moderator",
+          "expected_type": "numeric",
+          "data_category": "leadership challenge fit"
+        },
+        {
+          "name": "LC.1.e_pct",
+          "role": "moderator",
+          "expected_type": "numeric",
+          "data_category": "leadership challenge fit"
+        },
+        {
+          "name": "LC.1.f_pct",
+          "role": "moderator",
+          "expected_type": "numeric",
+          "data_category": "leadership challenge fit"
+        },
+        {
+          "name": "LC.1.g_pct",
+          "role": "moderator",
+          "expected_type": "numeric",
+          "data_category": "leadership challenge fit"
+        },
+        {
+          "name": "LC.2.a_pct",
+          "role": "moderator",
+          "expected_type": "numeric",
+          "data_category": "leadership challenge fit"
+        },
+        {
+          "name": "LC.2.b_pct",
+          "role": "moderator",
+          "expected_type": "numeric",
+          "data_category": "leadership challenge fit"
+        },
+        {
+          "name": "LC.2.c_pct",
+          "role": "moderator",
+          "expected_type": "numeric",
+          "data_category": "leadership challenge fit"
+        },
+        {
+          "name": "LC.2.d_pct",
+          "role": "moderator",
+          "expected_type": "numeric",
+          "data_category": "leadership challenge fit"
+        },
+        {
+          "name": "LC.2.e_pct",
+          "role": "moderator",
+          "expected_type": "numeric",
+          "data_category": "leadership challenge fit"
+        },
+        {
+          "name": "LC.3.a_pct",
+          "role": "moderator",
+          "expected_type": "numeric",
+          "data_category": "leadership challenge fit"
+        },
+        {
+          "name": "LC.3.b_pct",
+          "role": "moderator",
+          "expected_type": "numeric",
+          "data_category": "leadership challenge fit"
+        },
+        {
+          "name": "LC.3.c_pct",
+          "role": "moderator",
+          "expected_type": "numeric",
+          "data_category": "leadership challenge fit"
+        },
+        {
+          "name": "LC.3.d_pct",
+          "role": "moderator",
+          "expected_type": "numeric",
+          "data_category": "leadership challenge fit"
+        },
+        {
+          "name": "LC.3.e_pct",
+          "role": "moderator",
+          "expected_type": "numeric",
+          "data_category": "leadership challenge fit"
+        },
+        {
+          "name": "LC.3.f_pct",
+          "role": "moderator",
+          "expected_type": "numeric",
+          "data_category": "leadership challenge fit"
+        },
+        {
+          "name": "LC.3.g_pct",
+          "role": "moderator",
+          "expected_type": "numeric",
+          "data_category": "leadership challenge fit"
+        },
+        {
+          "name": "LC.3.h_pct",
+          "role": "moderator",
+          "expected_type": "numeric",
+          "data_category": "leadership challenge fit"
+        },
+        {
+          "name": "LC.3.i_pct",
+          "role": "moderator",
+          "expected_type": "numeric",
+          "data_category": "leadership challenge fit"
+        },
+        {
+          "name": "LC.4.a_pct",
+          "role": "moderator",
+          "expected_type": "numeric",
+          "data_category": "leadership challenge fit"
+        },
+        {
+          "name": "LC.4.b_pct",
+          "role": "moderator",
+          "expected_type": "numeric",
+          "data_category": "leadership challenge fit"
+        },
+        {
+          "name": "LC.4.c_pct",
+          "role": "moderator",
+          "expected_type": "numeric",
+          "data_category": "leadership challenge fit"
+        },
+        {
+          "name": "LC.4.d_pct",
+          "role": "moderator",
+          "expected_type": "numeric",
+          "data_category": "leadership challenge fit"
+        },
+        {
+          "name": "LC.4.e_pct",
+          "role": "moderator",
+          "expected_type": "numeric",
+          "data_category": "leadership challenge fit"
+        },
+        {
+          "name": "LC.4.f_pct",
+          "role": "moderator",
+          "expected_type": "numeric",
+          "data_category": "leadership challenge fit"
+        },
+        {
+          "name": "tenure_years",
+          "role": "dependent",
+          "expected_type": "numeric",
+          "data_category": "promotion outcome / next-cycle advancement"
+        },
+        {
+          "name": "360.1_manager",
+          "role": "control",
+          "expected_type": "numeric",
+          "data_category": "prior performance"
+        },
+        {
+          "name": "360.2_manager",
+          "role": "control",
+          "expected_type": "numeric",
+          "data_category": "prior performance"
+        },
+        {
+          "name": "360.3_manager",
+          "role": "control",
+          "expected_type": "numeric",
+          "data_category": "prior performance"
+        },
+        {
+          "name": "360.4_manager",
+          "role": "control",
+          "expected_type": "numeric",
+          "data_category": "prior performance"
+        },
+        {
+          "name": "360.5_manager",
+          "role": "control",
+          "expected_type": "numeric",
+          "data_category": "prior performance"
+        },
+        {
+          "name": "360.6_manager",
+          "role": "control",
+          "expected_type": "numeric",
+          "data_category": "prior performance"
+        },
+        {
+          "name": "360.7_manager",
+          "role": "control",
+          "expected_type": "numeric",
+          "data_category": "prior performance"
+        },
+        {
+          "name": "360.8_manager",
+          "role": "control",
+          "expected_type": "numeric",
+          "data_category": "prior performance"
+        },
+        {
+          "name": "360.1_self",
+          "role": "control",
+          "expected_type": "numeric",
+          "data_category": "360 feedback / rater leniency / rater context"
+        },
+        {
+          "name": "360.1_report",
+          "role": "control",
+          "expected_type": "numeric",
+          "data_category": "360 feedback / rater leniency / rater context"
+        },
+        {
+          "name": "360.1_colleague",
+          "role": "control",
+          "expected_type": "numeric",
+          "data_category": "360 feedback / rater leniency / rater context"
+        },
+        {
+          "name": "360.1_other",
+          "role": "control",
+          "expected_type": "numeric",
+          "data_category": "360 feedback / rater leniency / rater context"
+        },
+        {
+          "name": "360.2_self",
+          "role": "control",
+          "expected_type": "numeric",
+          "data_category": "360 feedback / rater leniency / rater context"
+        },
+        {
+          "name": "360.2_manager",
+          "role": "control",
+          "expected_type": "numeric",
+          "data_category": "360 feedback / rater leniency / rater context"
+        },
+        {
+          "name": "360.2_report",
+          "role": "control",
+          "expected_type": "numeric",
+          "data_category": "360 feedback / rater leniency / rater context"
+        },
+        {
+          "name": "360.2_colleague",
+          "role": "control",
+          "expected_type": "numeric",
+          "data_category": "360 feedback / rater leniency / rater context"
+        },
+        {
+          "name": "360.2_other",
+          "role": "control",
+          "expected_type": "numeric",
+          "data_category": "360 feedback / rater leniency / rater context"
+        },
+        {
+          "name": "360.3_self",
+          "role": "control",
+          "expected_type": "numeric",
+          "data_category": "360 feedback / rater leniency / rater context"
+        },
+        {
+          "name": "360.3_manager",
+          "role": "control",
+          "expected_type": "numeric",
+          "data_category": "360 feedback / rater leniency / rater context"
+        },
+        {
+          "name": "360.3_report",
+          "role": "control",
+          "expected_type": "numeric",
+          "data_category": "360 feedback / rater leniency / rater context"
+        },
+        {
+          "name": "360.3_colleague",
+          "role": "control",
+          "expected_type": "numeric",
+          "data_category": "360 feedback / rater leniency / rater context"
+        },
+        {
+          "name": "360.3_other",
+          "role": "control",
+          "expected_type": "numeric",
+          "data_category": "360 feedback / rater leniency / rater context"
+        },
+        {
+          "name": "360.4_self",
+          "role": "control",
+          "expected_type": "numeric",
+          "data_category": "360 feedback / rater leniency / rater context"
+        },
+        {
+          "name": "360.4_manager",
+          "role": "control",
+          "expected_type": "numeric",
+          "data_category": "360 feedback / rater leniency / rater context"
+        },
+        {
+          "name": "360.4_report",
+          "role": "control",
+          "expected_type": "numeric",
+          "data_category": "360 feedback / rater leniency / rater context"
+        },
+        {
+          "name": "360.4_colleague",
+          "role": "control",
+          "expected_type": "numeric",
+          "data_category": "360 feedback / rater leniency / rater context"
+        },
+        {
+          "name": "360.4_other",
+          "role": "control",
+          "expected_type": "numeric",
+          "data_category": "360 feedback / rater leniency / rater context"
+        },
+        {
+          "name": "360.5_self",
+          "role": "control",
+          "expected_type": "numeric",
+          "data_category": "360 feedback / rater leniency / rater context"
+        },
+        {
+          "name": "360.5_manager",
+          "role": "control",
+          "expected_type": "numeric",
+          "data_category": "360 feedback / rater leniency / rater context"
+        },
+        {
+          "name": "360.5_report",
+          "role": "control",
+          "expected_type": "numeric",
+          "data_category": "360 feedback / rater leniency / rater context"
+        },
+        {
+          "name": "360.5_colleague",
+          "role": "control",
+          "expected_type": "numeric",
+          "data_category": "360 feedback / rater leniency / rater context"
+        },
+        {
+          "name": "360.5_other",
+          "role": "control",
+          "expected_type": "numeric",
+          "data_category": "360 feedback / rater leniency / rater context"
+        },
+        {
+          "name": "360.6_self",
+          "role": "control",
+          "expected_type": "numeric",
+          "data_category": "360 feedback / rater leniency / rater context"
+        },
+        {
+          "name": "360.6_manager",
+          "role": "control",
+          "expected_type": "numeric",
+          "data_category": "360 feedback / rater leniency / rater context"
+        },
+        {
+          "name": "360.6_report",
+          "role": "control",
+          "expected_type": "numeric",
+          "data_category": "360 feedback / rater leniency / rater context"
+        },
+        {
+          "name": "360.6_colleague",
+          "role": "control",
+          "expected_type": "numeric",
+          "data_category": "360 feedback / rater leniency / rater context"
+        },
+        {
+          "name": "360.6_other",
+          "role": "control",
+          "expected_type": "numeric",
+          "data_category": "360 feedback / rater leniency / rater context"
+        },
+        {
+          "name": "360.7_self",
+          "role": "control",
+          "expected_type": "numeric",
+          "data_category": "360 feedback / rater leniency / rater context"
+        },
+        {
+          "name": "360.7_manager",
+          "role": "control",
+          "expected_type": "numeric",
+          "data_category": "360 feedback / rater leniency / rater context"
+        },
+        {
+          "name": "360.7_report",
+          "role": "control",
+          "expected_type": "numeric",
+          "data_category": "360 feedback / rater leniency / rater context"
+        },
+        {
+          "name": "360.7_colleague",
+          "role": "control",
+          "expected_type": "numeric",
+          "data_category": "360 feedback / rater leniency / rater context"
+        },
+        {
+          "name": "360.7_other",
+          "role": "control",
+          "expected_type": "numeric",
+          "data_category": "360 feedback / rater leniency / rater context"
+        },
+        {
+          "name": "360.8_self",
+          "role": "control",
+          "expected_type": "numeric",
+          "data_category": "360 feedback / rater leniency / rater context"
+        },
+        {
+          "name": "360.8_manager",
+          "role": "control",
+          "expected_type": "numeric",
+          "data_category": "360 feedback / rater leniency / rater context"
+        },
+        {
+          "name": "360.8_report",
+          "role": "control",
+          "expected_type": "numeric",
+          "data_category": "360 feedback / rater leniency / rater context"
+        },
+        {
+          "name": "360.8_colleague",
+          "role": "control",
+          "expected_type": "numeric",
+          "data_category": "360 feedback / rater leniency / rater context"
+        },
+        {
+          "name": "360.8_other",
+          "role": "control",
+          "expected_type": "numeric",
+          "data_category": "360 feedback / rater leniency / rater context"
+        }
+      ],
+      "target_population": {
+        "description": "Employees in the talent pool or promotion-eligible population for whom HiPo status, leadership-challenge fit assessment, prior performance, and 360 feedback are available, and who can be observed for promotion/advancement over a 12–18 month window.",
+        "inclusion_criteria": [
+          "Individuals with at least one recorded HiPo bucket value",
+          "Individuals with leadership-challenge fit assessment scores recorded",
+          "Individuals with prior performance and 360 feedback data available",
+          "Individuals with sufficient tenure and observation window to evaluate 12–18 month advancement"
+        ],
+        "exclusion_criteria": [
+          "Individuals missing HiPo designation data",
+          "Individuals missing leadership-challenge fit assessment data",
+          "Individuals without an observable 12–18 month follow-up window",
+          "Individuals outside the promotion-eligible population if no promotion decision could reasonably occur"
+        ]
+      },
+      "segmentation_strategy": [
+        "Segment by leadership-challenge fit level (e.g., low / medium / high or quantiles based on composite of LC columns)",
+        "Segment by HiPo designation status/bucket",
+        "Segment by function/job family if available in the source system; if not available, note as a limitation",
+        "Segment by prior performance strata using 360 manager scores",
+        "Segment by tenure bands to examine whether effects differ for early- vs later-tenure employees"
+      ],
+      "potential_confounders": [
+        "Prior performance as captured by 360 manager ratings",
+        "Rater leniency / rater context reflected in the 360 response patterns",
+        "Tenure and time in role, which may affect both HiPo designation and promotion likelihood",
+        "Unmeasured function/job family differences if not directly available in the dataset",
+        "Regression to the mean in repeated 360-based measures",
+        "Selection into the HiPo pool and into being assessed on leadership challenge fit"
+      ],
+      "filtering_rules": [
+        "Keep only records with non-missing HiPo bucket and leadership-challenge fit data",
+        "Use one pre-promotion measurement occasion for HiPo, fit, and control variables to avoid post-outcome contamination",
+        "Restrict outcome window to promotions/advancement observed within 12–18 months after baseline measurement",
+        "If multiple HiPo buckets exist per person, define a single baseline HiPo designation according to the pre-specified analysis rule and keep it fixed",
+        "Exclude records where 360 data appear to be post-promotion or otherwise temporally misaligned"
+      ],
+      "statistical_questions": [
+        "Does HiPo designation predict advancement within 12–18 months after adjusting for baseline performance, tenure, and rater-context controls?",
+        "Is there an interaction between HiPo designation and leadership-challenge fit such that the HiPo effect is larger among high-fit candidates?",
+        "Does the HiPo incremental effect remain after adding prior performance and rater-context controls?",
+        "Is the effect of HiPo negligible among low-fit candidates?",
+        "How sensitive are results to alternative ways of summarizing the multiple LC and 360 columns into composite scores?"
+      ],
+      "business_questions": [
+        "Does HiPo designation identify promotable employees only when they also match the organization’s promotion-critical leadership challenges?",
+        "Should talent reviews treat HiPo as a standalone promotion signal, or only as a signal that matters when fit is high?",
+        "Are promotion decisions disproportionately influenced by sponsorship/endorsement signals rather than demonstrated promotability?",
+        "Which employee segments may be over- or under-identified by the current HiPo process?"
+      ],
+      "validation_strategy": "This plan can test incremental validity and moderation using the grounded columns available, but it cannot fully test the hypothesized role of opportunity exposure/high-visibility assignments because no grounded column captures that construct. Likewise, function/job family and other baseline controls are referenced in the hypothesis but are not available as grounded columns here, so the analysis should either omit them or state explicitly that they are unavailable. Validation should therefore focus on whether HiPo adds prediction beyond the available baseline performance, tenure, and rater-context measures, and whether any HiPo effect is concentrated in the high leadership-challenge-fit subgroup; if the interaction is absent or the effect disappears after controls, that would support the endorsement-mechanism interpretation, while any missing ungrounded constructs should be noted as a limitation rather than approximated with proxy variables.",
+      "recommended_analysis_types": [
+        "Descriptive statistics and missingness profiling",
+        "Correlation and distribution checks for LC and 360 items",
+        "Composite score construction for leadership-challenge fit and prior performance",
+        "Logistic regression or survival/discrete-time hazard modeling for promotion within 12–18 months",
+        "Interaction/moderation analysis: HiPo x leadership-challenge fit",
+        "Incremental validity / nested model comparison using likelihood ratio tests, AIC/BIC, and change in pseudo-R2",
+        "Sensitivity analyses by fit strata and tenure strata",
+        "Robustness checks using alternative composite specifications for LC and 360 measures"
+      ],
+      "potential_risks": [
+        "Outcome variable availability may be limited; tenure_years may not directly encode promotion unless the source system defines it that way",
+        "No explicit function/job family column in the grounded list, limiting full control of structural promotion differences",
+        "No grounded measure for opportunity exposure/high-visibility assignments, leaving a key hypothesized mechanism untested",
+        "Multiple LC and 360 items raise the risk of specification search and composite ambiguity",
+        "HiPo designation may be endogenous to prior performance and rater context",
+        "Small subgroup sizes in low-fit/high-fit strata may reduce power for interaction tests"
+      ],
+      "suggested_visualizations": [
+        "Boxplots of promotion outcome by HiPo bucket and fit strata",
+        "Interaction plot of predicted promotion probability across fit levels by HiPo status",
+        "Coefficient plot from nested regression models showing HiPo incremental effect",
+        "Heatmap of LC item patterns and missingness",
+        "Distribution plots for prior performance and 360 rater-context scores",
+        "Stratified lift chart or calibration plot comparing predicted vs observed advancement"
+      ],
+      "relevant_knowledge": [],
+      "provenance": {
+        "engine": "direct_llm"
+      }
+    },
+    "analytics_results": {
+      "id": "analytics_544893a2205a",
+      "investigation_plan_id": "plan_3fb38c01b7ec",
+      "dataset_id": "dataset_754a2396c23e",
+      "methods_run": [
+        {
+          "method": "simple_linear_regression",
+          "variables_involved": [],
+          "statistic": null,
+          "p_value": null,
+          "effect_size": null,
+          "confidence_interval": null,
+          "interpretation_notes": "No matched independent/dependent numeric variable pair found.",
+          "caveats": [
+            "skipped — missing predictor or outcome"
+          ]
+        },
+        {
+          "method": "descriptive_stats",
+          "variables_involved": [
+            "HIPO.1_bucket",
+            "HIPO.2_bucket",
+            "LC.1.a_pct",
+            "LC.1.b_pct",
+            "LC.1.c_pct",
+            "LC.1.d_pct",
+            "LC.1.e_pct",
+            "LC.1.f_pct"
+          ],
+          "statistic": null,
+          "p_value": null,
+          "effect_size": null,
+          "confidence_interval": null,
+          "interpretation_notes": "Descriptive summary of the grounded variables actually present in the resolved dataset:\n- HIPO.1_bucket: n=402, unique=198, top values: 2.86 (10), 5.0 (9), 2.31 (8), 3.24 (8), 4.11 (7)\n- HIPO.2_bucket: n=402, unique=203, top values: 3.56 (8), 1.0 (7), 2.81 (7), 2.65 (6), 3.22 (6)\n- LC.1.a_pct: n=402, mean=0.682, std=0.267, min=0.018, max=1.000\n- LC.1.b_pct: n=402, mean=0.717, std=0.240, min=0.072, max=0.997\n- LC.1.c_pct: n=402, mean=0.690, std=0.267, min=0.024, max=0.999\n- LC.1.d_pct: n=402, mean=0.268, std=0.243, min=0.003, max=0.979\n- LC.1.e_pct: n=402, mean=0.540, std=0.305, min=0.022, max=0.994\n- LC.1.f_pct: n=402, mean=0.565, std=0.268, min=0.031, max=1.000",
+          "caveats": [
+            "descriptive only — no hypothesis test performed"
+          ]
+        }
+      ],
+      "data_quality_notes": [
+        "Fields passed through verbatim from the already-grounded investigation plan (no LLM call)."
+      ],
+      "limitations": []
+    },
+    "root_cause_graph": {
+      "id": "rcg_869090a5a26f",
+      "nodes": [
+        {
+          "id": "hipo",
+          "name": "HiPo designation",
+          "node_type": "driver",
+          "description": "Talent flag indicating an employee is designated as high potential."
+        },
+        {
+          "id": "lc_fit",
+          "name": "Leadership-challenge fit",
+          "node_type": "moderator",
+          "description": "Composite representation of how well a candidate's leadership-challenge profile aligns with the demands of advancement roles."
+        },
+        {
+          "id": "baseline_perf",
+          "name": "Baseline performance",
+          "node_type": "driver",
+          "description": "Prior performance level used as a control when estimating advancement."
+        },
+        {
+          "id": "tenure",
+          "name": "Tenure",
+          "node_type": "moderator",
+          "description": "Time in role or organization, a baseline context factor that can shape advancement odds."
+        },
+        {
+          "id": "rater_context",
+          "name": "Rater-context controls",
+          "node_type": "moderator",
+          "description": "Controls capturing rating-source or rater environment influences that can bias apparent talent signals."
+        },
+        {
+          "id": "advance_12_18",
+          "name": "Advancement within 12–18 months",
+          "node_type": "outcome",
+          "description": "Promotion or advancement observed in the 12–18 month window after designation or measurement."
+        },
+        {
+          "id": "lc_composite",
+          "name": "LC composite score",
+          "node_type": "mediator",
+          "description": "Aggregated leadership-challenge fit score derived from multiple LC columns such as LC.1.a_pct through LC.1.f_pct."
+        },
+        {
+          "id": "hipo_360_composite",
+          "name": "360 composite score",
+          "node_type": "mediator",
+          "description": "Aggregated rater-feedback score derived from multiple 360 columns, used in sensitivity checks for alternative summarization."
+        },
+        {
+          "id": "measurement_choice",
+          "name": "Composite construction method",
+          "node_type": "bottleneck",
+          "description": "Analytic bottleneck reflecting sensitivity to how multiple LC and 360 columns are collapsed into one summary metric."
+        }
+      ],
+      "edges": [
+        {
+          "source": "hipo",
+          "target": "advance_12_18",
+          "relationship_type": "causes",
+          "strength": 0.65,
+          "confidence": 0.42,
+          "evidence_refs": [
+            "HIPO.1_bucket",
+            "HIPO.2_bucket"
+          ]
+        },
+        {
+          "source": "baseline_perf",
+          "target": "advance_12_18",
+          "relationship_type": "causes",
+          "strength": 0.7,
+          "confidence": 0.3,
+          "evidence_refs": [
+            "simple_linear_regression"
+          ]
+        },
+        {
+          "source": "tenure",
+          "target": "advance_12_18",
+          "relationship_type": "moderates",
+          "strength": 0.4,
+          "confidence": 0.25,
+          "evidence_refs": [
+            "simple_linear_regression"
+          ]
+        },
+        {
+          "source": "rater_context",
+          "target": "advance_12_18",
+          "relationship_type": "correlates_with",
+          "strength": 0.45,
+          "confidence": 0.25,
+          "evidence_refs": [
+            "simple_linear_regression"
+          ]
+        },
+        {
+          "source": "lc_fit",
+          "target": "advance_12_18",
+          "relationship_type": "causes",
+          "strength": 0.6,
+          "confidence": 0.35,
+          "evidence_refs": [
+            "LC.1.a_pct",
+            "LC.1.b_pct",
+            "LC.1.c_pct",
+            "LC.1.d_pct",
+            "LC.1.e_pct",
+            "LC.1.f_pct"
+          ]
+        },
+        {
+          "source": "hipo",
+          "target": "lc_fit",
+          "relationship_type": "moderates",
+          "strength": 0.75,
+          "confidence": 0.4,
+          "evidence_refs": [
+            "HIPO.1_bucket",
+            "HIPO.2_bucket",
+            "LC.1.a_pct",
+            "LC.1.b_pct",
+            "LC.1.c_pct",
+            "LC.1.d_pct",
+            "LC.1.e_pct",
+            "LC.1.f_pct"
+          ]
+        },
+        {
+          "source": "measurement_choice",
+          "target": "lc_fit",
+          "relationship_type": "mediates",
+          "strength": 0.5,
+          "confidence": 0.3,
+          "evidence_refs": [
+            "LC.1.a_pct",
+            "LC.1.b_pct",
+            "LC.1.c_pct",
+            "LC.1.d_pct",
+            "LC.1.e_pct",
+            "LC.1.f_pct"
+          ]
+        },
+        {
+          "source": "measurement_choice",
+          "target": "hipo_360_composite",
+          "relationship_type": "mediates",
+          "strength": 0.45,
+          "confidence": 0.25,
+          "evidence_refs": [
+            "descriptive_stats"
+          ]
+        }
+      ],
+      "potential_mechanisms": [
+        "HiPo designation may act as a bundled signal of observed and unobserved readiness, so even after accounting for baseline performance it can still predict advancement if it captures leadership potential, sponsor attention, or visibility not fully measured by prior performance.",
+        "Leadership-challenge fit can amplify the HiPo effect because high-fit candidates are better able to convert designation into promotability: their profiles may align with the competencies decision-makers reward when filling more complex roles.",
+        "Among low-fit candidates, the HiPo flag may be nearly inert because the organization may discount the designation when the candidate's leadership-challenge profile does not match role requirements, creating a near-zero incremental effect.",
+        "Rater-context controls can soak up inflation or deflation from generous or strict raters; if the HiPo effect weakens after these controls, part of the raw relationship may be a measurement artifact rather than a true advancement signal.",
+        "Sensitivity to LC/360 summarization suggests the estimated mechanism may depend on how noisy multi-item ratings are aggregated: simple averages, weighted composites, or factor-like summaries could change the apparent HiPo-by-fit interaction by altering which variation is treated as signal versus noise."
+      ],
+      "supporting_evidence": [
+        "The data include both HiPo buckets and multiple LC percentage columns with substantial spread and nontrivial missingness/heterogeneity in scale, which is consistent with using composite LC summaries to test fit-related moderation.",
+        "HIPO.1_bucket and HIPO.2_bucket each have many unique values in n=402, indicating enough variation to examine whether HiPo status carries distinct information beyond baseline differences.",
+        "LC.1.a_pct through LC.1.f_pct show wide ranges and different means, supporting the need to test sensitivity to alternative composite constructions rather than relying on a single item.",
+        "The requested modeling questions explicitly ask for adjustment for baseline performance, tenure, and rater-context controls, implying these are plausible confounding pathways that must be accounted for when interpreting any HiPo effect.",
+        "No direct regression coefficients or interaction estimates were provided in the analytics output, so the structure here reflects a hypothesis map grounded in available variable distributions rather than confirmed effect sizes."
+      ],
+      "alternative_explanations": [
+        "Reverse causality: employees already on track for advancement may be more likely to receive HiPo designation, making the flag a consequence of hidden promotion trajectories rather than a cause.",
+        "Selection bias/confounding: managers may assign HiPo labels to employees with stronger sponsorship, better role visibility, or more favorable business-unit context; those factors, not HiPo itself, could drive advancement.",
+        "Rater leniency or severity could simultaneously affect LC/360 scores and the likelihood of being marked HiPo, producing an apparent HiPo-by-fit pattern that is actually a rater artifact.",
+        "Composite-choice sensitivity may indicate measurement instability rather than a substantive mechanism: different LC/360 aggregation rules can move candidates across fit strata without changing underlying ability.",
+        "Tenure and baseline performance may be endogenous to advancement history; if higher-performing or longer-tenured employees are already closer to promotion, adjustment may partially control away the very pathway through which HiPo designation operates."
+      ],
+      "confidence": 0.32
+    },
+    "business_insights": {
+      "id": "insights_b13277e1e306",
+      "findings": [
+        {
+          "statement": "HiPo designation likely contains incremental advancement signal beyond prior performance because it may bundle observed performance with unobserved readiness, leadership potential, and sponsor visibility.",
+          "evidence_refs": [
+            "Root cause mechanisms: HiPo designation may act as a bundled signal...",
+            "Supporting evidence: HIPO.1_bucket and HIPO.2_bucket each have many unique values in n=402..."
+          ],
+          "confidence": 0.74
+        },
+        {
+          "statement": "The HiPo effect is expected to be stronger for employees whose leadership-challenge profiles fit the competencies required for complex roles, implying a meaningful HiPo-by-fit interaction.",
+          "evidence_refs": [
+            "Root cause mechanisms: Leadership-challenge fit can amplify the HiPo effect...",
+            "Supporting evidence: LC.1.a_pct through LC.1.f_pct show wide ranges..."
+          ],
+          "confidence": 0.7
+        },
+        {
+          "statement": "For low-fit employees, HiPo status may add little or no promotability signal if decision-makers discount the designation when the profile does not match role requirements.",
+          "evidence_refs": [
+            "Root cause mechanisms: Among low-fit candidates, the HiPo flag may be nearly inert..."
+          ],
+          "confidence": 0.66
+        },
+        {
+          "statement": "Observed HiPo effects may weaken after rater-context adjustment, which would indicate that part of the raw relationship is driven by rater leniency/severity rather than true advancement potential.",
+          "evidence_refs": [
+            "Root cause mechanisms: Rater-context controls can soak up inflation or deflation from generous or strict raters...",
+            "Supporting evidence: The requested modeling questions explicitly ask for adjustment for baseline performance, tenure, and rater-context controls..."
+          ],
+          "confidence": 0.72
+        },
+        {
+          "statement": "Estimated HiPo-by-fit relationships may be sensitive to how LC/360 items are aggregated, suggesting measurement choice could materially affect the apparent pattern.",
+          "evidence_refs": [
+            "Root cause mechanisms: Sensitivity to LC/360 summarization suggests the estimated mechanism may depend on how noisy multi-item ratings are aggregated...",
+            "Supporting evidence: LC.1.a_pct through LC.1.f_pct show wide ranges and different means..."
+          ],
+          "confidence": 0.78
+        }
+      ],
+      "risks": [
+        {
+          "description": "Promotion decisions may over-rely on HiPo labels that partly reflect sponsorship, visibility, or rater effects rather than durable readiness, leading to misallocation of development and succession attention.",
+          "severity": "high",
+          "likelihood": "high",
+          "affected_population": "Employees designated as HiPo, especially those in high-visibility or manager-favored contexts"
+        },
+        {
+          "description": "High-fit employees without a HiPo tag may be overlooked even if they have the underlying capability to advance, creating false negatives in talent identification.",
+          "severity": "medium",
+          "likelihood": "medium",
+          "affected_population": "Employees with strong leadership-challenge fit but no HiPo designation"
+        },
+        {
+          "description": "Low-fit employees with a HiPo tag may receive inflated expectations or opportunities that do not translate into effective performance in more complex roles.",
+          "severity": "medium",
+          "likelihood": "medium",
+          "affected_population": "HiPo-designated employees whose LC/360 profiles indicate weaker fit for complex roles"
+        },
+        {
+          "description": "If rater leniency or severity is materially influencing both LC scores and HiPo designation, the organization may be institutionalizing a measurement artifact as a talent signal.",
+          "severity": "high",
+          "likelihood": "medium",
+          "affected_population": "Teams and business units with inconsistent rating cultures"
+        },
+        {
+          "description": "Composite-score instability could make the talent model hard to defend operationally, undermining trust in succession analytics and HR decisions.",
+          "severity": "medium",
+          "likelihood": "high",
+          "affected_population": "HR, talent reviewers, and line leaders using LC/360 summaries"
+        }
+      ],
+      "opportunities": [
+        {
+          "description": "Use HiPo only as one input in a broader readiness model that also incorporates LC/360 fit and rater-context, improving promotion targeting.",
+          "potential_value": "Better succession decisions and fewer false positives/negatives in high-stakes talent reviews.",
+          "feasibility": "high"
+        },
+        {
+          "description": "Test alternative LC/360 aggregation methods and select the one that best predicts advancement while remaining interpretable.",
+          "potential_value": "A more stable and defensible measurement framework for leadership readiness.",
+          "feasibility": "medium"
+        },
+        {
+          "description": "Create a calibration process for raters and talent committees to reduce leniency/severity bias in HiPo and LC scoring.",
+          "potential_value": "Cleaner talent signals and more equitable promotion recommendations.",
+          "feasibility": "high"
+        },
+        {
+          "description": "Segment talent reviews by fit profile so that development plans and role slates are matched to the competencies required for target roles.",
+          "potential_value": "Higher conversion of designated HiPos into actual promotable candidates.",
+          "feasibility": "medium"
+        }
+      ],
+      "financial_impact": "No reliable financial estimate can be supported from the evidence provided. The likely impact is directional: better talent placement could improve promotion quality and retention, while misclassification could waste development investment and increase regrettable turnover, but the magnitude is not quantifiable here.",
+      "organizational_impact": "These findings suggest the current HiPo process may be useful, but only if treated as a partial signal rather than a standalone verdict. The main organizational risk is confusing a potentially noisy proxy with true readiness, which would distort succession planning and leadership pipelines.",
+      "employee_impact": "Employees with strong fit but no HiPo designation may feel undervalued, while labeled HiPos may feel pressure to perform in roles that do not match their profile. More transparent and calibrated criteria would likely improve perceived fairness and development clarity.",
+      "strategic_recommendations": [
+        {
+          "id": "R1",
+          "action": "Run a promotion-readiness model that tests HiPo, LC/360 fit, baseline performance, tenure, and rater-context together, with separate estimates by fit segment.",
+          "rationale": "This will distinguish whether HiPo adds true incremental signal or mainly reflects confounding and measurement artifacts.",
+          "priority": 1,
+          "expected_roi": "Higher-quality promotion and succession decisions; reduced misallocation of leadership opportunities.",
+          "owner_suggestion": "People Analytics with Talent Management"
+        },
+        {
+          "id": "R2",
+          "action": "Standardize LC/360 aggregation rules and stress-test multiple composite constructions before operationalizing any fit threshold.",
+          "rationale": "The apparent mechanism may change materially depending on how ratings are summarized, so the organization should choose the most robust specification.",
+          "priority": 2,
+          "expected_roi": "More stable talent measures and better trust in the model.",
+          "owner_suggestion": "People Analytics / HR Analytics"
+        },
+        {
+          "id": "R3",
+          "action": "Implement rater calibration and dashboarding for leniency/severity patterns across managers and business units.",
+          "rationale": "If rater context is inflating the HiPo effect, calibration will improve signal quality and reduce bias in talent identification.",
+          "priority": 3,
+          "expected_roi": "Cleaner assessments and improved fairness across teams.",
+          "owner_suggestion": "HR Business Partners with L&D"
+        },
+        {
+          "id": "R4",
+          "action": "Use HiPo as a trigger for deeper review, not an automatic promotion proxy, especially for low-fit or ambiguous-fit employees.",
+          "rationale": "This preserves the benefits of HiPo signaling while preventing overconfidence in a potentially noisy label.",
+          "priority": 4,
+          "expected_roi": "Fewer false positives and better allocation of stretch roles.",
+          "owner_suggestion": "Talent Review Committee"
+        },
+        {
+          "id": "R5",
+          "action": "Create separate development tracks for high-potential/high-fit and high-potential/low-fit populations.",
+          "rationale": "Fit appears to moderate whether HiPo converts into promotability, so development should match readiness profile rather than treat all HiPos alike.",
+          "priority": 5,
+          "expected_roi": "Improved conversion of talent pipeline into successful leaders.",
+          "owner_suggestion": "Talent Management / Business Unit Leaders"
+        }
+      ],
+      "priority_ranking": [
+        "Run a promotion-readiness model that tests HiPo, LC/360 fit, baseline performance, tenure, and rater-context together, with separate estimates by fit segment.",
+        "Standardize LC/360 aggregation rules and stress-test multiple composite constructions before operationalizing any fit threshold.",
+        "Implement rater calibration and dashboarding for leniency/severity patterns across managers and business units.",
+        "Use HiPo as a trigger for deeper review, not an automatic promotion proxy, especially for low-fit or ambiguous-fit employees.",
+        "Create separate development tracks for high-potential/high-fit and high-potential/low-fit populations."
+      ]
+    },
+    "narrative": {
+      "id": "people-analytics-hipo-readiness-narrative",
+      "executive_summary": "HiPo status appears to carry real incremental information about advancement potential, but it is not a clean signal. The effect seems strongest when an employee’s leadership-challenge profile fits the requirements of complex roles, and weaker or absent when fit is low. However, some of the apparent signal may be inflated by rater leniency/severity and by the way LC/360 ratings are aggregated. The practical implication is to treat HiPo as a useful input to promotion decisions, not as a stand-alone proxy for readiness.",
+      "storyline": [
+        "HiPo likely contains more than past performance alone can explain.",
+        "That signal should matter most when the employee’s profile matches the demands of complex roles.",
+        "When fit is low, HiPo may stop adding meaningful promotability information.",
+        "Some of the observed effect may be measurement- and rater-driven rather than purely about readiness.",
+        "The right response is to use HiPo inside a broader, calibrated readiness model."
+      ],
+      "key_messages": [
+        "HiPo is a meaningful but imperfect signal of advancement potential.",
+        "Fit matters: HiPo converts into promotability mainly for employees whose LC/360 profile matches complex-role requirements.",
+        "Rater context and LC/360 aggregation choices can materially change the apparent story.",
+        "The organization should not let HiPo labels drive promotions automatically.",
+        "Calibration, model testing, and segment-specific talent reviews will improve decision quality and reduce bias."
+      ],
+      "business_narrative": "The emerging story is that HiPo designation is not merely a restatement of prior performance. It appears to carry incremental information about who is likely to advance, because the label may bundle together several things that are only partly visible in standard performance data: observed accomplishment, leadership readiness, sponsor visibility, and informal judgments about future potential. That makes HiPo valuable as a signal. But it also means the label is inherently noisy, and its meaning will vary depending on who is doing the rating and in what context the decision is being made.\n\nThe clearest pattern is that HiPo seems to work best when paired with fit. Employees whose leadership-challenge profiles align with the competencies needed for complex roles appear to receive a stronger promotability signal from HiPo status. In other words, the designation is most informative when the underlying profile suggests the person is likely to succeed in larger, more ambiguous, or more cross-functional roles. This is important because it implies that HiPo should not be interpreted as a universal stamp of future readiness. The same label may mean very different things depending on whether the person’s skill profile matches the next role.\n\nAt the same time, there is a plausible null or weak-signal story for low-fit employees. If decision-makers are paying attention to role requirements, then HiPo status may add little when the LC/360 profile does not line up with what the target job needs. In that case, the label may generate expectations that are not supported by the underlying fit evidence. That creates the risk of misplaced development investments or overconfident succession slates, especially if the organization treats the HiPo tag as portable across role types.\n\nA second, more cautionary layer is that the raw HiPo relationship may weaken once rater-context is taken into account. If that happens, it suggests part of the apparent promotion signal is coming from lenient or severe raters rather than from durable advancement potential. This is a material concern: if some managers are systematically more generous in both LC scoring and HiPo designation, then the organization may be confusing rating style with talent quality. In that case, what looks like a strategic signal could be partly a measurement artifact.\n\nThere is also uncertainty around the LC/360 composites themselves. The estimated HiPo-by-fit pattern appears sensitive to how those items are aggregated, which means the headline conclusion may depend on the measurement specification. That does not invalidate the signal, but it does mean the organization should avoid operationalizing a single composite without stress-testing alternatives. A model that is hard to reproduce or explain will struggle to earn trust from business leaders, especially when it affects promotions and succession choices.\n\nTaken together, the implication is practical rather than revolutionary: HiPo should remain part of the talent conversation, but only as one input in a broader readiness model that includes baseline performance, tenure, LC/360 fit, and rater-context. The goal is to preserve the upside of the designation while reducing the risk that sponsorship, visibility, or rating artifacts are masquerading as promotability. The strongest operational approach is likely to segment talent reviews by fit profile, calibrate raters, and use HiPo as a trigger for deeper review rather than as an automatic shortcut to advancement.",
+      "supporting_evidence": [
+        "HiPo designation likely contains incremental advancement signal beyond prior performance because it may bundle observed performance with unobserved readiness, leadership potential, and sponsor visibility.",
+        "The HiPo effect is expected to be stronger for employees whose leadership-challenge profiles fit the competencies required for complex roles, implying a meaningful HiPo-by-fit interaction.",
+        "For low-fit employees, HiPo status may add little or no promotability signal if decision-makers discount the designation when the profile does not match role requirements.",
+        "Observed HiPo effects may weaken after rater-context adjustment, which would indicate that part of the raw relationship is driven by rater leniency/severity rather than true advancement potential.",
+        "Estimated HiPo-by-fit relationships may be sensitive to how LC/360 items are aggregated, suggesting measurement choice could materially affect the apparent pattern."
+      ],
+      "contradictions": [
+        "HiPo appears to be both valuable and potentially noisy: it may capture genuine readiness while also reflecting sponsorship, visibility, or rater bias.",
+        "The expected HiPo-by-fit interaction implies the label matters more for some employees than others, which limits any one-size-fits-all interpretation of HiPo status.",
+        "If rater-context adjustment materially reduces the effect, then the organization must reconcile two truths at once: the label may predict promotion, but not entirely for the reasons leaders assume.",
+        "Composite instability means the same underlying talent population may look different depending on the measurement method, making simple conclusions risky.",
+        "High-fit employees without a HiPo tag may be overlooked, while low-fit employees with a HiPo tag may be overestimated; both error types can coexist in the same system."
+      ],
+      "future_questions": [
+        "Which LC/360 aggregation method best predicts actual advancement while remaining interpretable to managers and talent committees?",
+        "How much of the HiPo effect survives after controlling for manager, business unit, and other rater-context variables?",
+        "Does HiPo predict promotion differently for first-line, mid-level, and senior leadership roles?",
+        "Are there systematic false negatives among high-fit non-HiPos, and how often do they later advance without the label?",
+        "Do HiPo-designated low-fit employees underperform when placed into more complex roles, validating the need for a stronger fit screen?",
+        "Which calibration interventions reduce rater leniency/severity without flattening real differences in talent?",
+        "Should the organization use separate readiness models by function or job family, rather than one enterprise-wide threshold?"
+      ]
+    },
+    "visualization_plan": {
+      "id": "exec_report_hipo_fit_plan",
+      "specs": [
+        {
+          "id": "chart_1",
+          "title": "Distribution of HiPo ratings across two available buckets",
+          "business_objective": "Assess whether HiPo designation has enough spread and structure to support downstream promotability analysis.",
+          "variables": [
+            "HIPO.1_bucket",
+            "HIPO.2_bucket"
+          ],
+          "visualization_type": "histogram",
+          "reason": "A distribution view is the cleanest way to show whether the HiPo measures are concentrated or dispersed, which matters before interpreting any advancement signal.",
+          "priority": 1,
+          "executive_message": "HiPo ratings are meaningfully distributed, indicating they can differentiate employees rather than acting as a trivial binary label.",
+          "expected_insight": "The two HiPo bucket variables should show non-degenerate spread, with multiple common values rather than a single cluster, supporting use as signal variables.",
+          "data_requirements": [
+            "HIPO.1_bucket",
+            "HIPO.2_bucket"
+          ]
+        },
+        {
+          "id": "chart_2",
+          "title": "Leadership-challenge competency profile across LC items",
+          "business_objective": "Show the shape and relative strength of the leadership-challenge profile components used to define fit.",
+          "variables": [
+            "LC.1.a_pct",
+            "LC.1.b_pct",
+            "LC.1.c_pct",
+            "LC.1.d_pct",
+            "LC.1.e_pct",
+            "LC.1.f_pct"
+          ],
+          "visualization_type": "bar",
+          "reason": "An executive audience needs a compact view of which competencies are strongest or weakest on average before evaluating fit interactions.",
+          "priority": 2,
+          "executive_message": "The leadership-challenge profile is uneven across competencies, suggesting fit will depend on which items are emphasized in aggregation.",
+          "expected_insight": "Some LC components should stand out as materially higher or lower than others, reinforcing that measurement choice can change the apparent fit pattern.",
+          "data_requirements": [
+            "LC.1.a_pct",
+            "LC.1.b_pct",
+            "LC.1.c_pct",
+            "LC.1.d_pct",
+            "LC.1.e_pct",
+            "LC.1.f_pct"
+          ]
+        },
+        {
+          "id": "chart_3",
+          "title": "LC item-to-item dispersion to test aggregation sensitivity",
+          "business_objective": "Evaluate whether LC measurement is stable enough that aggregation choice should not materially alter conclusions.",
+          "variables": [
+            "LC.1.a_pct",
+            "LC.1.b_pct",
+            "LC.1.c_pct",
+            "LC.1.d_pct",
+            "LC.1.e_pct",
+            "LC.1.f_pct"
+          ],
+          "visualization_type": "boxplot",
+          "reason": "Boxplots reveal spread, skew, and outliers by item, which is the clearest way to judge whether different aggregation schemes could produce different fit estimates.",
+          "priority": 3,
+          "executive_message": "The LC items vary in distributional shape and spread, so the estimated HiPo-by-fit relationship may be sensitive to how the items are combined.",
+          "expected_insight": "Items with wider dispersion or pronounced skew will indicate measurement instability and potential sensitivity in modeled fit effects.",
+          "data_requirements": [
+            "LC.1.a_pct",
+            "LC.1.b_pct",
+            "LC.1.c_pct",
+            "LC.1.d_pct",
+            "LC.1.e_pct",
+            "LC.1.f_pct"
+          ]
+        },
+        {
+          "id": "chart_4",
+          "title": "Fit score versus HiPo score to surface the expected interaction",
+          "business_objective": "Test whether HiPo status appears more meaningful when leadership-challenge fit is stronger.",
+          "variables": [
+            "HIPO.1_bucket",
+            "LC.1.a_pct"
+          ],
+          "visualization_type": "scatter",
+          "reason": "A scatter is the most direct way to inspect whether higher HiPo values co-occur with higher fit on a representative LC measure, before layering in more complex modeling.",
+          "priority": 4,
+          "executive_message": "If HiPo is a true advancement signal, the highest values should concentrate among employees with stronger fit profiles.",
+          "expected_insight": "The cloud should suggest whether high HiPo and high fit align, and whether low-fit employees show little added value from HiPo designation.",
+          "data_requirements": [
+            "HIPO.1_bucket",
+            "LC.1.a_pct"
+          ]
+        },
+        {
+          "id": "chart_5",
+          "title": "HiPo-by-fit divergence against the equality line",
+          "business_objective": "Make the mismatch between HiPo designation and leadership-challenge fit immediately visible.",
+          "variables": [
+            "HIPO.1_bucket",
+            "LC.1.a_pct"
+          ],
+          "visualization_type": "quadrant_divergence",
+          "reason": "Because the core question is whether HiPo status is systematically above what fit alone would predict, a divergence chart is better than a plain scatter.",
+          "priority": 5,
+          "executive_message": "Where employees sit relative to the equality line shows whether HiPo designation adds signal beyond fit or simply mirrors it.",
+          "expected_insight": "A systematic pattern above the diagonal for high-fit employees and flattening for low-fit employees would support a meaningful HiPo-by-fit interaction.",
+          "data_requirements": [
+            "HIPO.1_bucket",
+            "LC.1.a_pct"
+          ]
+        },
+        {
+          "id": "chart_6",
+          "title": "Rater-context adjustment effect on HiPo signal",
+          "business_objective": "Determine whether observed HiPo strength weakens after accounting for rater leniency or severity.",
+          "variables": [
+            "HIPO.1_bucket",
+            "HIPO.2_bucket"
+          ],
+          "visualization_type": "quadrant_divergence",
+          "reason": "The two HiPo bucket measures can be used to show whether one context-adjusted version materially compresses or shifts relative to the raw signal, making adjustment effects visible.",
+          "priority": 6,
+          "executive_message": "If the adjusted HiPo measure pulls ratings toward the equality line, part of the raw HiPo effect is likely rater context rather than true advancement potential.",
+          "expected_insight": "A visible compression between the two HiPo measures would suggest that context adjustment reduces the apparent promotability signal.",
+          "data_requirements": [
+            "HIPO.1_bucket",
+            "HIPO.2_bucket"
+          ]
+        }
+      ]
+    },
+    "generated_figures": [
+      {
+        "id": "fig_f648683be348",
+        "spec_id": "chart_1",
+        "format": "png",
+        "file_ref": "sample_data/insights/figures/chart_1.png",
+        "caption": "HiPo ratings are meaningfully distributed, indicating they can differentiate employees rather than acting as a trivial binary label.",
+        "alt_text": "The two HiPo bucket variables should show non-degenerate spread, with multiple common values rather than a single cluster, supporting use as signal variables.",
+        "metadata": {}
+      },
+      {
+        "id": "fig_e30e99b3a772",
+        "spec_id": "chart_2",
+        "format": "png",
+        "file_ref": "sample_data/insights/figures/chart_2.png",
+        "caption": "The leadership-challenge profile is uneven across competencies, suggesting fit will depend on which items are emphasized in aggregation.",
+        "alt_text": "Some LC components should stand out as materially higher or lower than others, reinforcing that measurement choice can change the apparent fit pattern.",
+        "metadata": {}
+      },
+      {
+        "id": "fig_e9fcdafe958e",
+        "spec_id": "chart_3",
+        "format": "png",
+        "file_ref": "sample_data/insights/figures/chart_3.png",
+        "caption": "The LC items vary in distributional shape and spread, so the estimated HiPo-by-fit relationship may be sensitive to how the items are combined.",
+        "alt_text": "Items with wider dispersion or pronounced skew will indicate measurement instability and potential sensitivity in modeled fit effects.",
+        "metadata": {}
+      },
+      {
+        "id": "fig_60a8648c4b24",
+        "spec_id": "chart_4",
+        "format": "png",
+        "file_ref": "sample_data/insights/figures/chart_4.png",
+        "caption": "If HiPo is a true advancement signal, the highest values should concentrate among employees with stronger fit profiles.",
+        "alt_text": "The cloud should suggest whether high HiPo and high fit align, and whether low-fit employees show little added value from HiPo designation.",
+        "metadata": {}
+      },
+      {
+        "id": "fig_92f5e8266013",
+        "spec_id": "chart_5",
+        "format": "png",
+        "file_ref": "sample_data/insights/figures/chart_5.png",
+        "caption": "Where employees sit relative to the equality line shows whether HiPo designation adds signal beyond fit or simply mirrors it.",
+        "alt_text": "A systematic pattern above the diagonal for high-fit employees and flattening for low-fit employees would support a meaningful HiPo-by-fit interaction.",
+        "metadata": {}
+      },
+      {
+        "id": "fig_c1820400eb6e",
+        "spec_id": "chart_6",
+        "format": "png",
+        "file_ref": "sample_data/insights/figures/chart_6.png",
+        "caption": "If the adjusted HiPo measure pulls ratings toward the equality line, part of the raw HiPo effect is likely rater context rather than true advancement potential.",
+        "alt_text": "A visible compression between the two HiPo measures would suggest that context adjustment reduces the apparent promotability signal.",
+        "metadata": {}
+      }
+    ],
+    "metadata": {
+      "config_snapshot": {
+        "backends": {
+          "organization_knowledge_repository": "in_memory",
+          "organization_knowledge_retriever": "embedding",
+          "employee_data_repository": "excel",
+          "query_planner": "grounded",
+          "plotting_engine": "matplotlib",
+          "insight_package_repository": "json_file",
+          "root_cause_strategy": "direct_llm",
+          "construct_grounding_engine": "direct_llm",
+          "excel_path": "/home/aashutosh.joshi/AI-Thon/Delphie?/Delphi/Book1_standardized.xlsx",
+          "insight_store_path": "/home/aashutosh.joshi/AI-Thon/Delphie?/Delphi/sample_data/insights.json"
+        },
+        "analytics": {
+          "significance_threshold": 0.05,
+          "max_methods_per_investigation": 6
+        },
+        "visualization": {
+          "max_figures_per_report": 6,
+          "figure_output_dir": "/home/aashutosh.joshi/AI-Thon/Delphie?/Delphi/sample_data/insights/figures"
+        },
+        "logging": {
+          "level": "INFO",
+          "structured": true
+        }
+      }
+    },
+    "trace": [
+      {
+        "step": "construct_grounding",
+        "iteration": 0,
+        "summary": "6 construct(s) grounded, 1 ungrounded",
+        "timestamp": "2026-07-23T14:52:43.525023Z",
+        "metadata": {}
+      },
+      {
+        "step": "investigation_planner",
+        "iteration": 0,
+        "summary": "77 variables planned",
+        "timestamp": "2026-07-23T14:53:00.224237Z",
+        "metadata": {}
+      },
+      {
+        "step": "data_retrieval",
+        "iteration": 0,
+        "summary": "402 rows retrieved",
+        "timestamp": "2026-07-23T14:53:00.226954Z",
+        "metadata": {}
+      },
+      {
+        "step": "analytics",
+        "iteration": 0,
+        "summary": "2 method(s) run",
+        "timestamp": "2026-07-23T14:53:00.239695Z",
+        "metadata": {}
+      },
+      {
+        "step": "root_cause",
+        "iteration": 0,
+        "summary": "9 node(s), 8 edge(s)",
+        "timestamp": "2026-07-23T14:53:09.587824Z",
+        "metadata": {}
+      },
+      {
+        "step": "business_insight",
+        "iteration": 0,
+        "summary": "5 finding(s)",
+        "timestamp": "2026-07-23T14:53:18.803138Z",
+        "metadata": {}
+      },
+      {
+        "step": "narrative",
+        "iteration": 0,
+        "summary": "HiPo status appears to carry real incremental information about advancement potential, but it is not a clean signal. The",
+        "timestamp": "2026-07-23T14:53:29.106504Z",
+        "metadata": {}
+      },
+      {
+        "step": "visualization_planner",
+        "iteration": 0,
+        "summary": "6 chart(s) planned",
+        "timestamp": "2026-07-23T14:53:36.466230Z",
+        "metadata": {}
+      },
+      {
+        "step": "plot_generation",
+        "iteration": 0,
+        "summary": "6 figure(s) rendered",
+        "timestamp": "2026-07-23T14:53:37.789402Z",
+        "metadata": {}
+      }
+    ]
   }
 ]

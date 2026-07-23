@@ -20,6 +20,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+from hypothesis_agent.adapters.rendering.card_image_renderer import render_card_image
 from hypothesis_agent.adapters.rendering.detail_page_renderer import render_detail_page
 from hypothesis_agent.contracts.hypothesis import (
     CritiqueResult,
@@ -51,11 +52,15 @@ class JsonHypothesisStore(HistoricalMemoryRepository, FeedbackRepository):
         embedding_service: EmbeddingService,
         render_detail_pages: bool = True,
         detail_url_prefix: str = "sample_data/hypotheses",
+        render_card_images: bool = True,
+        card_image_url_prefix: str = "sample_data/card_images",
     ) -> None:
         self._path = Path(file_path)
         self._embedding_service = embedding_service
         self._render_detail_pages = render_detail_pages
         self._detail_url_prefix = detail_url_prefix
+        self._render_card_images = render_card_images
+        self._card_image_url_prefix = card_image_url_prefix
         self._lock = asyncio.Lock()
 
     # -- file I/O ----------------------------------------------------
@@ -75,9 +80,13 @@ class JsonHypothesisStore(HistoricalMemoryRepository, FeedbackRepository):
     # -- record <-> on-disk entry -------------------------------------
 
     def _record_to_entry(self, record: HistoricalHypothesisRecord) -> dict[str, Any]:
+        # Deterministic per-hypothesis filename (the record's own id) — same
+        # image every time this entry is reloaded, generated once at save()
+        # time, never regenerated on the fly.
+        image_url = f"{self._card_image_url_prefix}/{record.id}.svg" if self._render_card_images else ""
         return {
             "id": record.id,
-            "imageURL": "",
+            "imageURL": image_url,
             # Catchy headline / decent-length summary for the feed — the full
             # rigorous statement/mechanism live on the detail page, not here.
             # Fall back to the full text only if headline/summary is somehow
@@ -172,6 +181,10 @@ class JsonHypothesisStore(HistoricalMemoryRepository, FeedbackRepository):
             detail_dir = self._path.parent / "hypotheses"
             detail_dir.mkdir(parents=True, exist_ok=True)
             (detail_dir / f"{record.id}.html").write_text(render_detail_page(record))
+        if self._render_card_images:
+            image_dir = self._path.parent / "card_images"
+            image_dir.mkdir(parents=True, exist_ok=True)
+            (image_dir / f"{record.id}.svg").write_text(render_card_image(record))
 
     # -- FeedbackRepository ---------------------------------------------
 

@@ -1,11 +1,11 @@
 [
   {
     "id": "hist_247b072fdb06",
-    "imageURL": "",
+    "imageURL": "sample_data/card_images/hist_247b072fdb06.svg",
     "title": "Top performers deliver most in crises when they also have authority and reach",
     "description": "In turnaround, restructuring, and other high-pressure settings, rare execution and stakeholder skills pay off most when strong contributors also sit at the center of cross-functional networks and have formal decision rights. Without both, their impact is more likely to stay localized, slowing resolution and concentrating work around them.",
     "readmoreURL": "sample_data/hypotheses/hist_247b072fdb06.html",
-    "reaction": "up",
+    "reaction": "none",
     "organization_id": "shl-sample-cohort",
     "lens": "skill_concentration",
     "target_constructs": [
@@ -102,11 +102,11 @@
   },
   {
     "id": "hist_781188e22517",
-    "imageURL": "",
+    "imageURL": "sample_data/card_images/hist_781188e22517.svg",
     "title": "Slower pay progression can weaken high-potential employees’ succession commitment",
     "description": "The hypothesis says high-potential employees who fall behind comparable peers in base-pay growth are more likely to step out of the leadership pipeline over the next year. They may decline stretch assignments, turn down pipeline roles, or disappear from the succession slate at calibration. For executives, that makes pay progression a retention and pipeline-health signal, not just a compensation i…",
     "readmoreURL": "sample_data/hypotheses/hist_781188e22517.html",
-    "reaction": "up",
+    "reaction": "none",
     "organization_id": "shl-sample-cohort",
     "lens": "compensation_fairness",
     "target_constructs": [
@@ -194,11 +194,11 @@
   },
   {
     "id": "hist_591deab240a2",
-    "imageURL": "",
+    "imageURL": "sample_data/card_images/hist_591deab240a2.svg",
     "title": "Ambiguity-tolerant leaders may sustain performance under prolonged overload",
     "description": "When leaders stay above a high workload threshold for weeks, those with greater ambiguity tolerance are expected to hold performance better and show less burnout than similar peers. The effect should be strongest in volatile, uncertain roles, where faster decisions and fewer avoidable delays can protect both execution and well-being.",
     "readmoreURL": "sample_data/hypotheses/hist_591deab240a2.html",
-    "reaction": "none",
+    "reaction": "up",
     "organization_id": "shl-sample-cohort",
     "lens": "burnout_resilience",
     "statement": "In roles that remain above a pre-defined workload threshold for at least 12 weeks (for example: top quartile in hours worked, incident volume, span of control, or active priorities), leaders with high ambiguity tolerance will show less performance decay and lower burnout incidence than otherwise similar leaders, as measured by KPI attainment, milestone slippage, and validated burnout scores or health-leave/attrition risk. The effect should be stronger in roles with higher volatility and decision uncertainty, and should be tested against controls for level, function, manager, geography, baseline performance, and prior burnout indicators.",
@@ -286,7 +286,7 @@
   },
   {
     "id": "hist_d88d17ac90e4",
-    "imageURL": "",
+    "imageURL": "sample_data/card_images/hist_d88d17ac90e4.svg",
     "title": "Attrition may reflect overloaded new managers, not the promotion itself",
     "description": "The hypothesis is that regretted attrition in engineering rises when technically strong but underprepared managers inherit already strained teams. In that setting, the real issue is a leadership-capacity mismatch: the new manager cannot absorb the added people and coordination demands. For executives, that makes attrition an early warning sign of a miscast or overloaded transition, not just a ret…",
     "readmoreURL": "sample_data/hypotheses/hist_d88d17ac90e4.html",
@@ -378,7 +378,7 @@
   },
   {
     "id": "hist_c3d0f8284825",
-    "imageURL": "",
+    "imageURL": "sample_data/card_images/hist_c3d0f8284825.svg",
     "title": "Top engineers may stall on promotion when their skills miss future priorities",
     "description": "The hypothesis says strong current performers can still learn more slowly and get stuck in place when their capabilities are misaligned with Acme Labs’ next technical needs. That matters because today’s best contributors may not become tomorrow’s leaders, creating a future talent gap. It suggests Acme should reward learning progress, not just legacy performance.",
     "readmoreURL": "sample_data/hypotheses/hist_c3d0f8284825.html",
@@ -473,7 +473,7 @@
   },
   {
     "id": "hist_f4ee965ca692",
-    "imageURL": "",
+    "imageURL": "sample_data/card_images/hist_f4ee965ca692.svg",
     "title": "Cross-functional network reach may cut attrition for new engineering leaders",
     "description": "The hypothesis says engineering leaders moving into heavy-coordination roles may see lower regretted attrition when their prior networks gave them strong cross-functional reach and fast access to escalation paths. The advantage should matter most before managerial load becomes too high, when centrality helps decisions move faster instead of adding overload.",
     "readmoreURL": "sample_data/hypotheses/hist_f4ee965ca692.html",
@@ -571,7 +571,7 @@
   },
   {
     "id": "hist_33d44041137e",
-    "imageURL": "",
+    "imageURL": "sample_data/card_images/hist_33d44041137e.svg",
     "title": "Opaque pay and promotion signals can drive top engineers to stall or leave",
     "description": "The hypothesis argues that even market-competitive compensation can backfire when high-performing engineers cannot see how pay changes and promotions connect to leadership readiness. That ambiguity can erode trust, raise flight risk among likely future leaders, and slow succession by weakening their willingness to invest in leadership behaviors.",
     "readmoreURL": "sample_data/hypotheses/hist_33d44041137e.html",
@@ -667,7 +667,7 @@
   },
   {
     "id": "hist_04d1dd298f33",
-    "imageURL": "",
+    "imageURL": "sample_data/card_images/hist_04d1dd298f33.svg",
     "title": "A few engineers may be carrying too much of Acme Labs’ leadership load",
     "description": "The hypothesis says Acme Labs’ strongest engineering teams may rely on a small number of high-performing ICs and managers for mentoring, coordination, escalations, and change leadership. That concentration could make those employees more likely to burn out or leave, while also slowing the development of ready successors. For leaders, the risk is a stronger team today but a more fragile organizati…",
     "readmoreURL": "sample_data/hypotheses/hist_04d1dd298f33.html",
@@ -764,7 +764,7 @@
   },
   {
     "id": "hist_9a2a2ba3cda5",
-    "imageURL": "",
+    "imageURL": "sample_data/card_images/hist_9a2a2ba3cda5.svg",
     "title": "Fast-tracked first-time managers may be at higher attrition risk",
     "description": "The hypothesis is that engineers promoted quickly into their first people-manager roles are more likely to leave than peers promoted more gradually, even after accounting for pay. If true, the issue is not compensation alone but whether the organization is promoting people before they are ready to lead. For executives, that points to better promotion gating and readiness checks as a retention lev…",
     "readmoreURL": "sample_data/hypotheses/hist_9a2a2ba3cda5.html",
@@ -855,7 +855,7 @@
   },
   {
     "id": "hist_db6ad6b91c14",
-    "imageURL": "",
+    "imageURL": "sample_data/card_images/hist_db6ad6b91c14.svg",
     "title": "Rapid scope growth in engineering leaders may be driving regretted attrition",
     "description": "The hypothesis is that engineering leaders whose responsibilities expand faster than their leadership skills are more likely to lose valued employees, even after accounting for tenure and promotion history. For executives, that suggests regretted attrition may be a signal of underprepared managers taking on too much, not just a retention problem among individual contributors.",
     "readmoreURL": "sample_data/hypotheses/hist_db6ad6b91c14.html",
@@ -951,7 +951,7 @@
   },
   {
     "id": "hist_f27b65d5060d",
-    "imageURL": "",
+    "imageURL": "sample_data/card_images/hist_f27b65d5060d.svg",
     "title": "Senior sponsorship may turn strong assessment scores into promotions",
     "description": "The hypothesis says high-scoring candidates are more likely to advance when a senior leader explicitly backs them in talent reviews or calibration. The effect should be strongest for people with less tenure or visibility, and weaker for those already well known to decision-makers. For executives, it suggests promotion decisions may depend not just on capability, but on who helps make that capabil…",
     "readmoreURL": "sample_data/hypotheses/hist_f27b65d5060d.html",
@@ -1054,11 +1054,11 @@
   },
   {
     "id": "hist_fdf0704cbbf5",
-    "imageURL": "",
+    "imageURL": "sample_data/card_images/hist_fdf0704cbbf5.svg",
     "title": "Cross-boundary brokers may advance faster in roles that depend on coordination",
     "description": "The hypothesis says employees who bridge groups in informal networks are more likely to see faster pay growth and promotion or high-potential nominations, even after accounting for prior performance and role context. The effect should be strongest in work that relies on cross-team coordination, and minimal in tightly structured, low-interdependence roles.",
     "readmoreURL": "sample_data/hypotheses/hist_fdf0704cbbf5.html",
-    "reaction": "none",
+    "reaction": "up",
     "organization_id": "shl-sample-cohort",
     "lens": "network_effects",
     "statement": "After controlling for prior performance, SHL/360/competency profiles, and assignment context, pre-outcome cross-boundary brokerage (measured as time-lagged betweenness or cross-cluster bridging in the informal collaboration network) will predict faster pay progression and higher probability of promotion/high-potential nomination, but primarily in roles or projects with high interdependence or weak formal coordination. Brokerage should add little or no predictive value in stable, low-coordination roles.",
@@ -1149,5 +1149,99 @@
     },
     "generated_at": "2026-07-23T14:09:52.771939+00:00",
     "insightId": "insight_7f24a54dc649"
+  },
+  {
+    "id": "hist_e27270e5fa60",
+    "imageURL": "sample_data/card_images/hist_e27270e5fa60.svg",
+    "title": "HiPo status predicts promotion only when leadership fit is high",
+    "description": "The hypothesis argues that high-potential labels add meaningful promotion signal only for employees whose pre-promotion leadership fit is independently strong. For lower-fit employees, the label should add little beyond standard controls. If true, executives should treat HiPo status as a useful endorsement, not a standalone measure of promotability.",
+    "readmoreURL": "sample_data/hypotheses/hist_e27270e5fa60.html",
+    "reaction": "up",
+    "organization_id": "shl-sample-cohort",
+    "lens": "promotion_equity",
+    "statement": "Controlling for baseline level, function/job family, tenure, manager quality, prior performance, and prior promotion opportunity exposure, HiPo designation will add incremental prediction of promotion within a defined 12–18 month window only when candidates have an independently scored, pre-promotion leadership-challenge fit assessment; in low-fit candidates, HiPo status will not materially improve promotion prediction beyond those controls.",
+    "mechanism": "HiPo designation is best treated as a composite signal of sponsorship, visibility, and rater endorsement, not as a pure indicator of future leadership capacity. That signal converts into advancement only when the candidate also shows externally measured fit to the organization’s actual promotion-critical challenges, because promotion decisions are then based on both credibility and contextual readiness. Analytically, the key test is incremental validity: whether HiPo predicts promotion after adjusting for opportunity exposure and rater effects, and whether that incremental effect is concentrated in the high-fit subgroup. If the effect disappears once sponsorship, visibility, and strictness are modeled—or is absent for low-fit candidates—that would indicate HiPo is functioning mainly as an endorsement mechanism rather than an independent measure of promotability.",
+    "target_constructs": [
+      "HiPo bucket / high-potential designation",
+      "leadership challenge fit",
+      "promotion outcome / next-cycle advancement",
+      "prior performance",
+      "360 feedback",
+      "rater leniency / rater context",
+      "opportunity exposure / high-visibility assignments"
+    ],
+    "scorecard": {
+      "business_value": 0.84,
+      "novelty": 0.67,
+      "depth": 0.82,
+      "actionability": 0.84,
+      "strategic_importance": 0.78,
+      "feasibility": 0.3,
+      "organizational_impact": 0.74,
+      "expected_insight": 0.72,
+      "confidence": 0.58,
+      "future_extensibility": 0.84,
+      "composite": 0.7293999999999999,
+      "dimension_notes": {
+        "business_value": "This hypothesis could materially change promotion and HiPo policy by revealing whether high-potential labels add anything beyond visibility and fit, and it is actionable and feasible with the available data, though confidence is moderated by the risk of confounding and the fact that the impact is strongest for talent-selection decisions rather than enterprise-wide strategy.",
+        "strategic_importance": "This is strategically important because it directly affects promotion equity, talent pipeline decisions, and whether the organization should trust HiPo designations as a core succession signal, though the impact is somewhat narrowed by the atypical sample and uncertain generalizability.",
+        "actionability": "If confirmed, this directly suggests a concrete change to promotion practice: use leadership-challenge fit to validate or gate HiPo status, adjust for rater/opportunity bias, and redesign the promotion rubric rather than treating HiPo as a stand-alone signal.",
+        "organizational_impact": "If validated, this would affect how the organization identifies and advances high-potential talent, potentially changing promotion and pipeline decisions for a meaningful share of candidates, but the impact is bounded by the relatively small sample and the fact that it focuses on one advancement mechanism rather than the whole business.",
+        "feasibility": "1/7 target constructs map onto known data categories.",
+        "novelty": "This goes beyond a standard HiPo-versus-promotion correlation by testing a moderation mechanism—whether leadership-challenge fit determines when HiPo status actually translates into advancement—but it still sits within a fairly well-studied family of promotion equity and selection-validity questions.",
+        "depth": "This hypothesis goes beyond a surface correlation by positing a specific moderation mechanism—HiPo status converting to promotion only when true leadership-challenge fit is high—and explicitly accounts for confounding from rater context and opportunity exposure, which makes the explanation meaningfully deep.",
+        "expected_insight": "This hypothesis is likely to produce moderately high insight because it goes beyond a simple HiPo-versus-promotion check to test a conditional mechanism involving challenge fit, opportunity exposure, and rater context, which could reveal whether the label is substantive or mostly reputational; however, the signal may still be partly familiar and constrained by confounding in a non-hierarchical sample.",
+        "confidence": "The mechanism is plausible and testable with the described data, but confidence is only moderate because HiPo status, 360s, and promotion outcomes are all highly vulnerable to rater/opportunity confounding and missing role-context controls, so the interaction may reflect selection bias as much as true conditional validity.",
+        "future_extensibility": "If confirmed, this would create a reusable framework for separating reputational signal from true promotion potential and could be extended to test other talent labels, rater effects, and opportunity exposures across multiple advancement outcomes."
+      }
+    },
+    "critique": {
+      "is_obvious": true,
+      "executive_relevance": "Moderate at best. Executives may care about whether HiPo is real or just reputational halo, but this is still a fairly standard talent-calibration question unless it clearly changes promotion policy, slate design, or assessment spend. As written it sounds like an academic interaction effect, not a decision trigger.",
+      "creates_actionable_decision": true,
+      "similar_to_prior": false,
+      "similar_prior_ids": [
+        "hist_781188e22517",
+        "hist_f27b65d5060d",
+        "hist_247b072fdb06"
+      ],
+      "reveals_hidden_mechanism": true,
+      "downstream_feasible": true,
+      "issues": [
+        "The core claim is not novel: 'HiPo predicts promotion only when fit is high' is a standard moderation hypothesis and mostly restates that labels and capability interact.",
+        "It is too close to prior hypotheses about sponsorship, visibility, and progression; the mechanism is the same reputational-advantage vs substantive-capability split.",
+        "The phrase 'similar prior performance and 360 feedback' is under-specified. Without exact controls, the estimate will be confounded by level, function, tenure, manager quality, and access to promotion opportunities.",
+        "'Leadership-challenge fit' is vague and likely endogenous: it may itself be assessed using the same information that drives HiPo designation and promotion, creating circularity rather than a clean moderator.",
+        "The hypothesis risks being tautological: if fit predicts promotion, then restricting HiPo’s effect to high-fit candidates simply says 'better-fit people get promoted more.' That is not a hidden mechanism unless fit is independently measured and externally validated.",
+        "The proposed mechanism blurs two different pathways—rater favorability and opportunity exposure—without specifying how to separate them analytically. That makes it hard to test and easy to overinterpret.",
+        "It does not clearly specify the outcome window or whether 'promotion' means promotion speed, probability, level jump, or compensation growth. Those are different executive decisions.",
+        "If the goal is policy, the recommendation 'tighten promotion criteria around verified challenge fit' is premature unless the analysis can show incremental validity beyond existing promotion inputs and adverse impact implications.",
+        "Because the sample has no formal hierarchy or role architecture, promotion outcomes may be too noisy or inconsistent to support a strong inference about 'future leadership potential.'"
+      ],
+      "suggested_improvements": [
+        "Make the hypothesis sharper and more falsifiable: specify the exact promotion outcome, time horizon, and the interaction form (e.g., HiPo x independently scored fit, controlling for level, function, manager, tenure, and prior opportunity).",
+        "Use an external or at least pre-promotion fit measure that is not derived from the same talent review process as HiPo designation.",
+        "Separate reputation from opportunity by explicitly testing rater strictness, manager sponsorship, prior stretch assignments, and visibility exposures as mediators or controls.",
+        "Reframe from 'HiPo predicts promotion' to an incremental-validity question: does HiPo add predictive power above performance, 360, tenure, job family, and sponsorship, and does that incremental power vanish when fit is low?",
+        "If executives need a decision, tie the result to a concrete policy choice: whether to keep HiPo as a gate, require challenge-fit evidence for slate inclusion, or redesign calibration to discount rater halo.",
+        "Consider a stronger hidden-mechanism version: 'HiPo designation is mainly a proxy for sponsorship/visibility and only predicts advancement in contexts with formalized promotion criteria and high challenge fit.' That is more testable and more operationally meaningful.",
+        "Pre-register subgroup definitions and minimum sample sizes for the high-fit/low-fit split, otherwise the interaction will likely be unstable and untrustworthy."
+      ],
+      "critic_name": "checklist_critic"
+    },
+    "search_stats": {
+      "iterations_run": 5,
+      "candidates_generated": 5,
+      "candidates_discarded": 0,
+      "lenses_explored": [
+        "compensation_fairness",
+        "promotion_equity",
+        "skill_concentration"
+      ],
+      "diversity_score": 0.6,
+      "termination_reason": "converged"
+    },
+    "generated_at": "2026-07-23T14:52:35.954890+00:00",
+    "insightId": "insight_a4dd833e14c5"
   }
 ]

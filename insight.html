@@ -61,6 +61,14 @@
     border-bottom: 1px solid var(--border); padding: 0.6rem 0; font-size: 0.92rem; color: #96700f;
   }
   .ungrounded-row:last-child { border-bottom: none; }
+  details.ground-details { margin-top: 0.5rem; }
+  details.ground-details summary {
+    cursor: pointer; color: var(--green-dark); font-weight: 650; font-size: 0.85rem;
+    padding: 0.5rem 0; list-style: none;
+  }
+  details.ground-details summary::-webkit-details-marker { display: none; }
+  details.ground-details summary::before { content: "▸ "; }
+  details.ground-details[open] summary::before { content: "▾ "; }
   .badge {
     display: inline-block; font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
     letter-spacing: 0.02em; padding: 0.12rem 0.5rem; border-radius: 5px; margin-right: 0.4rem;
@@ -138,6 +146,14 @@ function evidenceChips(refs) {
   return refs.map((r) => `<span class="evidence-chip">${esc(r)}</span>`).join("");
 }
 
+function groundedRowHtml(g) {
+  return `<div class="ground-row">
+    <span class="role-badge">${esc(g.role)}</span><strong>${esc(g.construct_name)}</strong>
+    <div>${chips(g.columns)}</div>
+    ${g.rationale ? `<p class="muted">${esc(g.rationale)}</p>` : ""}
+  </div>`;
+}
+
 function renderReport(pkg) {
   const hp = pkg.hypothesis_package;
   const narrative = pkg.narrative || {};
@@ -147,16 +163,85 @@ function renderReport(pkg) {
   const insights = pkg.business_insights || {};
   const figures = pkg.generated_figures || [];
   const grounding = pkg.grounding_map || { grounded: [], ungrounded: [], outcome_columns_available: [] };
+  const vizSpecs = (pkg.visualization_plan && pkg.visualization_plan.specs) || [];
 
   document.title = `${hp.headline || hp.hypothesis_statement.slice(0, 60)} — Delphi Insight Report`;
 
-  const figuresHtml = figures.length
-    ? `<div class="fig-grid">${figures.map((f) => `
-        <div class="fig-card">
-          <img src="${esc(f.file_ref)}" alt="${esc(f.alt_text || f.caption || "")}" loading="lazy" />
-          <div class="fig-caption">${esc(f.caption || "")}</div>
-        </div>`).join("")}</div>`
-    : `<p class="muted">No charts were generated for this investigation.</p>`;
+  // Charts are placed inline next to the analytics finding that produced
+  // them (matched via shared variables) rather than dumped in one block at
+  // the end — easier to read a number next to the picture that shows it.
+  const specsById = {};
+  vizSpecs.forEach((s) => { specsById[s.id] = s; });
+  const usedFigureIds = new Set();
+
+  function figureCard(f) {
+    return `<div class="fig-card">
+      <img src="${esc(f.file_ref)}" alt="${esc(f.alt_text || f.caption || "")}" loading="lazy" />
+      <div class="fig-caption">${esc(f.caption || "")}</div>
+    </div>`;
+  }
+
+  function figuresGrid(figs) {
+    return figs.length ? `<div class="fig-grid">${figs.map(figureCard).join("")}</div>` : "";
+  }
+
+  function figuresForVariables(vars) {
+    if (!vars || !vars.length) return [];
+    const varSet = new Set(vars);
+    return figures.filter((f) => {
+      if (usedFigureIds.has(f.id)) return false;
+      const spec = specsById[f.spec_id];
+      const overlap = spec && spec.variables && spec.variables.some((v) => varSet.has(v));
+      if (overlap) usedFigureIds.add(f.id);
+      return overlap;
+    });
+  }
+
+  const analyticsHtml = analytics.methods_run.length ? analytics.methods_run.map((m) => `
+      <div class="method">
+        <div><strong>${esc(m.method)}</strong></div>
+        <div class="stat-row">${statSummary(m)}</div>
+        <p>${esc(m.interpretation_notes || "")}</p>
+        ${m.caveats && m.caveats.length ? `<p class="muted">Caveats: ${m.caveats.map(esc).join("; ")}</p>` : ""}
+        ${figuresGrid(figuresForVariables(m.variables_involved))}
+      </div>`).join("") : `<p class="muted">No statistical methods produced results (often because the requested
+      variables don't map to actual columns in the underlying dataset — see Data quality notes).</p>`;
+
+  // Anything left unmatched (e.g. a chart whose spec variables didn't line
+  // up 1:1 with a single method) still gets shown, just grouped here instead
+  // of silently dropped.
+  const leftoverFigures = figures.filter((f) => !usedFigureIds.has(f.id));
+  const leftoverFiguresHtml = leftoverFigures.length
+    ? `<h3>Additional charts</h3>${figuresGrid(leftoverFigures)}`
+    : "";
+
+  const groundingHtml = `
+    <h2>SHL grounding map</h2>
+    <p class="muted">Every construct above was analyzed using only real assessment/outcome columns present in
+      the organization's data — nothing on this page is an invented metric. Shown last, for reference on what
+      was actually used.</p>
+    ${(grounding.grounded || []).length ? `
+      ${groundedRowHtml(grounding.grounded[0])}
+      ${grounding.grounded.length > 1 ? `
+        <details class="ground-details">
+          <summary>Show ${grounding.grounded.length - 1} more grounded construct${grounding.grounded.length - 1 === 1 ? "" : "s"}</summary>
+          ${grounding.grounded.slice(1).map(groundedRowHtml).join("")}
+        </details>` : ""}
+    ` : `<p class="muted">No constructs were grounded.</p>`}
+    ${(grounding.ungrounded || []).length || (grounding.outcome_columns_available || []).length ? `
+      <details class="ground-details">
+        <summary>Show ungrounded constructs &amp; available outcome columns</summary>
+        ${(grounding.ungrounded || []).length ? `
+          <h3>Constructs without a measurable SHL proxy</h3>
+          ${grounding.ungrounded.map((u) => `
+            <div class="ungrounded-row">
+              <strong>${esc(u.construct_name)}</strong> &mdash; ${esc(u.reason)}
+            </div>`).join("")}` : ""}
+        ${(grounding.outcome_columns_available || []).length ? `
+          <h3>Outcome columns available</h3>
+          <div>${chips(grounding.outcome_columns_available)}</div>` : ""}
+      </details>` : ""}
+  `;
 
   document.getElementById("content").innerHTML = `
     <div class="lens-tag">${esc(hp.business_lens)}</div>
@@ -173,25 +258,6 @@ function renderReport(pkg) {
     <p>${esc(hp.mechanism_explanation)}</p>
     <h3>Target constructs</h3>
     <div>${chips(hp.target_constructs)}</div>
-
-    <h2>SHL grounding map</h2>
-    <p class="muted">Every construct below was mapped only to real assessment/outcome columns present in the
-      organization's data — nothing on this page is an invented metric.</p>
-    ${(grounding.grounded || []).length ? grounding.grounded.map((g) => `
-      <div class="ground-row">
-        <span class="role-badge">${esc(g.role)}</span><strong>${esc(g.construct_name)}</strong>
-        <div>${chips(g.columns)}</div>
-        ${g.rationale ? `<p class="muted">${esc(g.rationale)}</p>` : ""}
-      </div>`).join("") : `<p class="muted">No constructs were grounded.</p>`}
-    ${(grounding.ungrounded || []).length ? `
-      <h3>Constructs without a measurable SHL proxy</h3>
-      ${grounding.ungrounded.map((u) => `
-        <div class="ungrounded-row">
-          <strong>${esc(u.construct_name)}</strong> &mdash; ${esc(u.reason)}
-        </div>`).join("")}` : ""}
-    ${(grounding.outcome_columns_available || []).length ? `
-      <h3>Outcome columns available</h3>
-      <div>${chips(grounding.outcome_columns_available)}</div>` : ""}
 
     <h2>Executive narrative</h2>
     <div class="card">
@@ -215,14 +281,8 @@ function renderReport(pkg) {
     <p>${esc(plan.validation_strategy || "")}</p>
 
     <h2>Analytics results</h2>
-    ${analytics.methods_run.length ? analytics.methods_run.map((m) => `
-      <div class="method">
-        <div><strong>${esc(m.method)}</strong></div>
-        <div class="stat-row">${statSummary(m)}</div>
-        <p>${esc(m.interpretation_notes || "")}</p>
-        ${m.caveats && m.caveats.length ? `<p class="muted">Caveats: ${m.caveats.map(esc).join("; ")}</p>` : ""}
-      </div>`).join("") : `<p class="muted">No statistical methods produced results (often because the requested
-      variables don't map to actual columns in the underlying dataset — see Data quality notes).</p>`}
+    ${analyticsHtml}
+    ${leftoverFiguresHtml}
     <h3>Data quality notes</h3>
     ${list(analytics.data_quality_notes)}
 
@@ -270,8 +330,7 @@ function renderReport(pkg) {
     <h3>Employee impact</h3>
     <p>${esc(insights.employee_impact || "")}</p>
 
-    <h2>Charts</h2>
-    ${figuresHtml}
+    ${groundingHtml}
   `;
 }
 
