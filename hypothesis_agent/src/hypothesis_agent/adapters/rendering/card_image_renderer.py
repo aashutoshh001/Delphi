@@ -71,10 +71,6 @@ def _fit_headline(headline: str) -> tuple[list[str], int, float]:
 def render_card_image(record: HistoricalHypothesisRecord) -> str:
     headline = record.headline or record.statement
     lens_label = (record.lens or "").replace("_", " ").upper()
-    composite = record.scorecard.composite if record.scorecard else 0.0
-    composite_pct = round(composite * 100)
-    bar_max_width = 260
-    bar_width = round(bar_max_width * composite)
 
     lines, font_size, line_height = _fit_headline(headline)
     # Vertically center the wrapped block on the band's midpoint.
@@ -108,13 +104,6 @@ def render_card_image(record: HistoricalHypothesisRecord) -> str:
 
   <text font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="{font_size}" font-weight="700"
         fill="#f4fbf1">{headline_tspans}</text>
-
-  <text x="{_SAFE_LEFT}" y="376" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13"
-        letter-spacing="0.4" fill="#9fb89a">COMPOSITE SIGNAL</text>
-  <rect x="{_SAFE_LEFT}" y="388" width="{bar_max_width}" height="8" rx="4" fill="#2c3a27"/>
-  <rect x="{_SAFE_LEFT}" y="388" width="{bar_width}" height="8" rx="4" fill="#78d64b"/>
-  <text x="{_SAFE_LEFT + bar_max_width + 16}" y="396" font-family="Segoe UI, Helvetica, Arial, sans-serif"
-        font-size="13" font-weight="700" fill="#78d64b">{composite_pct}%</text>
 
   <text x="{_SAFE_RIGHT}" y="{_HEIGHT - 30}" text-anchor="end" font-family="Segoe UI, Helvetica, Arial, sans-serif"
         font-size="13" font-weight="700" letter-spacing="0.4" fill="#5c7256">DELPHI</text>

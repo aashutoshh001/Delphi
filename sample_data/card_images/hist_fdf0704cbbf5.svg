@@ -22,13 +22,6 @@
   <text font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="40" font-weight="700"
         fill="#f4fbf1"><tspan x="170" y="148.0">Cross-boundary</tspan><tspan x="170" y="196.8">brokers may advance</tspan><tspan x="170" y="245.6">faster in roles that</tspan><tspan x="170" y="294.4">depend on</tspan><tspan x="170" y="343.2">coordination</tspan></text>
 
-  <text x="170" y="376" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13"
-        letter-spacing="0.4" fill="#9fb89a">COMPOSITE SIGNAL</text>
-  <rect x="170" y="388" width="260" height="8" rx="4" fill="#2c3a27"/>
-  <rect x="170" y="388" width="173" height="8" rx="4" fill="#78d64b"/>
-  <text x="446" y="396" font-family="Segoe UI, Helvetica, Arial, sans-serif"
-        font-size="13" font-weight="700" fill="#78d64b">67%</text>
-
   <text x="630" y="420" text-anchor="end" font-family="Segoe UI, Helvetica, Arial, sans-serif"
         font-size="13" font-weight="700" letter-spacing="0.4" fill="#5c7256">DELPHI</text>
 </svg>

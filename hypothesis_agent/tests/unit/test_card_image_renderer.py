@@ -22,7 +22,12 @@ def test_render_card_image_is_valid_svg_with_expected_content():
     assert svg.strip().startswith("<svg")
     assert svg.strip().endswith("</svg>")
     assert "SKILL CONCENTRATION" in svg
-    assert "74%" in svg
+
+
+def test_render_card_image_does_not_show_composite_signal():
+    svg = render_card_image(_record())
+    assert "COMPOSITE SIGNAL" not in svg
+    assert "74%" not in svg  # composite value must not appear on the card
 
 
 def test_render_card_image_escapes_headline_html():
@@ -57,5 +62,8 @@ def test_render_card_image_shrinks_font_for_longer_headlines():
 
 
 def test_render_card_image_handles_missing_scorecard():
+    # Scorecard is no longer rendered on the card, but a missing one must still
+    # not break rendering.
     svg = render_card_image(_record(scorecard=None))
-    assert "0%" in svg
+    assert svg.strip().startswith("<svg")
+    assert svg.strip().endswith("</svg>")
